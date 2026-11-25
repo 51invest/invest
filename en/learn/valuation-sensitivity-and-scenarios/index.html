@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="en" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Valuation Sensitivity and Scenarios · 51Invest</title><meta name="description" content="Test how much a valuation conclusion depends on its key assumptions using sensitivity tables and probability-weighted scenarios; all example numbers are hypothetical."><link rel="canonical" href="https://invest.51invest.com/en/learn/valuation-sensitivity-and-scenarios/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/valuation-sensitivity-and-scenarios/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/valuation-sensitivity-and-scenarios/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/valuation-sensitivity-and-scenarios/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">Skip to content</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/en/" data-main-home aria-label="51Invest"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">51Invest</span> <span class="brand-caption">WUYAO INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="Knowledge stations"> <a class="nav-link" href="https://51invest.com/en/" data-main-home> Home </a> <a class="nav-link" href="https://economics.51invest.com/en/"> Economics </a><a class="nav-link" href="https://finance.51invest.com/en/"> Finance </a><a class="nav-link" href="https://markets.51invest.com/en/"> Markets </a><a class="nav-link active" href="/en/" aria-current="page"> Investing </a><a class="nav-link" href="https://history.51invest.com/en/"> History </a><a class="nav-link" href="https://research.51invest.com/en/"> Research </a> <a class="nav-link" href="https://51invest.com/en/contents/"> Content map </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/learn/valuation-sensitivity-and-scenarios/" hreflang="zh-CN" lang="zh-CN" data-language-link="zh" aria-label="Switch to Chinese" title="Switch to Chinese"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="Theme: System" title="Theme: System" data-label-auto="Theme: System" data-label-light="Theme: Light" data-label-dark="Theme: Dark"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">System</span> <span class="theme-text" data-theme-text="light">Light</span> <span class="theme-text" data-theme-text="dark">Dark</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/en/" data-main-home>Home</a> <span class="sep">/</span> <a href="/en/">Investing</a> <span class="sep">/</span> <span aria-current="page">Valuation Sensitivity and Scenarios</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">Method</span> <h1 class="article-title">Valuation Sensitivity and Scenarios</h1> <p class="article-summary">Test how much a valuation conclusion depends on its key assumptions using sensitivity tables and probability-weighted scenarios; all example numbers are hypothetical.</p>  <div class="meta-grid"> <div class="meta-item"><span>Module</span><strong>INV-M06 · 估值方法</strong></div> <div class="meta-item"><span>Level</span><strong>Systematic</strong></div> <div class="meta-item"><span>Read</span><strong>4 min · 13 sections</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> This article has an interactive demo <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>Problem and output</h2>
+<p>The input is a base-case DCF, credible ranges for its key parameters and a set of defined scenarios. The output is not a new target price. It is the response of value to each parameter, a scenario range, a probability-weighted value where probabilities are stated, and a list of assumptions worth checking first. The question is &quot;how robust is the conclusion, and what would overturn it?&quot;</p>
+<h2>Inputs and data requirements</h2>
+<p>Base free cash flow, a five-year forecast, perpetual growth, the discount rate, bounds for each parameter with a rationale, and scenario probabilities with trigger conditions. Bounds should come from historical ranges, peer ranges or market-implied values, with the source stated. MD&amp;A and risk factors in filings can set scenario triggers. Align the price, statements and forecast to the same date; keep currency and nominal or real treatment consistent; label any probability that is an assumption rather than an estimate.</p>
+<p>The SEC investor guide explains that management’s discussion and analysis presents management’s view of results, of known trends or uncertainties that could materially affect results, and of critical accounting estimates and assumptions; when those estimates change the reported figures change, so scenario triggers need a stated source [3].</p>
+<h2>Assumptions</h2>
+<p>Teaching assumptions: every amount in this article is in CNY millions; the currency is a label this article invents, pointing at no real company and at no currency-specific data from any source. FCF1 = 100 (that is, 100 million yuan), received at year-end, then 8% annual growth from year 2 through year 5, then 2.5% in perpetuity; r = 9%. <code>EV = Σ FCF_t/(1+r)^t + TV/(1+r)^5</code>, with <code>TV = FCF5 × (1+g∞)/(r - g∞)</code>. Base EV is about 1,844.7, and the present value of terminal value is 75.6% of it. Sensitivity changes only r and g∞; scenarios separately change cash flow, growth and discount rate.</p>
+<p>The discounting relation here follows OpenStax: each period’s cash flow and the terminal value are discounted at the required return, so terminal value, growth and the discount rate jointly determine value, and the same section lists the limits of the DCF model [2].</p>
+<h2>Steps</h2>
+<ol>
+<li>Recompute the base case: FCF5 = 136.0, terminal value PV = 1,394.4, EV = 1,844.7.</li>
+<li>Build a 3×3 table for r = 8%, 9%, 10% and g∞ = 2.0%, 2.5%, 3.0%; EV ranges from 1,515.4 to 2,370.4.</li>
+<li>Measure one-at-a-time effects: +1 percentage point in r cuts EV by 13.7%; +0.5 percentage points in g∞ adds 6.7%.</li>
+<li>Define scenarios: bear (FCF1 = 80, g = 0%, r = 10%, g∞ = 2%), base, and bull (FCF1 = 108, g = 11%, r = 8.5%, g∞ = 3%).</li>
+<li>Value them: 936.6, 1,844.7 and 2,563.1.</li>
+<li>Weight 30%, 50% and 20%: the expected value is 1,716.0, 7.0% below the base case.</li>
+<li>Write the trigger for each scenario (demand, price, cost, rates) and note the tails the scenarios omit.</li>
+</ol>
+<p>Forecast first, then scenario, is OpenStax’s order: cash-flow forecasts rest on many assumptions, changing one variable propagates through the formula, recession and expansion scenarios can be compared this way, and growth by itself does not guarantee higher profit or cash [1].</p>
+<h2>Figure</h2>
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-012-chain-title fig-inv-012-chain-desc" viewBox="0 0 560 310" width="100%">
+    <title id="fig-inv-012-chain-title">INV-012: three-stage chain</title>
+    <desc id="fig-inv-012-chain-desc">Rebuild the base: Fix FCF and discount rate; Three scenarios: Pessimistic, base, optimistic; Weight them: Probabilities and triggers</desc>
+    <rect x="0.5" y="0.5" width="559" height="309" rx="12" fill="var(--surface)" stroke="var(--border)"/>
+    <rect x="24" y="16" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="16" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="35" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">START</text>
+    <text x="44" y="56" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Rebuild the base</text>
+    <text x="44" y="76" font-size="10.5" fill="var(--secondary)" font-family="inherit">Fix FCF and discount rate</text>
+    <line x1="280" y1="102" x2="280" y2="108" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 106 L280 110 L284 106" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="112" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="112" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="131" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">MECHANISM</text>
+    <text x="44" y="152" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Three scenarios</text>
+    <text x="44" y="172" font-size="10.5" fill="var(--secondary)" font-family="inherit">Pessimistic, base, optimistic</text>
+    <line x1="280" y1="198" x2="280" y2="204" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 202 L280 206 L284 202" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="208" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="208" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="227" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">CHECK</text>
+    <text x="44" y="248" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Weight them</text>
+    <text x="44" y="268" font-size="10.5" fill="var(--secondary)" font-family="inherit">Probabilities and triggers</text>
+  </svg>
+  <figcaption>Figure 1: a three-stage chain in INV-012 — Rebuild the base → Three scenarios → Weight them. The three stages form a judgment chain, not the only path; labels come from the article text and carry no statistics. The sample is the article argument and units are marked in the text.</figcaption>
+</figure>
+
+<h2>Interpreting the result</h2>
+<p>The table shows that terminal value dominates: small changes in r and g∞ move the conclusion. The scenario range is 936.6 to 2,563.1, the top about 2.7 times the bottom, and the weighted value sits below the base case, so the base case is not the expected value once a downside is admitted. The weights are judgement, not data. Report the range, the weights and the single-variable elasticities together rather than one number. Sensitivity is a local, one-at-a-time comparison that holds other inputs fixed; if r and g∞ move together, the actual range is wider.</p>
+<h2>Failure conditions</h2>
+<ul>
+<li>parameter ranges have no rationale, or a sensitivity table is read as a probability distribution</li>
+<li>r is close to or below g∞, so terminal value explodes</li>
+<li>scenarios overlap or probabilities do not sum to 100%</li>
+<li>the same cash flows are paired with different discount rates without a reason</li>
+<li>tax, FX, dilution or minority interests are ignored</li>
+<li>the weighted result is presented as a forecast or target price</li>
+</ul>
+<h2>Verification</h2>
+<p>Plug each parameter set back into the model; cross-check with an exit multiple or a dividend discount model; test alternative forecast horizons and FCF definitions; confirm the scenario ranking survives an alternative model; record intermediate values so the table can be rebuilt.</p>
+<h2>Reproduction</h2>
+<p>Formulas: <code>EV = Σ_{t=1}^{5} FCF_1(1+g)^{t-1}/(1+r)^t + TV/(1+r)^5</code>, <code>TV = FCF_5(1+g∞)/(r-g∞)</code>, and <code>E(V) = Σ p_i V_i</code>. Build the 3×3 grid with a spreadsheet data table or a loop, keeping one decimal place.</p>
+<h2>Related</h2>
+<ul>
+<li>Required prerequisite: Cash-Flow Valuation: A Research Process (INV-009).</li>
+<li>Related reading: Cash-Flow Valuation: A Research Process (INV-009), Comparability in Relative Valuation (INV-010), Reverse Valuation and Expectations (INV-011).</li>
+</ul>
+<h2>Figures in plain language</h2>
+<p>The three figures below check the mechanism, boundary and comparison in this article; labels come from its own sections, not new data.</p>
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-chain-title fig-batch-chain-desc" viewBox="0 0 340 304" width="100%">
+    <title id="fig-batch-chain-title">Valuation Sensitivity and Scenarios: mechanism chain</title>
+    <desc id="fig-batch-chain-desc">Valuation Sensitivity and Scenarios — three-step structure: problem, mechanism, judgment. Labels come from the article's sections, not new data.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Valuation Sensitivity and Scenarios: mechanism chain</text>
+    <text x="14" y="38" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Labels come from the article's sections; all three steps matter.</text>
+    <line x1="14" y1="46" x2="326" y2="46" stroke="var(--border)" stroke-width="1"/>
+    <g>
+      <rect x="14" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="22" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Problem</text>
+      <text x="22" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Test how much a</text>
+      <text x="22" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">valuation conclus…</text>
+      <text x="22" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Test how much a</text>
+      <text x="22" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">valuation</text>
+      <text x="22" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">conclusion</text>
+      <text x="22" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">depends on its</text>
+      <text x="22" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">key assumptions…</text>
+    </g>
+      <g>
+      <rect x="123" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="131" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Reproduction</text>
+      <text x="131" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Reproduction:</text>
+      <text x="131" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Formulas: EV =…</text>
+      <text x="131" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Reproduction:</text>
+      <text x="131" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Formulas: EV =</text>
+      <text x="131" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Σ_{t=1}^{5}</text>
+      <text x="131" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">FCF_1(1+g)^{t-1}</text>
+      <text x="131" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">/(1+r)^t +…</text>
+    </g>
+      <g>
+      <rect x="232" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="240" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Inputs and data requirements</text>
+      <text x="240" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Base free cash</text>
+      <text x="240" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">flow, a five-year…</text>
+      <text x="240" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Base free cash</text>
+      <text x="240" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">flow, a five-yea</text>
+      <text x="240" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">r forecast,</text>
+      <text x="240" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">perpetual</text>
+      <text x="240" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">growth, the…</text>
+    </g>
+    <line x1="108" y1="144" x2="123" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M120 140 L125 144 L120 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="217" y1="144" x2="232" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M229 140 L234 144 L229 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="14" y1="250" x2="326" y2="250" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="266" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Reading order: test the problem, then the mechanism, then whether the judgment overreaches.</text>
+    <text x="14" y="280" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">If a middle step lacks evidence, later conclusions are hypotheses, not facts.</text>
+    <text x="14" y="294" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Structural illustration, not a new data chart; sample is the article's own argument.</text>
+  </svg>
+  <figcaption>Figure 2: Valuation Sensitivity and Scenarios — mechanism chain: problem, mechanism, judgment. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-boundary-title fig-batch-boundary-desc" viewBox="0 0 340 244" width="100%">
+    <title id="fig-batch-boundary-title">Valuation Sensitivity and Scenarios: boundary</title>
+    <desc id="fig-batch-boundary-desc">Separates conditions where the claim holds from those where it fails; a local example is not universal.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Valuation Sensitivity and Scenarios: when does it hold?</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <rect x="14" y="44" width="312" height="38" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="170" y="62" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="middle">Check the conditions before the conclusion</text>
+    <text x="170" y="75" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="middle">If conditions, definitions or samples change, recompute the conclusion</text>
+    <line x1="170" y1="82" x2="90" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="170" y1="82" x2="250" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <rect x="14" y="104" width="148" height="100" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="24" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Holds</text>
+    <text x="24" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">parameter ranges have no</text>
+      <text x="24" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">rationale, or a sensitivity</text>
+      <text x="24" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">table is read as a</text>
+      <text x="24" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">probability distribution r…</text>
+    <rect x="178" y="104" width="148" height="100" rx="8" fill="var(--gold)" opacity="0.18" stroke="var(--border)"/>
+    <text x="188" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Fails / rewrite</text>
+    <text x="188" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">The input is a base-case</text>
+      <text x="188" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">DCF, credible ranges for</text>
+      <text x="188" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">its key parameters and a</text>
+      <text x="188" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">set of defined scenarios.…</text>
+    <line x1="14" y1="216" x2="326" y2="216" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="232" font-size="8.3" fill="var(--muted)" font-family="inherit" text-anchor="start">Boundary illustration; sample is the article's own argument; units as stated in the text.</text>
+  </svg>
+  <figcaption>Figure 3: Valuation Sensitivity and Scenarios — boundary: when the claim holds, and when it fails. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-compare-title fig-batch-compare-desc" viewBox="0 0 340 252" width="100%">
+    <title id="fig-batch-compare-title">Valuation Sensitivity and Scenarios: object, conditions and common mistakes</title>
+    <desc id="fig-batch-compare-desc">Three rows compare the concept, its conditions and common mistakes; comparison is not equivalence and does not replace a definition.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Valuation Sensitivity and Scenarios: object, conditions and common mistakes at a glance</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <text x="82" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">This article</text>
+    <text x="200" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Commonly confused</text>
+    <g>
+      <rect x="14" y="52" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="72" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Object</text>
+      <text x="82" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Test how much a</text>
+      <text x="82" y="88" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">valuation conclusion…</text>
+      <text x="200" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Adjacent concepts / common claims</text>
+    </g>
+    <g>
+      <rect x="14" y="110" width="312" height="58" fill="var(--surface-2)" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="130" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Conditions</text>
+      <text x="82" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">parameter ranges</text>
+      <text x="82" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">have no rationale…</text>
+      <text x="200" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">The input is a base-case DCF,</text>
+      <text x="200" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">credible ranges for its key…</text>
+    </g>
+    <g>
+      <rect x="14" y="168" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="188" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Check</text>
+      <text x="82" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Define first, then compare; never judge</text>
+      <text x="82" y="204" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">labels only</text>
+      <text x="200" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Correlation is not causation; a local case is not universal</text>
+    </g>
+    <text x="14" y="244" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Comparison illustration; sample is the article's own argument; units as stated in the text.</text>
+  </svg>
+  <figcaption>Figure 4: Valuation Sensitivity and Scenarios — comparison of object, conditions and common mistakes. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<h2>Exercises</h2>
+<ol>
+<li><strong>Concept.</strong> Why can the probability-weighted value be lower than the base case?</li>
+<li><strong>Calculation.</strong> What is EV when r = 10% and g∞ = 2.5%?</li>
+<li><strong>Judgement.</strong> If terminal value falls from 75.6% to 50% of EV, does sensitivity rise or fall?</li>
+</ol>
+<details>
+<summary>Suggested answers</summary>
+
+<ol>
+<li>The downside loss is larger than the upside gain and carries non-zero weight; the base case is only one scenario.</li>
+<li>About CNY 1,592.8 million. Substituting into the same model: the five cash flows are worth about 438.3 and the terminal value about 1,154.5, which is the r = 10% / g∞ = 2.5% cell of the grid, roughly 13.7% below the base 1,844.7.</li>
+<li>It falls; more value comes from near-term cash flow, so r and g∞ matter less.</li>
+</ol>
+</details>
+
+<h2>Sources</h2>
+<ol>
+<li>OpenStax. “Principles of Finance 2e, 18.5 Forecasting Cash Flow and Assessing the Value of Growth.” <a href="https://openstax.org/books/principles-finance-2e/pages/18-5-forecasting-cash-flow-and-assessing-the-value-of-growth">https://openstax.org/books/principles-finance-2e/pages/18-5-forecasting-cash-flow-and-assessing-the-value-of-growth</a> (accessed 2026-10-30)</li>
+<li>OpenStax. “Principles of Finance 2e, 11.3 Discounted Cash Flow (DCF) Model.” <a href="https://openstax.org/books/principles-finance-2e/pages/11-3-discounted-cash-flow-dcf-model">https://openstax.org/books/principles-finance-2e/pages/11-3-discounted-cash-flow-dcf-model</a> (accessed 2026-10-30)</li>
+<li>U.S. Securities and Exchange Commission. “Investor Bulletin: How to Read a 10-K.” <a href="https://www.sec.gov/files/reada10k.pdf">https://www.sec.gov/files/reada10k.pdf</a> (accessed 2026-10-30)</li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="en" aria-labelledby="demo-check-title" data-check-done="All three are covered: the core of this article is in place." data-check-pending="One item is still open: go back to the matching section and retell it with a number or counterexample." data-check-count="Ticked"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">Worked demo</p> <button class="demo-reset" type="button" data-demo-reset>Reset</button> </div> <h2 id="demo-check-title">Read-through check: can you say three things?</h2> <p class="demo-intro">No recitation needed. Tick each sentence below and see whether you can explain the mechanism, one worked example and one boundary in your own words.</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>Build a sensitivity table and read which assumptions the valuation hinges on</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>Use probability-weighted scenarios to produce a range and state the judgements behind the weights</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>Name one condition under which the article’s conclusion does not hold</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> Ticked 0 / 3
+</p> </div> <p class="demo-footnote">The numbers are teaching assumptions that show relationships, not forecasts or investment advice.</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> This article has passed the current publication gate. Factual, calculation and translation revisions update both language versions together. </p> <p> <a class="button secondary" href="/en/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>Back to station </a> </p> </div> <aside class="article-aside" aria-label="Article information"> <section class="aside-card"> <h2>Learning objectives</h2> <ul> <li>Build a sensitivity table and read which assumptions the valuation hinges on</li><li>Use probability-weighted scenarios to produce a range and state the judgements behind the weights</li> </ul> </section> <section class="aside-card"> <h2>Required prerequisites</h2> <ul> <li> <a href="/en/learn/cash-flow-valuation-research-process/">INV-009 · Cash-Flow Valuation: A Research Process</a> </li> </ul> </section> <section class="aside-card"> <h2>Recommended reading</h2> <ul> <li> <a href="/en/learn/cash-flow-valuation-research-process/">INV-009 · Cash-Flow Valuation: A Research Process</a> </li><li> <a href="/en/learn/comparability-in-relative-valuation/">INV-010 · Comparability in Relative Valuation</a> </li><li> <a href="/en/learn/reverse-valuation-and-expectations/">INV-011 · Reverse Valuation and Expectations</a> </li> </ul> </section> <section class="aside-card"> <h2>AI review record</h2> <p class="muted"> There is no human sign-off; these states come from the AI-only editorial review. </p> <ul> <li> Facts and calculations : AI review passed </li><li> Subject : AI review passed </li><li> English : AI review passed </li><li> Page : AI review passed </li> </ul> </section> <section class="aside-card"> <h2>Sources</h2> <div class="source"> <a href="https://openstax.org/books/principles-finance-2e/pages/18-5-forecasting-cash-flow-and-assessing-the-value-of-growth" rel="noopener noreferrer" target="_blank">Principles of Finance 2e, 18.5 Forecasting Cash Flow and Assessing the Value of Growth</a> <p>OpenStax · OpenStax</p> <p>Accessed: 2026-10-30 · License: CC BY-NC-SA 4.0</p> <p>Supports: The section explains that cash-flow forecasts rest on many assumptions and are commonly followed by scenario analysis in which changing one variable flows through the whole forecast, allowing recession and expansion cases to be compared; growth alone does not guarantee higher profit or cash.</p> </div><div class="source"> <a href="https://openstax.org/books/principles-finance-2e/pages/11-3-discounted-cash-flow-dcf-model" rel="noopener noreferrer" target="_blank">Principles of Finance 2e, 11.3 Discounted Cash Flow (DCF) Model</a> <p>OpenStax · OpenStax</p> <p>Accessed: 2026-10-30 · License: CC BY-NC-SA 4.0</p> <p>Supports: The section discounts forecast cash flows and a terminal value at the required return, showing that terminal value, growth and the discount rate jointly determine value, and lists the model&#39;s limitations.</p> </div><div class="source"> <a href="https://www.sec.gov/files/reada10k.pdf" rel="noopener noreferrer" target="_blank">Investor Bulletin: How to Read a 10-K</a> <p>U.S. Securities and Exchange Commission, Office of Investor Education and Advocacy · U.S. Securities and Exchange Commission</p> <p>Accessed: 2026-10-30 · License: U.S. public information; copying and further distribution allowed</p> <p>Supports: The guide explains that MD&amp;A presents management&#39;s view of results, known trends or uncertainties that could materially affect results, and critical accounting estimates and assumptions whose changes can affect reported numbers.</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">A free, non-commercial knowledge site. Sources and definitions are labelled; nothing here is investment advice.</p> </div> </div> <nav class="footer-links" aria-label="Knowledge stations"> <a href="https://51invest.com/en/" data-main-home>Home</a> <a href="https://51invest.com/en/contents/">Content map</a> <a href="/en/glossary/">Glossary</a> <a href="/en/search/">Search</a> <a href="https://51invest.com/en/charts/" data-main-link>Charts</a> <a href="https://51invest.com/en/sources/" data-main-link>Data &amp; licences</a> <a href="/en/">Station home</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="Knowledge stations"> <a class="mobile-link" href="https://51invest.com/en/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>Home</span> </a> <a class="mobile-link" href="https://51invest.com/en/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>Knowledge stations</span> </a> <a class="mobile-link active" href="/en/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>Station home</span> </a> <a class="mobile-link" href="/learn/valuation-sensitivity-and-scenarios/" data-language-link="zh"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

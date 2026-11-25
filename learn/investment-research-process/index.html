@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>建立投资研究流程 · 巫妖投资</title><meta name="description" content="把“看法”变成可追溯、可证伪的研究档案：先写问题与反证条件，再按 10-K、8-K 与 EDGAR 核对原始文件；示例数字均为假设。"><link rel="canonical" href="https://invest.51invest.com/learn/investment-research-process/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/investment-research-process/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/investment-research-process/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/investment-research-process/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/" data-main-home aria-label="巫妖投资"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">巫妖投资</span> <span class="brand-caption">51INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="知识分站"> <a class="nav-link" href="https://51invest.com/" data-main-home> 首页 </a> <a class="nav-link" href="https://economics.51invest.com/"> 经济学 </a><a class="nav-link" href="https://finance.51invest.com/"> 金融基础 </a><a class="nav-link" href="https://markets.51invest.com/"> 市场与产品 </a><a class="nav-link active" href="/" aria-current="page"> 投资方法 </a><a class="nav-link" href="https://history.51invest.com/"> 经济与金融史 </a><a class="nav-link" href="https://research.51invest.com/"> 研究方法 </a> <a class="nav-link" href="https://51invest.com/contents/"> 内容地图 </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/en/learn/investment-research-process/" hreflang="en" lang="en" data-language-link="en" aria-label="切换为英文" title="切换为英文"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="主题: 跟随系统" title="主题: 跟随系统" data-label-auto="主题: 跟随系统" data-label-light="主题: 浅色" data-label-dark="主题: 深色"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">跟随系统</span> <span class="theme-text" data-theme-text="light">浅色</span> <span class="theme-text" data-theme-text="dark">深色</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/" data-main-home>首页</a> <span class="sep">/</span> <a href="/">投资方法</a> <span class="sep">/</span> <span aria-current="page">建立投资研究流程</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">方法</span> <h1 class="article-title">建立投资研究流程</h1> <p class="article-summary">把“看法”变成可追溯、可证伪的研究档案：先写问题与反证条件，再按 10-K、8-K 与 EDGAR 核对原始文件；示例数字均为假设。</p>  <div class="meta-grid"> <div class="meta-item"><span>模块</span><strong>INV-M01 · 目标与投资流程</strong></div> <div class="meta-item"><span>层级</span><strong>入门</strong></div> <div class="meta-item"><span>阅读</span><strong>4 分钟 · 14 节</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> 这篇有一个可以动手操作的演示 <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>问题与输出</h2>
+<p>研究流程要在有限时间里把零散信息变成能被复核、也能被自己推翻的记录。输入是目标与约束、公开申报文件与时间预算；输出是一份研究档案，含研究问题、假设、证据出处、反证条件、更新触发条件和结论分区。它不保证判断正确，只保证过程可追溯。</p>
+<h2>输入与数据要求</h2>
+<ul>
+<li>投资目标、期限与约束（见 INV-001），决定研究深度；</li>
+<li>公司申报文件：10-K 年报、10-Q 季报、8-K 当前报告，以及“/A”修订版；</li>
+<li>经审计财务报表与管理层讨论与分析（MD&amp;A）；</li>
+<li>行业与宏观数据，注明口径与发布日期；</li>
+<li>估值参数及其来源；</li>
+<li>时间预算与复盘日期。</li>
+</ul>
+<h2>假设</h2>
+<p>示例假设：每月投入 8 小时，只覆盖 1 家公司；只用免费公开申报文件；结论期限 12 个月；情景收益 +20%、+3%、-35% 为教学假设；阈值（收入增速 5%、净负债/EBITDA 3.0 倍）为示例，不是行业标准。</p>
+<h2>步骤</h2>
+<ol>
+<li><strong>写研究问题与决策。</strong> 先写要回答什么、结论会改变哪个决定，避免漫无目的地读材料。</li>
+<li><strong>建立年报基线。</strong> 按 10-K 结构读：Business 了解业务，Risk Factors 看公司自认的重大风险（该页原话是 &quot;includes information about significant risks that the company faces, generally listed in order of importance&quot;），Selected Financial Data（原话 &quot;provides certain financial information about the company for the last five years&quot;）与 MD&amp;A 看趋势和管理层解释，最后核对经审计报表 [1]。</li>
+<li><strong>设置事件监控。</strong> 多数 8-K 项目须在触发后四个工作日内披露，用于在下一份定期报告前捕捉重大变化——该页原话为 &quot;Companies must file 8-Ks promptly, rather than waiting until their next periodic report&quot; 与 &quot;make most 8-K disclosures within four business days of the triggering event and in some cases even earlier&quot; [2]。</li>
+<li><strong>回到原始文件。</strong> 用 EDGAR 按表格类型检索并下载原文（该页原话 &quot;EDGAR presents search results in chronological order and identifies the filings by form types&quot;），区分 10-K、10-Q、8-K 与带&quot;/A&quot;的修订版（原话 &quot;Filings with “/A” appended to the form type code indicate an amendment&quot;），不依赖摘要 [3]。</li>
+<li><strong>写假设与反证条件。</strong> 每条结论配一个可观察的推翻条件，例如收入增速连续两季低于 5%，或经营现金流连续两季为负。</li>
+<li><strong>做情景与估值。</strong> 至少三种情景，每个关键参数标注来源和取数日期。</li>
+<li><strong>分区记录结论。</strong> 事实、推断、观点分栏写，标注文件页码或链接。</li>
+<li><strong>按季度复盘。</strong> 对照预测与实际，只追加记录，不改写旧记录。</li>
+</ol>
+<h2>图表</h2>
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-005-chain-title fig-inv-005-chain-desc" viewBox="0 0 560 310" width="100%">
+    <title id="fig-inv-005-chain-title">建立投资研究流程：三段判断链</title>
+    <desc id="fig-inv-005-chain-desc">写问题：结论会改变哪个决定；写反证：可观察的推翻条件；分区记录：事实、推断、观点分开</desc>
+    <rect x="0.5" y="0.5" width="559" height="309" rx="12" fill="var(--surface)" stroke="var(--border)"/>
+    <rect x="24" y="16" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="16" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="35" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">起点</text>
+    <text x="44" y="56" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">写问题</text>
+    <text x="44" y="76" font-size="10.5" fill="var(--secondary)" font-family="inherit">结论会改变哪个决定</text>
+    <line x1="280" y1="102" x2="280" y2="108" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 106 L280 110 L284 106" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="112" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="112" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="131" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">机制</text>
+    <text x="44" y="152" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">写反证</text>
+    <text x="44" y="172" font-size="10.5" fill="var(--secondary)" font-family="inherit">可观察的推翻条件</text>
+    <line x1="280" y1="198" x2="280" y2="204" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 202 L280 206 L284 202" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="208" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="208" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="227" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">判断</text>
+    <text x="44" y="248" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">分区记录</text>
+    <text x="44" y="268" font-size="10.5" fill="var(--secondary)" font-family="inherit">事实、推断、观点分开</text>
+  </svg>
+  <figcaption>图 1：建立投资研究流程的三段判断链——写问题 → 写反证 → 分区记录。三段是判断链，不是唯一路径；图中文字取自本文正文，不含统计数据。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<h2>示例</h2>
+<p>假设某公司研究档案记录：12 个月结论期限；三种情景期末收益 +20%、+3%、-35%；反证条件为“收入增速低于 5% 或经营现金流连续两季为负”。三个月后公司以 8-K 披露更换审计师，触发复核；复核只追加记录并标注“待核实”，不删除旧记录。若当初没写反证条件，这次变更很容易被解释成“短期噪音”而忽略。</p>
+<h2>结果解读</h2>
+<p>流程的价值在于可追溯与可证伪，而不是预测准确率。本文认为，10-K 的章节顺序可当作一种阅读方法：先理解业务和风险，再看数字，最后看管理层如何解释数字 [1]。定期报告有滞后，8-K 补上重大事件的及时披露 [2]；EDGAR 的表格类型与“/A”标记决定你读到的是不是最新版本 [3]。把事实、推断、观点分开，复盘时能看清错误出在哪一层。</p>
+<h2>失败条件</h2>
+<ul>
+<li>只读新闻稿或二手解读，不核对原始文件；</li>
+<li>忽略“/A”修订版，或把已修订数字当最终数字；</li>
+<li>把管理层叙述当事实，不区分解释与报表数据；</li>
+<li>没有反证条件，结论随价格和叙事漂移；</li>
+<li>标的过多、时间不足，档案停在半成品；</li>
+<li>复盘时改写历史记录，使偏差无法被发现；</li>
+<li>用同一份材料同时支持相反结论。</li>
+</ul>
+<h2>验证</h2>
+<ol>
+<li>请第二人只凭档案复算关键数字。</li>
+<li>用上一期结论对照实际结果，记录偏差原因。</li>
+<li>抽查三条结论，确认每条都能指向具体文件与章节。</li>
+<li>检查数据版本与取数日期是否过期。</li>
+</ol>
+<h2>复现</h2>
+<p>研究档案模板至少包含：标的与日期、研究问题、决策关联、关键假设、证据清单（表格类型、提交日期、链接）、反证条件与阈值、情景与参数、结论分区、下次复核日期。他人应能按清单重建推理链。</p>
+<h2>关联</h2>
+<ul>
+<li>必需先修：写一份投资目标与约束（INV-001）。</li>
+<li>相关与推荐阅读：收益风险与成本的取舍（INV-002）、选择投资基准（INV-004）、数据单位与统计口径（RES-001）。</li>
+</ul>
+<h2>图解</h2>
+<p>下面三张图分别检查本文的机制、边界与对照；图内文字取自本文小节，不是新数据。</p>
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-chain-title fig-batch-chain-desc" viewBox="0 0 340 304" width="100%">
+    <title id="fig-batch-chain-title">建立投资研究流程：机制链</title>
+    <desc id="fig-batch-chain-desc">建立投资研究流程 的三段结构：问题、机制、判断。图内文字取自本文小节，不是新的数据估计。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">建立投资研究流程：机制链</text>
+    <text x="14" y="38" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图内文字取自本文小节；三段缺一不可。</text>
+    <line x1="14" y1="46" x2="326" y2="46" stroke="var(--border)" stroke-width="1"/>
+    <g>
+      <rect x="14" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="22" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">问题</text>
+      <text x="22" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">把“看法”变成可追溯</text>
+      <text x="22" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">、可证伪的研究档案…</text>
+      <text x="22" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">把“看法”变成可追</text>
+      <text x="22" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">溯、可证伪的研究档</text>
+      <text x="22" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">案：先写问题与反证</text>
+      <text x="22" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">前提，再按 10-K、8</text>
+      <text x="22" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">-K 与 EDGAR…</text>
+    </g>
+      <g>
+      <rect x="123" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="131" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">问题与输出</text>
+      <text x="131" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">问题与输出：研究流程</text>
+      <text x="131" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">要在有限时间里把零散…</text>
+      <text x="131" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">问题与输出：研究流</text>
+      <text x="131" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">程要在有限时间里把</text>
+      <text x="131" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">零散信息变成能被复</text>
+      <text x="131" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">核、也能被自己推翻</text>
+      <text x="131" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">的记录。输入是目标…</text>
+    </g>
+      <g>
+      <rect x="232" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="240" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">输入与数据要求</text>
+      <text x="240" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">投资目标、期限与约束</text>
+      <text x="240" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">（见 INV-001），决定…</text>
+      <text x="240" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">投资目标、期限与约</text>
+      <text x="240" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">束（见 INV-001），</text>
+      <text x="240" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">决定研究深度；</text>
+      <text x="240" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">公司申报文件：10-K</text>
+      <text x="240" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start"> 年报、10-Q…</text>
+    </g>
+    <line x1="108" y1="144" x2="123" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M120 140 L125 144 L120 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="217" y1="144" x2="232" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M229 140 L234 144 L229 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="14" y1="250" x2="326" y2="250" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="266" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">读法：先看问题能否成立，再看机制能否连通，最后看判断会不会越界。</text>
+    <text x="14" y="280" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">若中间一步缺证据，后面的结论只能当假设，不能当事实。</text>
+    <text x="14" y="294" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图为结构示意，不是新的数据图；样本为本文论证。</text>
+  </svg>
+  <figcaption>图 2：建立投资研究流程的机制链：从问题、机制到判断。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-boundary-title fig-batch-boundary-desc" viewBox="0 0 340 244" width="100%">
+    <title id="fig-batch-boundary-title">建立投资研究流程：适用边界</title>
+    <desc id="fig-batch-boundary-desc">把成立条件与失效条件分开；局部例子不能自动推广到所有情形。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">建立投资研究流程：什么情况下成立？</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <rect x="14" y="44" width="312" height="38" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="170" y="62" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="middle">先检查条件，再看结论</text>
+    <text x="170" y="75" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="middle">条件、口径或样本一变，结论可能要重算</text>
+    <line x1="170" y1="82" x2="90" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="170" y1="82" x2="250" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <rect x="14" y="104" width="148" height="100" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="24" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">成立</text>
+    <text x="24" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">只读新闻稿或二手解读，不核对原始</text>
+      <text x="24" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">文件； 忽略“/A”修订版，或把已修订</text>
+      <text x="24" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">数字当最终数字； 把管理层叙述当</text>
+      <text x="24" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">事实，不区分解释与报表数据…</text>
+    <rect x="178" y="104" width="148" height="100" rx="8" fill="var(--gold)" opacity="0.18" stroke="var(--border)"/>
+    <text x="188" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">不成立 / 需改写</text>
+    <text x="188" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">必需先修：写一份投资目标与约束（I</text>
+      <text x="188" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">NV-001）。</text>
+    <line x1="14" y1="216" x2="326" y2="216" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="232" font-size="8.3" fill="var(--muted)" font-family="inherit" text-anchor="start">图为边界示意；样本为本文论证，单位为文中标注。</text>
+  </svg>
+  <figcaption>图 3：建立投资研究流程的边界：哪些条件成立，哪些条件失效。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-compare-title fig-batch-compare-desc" viewBox="0 0 340 252" width="100%">
+    <title id="fig-batch-compare-title">建立投资研究流程：对象、前提与常见误区</title>
+    <desc id="fig-batch-compare-desc">三行比较本文概念、成立条件与常见误区；比较不等于等价，也不能替代定义。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">建立投资研究流程：一张表看对象、前提与误区</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <text x="82" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">本篇</text>
+    <text x="200" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">容易混淆</text>
+    <g>
+      <rect x="14" y="52" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="72" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">对象</text>
+      <text x="82" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">把“看法”变成可追溯、可</text>
+      <text x="82" y="88" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">证伪的研究档案：先写问题…</text>
+      <text x="200" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">相邻概念/常见说法</text>
+    </g>
+    <g>
+      <rect x="14" y="110" width="312" height="58" fill="var(--surface-2)" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="130" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">前提</text>
+      <text x="82" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">只读新闻稿或二手解读，不</text>
+      <text x="82" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">核对原始文件； 忽略“/A”…</text>
+      <text x="200" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">必需先修：写一份投资目标与约束（INV-0</text>
+      <text x="200" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">01）。</text>
+    </g>
+    <g>
+      <rect x="14" y="168" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="188" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">检查</text>
+      <text x="82" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">先定义，再比较；不能只看</text>
+      <text x="82" y="204" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">名称</text>
+      <text x="200" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">相关不等于因果，局部不等于普遍</text>
+    </g>
+    <text x="14" y="244" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图为比较示意；样本为本文论证，单位为文中标注。</text>
+  </svg>
+  <figcaption>图 4：建立投资研究流程的对象、前提与常见误区比较。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<h2>练习</h2>
+<ol>
+<li><strong>章节定位。</strong> 10-K 中哪一部分最直接列出公司自己认为的重大风险？</li>
+<li><strong>时效性。</strong> 8-K 与 10-Q 在披露时点上有什么差别？</li>
+<li><strong>反证条件。</strong> 为什么结论必须配一条可观察的推翻条件？</li>
+</ol>
+<details>
+<summary>参考答案</summary>
+
+<ol>
+<li>Risk Factors（风险因素），通常按重要性排列。</li>
+<li>8-K 针对重大事件，多数须在触发后四个工作日内提交，部分情形更早；10-Q 是季度定期报告。</li>
+<li>把观点变成可检验的假设，减少事后合理化，也让复盘能判断错误来自假设、证据还是推理。</li>
+</ol>
+</details>
+
+<h2>来源</h2>
+<ol>
+<li>U.S. Securities and Exchange Commission. “How to Read a 10-K.” Investor.gov. <a href="https://www.investor.gov/introduction-investing/getting-started/researching-investments/how-read-10-k">https://www.investor.gov/introduction-investing/getting-started/researching-investments/how-read-10-k</a>（访问日期：2026-10-30）</li>
+<li>U.S. Securities and Exchange Commission. “How to Read an 8-K.” Investor.gov. <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/how-read-8">https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/how-read-8</a>（访问日期：2026-10-30）</li>
+<li>U.S. Securities and Exchange Commission. “Using EDGAR to Research Investments.” Investor.gov. <a href="https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments">https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments</a>（访问日期：2026-10-30）</li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="zh" aria-labelledby="demo-check-title" data-check-done="三项都能说清：这篇的核心已经过关。" data-check-pending="还差一项：回到正文对应小节，找一个反例或数字再讲一遍。" data-check-count="已勾选"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">动手演示</p> <button class="demo-reset" type="button" data-demo-reset>恢复默认</button> </div> <h2 id="demo-check-title">读完自检：三句话能不能说清</h2> <p class="demo-intro">不用背定义。把下面三句逐个勾上，看自己能不能用自己的话讲清机制、算例和边界。</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>能把一个投资看法写成问题、假设、反证条件与数据来源齐全的研究档案</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>能按 10-K、8-K 与 EDGAR 的分工核对原始披露，并指出记录中缺什么</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>能说出一个本文结论不适用的条件</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> 已勾选 0 / 3
+</p> </div> <p class="demo-footnote">数字为教学假设，用来展示关系，不构成预测或投资建议。</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> 本文已通过当前发布门槛；事实、计算与译文如有修订，会同步更新两个语言版本。 </p> <p> <a class="button secondary" href="/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>返回分站 </a> </p> </div> <aside class="article-aside" aria-label="文章信息"> <section class="aside-card"> <h2>学习目标</h2> <ul> <li>能把一个投资看法写成问题、假设、反证条件与数据来源齐全的研究档案</li><li>能按 10-K、8-K 与 EDGAR 的分工核对原始披露，并指出记录中缺什么</li> </ul> </section> <section class="aside-card"> <h2>必需先修</h2> <ul> <li> <a href="/learn/investment-goals-and-constraints/">INV-001 · 写一份投资目标与约束</a> </li> </ul> </section> <section class="aside-card"> <h2>建议阅读</h2> <ul> <li> <a href="/learn/return-risk-and-cost-tradeoffs/">INV-002 · 收益风险与成本的取舍</a> </li><li> <a href="/learn/choosing-an-investment-benchmark/">INV-004 · 选择投资基准</a> </li><li> <a href="https://research.51invest.com/learn/data-units-and-definitions/">RES-001 · 数据单位与统计口径</a> </li> </ul> </section> <section class="aside-card"> <h2>AI 复核记录</h2> <p class="muted"> 本项目没有真人签字；下列状态来自 AI-only 编辑复核。 </p> <ul> <li> 事实与计算 ：AI 复核通过 </li><li> 学科 ：AI 复核通过 </li><li> 英文 ：AI 复核通过 </li><li> 页面 ：AI 复核通过 </li> </ul> </section> <section class="aside-card"> <h2>来源</h2> <div class="source"> <a href="https://www.investor.gov/introduction-investing/getting-started/researching-investments/how-read-10-k" rel="noopener noreferrer" target="_blank">How to Read a 10-K</a> <p>U.S. Securities and Exchange Commission · Investor.gov (U.S. Securities and Exchange Commission)</p> <p>访问：2026-11-03 · 许可：FINRA-operated site for the SEC; © FINRA — cite and link only, no reproduction</p> <p>支持论点：10-K 的组成与顺序（逐字）：Risk Factors 一节 &quot;includes information about significant risks that the company faces, generally listed in order of importance&quot;，Selected Financial Data 一节 &quot;provides certain financial information about the company for the last five years&quot;。原记录所称&quot;按重要性排列&quot;即页面这句 order of importance；&quot;经审计财务报表&quot;该页另有用语 audited，本节未把 MD&amp;A 的完整标题逐字列出时以页面板块名称为准。</p> </div><div class="source"> <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/how-read-8" rel="noopener noreferrer" target="_blank">How to Read an 8-K</a> <p>U.S. Securities and Exchange Commission · Investor.gov (U.S. Securities and Exchange Commission)</p> <p>访问：2026-11-03 · 许可：FINRA-operated site for the SEC; © FINRA — cite and link only, no reproduction</p> <p>支持论点：8-K 的时效（逐字）：&quot;Companies must file 8-Ks promptly, rather than waiting until their next periodic report&quot; 与 &quot;Companies are required to make most 8-K disclosures within four business days of the triggering event and in some cases even earlier&quot;。原记录的&quot;四个工作日（部分情形更早）&quot;即这句 four business days and in some cases even earlier；该页同时声明这份 Investor Bulletin 未涵盖全部必须披露事项。</p> </div><div class="source"> <a href="https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments" rel="noopener noreferrer" target="_blank">Using EDGAR to Research Investments</a> <p>U.S. Securities and Exchange Commission · Investor.gov (U.S. Securities and Exchange Commission)</p> <p>访问：2026-11-03 · 许可：FINRA-operated site for the SEC; © FINRA — cite and link only, no reproduction</p> <p>支持论点：EDGAR 的表格类型标注（逐字）：&quot;EDGAR presents search results in chronological order and identifies the filings by form types&quot;，&quot;the form type for the annual report on Form 10-K filed by domestic public companies is “10-K.”&quot;，以及 &quot;Filings with “/A” appended to the form type code indicate an amendment&quot;（例：&quot;10-K/A&quot;）。</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">非商业免费知识站。每篇标出来源与口径；这里没有投资建议。</p> </div> </div> <nav class="footer-links" aria-label="知识分站"> <a href="https://51invest.com/" data-main-home>首页</a> <a href="https://51invest.com/contents/">内容地图</a> <a href="/glossary/">术语表</a> <a href="/search/">搜索</a> <a href="https://51invest.com/charts/" data-main-link>图表</a> <a href="https://51invest.com/sources/" data-main-link>数据与许可</a> <a href="/">分站首页</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="知识分站"> <a class="mobile-link" href="https://51invest.com/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>首页</span> </a> <a class="mobile-link" href="https://51invest.com/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>知识分站</span> </a> <a class="mobile-link active" href="/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>分站首页</span> </a> <a class="mobile-link" href="/en/learn/investment-research-process/" data-language-link="en"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

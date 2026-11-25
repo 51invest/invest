@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>选择投资基准 · 巫妖投资</title><meta name="description" content="先按目标与可投资范围选参照系，再统一收益、费用与频率口径；示例数字均为假设，市场指数本身不能直接投资。"><link rel="canonical" href="https://invest.51invest.com/learn/choosing-an-investment-benchmark/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/choosing-an-investment-benchmark/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/choosing-an-investment-benchmark/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/choosing-an-investment-benchmark/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/" data-main-home aria-label="巫妖投资"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">巫妖投资</span> <span class="brand-caption">51INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="知识分站"> <a class="nav-link" href="https://51invest.com/" data-main-home> 首页 </a> <a class="nav-link" href="https://economics.51invest.com/"> 经济学 </a><a class="nav-link" href="https://finance.51invest.com/"> 金融基础 </a><a class="nav-link" href="https://markets.51invest.com/"> 市场与产品 </a><a class="nav-link active" href="/" aria-current="page"> 投资方法 </a><a class="nav-link" href="https://history.51invest.com/"> 经济与金融史 </a><a class="nav-link" href="https://research.51invest.com/"> 研究方法 </a> <a class="nav-link" href="https://51invest.com/contents/"> 内容地图 </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/en/learn/choosing-an-investment-benchmark/" hreflang="en" lang="en" data-language-link="en" aria-label="切换为英文" title="切换为英文"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="主题: 跟随系统" title="主题: 跟随系统" data-label-auto="主题: 跟随系统" data-label-light="主题: 浅色" data-label-dark="主题: 深色"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">跟随系统</span> <span class="theme-text" data-theme-text="light">浅色</span> <span class="theme-text" data-theme-text="dark">深色</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/" data-main-home>首页</a> <span class="sep">/</span> <a href="/">投资方法</a> <span class="sep">/</span> <span aria-current="page">选择投资基准</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">方法</span> <h1 class="article-title">选择投资基准</h1> <p class="article-summary">先按目标与可投资范围选参照系，再统一收益、费用与频率口径；示例数字均为假设，市场指数本身不能直接投资。</p>  <div class="meta-grid"> <div class="meta-item"><span>模块</span><strong>INV-M02 · 收益与成本应用</strong></div> <div class="meta-item"><span>层级</span><strong>入门</strong></div> <div class="meta-item"><span>阅读</span><strong>4 分钟 · 14 节</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> 这篇有一个可以动手操作的演示 <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>问题与输出</h2>
+<p>基准回答两个问题：组合承担的风险是否与计划一致，结果相对于什么算好。输入是投资目标与约束、组合持仓、候选指数的编制方法；输出是一份基准说明，写清覆盖市场、编制规则、权重方式、再平衡频率、计价比口径和变更规则。它是一把事先定好的尺子，不是涨跌结论。</p>
+<h2>输入与数据要求</h2>
+<ul>
+<li>投资目标、期限、流动性要求与风险承受能力（见 INV-001）；</li>
+<li>组合持仓、权重、币种与估值时点；</li>
+<li>候选指数的编制方法文件及其版本日期；</li>
+<li>收益口径：价格指数或含股息的总收益指数；</li>
+<li>费用与费率，以及跟踪产品的跟踪差；</li>
+<li>比较频率与样本区间，至少覆盖一个再平衡周期；</li>
+<li>数据来源、许可和取数日期。</li>
+</ul>
+<h2>假设</h2>
+<p>示例假设：同币种、同一自然年；组合年费率 0.60%，从毛收益中扣除；基准代理为费率 0.20%、跟踪差 -0.15% 的指数基金；不计税费；示例收益均为价格口径，不计现金股息；收益为教学假设。</p>
+<h2>步骤</h2>
+<ol>
+<li><strong>先写目标，再选基准。</strong> 基准应覆盖组合实际暴露的市场与风险，而不是过去上涨最多的指数。</li>
+<li><strong>读编制方法。</strong> 记录样本空间、纳入条件、权重方式、权重上限和再平衡频率。</li>
+<li><strong>找可投资代理。</strong> 指数不可直接投资（见 MKT-005），只能用基金或衍生品跟踪，须计入费用与跟踪差。</li>
+<li><strong>统一口径。</strong> 币种、期间、频率、价格或总收益、费前或费后必须一致。</li>
+<li><strong>计算相对差。</strong> <code>excess = (1 + r_p) / (1 + r_b) - 1</code>，并记录月度相对收益的标准差作为跟踪误差。</li>
+<li><strong>事前写下更换基准的条件。</strong> 业绩落后本身不构成理由。</li>
+</ol>
+<h2>图表</h2>
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-004-chain-title fig-inv-004-chain-desc" viewBox="0 0 560 310" width="100%">
+    <title id="fig-inv-004-chain-title">INV-004：三段判断链</title>
+    <desc id="fig-inv-004-chain-desc">写目标：期限、风险与可投范围；统一口径：币种、费用、频率；定更换：事前写清更换条件</desc>
+    <rect x="0.5" y="0.5" width="559" height="309" rx="12" fill="var(--surface)" stroke="var(--border)"/>
+    <rect x="24" y="16" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="16" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="35" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">起点</text>
+    <text x="44" y="56" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">写目标</text>
+    <text x="44" y="76" font-size="10.5" fill="var(--secondary)" font-family="inherit">期限、风险与可投范围</text>
+    <line x1="280" y1="102" x2="280" y2="108" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 106 L280 110 L284 106" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="112" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="112" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="131" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">机制</text>
+    <text x="44" y="152" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">统一口径</text>
+    <text x="44" y="172" font-size="10.5" fill="var(--secondary)" font-family="inherit">币种、费用、频率</text>
+    <line x1="280" y1="198" x2="280" y2="204" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 202 L280 206 L284 202" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="208" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="208" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="227" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">判断</text>
+    <text x="44" y="248" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">定更换</text>
+    <text x="44" y="268" font-size="10.5" fill="var(--secondary)" font-family="inherit">事前写清更换条件</text>
+  </svg>
+  <figcaption>图 1：INV-004的三段判断链——写目标 → 统一口径 → 定更换。三段是判断链，不是唯一路径；图中文字取自本文正文，不含统计数据。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<h2>示例</h2>
+<p>假设组合毛收益 8.2%，净收益 <code>8.2%-0.60% = 7.6%</code>；基准指数价格收益 7.5%；代理基金净收益 <code>7.5%-0.20%-0.15% = 7.15%</code>。</p>
+<ul>
+<li>与代理基金比：<code>1.076 / 1.0715 - 1 = 0.42%</code>；</li>
+<li>直接与指数比：<code>1.076 / 1.075 - 1 = 0.09%</code>。</li>
+</ul>
+<p>两种口径相差约 0.33 个百分点。若漏记 0.30 个百分点的交易成本，7.6% 会被高估为 7.9%，与代理基金比的结果变成 <code>1.079 / 1.0715 - 1 = 0.70%</code>。口径比数字重要（本文判断）。</p>
+<h2>结果解读</h2>
+<p>基准是尺子，换尺子会改结论。指数与投资基准的基础定义见 MKT-005；SEC 指出，You cannot invest directly in a market index, but because index funds track a market index they provide an indirect investment option. 且指数基金 &quot;An index fund may underperform its index because of fees and expenses, trading costs, and tracking error.&quot; [1]。 编制方法决定暴露（本文判断）：Nasdaq-100 按 &quot;is designed to measure the performance of 100 of the largest Nasdaq-listed non-financial companies. The Index employs a modified market capitalization weighting scheme.&quot; 编制，12 月年度重构（含再平衡）、3、6、9 月再平衡；集中度分两层——公司层面在 &quot;If any company&#39;s initial weight exceeds 24%&quot; 后把单一公司权重压到不超过 20%，并把超过 4.5% 的公司合计权重在达到 48% 时压到 40%；证券层面则先 15%→14%，再在五大证券合计 &quot;40% or greater&quot; 时降到 38.5% [2]。 FTSE Russell 的 Russell 美国指数按市值段与风格模块化编制，子指数归入 Russell 3000，可作业绩基准，并自 2026 年起改为半年度重构 [3]。比较前先确认成分、权重与再平衡规则一致。</p>
+<h2>失败条件</h2>
+<ul>
+<li>基准与组合不匹配，例如小盘组合对标大盘指数；</li>
+<li>用价格指数对比含股息的组合，或反过来；</li>
+<li>用费前指数对比费后组合，漏掉交易成本与税费；</li>
+<li>业绩落后后更换基准，或只展示最好的那个基准；</li>
+<li>样本期短于一个再平衡周期，或频率混用；</li>
+<li>忽略编制变更，例如 Russell 美国指数 2026 年改为半年度重构；</li>
+<li>把跟踪误差解释为选股能力。</li>
+</ul>
+<h2>验证</h2>
+<ol>
+<li>换一个口径相近的基准重算，看结论是否稳定。</li>
+<li>用总收益口径重算，检查股息影响。</li>
+<li>检查样本是否覆盖至少一次重构和一次再平衡。</li>
+<li>请第二人按同一数据复算。</li>
+</ol>
+<h2>复现</h2>
+<p>基准说明表至少记录：基准名称与版本日期、编制机构、样本空间、权重方式与上限、再平衡日期、收益口径、代理产品与费率、跟踪差、比较频率、更换条件。相对差与跟踪误差按上式计算；缺失月份剔除并记录，不做填充。</p>
+<h2>关联</h2>
+<ul>
+<li>必需先修：收益风险与成本的取舍（INV-002）。</li>
+<li>相关与推荐阅读：写一份投资目标与约束（INV-001）、实际收益与购买力（INV-003）、频率与时间对齐（RES-003）。</li>
+</ul>
+<h2>图解</h2>
+<p>下面三张图分别检查本文的机制、边界与对照；图内文字取自本文小节，不是新数据。</p>
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-chain-title fig-batch-chain-desc" viewBox="0 0 340 304" width="100%">
+    <title id="fig-batch-chain-title">选择投资基准：机制链</title>
+    <desc id="fig-batch-chain-desc">选择投资基准 的三段结构：问题、机制、判断。图内文字取自本文小节，不是新的数据估计。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">选择投资基准：机制链</text>
+    <text x="14" y="38" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图内文字取自本文小节；三段缺一不可。</text>
+    <line x1="14" y1="46" x2="326" y2="46" stroke="var(--border)" stroke-width="1"/>
+    <g>
+      <rect x="14" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="22" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">问题</text>
+      <text x="22" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">先按目标与可投资范围</text>
+      <text x="22" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">选参照系，再统一收益…</text>
+      <text x="22" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">先按目标与可投资范</text>
+      <text x="22" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">围选参照系，再统一</text>
+      <text x="22" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">收益、费用与频率口</text>
+      <text x="22" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">径；示例数字均为假</text>
+      <text x="22" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">设，市场指数本身不…</text>
+    </g>
+      <g>
+      <rect x="123" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="131" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">问题与输出</text>
+      <text x="131" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">问题与输出：基准回答</text>
+      <text x="131" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">两个问题：组合承担的…</text>
+      <text x="131" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">问题与输出：基准回</text>
+      <text x="131" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">答两个问题：组合承</text>
+      <text x="131" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">担的风险能否与计划</text>
+      <text x="131" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">一致，结果相对于什</text>
+      <text x="131" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">么算好。输入是投资…</text>
+    </g>
+      <g>
+      <rect x="232" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="240" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">输入与数据要求</text>
+      <text x="240" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">投资目标、期限、流动</text>
+      <text x="240" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">性要求与风险承受能力…</text>
+      <text x="240" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">投资目标、期限、流</text>
+      <text x="240" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">动性要求与风险承受</text>
+      <text x="240" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">能力（见 INV-001）</text>
+      <text x="240" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">； 组合持仓、权重</text>
+      <text x="240" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">、币种与估值时点…</text>
+    </g>
+    <line x1="108" y1="144" x2="123" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M120 140 L125 144 L120 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="217" y1="144" x2="232" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M229 140 L234 144 L229 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="14" y1="250" x2="326" y2="250" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="266" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">读法：先看问题能否成立，再看机制能否连通，最后看判断会不会越界。</text>
+    <text x="14" y="280" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">若中间一步缺证据，后面的结论只能当假设，不能当事实。</text>
+    <text x="14" y="294" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图为结构示意，不是新的数据图；样本为本文论证。</text>
+  </svg>
+  <figcaption>图 2：选择投资基准的机制链：从问题、机制到判断。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-boundary-title fig-batch-boundary-desc" viewBox="0 0 340 244" width="100%">
+    <title id="fig-batch-boundary-title">选择投资基准：适用边界</title>
+    <desc id="fig-batch-boundary-desc">把成立条件与失效条件分开；局部例子不能自动推广到所有情形。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">选择投资基准：什么情况下成立？</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <rect x="14" y="44" width="312" height="38" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="170" y="62" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="middle">先检查条件，再看结论</text>
+    <text x="170" y="75" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="middle">条件、口径或样本一变，结论可能要重算</text>
+    <line x1="170" y1="82" x2="90" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="170" y1="82" x2="250" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <rect x="14" y="104" width="148" height="100" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="24" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">成立</text>
+    <text x="24" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">基准与组合不匹配，例如小盘组合对</text>
+      <text x="24" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">标大盘指数； 用价格指数对比含股</text>
+      <text x="24" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">息的组合，或反过来；</text>
+      <text x="24" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">用费前指数对比费后组合，漏掉交易…</text>
+    <rect x="178" y="104" width="148" height="100" rx="8" fill="var(--gold)" opacity="0.18" stroke="var(--border)"/>
+    <text x="188" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">不成立 / 需改写</text>
+    <text x="188" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">必需先修：收益风险与成本的取舍（I</text>
+      <text x="188" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">NV-002）。</text>
+    <line x1="14" y1="216" x2="326" y2="216" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="232" font-size="8.3" fill="var(--muted)" font-family="inherit" text-anchor="start">图为边界示意；样本为本文论证，单位为文中标注。</text>
+  </svg>
+  <figcaption>图 3：选择投资基准的边界：哪些条件成立，哪些条件失效。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-compare-title fig-batch-compare-desc" viewBox="0 0 340 252" width="100%">
+    <title id="fig-batch-compare-title">选择投资基准：对象、前提与常见误区</title>
+    <desc id="fig-batch-compare-desc">三行比较本文概念、成立条件与常见误区；比较不等于等价，也不能替代定义。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">选择投资基准：一张表看对象、前提与误区</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <text x="82" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">本篇</text>
+    <text x="200" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">容易混淆</text>
+    <g>
+      <rect x="14" y="52" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="72" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">对象</text>
+      <text x="82" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">先按目标与可投资范围选参</text>
+      <text x="82" y="88" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">照系，再统一收益、费用与…</text>
+      <text x="200" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">相邻概念/常见说法</text>
+    </g>
+    <g>
+      <rect x="14" y="110" width="312" height="58" fill="var(--surface-2)" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="130" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">前提</text>
+      <text x="82" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">基准与组合不匹配，例如小</text>
+      <text x="82" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">盘组合对标大盘指数…</text>
+      <text x="200" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">必需先修：收益风险与成本的取舍（INV-0</text>
+      <text x="200" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">02）。</text>
+    </g>
+    <g>
+      <rect x="14" y="168" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="188" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">检查</text>
+      <text x="82" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">先定义，再比较；不能只看</text>
+      <text x="82" y="204" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">名称</text>
+      <text x="200" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">相关不等于因果，局部不等于普遍</text>
+    </g>
+    <text x="14" y="244" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图为比较示意；样本为本文论证，单位为文中标注。</text>
+  </svg>
+  <figcaption>图 4：选择投资基准的对象、前提与常见误区比较。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<h2>练习</h2>
+<ol>
+<li><strong>口径差。</strong> 组合净收益 6.4%；指数总收益 6.0%；代理基金费率 0.25%、跟踪差 -0.05%。相对差是多少？</li>
+<li><strong>不可直接投资。</strong> 为什么不能把组合收益直接和指数点位涨幅比较？</li>
+<li><strong>换尺子。</strong> 什么情况下应该更换基准？</li>
+</ol>
+<details>
+<summary>参考答案</summary>
+
+<ol>
+<li>代理净收益 <code>6.0%-0.25%-0.05% = 5.70%</code>；相对差 <code>1.064 / 1.057 - 1 = 0.66%</code>。若直接与指数比则为 <code>1.064 / 1.06 - 1 = 0.38%</code>。</li>
+<li>指数不可直接投资；基金有费用与跟踪差，组合还有交易成本和税费。</li>
+<li>目标、约束或可投资范围发生实质变化，且条件事先写在基准说明里。短期落后不构成理由。</li>
+</ol>
+</details>
+
+<h2>来源</h2>
+<ol>
+<li>U.S. Securities and Exchange Commission, Office of Investor Education and Advocacy. “Investor Bulletin: Index Funds.” Investor.gov. <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-26">https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-26</a>（访问日期：2026-10-30）</li>
+<li>Nasdaq, Inc. “Nasdaq-100 Index Methodology (NDX).” <a href="https://indexes.nasdaq.com/docs/Methodology_NDX.pdf">https://indexes.nasdaq.com/docs/Methodology_NDX.pdf</a>（访问日期：2026-10-30）</li>
+<li>FTSE Russell. “Russell US Indexes.” （来源条款要求事先书面许可才可外链，故此处不设超链接；URL 记录在来源元数据中）（访问日期：2026-10-30）</li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="zh" aria-labelledby="demo-check-title" data-check-done="三项都能说清：这篇的核心已经过关。" data-check-pending="还差一项：回到正文对应小节，找一个反例或数字再讲一遍。" data-check-count="已勾选"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">动手演示</p> <button class="demo-reset" type="button" data-demo-reset>恢复默认</button> </div> <h2 id="demo-check-title">读完自检：三句话能不能说清</h2> <p class="demo-intro">不用背定义。把下面三句逐个勾上，看自己能不能用自己的话讲清机制、算例和边界。</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>能按投资目标与可投资范围选定基准，并统一收益、费用与频率口径后再作比较</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>能说明为何市场指数本身不能直接作为投资对象来评价组合</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>能说出一个本文结论不适用的条件</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> 已勾选 0 / 3
+</p> </div> <p class="demo-footnote">数字为教学假设，用来展示关系，不构成预测或投资建议。</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> 本文已通过当前发布门槛；事实、计算与译文如有修订，会同步更新两个语言版本。 </p> <p> <a class="button secondary" href="/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>返回分站 </a> </p> </div> <aside class="article-aside" aria-label="文章信息"> <section class="aside-card"> <h2>学习目标</h2> <ul> <li>能按投资目标与可投资范围选定基准，并统一收益、费用与频率口径后再作比较</li><li>能说明为何市场指数本身不能直接作为投资对象来评价组合</li> </ul> </section> <section class="aside-card"> <h2>必需先修</h2> <ul> <li> <a href="/learn/return-risk-and-cost-tradeoffs/">INV-002 · 收益风险与成本的取舍</a> </li> </ul> </section> <section class="aside-card"> <h2>建议阅读</h2> <ul> <li> <a href="/learn/investment-goals-and-constraints/">INV-001 · 写一份投资目标与约束</a> </li><li> <a href="/learn/real-returns-and-purchasing-power/">INV-003 · 实际收益与购买力</a> </li><li> <a href="https://research.51invest.com/learn/frequency-and-time-alignment/">RES-003 · 频率与时间对齐</a> </li> </ul> </section> <section class="aside-card"> <h2>AI 复核记录</h2> <p class="muted"> 本项目没有真人签字；下列状态来自 AI-only 编辑复核。 </p> <ul> <li> 事实与计算 ：AI 复核通过 </li><li> 学科 ：AI 复核通过 </li><li> 英文 ：AI 复核通过 </li><li> 页面 ：AI 复核通过 </li> </ul> </section> <section class="aside-card"> <h2>来源</h2> <div class="source"> <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-26" rel="noopener noreferrer" target="_blank">Investor Bulletin: Index Funds</a> <p>U.S. Securities and Exchange Commission, Office of Investor Education and Advocacy · Investor.gov (U.S. Securities and Exchange Commission)</p> <p>访问：2026-11-03 · 许可：FINRA-operated site for the SEC; © FINRA — cite and link only, no reproduction</p> <p>支持论点：逐字：A market index measures the performance of a “basket” of securities (like stocks or bonds)…（原文把 basket 加了引号）与 You cannot invest directly in a market index, but because index funds track a market index they provide an indirect investment option. 加权方式两句：In a market-cap-weighted index, securities with a higher market capitalization value account for a greater share of the overall value of the index. 与 Some market indexes, such as the Dow Jones Industrial Average, are “price-weighted.” 落后原因一句：An index fund may underperform its index because of fees and expenses, trading costs, and tracking error.。注意页面用词是 trading costs（交易成本），不是 transaction costs。</p> </div><div class="source"> <a href="https://indexes.nasdaq.com/docs/Methodology_NDX.pdf" rel="noopener noreferrer" target="_blank">Nasdaq-100 Index Methodology (NDX)</a> <p>Nasdaq, Inc. · Nasdaq, Inc.</p> <p>访问：2026-11-03 · 许可：Nasdaq methodology PDF: copyright reserved, no reuse grant</p> <p>支持论点：逐字（NDX 方法文件）：指数定义 &quot;is designed to measure the performance of 100 of the largest Nasdaq-listed non-financial companies. The Index employs a modified market capitalization weighting scheme.&quot;；年度事件 &quot;An Annual Reconstitution &amp; Rebalance is conducted in December&quot;，季度 &quot;A Rebalance is conducted in March, June, and September.&quot;。集中度分两层，不可混写：公司层面（Company-Level Weighting Constraints）&quot;If any company&#39;s initial weight exceeds 24%&quot; 后 &quot;Stage 1: The weights are adjusted such that no company&#39;s weight exceeds 20%.&quot;，其 Stage 2 针对权重超过 4.5% 的公司合计达到 48% 时压到 40%；证券层面（Security-Level Weighting Constraints）&quot;Stage 1: If any security&#39;s initial weight exceeds 15%, then the weights are adjusted such that no security&#39;s weight exceeds 14%.&quot; 且 &quot;If their sum is 40% or greater, then that group of securities will have its aggregate weight adjusted down to 38.5%.&quot;，并把五大之外证券的权重上限压到 4.4% 或第五大权重中的较小者。</p> </div><div class="source">  <span>Russell US Indexes</span> <p class="source-note">来源条款要求事先书面许可才可外链，故此处只作文字引用。</p>  <p>FTSE Russell · FTSE Russell (LSEG)</p> <p>访问：2026-10-30 · 许可：LSEG terms: reproduction prohibited; framing or linking needs prior written consent</p> <p>支持论点：Russell 美国指数按市值段与投资风格模块化编制，全部子指数归入 Russell 3000，并可用作业绩基准；FTSE Russell 已宣布自 2026 年起把重构由年度改为半年度。</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">非商业免费知识站。每篇标出来源与口径；这里没有投资建议。</p> </div> </div> <nav class="footer-links" aria-label="知识分站"> <a href="https://51invest.com/" data-main-home>首页</a> <a href="https://51invest.com/contents/">内容地图</a> <a href="/glossary/">术语表</a> <a href="/search/">搜索</a> <a href="https://51invest.com/charts/" data-main-link>图表</a> <a href="https://51invest.com/sources/" data-main-link>数据与许可</a> <a href="/">分站首页</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="知识分站"> <a class="mobile-link" href="https://51invest.com/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>首页</span> </a> <a class="mobile-link" href="https://51invest.com/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>知识分站</span> </a> <a class="mobile-link active" href="/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>分站首页</span> </a> <a class="mobile-link" href="/en/learn/choosing-an-investment-benchmark/" data-language-link="en"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

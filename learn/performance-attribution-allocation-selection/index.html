@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>绩效归因：收益从哪里来 · 巫妖投资</title><meta name="description" content="绩效归因把组合与基准的差异拆成配置、选择和交互三部分：选对行业、选对个股、以及两者叠加的效果。没有归因，业绩好坏只能靠故事；有了归因，才能判断下一次是否可复制。"><link rel="canonical" href="https://invest.51invest.com/learn/performance-attribution-allocation-selection/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/performance-attribution-allocation-selection/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/performance-attribution-allocation-selection/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/performance-attribution-allocation-selection/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/" data-main-home aria-label="巫妖投资"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">巫妖投资</span> <span class="brand-caption">51INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="知识分站"> <a class="nav-link" href="https://51invest.com/" data-main-home> 首页 </a> <a class="nav-link" href="https://economics.51invest.com/"> 经济学 </a><a class="nav-link" href="https://finance.51invest.com/"> 金融基础 </a><a class="nav-link" href="https://markets.51invest.com/"> 市场与产品 </a><a class="nav-link active" href="/" aria-current="page"> 投资方法 </a><a class="nav-link" href="https://history.51invest.com/"> 经济与金融史 </a><a class="nav-link" href="https://research.51invest.com/"> 研究方法 </a> <a class="nav-link" href="https://51invest.com/contents/"> 内容地图 </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/en/learn/performance-attribution-allocation-selection/" hreflang="en" lang="en" data-language-link="en" aria-label="切换为英文" title="切换为英文"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="主题: 跟随系统" title="主题: 跟随系统" data-label-auto="主题: 跟随系统" data-label-light="主题: 浅色" data-label-dark="主题: 深色"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">跟随系统</span> <span class="theme-text" data-theme-text="light">浅色</span> <span class="theme-text" data-theme-text="dark">深色</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/" data-main-home>首页</a> <span class="sep">/</span> <a href="/">投资方法</a> <span class="sep">/</span> <span aria-current="page">绩效归因：收益从哪里来</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">方法</span> <h1 class="article-title">绩效归因：收益从哪里来</h1> <p class="article-summary">绩效归因把组合与基准的差异拆成配置、选择和交互三部分：选对行业、选对个股、以及两者叠加的效果。没有归因，业绩好坏只能靠故事；有了归因，才能判断下一次是否可复制。</p>  <div class="meta-grid"> <div class="meta-item"><span>模块</span><strong>INV-M13 · 绩效与归因</strong></div> <div class="meta-item"><span>层级</span><strong>系统</strong></div> <div class="meta-item"><span>阅读</span><strong>6 分钟 · 12 节</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> 这篇有一个可以动手操作的演示 <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>问题</h2>
+<p>组合跑赢基准 2.5 个百分点，是因为超配了强势行业，还是因为选了个股，还是两者叠加？绩效归因要把这个总差异拆开，否则“经理很厉害”只是无法证伪的故事。归因也用于解释跑输：是配置错了，还是选股拖累[1]。</p>
+<h2>输入</h2>
+<p>需要组合与基准的行业权重、个股权重、各行业与个股收益、现金与费用、期间长度。若用因子归因，还需要因子收益与暴露。数据必须同口径：行业分类、收益计算（时间加权或资金加权）和费用处理要一致[2]。</p>
+<h2>假设</h2>
+<p>第一，基准可代表组合的正常暴露；第二，行业与个股收益可加总；第三，权重在期间内不频繁变动，或已按日/月重构；第四，费用与现金拖累单独列出；第五，残差不是能力，而是模型未解释部分[3]。</p>
+<h2>步骤</h2>
+<p>第一步，算总超额：(R_p - R_b)。第二步，算配置效应：((w_p - w_b) \times R_b)，逐行业加总。第三步，算选择效应：(w_b \times (R_{p,i} - R_{b,i}))。第四步，算交互效应：((w_p - w_b) \times (R_{p,i} - R_{b,i}))。第 5 步，加总并核对残差。第六步，把费用、现金和汇率单独列示。</p>
+<h2>结果解读</h2>
+<p>假设总超额 2.5%，配置贡献 1.2%、选择贡献 0.9%、交互贡献 0.4%。说明经理既超配了强势行业，也在行业内选出了更好的个股。若配置贡献为负、选择为正，则是“选股强但行业押错”。归因不是预测工具，而是解释工具。</p>
+<h2>失败条件</h2>
+<p>第一，基准与组合风格差异过大；第二，行业分类变化；第三，权重频繁变动未重构；第四，费用与现金未剥离；第五，样本期太短；第六，残差被当成 alpha。出现这些条件，归因结果可能误导。</p>
+<h2>复现</h2>
+<p>用同一套权重与收益数据重算三项效应，检查加总是否等于总超额；换一个基准和行业分类做稳健性；把费用、现金和汇率逐项对账。复现记录要包括数据版本与计算频率。</p>
+<h2>图表</h2>
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-033-1-title fig-inv-033-1-desc" viewBox="0 0 460 300" width="100%">
+    <title id="fig-inv-033-1-title">超额收益的三项拆解</title>
+    <desc id="fig-inv-033-1-desc">配置 1.2% 1.2%，选择 0.9% 0.9%，交互 0.4% 0.4%。1.2+0.9+0.4=2.5 个百分点；残差要单独核对。单位：百分比，数字为教学假设。 教学机制图。</desc>
+    <rect x="14" y="38" width="432" height="32" rx="7" fill="var(--surface-2)" stroke="var(--border)"></rect>
+    <text x="28" y="59" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit">Rp-Rb=A+S+I</text>
+    <rect x="14" y="82" width="132" height="92" rx="8" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="26" y="104" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">配置 1.2%</text>
+    <text x="26" y="128" font-size="12" font-weight="700" fill="var(--accent)" font-family="inherit">1.2%</text>
+    <text x="26" y="148" font-size="9.2" fill="var(--muted)" font-family="inherit">行业权重</text>
+    <text x="26" y="164" font-size="9.2" fill="var(--muted)" font-family="inherit">基准</text>
+    <rect x="164" y="82" width="132" height="92" rx="8" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="176" y="104" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">选择 0.9%</text>
+    <text x="176" y="128" font-size="12" font-weight="700" fill="var(--accent)" font-family="inherit">0.9%</text>
+    <text x="176" y="148" font-size="9.2" fill="var(--muted)" font-family="inherit">个股</text>
+    <text x="176" y="164" font-size="9.2" fill="var(--muted)" font-family="inherit">行业内</text>
+    <rect x="314" y="82" width="132" height="92" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"></rect>
+    <text x="326" y="104" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">交互 0.4%</text>
+    <text x="326" y="128" font-size="12" font-weight="700" fill="var(--accent)" font-family="inherit">0.4%</text>
+    <text x="326" y="148" font-size="9.2" fill="var(--muted)" font-family="inherit">权重×选股</text>
+    <text x="326" y="164" font-size="9.2" fill="var(--muted)" font-family="inherit"></text>
+    <line x1="146" y1="128" x2="164" y2="128" stroke="var(--border)" stroke-width="1.5"></line>
+    <line x1="296" y1="128" x2="314" y2="128" stroke="var(--border)" stroke-width="1.5"></line>
+    <rect x="14" y="190" width="432" height="82" rx="8" fill="var(--surface-2)" stroke="var(--border)"></rect>
+    <text x="28" y="214" font-size="10" font-weight="650" fill="var(--text)" font-family="inherit">总超额不是单一能力，而是三层叠加</text>
+    <text x="28" y="236" font-size="9.6" fill="var(--muted)" font-family="inherit">1.2+0.9+0.4=2.5 个百分点；残差要单独核对</text>
+    <text x="28" y="256" font-size="9.6" fill="var(--muted)" font-family="inherit">单位：百分比，数字为教学假设</text>
+  </svg>
+  <figcaption>图 1：配置 1.2% 1.2%，选择 0.9% 0.9%，交互 0.4% 0.4%。1.2+0.9+0.4=2.5 个百分点；残差要单独核对。单位：百分比，数字为教学假设。 教学机制图。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-033-2-title fig-inv-033-2-desc" viewBox="0 0 460 300" width="100%">
+    <title id="fig-inv-033-2-title">Brinson 归因算例</title>
+    <desc id="fig-inv-033-2-desc">Brinson 归因算例。组合：行业权重 60%，行业收益 10%，总收益 8.5%；基准：Sector weight 50%，Sector return 8%，Total 6%。超配强势行业并获得行业内选股收益，合计超额 2.5%。单位：百分比，数字为教学假设。 数字为教学假设。</desc>
+    <rect x="14" y="36" width="432" height="34" rx="7" fill="var(--surface-2)" stroke="var(--border)"></rect>
+    <text x="28" y="57" font-size="10" font-weight="650" fill="var(--text)" font-family="inherit">2.5%=1.2%+0.9%+0.4%</text>
+    <rect x="14" y="86" width="204" height="132" rx="8" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="28" y="109" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">组合</text>
+    <text x="26" y="135" font-size="9.4" fill="var(--muted)" font-family="inherit">行业权重</text>
+    <text x="206" y="135" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">60%</text>
+    <text x="26" y="163" font-size="9.4" fill="var(--muted)" font-family="inherit">行业收益</text>
+    <text x="206" y="163" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">10%</text>
+    <text x="26" y="191" font-size="9.4" fill="var(--muted)" font-family="inherit">总收益</text>
+    <text x="206" y="191" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">8.5%</text>
+    <rect x="242" y="86" width="204" height="132" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"></rect>
+    <text x="256" y="109" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">基准</text>
+    <text x="254" y="135" font-size="9.4" fill="var(--muted)" font-family="inherit">行业权重</text>
+    <text x="434" y="135" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">50%</text>
+    <text x="254" y="163" font-size="9.4" fill="var(--muted)" font-family="inherit">行业收益</text>
+    <text x="434" y="163" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">8%</text>
+    <text x="254" y="191" font-size="9.4" fill="var(--muted)" font-family="inherit">总收益</text>
+    <text x="434" y="191" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">6%</text>
+    <text x="28" y="240" font-size="9.6" fill="var(--muted)" font-family="inherit">超配强势行业并获得行业内选股收益，合计超额 2.5%</text>
+    <text x="28" y="262" font-size="9.6" fill="var(--muted)" font-family="inherit">单位：百分比，数字为教学假设</text>
+  </svg>
+  <figcaption>图 2：Brinson 归因算例。组合：行业权重 60%，行业收益 10%，总收益 8.5%；基准：Sector weight 50%，Sector return 8%，Total 6%。超配强势行业并获得行业内选股收益，合计超额 2.5%。单位：百分比，数字为教学假设。 数字为教学假设。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-033-3-title fig-inv-033-3-desc" viewBox="0 0 460 300" width="100%">
+    <title id="fig-inv-033-3-title">Brinson 与因子归因的对比</title>
+    <desc id="fig-inv-033-3-desc">Brinson 与因子归因的对比。Brinson：维度 行业/个股，输出 配置/选择，适用 主动股票；因子归因：维度 因子暴露，输出 beta/alpha，适用 多资产/量化。Brinson 更贴近行业与个股决策，因子归因更贴近风险暴露；两者可以互相校验。单位：定性对比，数字为教学假设。 教学对比图。</desc>
+    <rect x="14" y="38" width="204" height="172" rx="8" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="28" y="61" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">Brinson</text>
+    <text x="26" y="88" font-size="9.4" fill="var(--muted)" font-family="inherit">维度</text>
+    <text x="206" y="88" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">行业/个股</text>
+    <text x="26" y="116" font-size="9.4" fill="var(--muted)" font-family="inherit">输出</text>
+    <text x="206" y="116" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">配置/选择</text>
+    <text x="26" y="144" font-size="9.4" fill="var(--muted)" font-family="inherit">适用</text>
+    <text x="206" y="144" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">主动股票</text>
+    <rect x="242" y="38" width="204" height="172" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"></rect>
+    <text x="256" y="61" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">因子归因</text>
+    <text x="254" y="88" font-size="9.4" fill="var(--muted)" font-family="inherit">维度</text>
+    <text x="434" y="88" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">因子暴露</text>
+    <text x="254" y="116" font-size="9.4" fill="var(--muted)" font-family="inherit">输出</text>
+    <text x="434" y="116" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">beta/alpha</text>
+    <text x="254" y="144" font-size="9.4" fill="var(--muted)" font-family="inherit">适用</text>
+    <text x="434" y="144" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">多资产/量化</text>
+    <text x="28" y="240" font-size="9.6" fill="var(--muted)" font-family="inherit">Brinson 更贴近行业与个股决策，因子归因更贴近风险暴露；两者可以互相校验</text>
+    <text x="28" y="262" font-size="9.6" fill="var(--muted)" font-family="inherit">单位：定性对比，数字为教学假设</text>
+  </svg>
+  <figcaption>图 3：Brinson 与因子归因的对比。Brinson：维度 行业/个股，输出 配置/选择，适用 主动股票；因子归因：维度 因子暴露，输出 beta/alpha，适用 多资产/量化。Brinson 更贴近行业与个股决策，因子归因更贴近风险暴露；两者可以互相校验。单位：定性对比，数字为教学假设。 教学对比图。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-033-4-title fig-inv-033-4-desc" viewBox="0 0 460 300" width="100%">
+    <title id="fig-inv-033-4-title">绩效归因适用的 6 个条件</title>
+    <desc id="fig-inv-033-4-desc">绩效归因适用的 6 个条件。基准合理；分类稳定；权重重构；费用剥离；样本足够；残差解释。6 项缺一，归因可能把残差误当能力；是否可信取决于这些条件。单位：条件清单，数字为教学假设。 这些条件决定方法是否适用。</desc>
+    <text x="28" y="36" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit">先核对基准、分类、权重与费用</text>
+    <rect x="14" y="52" width="204" height="52" rx="7" fill="var(--accent-soft)" stroke="var(--accent)"></rect>
+    <text x="24" y="72" font-size="9.8" font-weight="650" fill="var(--text)" font-family="inherit">基准合理</text>
+    <text x="24" y="89" font-size="9.2" fill="var(--muted)" font-family="inherit">风格匹配</text>
+    <rect x="242" y="52" width="204" height="52" rx="7" fill="var(--accent-soft)" stroke="var(--accent)"></rect>
+    <text x="252" y="72" font-size="9.8" font-weight="650" fill="var(--text)" font-family="inherit">分类稳定</text>
+    <text x="252" y="89" font-size="9.2" fill="var(--muted)" font-family="inherit">行业定义</text>
+    <rect x="14" y="110" width="204" height="52" rx="7" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="24" y="130" font-size="9.8" font-weight="650" fill="var(--text)" font-family="inherit">权重重构</text>
+    <text x="24" y="147" font-size="9.2" fill="var(--muted)" font-family="inherit">日/月频率</text>
+    <rect x="242" y="110" width="204" height="52" rx="7" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="252" y="130" font-size="9.8" font-weight="650" fill="var(--text)" font-family="inherit">费用剥离</text>
+    <text x="252" y="147" font-size="9.2" fill="var(--muted)" font-family="inherit">管理+交易</text>
+    <rect x="14" y="168" width="204" height="52" rx="7" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="24" y="188" font-size="9.8" font-weight="650" fill="var(--text)" font-family="inherit">样本足够</text>
+    <text x="24" y="205" font-size="9.2" fill="var(--muted)" font-family="inherit">跨周期</text>
+    <rect x="242" y="168" width="204" height="52" rx="7" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="252" y="188" font-size="9.8" font-weight="650" fill="var(--text)" font-family="inherit">残差解释</text>
+    <text x="252" y="205" font-size="9.2" fill="var(--muted)" font-family="inherit">不是 alpha</text>
+    <text x="28" y="248" font-size="9.6" fill="var(--muted)" font-family="inherit">6 项缺一，归因可能把残差误当能力；是否可信取决于这些条件</text>
+    <text x="28" y="270" font-size="9.6" fill="var(--muted)" font-family="inherit">单位：条件清单，数字为教学假设</text>
+  </svg>
+  <figcaption>图 4：绩效归因适用的 6 个条件。基准合理；分类稳定；权重重构；费用剥离；样本足够；残差解释。6 项缺一，归因可能把残差误当能力；是否可信取决于这些条件。单位：条件清单，数字为教学假设。 这些条件决定方法是否适用。</figcaption>
+</figure>
+
+<h2>深化：多期链接、交互项与归因的边界</h2>
+<p>单期归因可以加总，但多期归因不能简单把每期效应相加。若第一期组合涨 20%、第二期跌 10%，算术相加是 10%，几何收益是 <code>1.2×0.9−1=8%</code>；配置、选择和交互效应也会因复利基数变化而失真。多期归因要用<strong>几何链接</strong>或<strong>平滑算法</strong>，把每期效应按组合和基准的复利路径重新加权。</p>
+<p><strong>交互项不是残差。</strong> 配置效应回答“超配了哪个行业”，选择效应回答“在行业内选得好不好”，交互效应回答“超配的行业恰好也是选股强的行业”。交互项可正可负：超配强势行业且在该行业选股强，交互为正；超配强势行业但选股弱，交互为负。把交互项全部归入“选股能力”，会高估经理；全部归入“配置运气”，会低估经理。</p>
+<p><strong>Brinson 归因有三种口径</strong>：BHB 把交互项单列；Brinson-Fachler 用基准行业收益与总基准收益之差调整配置项；Brinson 1986 把交互并入选择。口径不同，配置与选择的数字会变化；报告必须写明用哪一种，不能跨口径比较。</p>
+<p><strong>归因不能证明因果。</strong> 它解释“收益来自哪里”，不能证明“经理有意为之”。若经理事后说“我早就看好这个行业”，归因无法验证；要结合持仓变化、交易记录和事前备忘录。</p>
+<p><strong>边界</strong>：归因依赖基准和分类。基准选错、行业分类变化、权重未重构，都会制造假配置或假选择；归因结果要配合风险模型、费用分析和定性复盘，而不是单独作为考核依据[1][2][3]。</p>
+<p><strong>归因频率与考核周期要匹配。</strong> 日频归因受单日波动影响大，适合交易复盘；月频、季频适合考核，但样本少、显著性弱。若用 12 个季度判断经理能力，配置和选择效应的标准误可能大到无法区分“能力”与“运气”。报告应给出归因频率、样本长度和置信区间。</p>
+<p><strong>基准的选择决定结论。</strong> 用宽基指数、风格指数还是同类基金平均，配置效应和选择效应会不同。若基准包含组合不能投资的资产（如小盘股、海外市场），归因会制造“配置能力”的假象。基准应与组合的投资范围、风格和风险暴露匹配，并在事前确定，不能事后挑选。</p>
+<p><strong>归因要落到可行动的结论。</strong> 若配置贡献主要来自超配某个行业，要问这个超配是研究结论还是偶然漂移；若选择贡献为负，要问是选股逻辑失效还是交易成本拖累。归因报告的价值在于提出下一个问题，不是给经理打分[2][3]。</p>
+<p><strong>归因不是唯一证据。</strong> 它要与持仓记录、交易日志、风险暴露和事前研究互相印证；单靠一张归因表，无法区分能力、风格和运气。同一经理的归因应连续多期比较，单期结论不足以判断稳定能力。</p>
+<h2>关联</h2>
+<ul>
+<li>与 <strong>INV-021 绩效评价与归因</strong> 的关系：母文给出模块总框架；本文把「配置、选择与交互如何拆开，以及残差意味着什么」单独拆开，落到可计算的例子和适用条件上。</li>
+<li>与 <strong>INV-031 策略的收益来源：beta、因子与容量</strong> 的关系：同站相邻主题，提供背景或对照；本文不重复它的重点，而聚焦「配置、选择与交互如何拆开，以及残差意味着什么」。</li>
+<li>与 <strong>INV-025 投资策略</strong> 的关系：同站相邻主题，提供背景或对照；本文不重复它的重点，而聚焦「配置、选择与交互如何拆开，以及残差意味着什么」。</li>
+</ul>
+<h2>练习</h2>
+<ol>
+<li>归因题：总超额 2.5%、配置 1.2%、选择 0.9%。交互效应是多少？</li>
+<li>解释题：配置为负、选择为正，说明经理的能力在哪一层？请写一句。</li>
+<li>条件题：列出绩效归因失效的三项条件，并说明每项如何影响结论。</li>
+<li>多期题：第一期涨 20%、第二期跌 10%，算术相加与几何收益各是多少？为什么不能直接加总归因效应？</li>
+<li>交互题：超配强势行业且在该行业选股强，交互项为正还是负？若选股弱呢？</li>
+</ol>
+<h2>来源</h2>
+<ol>
+<li>CFA Institute, <em>Global Investment Performance Standards (GIPS)</em>, CFA Institute. <a href="https://rpc.cfainstitute.org/gips-standards">https://rpc.cfainstitute.org/gips-standards</a></li>
+<li>Julie Dahlquist; Rainford Knight, <em>Principles of Finance, 15.2 Risk and Return to Multiple Assets</em>, OpenStax, Rice University. <a href="https://openstax.org/books/principles-finance/pages/15-2-risk-and-return-to-multiple-assets">https://openstax.org/books/principles-finance/pages/15-2-risk-and-return-to-multiple-assets</a></li>
+<li>Julie Dahlquist; Rainford Knight, <em>Principles of Finance, 15.4 Applications in Performance Measurement</em>, OpenStax, Rice University. <a href="https://openstax.org/books/principles-finance/pages/15-4-applications-in-performance-measurement">https://openstax.org/books/principles-finance/pages/15-4-applications-in-performance-measurement</a></li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="zh" aria-labelledby="demo-check-title" data-check-done="三项都能说清：这篇的核心已经过关。" data-check-pending="还差一项：回到正文对应小节，找一个反例或数字再讲一遍。" data-check-count="已勾选"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">动手演示</p> <button class="demo-reset" type="button" data-demo-reset>恢复默认</button> </div> <h2 id="demo-check-title">读完自检：三句话能不能说清</h2> <p class="demo-intro">不用背定义。把下面三句逐个勾上，看自己能不能用自己的话讲清机制、算例和边界。</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>用配置、选择与交互三项拆解组合相对基准的超额收益。</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>区分 Brinson 归因与因子归因的适用场景。</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>能说出一个本文结论不适用的条件</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> 已勾选 0 / 3
+</p> </div> <p class="demo-footnote">数字为教学假设，用来展示关系，不构成预测或投资建议。</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> 本文已通过当前发布门槛；事实、计算与译文如有修订，会同步更新两个语言版本。 </p> <p> <a class="button secondary" href="/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>返回分站 </a> </p> </div> <aside class="article-aside" aria-label="文章信息"> <section class="aside-card"> <h2>学习目标</h2> <ul> <li>用配置、选择与交互三项拆解组合相对基准的超额收益。</li><li>区分 Brinson 归因与因子归因的适用场景。</li><li>列出绩效归因失效的 6 个条件，避免把残差当成能力。</li> </ul> </section> <section class="aside-card"> <h2>必需先修</h2> <ul> <li> <a href="/learn/performance-evaluation-and-attribution/">INV-021 · 绩效评价与归因</a> </li> </ul> </section> <section class="aside-card"> <h2>建议阅读</h2> <ul> <li> <a href="/learn/performance-evaluation-and-attribution/">INV-021 · 绩效评价与归因</a> </li><li> <a href="/learn/strategy-return-sources-beta-factors-capacity/">INV-031 · 策略的收益来源：beta、因子与容量</a> </li><li> <a href="/learn/investment-strategies/">INV-025 · 投资策略</a> </li> </ul> </section> <section class="aside-card"> <h2>AI 复核记录</h2> <p class="muted"> 本项目没有真人签字；下列状态来自 AI-only 编辑复核。 </p> <ul> <li> 事实与计算 ：AI 复核通过 </li><li> 学科 ：AI 复核通过 </li><li> 英文 ：AI 复核通过 </li><li> 页面 ：AI 复核通过 </li> </ul> </section> <section class="aside-card"> <h2>来源</h2> <div class="source"> <a href="https://rpc.cfainstitute.org/gips-standards" rel="noopener noreferrer" target="_blank">Global Investment Performance Standards (GIPS)</a> <p>CFA Institute · CFA Institute</p> <p>访问：2026-11-24 · 许可：Copyrighted; all rights reserved (cite-only)</p> <p>支持论点：用于核对本文关于「绩效归因」的公开概念、制度或历史背景；正文数字与算例为教学假设，不写成统计。</p> </div><div class="source"> <a href="https://openstax.org/books/principles-finance/pages/15-2-risk-and-return-to-multiple-assets" rel="noopener noreferrer" target="_blank">Principles of Finance, 15.2 Risk and Return to Multiple Assets</a> <p>Julie Dahlquist; Rainford Knight · OpenStax, Rice University</p> <p>访问：2026-11-24 · 许可：CC BY-NC-SA 4.0</p> <p>支持论点：用于核对本文关于「绩效归因」的公开概念、制度或历史背景；正文数字与算例为教学假设，不写成统计。</p> </div><div class="source"> <a href="https://openstax.org/books/principles-finance/pages/15-4-applications-in-performance-measurement" rel="noopener noreferrer" target="_blank">Principles of Finance, 15.4 Applications in Performance Measurement</a> <p>Julie Dahlquist; Rainford Knight · OpenStax, Rice University</p> <p>访问：2026-11-24 · 许可：CC BY-NC-SA 4.0</p> <p>支持论点：用于核对本文关于「绩效归因」的公开概念、制度或历史背景；正文数字与算例为教学假设，不写成统计。</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">非商业免费知识站。每篇标出来源与口径；这里没有投资建议。</p> </div> </div> <nav class="footer-links" aria-label="知识分站"> <a href="https://51invest.com/" data-main-home>首页</a> <a href="https://51invest.com/contents/">内容地图</a> <a href="/glossary/">术语表</a> <a href="/search/">搜索</a> <a href="https://51invest.com/charts/" data-main-link>图表</a> <a href="https://51invest.com/sources/" data-main-link>数据与许可</a> <a href="/">分站首页</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="知识分站"> <a class="mobile-link" href="https://51invest.com/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>首页</span> </a> <a class="mobile-link" href="https://51invest.com/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>知识分站</span> </a> <a class="mobile-link active" href="/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>分站首页</span> </a> <a class="mobile-link" href="/en/learn/performance-attribution-allocation-selection/" data-language-link="en"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

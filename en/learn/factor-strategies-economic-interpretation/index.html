@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="en" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Economic Interpretation of Factor Strategies · 51Invest</title><meta name="description" content="Use a hypothetical 12-month value factor series to show how factor portfolios are built, where returns may come from and how costs test the story, separating statistical from economic significance."><link rel="canonical" href="https://invest.51invest.com/en/learn/factor-strategies-economic-interpretation/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/factor-strategies-economic-interpretation/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/factor-strategies-economic-interpretation/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/factor-strategies-economic-interpretation/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">Skip to content</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/en/" data-main-home aria-label="51Invest"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">51Invest</span> <span class="brand-caption">WUYAO INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="Knowledge stations"> <a class="nav-link" href="https://51invest.com/en/" data-main-home> Home </a> <a class="nav-link" href="https://economics.51invest.com/en/"> Economics </a><a class="nav-link" href="https://finance.51invest.com/en/"> Finance </a><a class="nav-link" href="https://markets.51invest.com/en/"> Markets </a><a class="nav-link active" href="/en/" aria-current="page"> Investing </a><a class="nav-link" href="https://history.51invest.com/en/"> History </a><a class="nav-link" href="https://research.51invest.com/en/"> Research </a> <a class="nav-link" href="https://51invest.com/en/contents/"> Content map </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/learn/factor-strategies-economic-interpretation/" hreflang="zh-CN" lang="zh-CN" data-language-link="zh" aria-label="Switch to Chinese" title="Switch to Chinese"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="Theme: System" title="Theme: System" data-label-auto="Theme: System" data-label-light="Theme: Light" data-label-dark="Theme: Dark"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">System</span> <span class="theme-text" data-theme-text="light">Light</span> <span class="theme-text" data-theme-text="dark">Dark</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/en/" data-main-home>Home</a> <span class="sep">/</span> <a href="/en/">Investing</a> <span class="sep">/</span> <span aria-current="page">Economic Interpretation of Factor Strategies</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">Method</span> <h1 class="article-title">Economic Interpretation of Factor Strategies</h1> <p class="article-summary">Use a hypothetical 12-month value factor series to show how factor portfolios are built, where returns may come from and how costs test the story, separating statistical from economic significance.</p>  <div class="meta-grid"> <div class="meta-item"><span>Module</span><strong>INV-M08 · 量化与因子</strong></div> <div class="meta-item"><span>Level</span><strong>Systematic</strong></div> <div class="meta-item"><span>Read</span><strong>6 min · 14 sections</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> This article has an interactive demo <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>Problem and output</h2>
+<p>The inputs are a stock universe, a characteristic such as book-to-market, grouping rules and a holding period. The outputs are the long-short return series, risk exposures and an economic interpretation. The question is whether the return comes from bearing a risk, exploiting a mispricing or data mining, not simply what a backtest earned.</p>
+<h2>Inputs and data requirements</h2>
+<p>Point-in-time data: filing dates, prices and market value on the formation date; no restated data; breakpoints and rebalancing dates fixed in advance; returns include dividends and are adjusted; shorting costs, borrow availability and turnover recorded separately. The example is a hypothetical 12-month series of monthly long-short returns (%): 1.2, -0.8, 2.1, 0.4, 1.7, -1.1, 0.9, 2.3, -0.5, 1.4, 0.2, 1.0.</p>
+<p>Momentum is also built from a 2×3 sort on size and prior 2–12 month returns: Mom is the average return on the two high prior-return portfolios minus the average on the two low ones [2].</p>
+<h2>Assumptions</h2>
+<p>The universe excludes financials and microcaps; stocks are sorted on book-to-market at the end of June and held from July for 12 months; long the top 30% and short the bottom 30%, equal weight, with membership reset annually and weights rebalanced monthly; returns are after dividend tax but before trading costs; only 12 months are available.</p>
+<p>The French five-factor page gives the construction as six value-weight portfolios formed on size and book-to-market, six on size and operating profitability and six on size and investment; RMW is the spread between the two robust and two weak profitability portfolios, and CMA the spread between the two conservative and two aggressive investment portfolios [1]. The page names the sorting variables and portfolio formulas only; it does not give EBIT, asset growth or specific percentiles.</p>
+<p>This is a teaching example, so “profitability” is specified here as <code>EBIT/revenue</code> and “investment” as year-on-year growth in total assets; those definitions are this article’s gloss, not the French page’s wording [1]. The breakpoints borrow the French momentum page’s convention: NYSE 30th and 70th percentiles for low/middle/high groups, with the size breakpoint at the NYSE median [2]; the 2×3 page itself only says the sorts are on size and B/M and does not restate those percentiles [1].</p>
+<h2>Steps</h2>
+<ol>
+<li>Build the characteristic from published book value divided by June market value, avoiding look-ahead.</li>
+<li>Group at the 30/40/30 breakpoints (the NYSE 30th and 70th percentiles, giving low/middle/high groups); long high B/M and short low B/M.</li>
+<li>Build other factors the same way: size by market value, profitability by operating margin, investment by year-on-year growth in total assets and momentum by prior 2–12 month returns. Only the momentum leg’s sorting variables and portfolio formula match the French momentum page verbatim; specifying profitability as operating margin (<code>EBIT/revenue</code> here) and investment as asset growth is this article’s gloss on the variable [1][2]. Which end is long follows each definition, for example small stocks for size and low investment for CMA.</li>
+<li>Compute monthly long-short returns, giving 12 observations.</li>
+<li>Statistics: mean 0.73% per month, standard deviation 1.11%, t = 2.28.</li>
+<li>Charge 0.2% per month: mean 0.53%, t = 1.66; at 0.3%: 0.43%, t = 1.35.</li>
+<li>Drop the best month (2.3%): mean 0.59%, t = 1.87.</li>
+<li>State the economics: the value premium may compensate distress risk or reflect extrapolation and limits to arbitrage; the explanations imply different costs, holding periods and policy responses.</li>
+</ol>
+<p>The authors describe the five-factor model as capturing size, value, profitability and investment patterns and performing better than the three-factor model, with value becoming redundant in the description of average returns once profitability and investment are added — the abstract of that paper (Elsevier, hosted on RePEc IDEAS) [3].</p>
+<h2>Figure</h2>
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-015-chain-title fig-inv-015-chain-desc" viewBox="0 0 560 310" width="100%">
+    <title id="fig-inv-015-chain-title">INV-015: three-stage chain</title>
+    <desc id="fig-inv-015-chain-desc">Build characteristics: B/M, size, momentum; Compute returns: Monthly long-short returns; Deduct costs: Is the t-stat still significant?</desc>
+    <rect x="0.5" y="0.5" width="559" height="309" rx="12" fill="var(--surface)" stroke="var(--border)"/>
+    <rect x="24" y="16" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="16" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="35" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">START</text>
+    <text x="44" y="56" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Build characteristics</text>
+    <text x="44" y="76" font-size="10.5" fill="var(--secondary)" font-family="inherit">B/M, size, momentum</text>
+    <line x1="280" y1="102" x2="280" y2="108" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 106 L280 110 L284 106" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="112" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="112" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="131" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">MECHANISM</text>
+    <text x="44" y="152" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Compute returns</text>
+    <text x="44" y="172" font-size="10.5" fill="var(--secondary)" font-family="inherit">Monthly long-short returns</text>
+    <line x1="280" y1="198" x2="280" y2="204" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 202 L280 206 L284 202" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="208" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="208" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="227" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">CHECK</text>
+    <text x="44" y="248" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Deduct costs</text>
+    <text x="44" y="268" font-size="10.5" fill="var(--secondary)" font-family="inherit">Is the t-stat still significant?</text>
+  </svg>
+  <figcaption>Figure 1: a three-stage chain in INV-015 — Build characteristics → Compute returns → Deduct costs. The three stages form a judgment chain, not the only path; labels come from the article text and carry no statistics. The sample is the article argument and units are marked in the text.</figcaption>
+</figure>
+
+<h2>Interpreting the result</h2>
+<p>A gross 0.73% per month is about 9.2% a year compounded at the mean, but t = 2.28 only just clears the conventional threshold, falls to 1.87 without one month, and drops to 1.66 or lower after costs. Statistical significance is not economic viability, and one return series cannot prove an economic story by itself. A factor is the result of a ranking and weighting rule; &quot;the factor earns money&quot; is not an explanation.</p>
+<h2>Failure conditions</h2>
+<ul>
+<li>look-ahead, survivorship or restated data</li>
+<li>breakpoints changed after seeing results, or only the best of many attempts reported</li>
+<li>shorting costs, borrow limits and capacity ignored</li>
+<li>too short a sample, or one spanning structural change</li>
+<li>market, industry or size exposure mistaken for excess return</li>
+<li>returns explained with contemporaneous characteristics, which is circular</li>
+</ul>
+<h2>Verification</h2>
+<p>Test out of sample and in other markets; vary breakpoints, weighting and rebalancing; control for market, size, profitability and investment in a multifactor regression; use Newey-West errors; report every attempt, including failures.</p>
+<h2>Reproduction</h2>
+<p><code>long-short return = mean(high group) - mean(low group)</code>; <code>t = mean/(sd/√n)</code>. Example: 0.733/(1.114/√12) = 2.28. Record the universe, breakpoints, rebalancing dates, costs and data version.</p>
+<!-- kp-supplement:start -->
+<h2>Knowledge-point review</h2>
+<h3>value, growth, quality and dividend styles</h3>
+<p><strong>Definition</strong>: Value favours cheap valuations, growth high expansion, quality high returns and stability, and dividend high payouts; styles reflect different return sources and risks.</p>
+<p><strong>Mechanism</strong>: Value earns re-rating and risk premia, growth future cash-flow expansion, quality persistent returns, and dividend cash distribution; macro and rates drive rotation.</p>
+<p><strong>Example</strong>: For example, rising rates pressure long-duration growth and relatively help cheap value.</p>
+<p><strong>Boundary</strong>: Style is not a permanent label; definitions change, cycles and crowding reverse performance, value traps and growth bubbles exist, and single-style concentration is risky.</p>
+<h3>momentum</h3>
+<p><strong>Definition</strong>: Momentum is the tendency of recent winners to keep outperforming and losers to keep underperforming.</p>
+<p><strong>Mechanism</strong>: It comes from flows, underreaction and trend following; turnover is high, reversals hurt, and crowding deepens drawdowns.</p>
+<p><strong>Example</strong>: For example, a portfolio of the past year&#39;s top performers keeps rising until the trend turns.</p>
+<p><strong>Boundary</strong>: Momentum is not steady profit; ranges whipsaw, costs and taxes erode, and sharp reversals and squeezes cause large losses.</p>
+<h3>factor exposure</h3>
+<p><strong>Definition</strong>: Factor exposure is a portfolio&#39;s sensitivity to systematic traits such as market, value, growth, momentum, quality, size and low volatility.</p>
+<p><strong>Mechanism</strong>: Exposure is measured by holdings, regression and risk models; intended or unintended exposure drives return sources and risk concentration.</p>
+<p><strong>Example</strong>: For example, a small-cap growth portfolio is exposed to size, growth and momentum at once, amplifying drawdowns.</p>
+<p><strong>Boundary</strong>: More factors are not better; correlation, overlapping definitions and hidden exposures defeat diversification, and premia can stay depressed.</p>
+<h3>portfolio construction</h3>
+<p><strong>Definition</strong>: Portfolio construction turns views, risk budgets, constraints and execution into weights and trades.</p>
+<p><strong>Mechanism</strong>: It balances expected return, risk contribution, correlation, liquidity and cost; optimisation, layered and rules-based methods make different assumptions.</p>
+<p><strong>Example</strong>: For example, under a risk budget, a high-conviction low-volatility name gets more weight while sector and single-stock caps bind.</p>
+<p><strong>Boundary</strong>: Construction is not adding good stocks; bad inputs, conflicting constraints and over-optimisation create fragile portfolios, and trading costs eat paper returns.</p>
+<h3>capacity and costs</h3>
+<p><strong>Definition</strong>: Capacity is the capital a strategy can manage without materially hurting returns, and costs include trading, financing, management and taxes.</p>
+<p><strong>Mechanism</strong>: Capacity is limited by liquidity, turnover, depth and crowding; scale raises impact and lowers excess return.</p>
+<p><strong>Example</strong>: For example, a small-cap momentum strategy earns less as assets grow and impact and crowding rise.</p>
+<p><strong>Boundary</strong>: Capacity is not fixed; market structure, volatility and competition change, cost-light backtests ignore impact, and capacity estimates can be optimistic.</p>
+<!-- kp-supplement:end -->
+
+<h2>Related</h2>
+<ul>
+<li>Required prerequisite: Return, Risk and Cost Trade-offs (INV-002).</li>
+<li>Related reading: Return, Risk and Cost Trade-offs (INV-002), Diversification and Common Risk (INV-017), Covariance and Correlation (RES-010), Hypothesis Testing and Practical Significance (RES-012).</li>
+</ul>
+<h2>Figures in plain language</h2>
+<p>The three figures below check the mechanism, boundary and comparison in this article; labels come from its own sections, not new data.</p>
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-chain-title fig-batch-chain-desc" viewBox="0 0 340 304" width="100%">
+    <title id="fig-batch-chain-title">Economic Interpretation of Factor Strategies: mechanism chain</title>
+    <desc id="fig-batch-chain-desc">Economic Interpretation of Factor Strategies — three-step structure: problem, mechanism, judgment. Labels come from the article's sections, not new data.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Economic Interpretation of Factor Strategies: mechanism chain</text>
+    <text x="14" y="38" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Labels come from the article's sections; all three steps matter.</text>
+    <line x1="14" y1="46" x2="326" y2="46" stroke="var(--border)" stroke-width="1"/>
+    <g>
+      <rect x="14" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="22" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Problem</text>
+      <text x="22" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Use a hypothetica</text>
+      <text x="22" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">l 12-month value…</text>
+      <text x="22" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Use a hypothetic</text>
+      <text x="22" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">al 12-month</text>
+      <text x="22" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">value factor</text>
+      <text x="22" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">series to show</text>
+      <text x="22" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">how factor…</text>
+    </g>
+      <g>
+      <rect x="123" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="131" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Reproduction</text>
+      <text x="131" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Reproduction:</text>
+      <text x="131" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">long-short…</text>
+      <text x="131" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Reproduction:</text>
+      <text x="131" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">long-short</text>
+      <text x="131" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">return = mean(hi</text>
+      <text x="131" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">gh group) -</text>
+      <text x="131" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">mean(low group)…</text>
+    </g>
+      <g>
+      <rect x="232" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="240" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Inputs and data requirements</text>
+      <text x="240" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Point-in-time</text>
+      <text x="240" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">data: filing…</text>
+      <text x="240" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Point-in-time</text>
+      <text x="240" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">data: filing</text>
+      <text x="240" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">dates, prices</text>
+      <text x="240" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">and market</text>
+      <text x="240" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">value on the…</text>
+    </g>
+    <line x1="108" y1="144" x2="123" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M120 140 L125 144 L120 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="217" y1="144" x2="232" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M229 140 L234 144 L229 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="14" y1="250" x2="326" y2="250" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="266" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Reading order: test the problem, then the mechanism, then whether the judgment overreaches.</text>
+    <text x="14" y="280" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">If a middle step lacks evidence, later conclusions are hypotheses, not facts.</text>
+    <text x="14" y="294" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Structural illustration, not a new data chart; sample is the article's own argument.</text>
+  </svg>
+  <figcaption>Figure 2: Economic Interpretation of Factor Strategies — mechanism chain: problem, mechanism, judgment. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-boundary-title fig-batch-boundary-desc" viewBox="0 0 340 244" width="100%">
+    <title id="fig-batch-boundary-title">Economic Interpretation of Factor Strategies: boundary</title>
+    <desc id="fig-batch-boundary-desc">Separates conditions where the claim holds from those where it fails; a local example is not universal.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Economic Interpretation of Factor Strategies: when does it hold?</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <rect x="14" y="44" width="312" height="38" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="170" y="62" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="middle">Check the conditions before the conclusion</text>
+    <text x="170" y="75" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="middle">If conditions, definitions or samples change, recompute the conclusion</text>
+    <line x1="170" y1="82" x2="90" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="170" y1="82" x2="250" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <rect x="14" y="104" width="148" height="100" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="24" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Holds</text>
+    <text x="24" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">look-ahead, survivorship or</text>
+      <text x="24" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">restated data breakpoints</text>
+      <text x="24" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">changed after seeing</text>
+      <text x="24" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">results, or only the best…</text>
+    <rect x="178" y="104" width="148" height="100" rx="8" fill="var(--gold)" opacity="0.18" stroke="var(--border)"/>
+    <text x="188" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Fails / rewrite</text>
+    <text x="188" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">The inputs are a stock</text>
+      <text x="188" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">universe, a characteristic</text>
+      <text x="188" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">such as book-to-market,</text>
+      <text x="188" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">grouping rules and a…</text>
+    <line x1="14" y1="216" x2="326" y2="216" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="232" font-size="8.3" fill="var(--muted)" font-family="inherit" text-anchor="start">Boundary illustration; sample is the article's own argument; units as stated in the text.</text>
+  </svg>
+  <figcaption>Figure 3: Economic Interpretation of Factor Strategies — boundary: when the claim holds, and when it fails. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-compare-title fig-batch-compare-desc" viewBox="0 0 340 252" width="100%">
+    <title id="fig-batch-compare-title">Economic Interpretation of Factor Strategies: object, conditions and common mistakes</title>
+    <desc id="fig-batch-compare-desc">Three rows compare the concept, its conditions and common mistakes; comparison is not equivalence and does not replace a definition.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Economic Interpretation of Factor Strategies: object, conditions and common mistakes at a glance</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <text x="82" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">This article</text>
+    <text x="200" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Commonly confused</text>
+    <g>
+      <rect x="14" y="52" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="72" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Object</text>
+      <text x="82" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Use a hypothetical</text>
+      <text x="82" y="88" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">12-month value…</text>
+      <text x="200" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Adjacent concepts / common claims</text>
+    </g>
+    <g>
+      <rect x="14" y="110" width="312" height="58" fill="var(--surface-2)" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="130" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Conditions</text>
+      <text x="82" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">look-ahead, survivors</text>
+      <text x="82" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">hip or restated data…</text>
+      <text x="200" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">The inputs are a stock</text>
+      <text x="200" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">universe, a characteristic such…</text>
+    </g>
+    <g>
+      <rect x="14" y="168" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="188" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Check</text>
+      <text x="82" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Define first, then compare; never judge</text>
+      <text x="82" y="204" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">labels only</text>
+      <text x="200" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Correlation is not causation; a local case is not universal</text>
+    </g>
+    <text x="14" y="244" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Comparison illustration; sample is the article's own argument; units as stated in the text.</text>
+  </svg>
+  <figcaption>Figure 4: Economic Interpretation of Factor Strategies — comparison of object, conditions and common mistakes. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<h2>Exercises</h2>
+<ol>
+<li><strong>Calculation.</strong> What is the approximate annual return after a 0.2% monthly cost?</li>
+<li><strong>Judgement.</strong> Is a factor return with t = 2.28 and n = 12 a reliable premium?</li>
+<li><strong>Concept.</strong> How do the risk-compensation and mispricing explanations differ?</li>
+</ol>
+<details>
+<summary>Suggested answers</summary>
+
+<ol>
+<li>0.53% × 12 ≈ 6.4% simple, about 6.6% compounded.</li>
+<li>No: the sample is short, sensitive to one month, and 2.28 is gross of costs and unadjusted for multiple testing.</li>
+<li>Risk compensation pays for bearing bad states and may persist; mispricing is corrected by competition and arbitrage and should decay.</li>
+</ol>
+</details>
+
+<h2>Sources</h2>
+<ol>
+<li>Kenneth R. French. “Description of Fama/French 5 Factors (2x3).” <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html">https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html</a> (accessed 2026-10-30)</li>
+<li>Kenneth R. French. “Detail for Monthly Momentum Factor (Mom).” <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_mom_factor.html">https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_mom_factor.html</a> (accessed 2026-10-30)</li>
+<li>Eugene F. Fama and Kenneth R. French. “A five-factor asset pricing model.” Journal of Financial Economics 116(1), 1-22. <a href="https://ideas.repec.org/a/eee/jfinec/v116y2015i1p1-22.html">https://ideas.repec.org/a/eee/jfinec/v116y2015i1p1-22.html</a> (accessed 2026-10-30)</li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="en" aria-labelledby="demo-check-title" data-check-done="All three are covered: the core of this article is in place." data-check-pending="One item is still open: go back to the matching section and retell it with a number or counterexample." data-check-count="Ticked"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">Worked demo</p> <button class="demo-reset" type="button" data-demo-reset>Reset</button> </div> <h2 id="demo-check-title">Read-through check: can you say three things?</h2> <p class="demo-intro">No recitation needed. Tick each sentence below and see whether you can explain the mechanism, one worked example and one boundary in your own words.</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>Set out how a factor portfolio is built and test whether statistical significance survives costs and turnover</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>Give at least two competing economic explanations for a factor return and the evidence that would tell them apart</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>Name one condition under which the article’s conclusion does not hold</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> Ticked 0 / 3
+</p> </div> <p class="demo-footnote">The numbers are teaching assumptions that show relationships, not forecasts or investment advice.</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> This article has passed the current publication gate. Factual, calculation and translation revisions update both language versions together. </p> <p> <a class="button secondary" href="/en/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>Back to station </a> </p> </div> <aside class="article-aside" aria-label="Article information"> <section class="aside-card"> <h2>Learning objectives</h2> <ul> <li>Set out how a factor portfolio is built and test whether statistical significance survives costs and turnover</li><li>Give at least two competing economic explanations for a factor return and the evidence that would tell them apart</li> </ul> </section> <section class="aside-card"> <h2>Required prerequisites</h2> <ul> <li> <a href="/en/learn/return-risk-and-cost-tradeoffs/">INV-002 · Return, Risk and Cost Trade-offs</a> </li> </ul> </section> <section class="aside-card"> <h2>Recommended reading</h2> <ul> <li> <a href="/en/learn/return-risk-and-cost-tradeoffs/">INV-002 · Return, Risk and Cost Trade-offs</a> </li><li> <a href="/en/learn/diversification-and-common-risk/">INV-017 · Diversification and Common Risk</a> </li><li> <a href="https://research.51invest.com/en/learn/covariance-and-correlation/">RES-010 · Covariance and Correlation</a> </li><li> <a href="https://research.51invest.com/en/learn/hypothesis-testing-and-practical-significance/">RES-012 · Hypothesis Testing and Practical Significance</a> </li> </ul> </section> <section class="aside-card"> <h2>AI review record</h2> <p class="muted"> There is no human sign-off; these states come from the AI-only editorial review. </p> <ul> <li> Facts and calculations : AI review passed </li><li> Subject : AI review passed </li><li> English : AI review passed </li><li> Page : AI review passed </li> </ul> </section> <section class="aside-card"> <h2>Sources</h2> <div class="source"> <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html" rel="noopener noreferrer" target="_blank">Description of Fama/French 5 Factors (2x3)</a> <p>Kenneth R. French · Dartmouth College, Tuck School of Business</p> <p>Accessed: 2026-11-03 · License: Copyrighted; site notice prohibits use without permission (cite-only)</p> <p>Supports: Construction verbatim: &quot;The Fama/French 5 factors (2x3) are constructed using the 6 value-weight portfolios formed on size and book-to-market, the 6 value-weight portfolios formed on size and operating profitability, and the 6 value-weight portfolios formed on size and investment.&quot; &quot;RMW (Robust Minus Weak) is the average return on the two robust operating profitability portfolios minus the average return on the two weak operating profitability portfolios&quot; &quot;CMA (Conservative Minus Aggressive) is the average return on the two conservative investment portfolios minus the average return on the two aggressive investment portfolios&quot;. The page names only the sorting variables (size / book-to-market / operating profitability / investment) and the portfolio-level formulas; it never contains EBIT, asset growth, operating margin or any percentile number (measured word faces: 0 / 0 / 0 / 0 / 0 / 0), so &quot;profitability = EBIT/RE&quot;, &quot;investment = asset growth&quot; and &quot;30/40/30 breakpoints&quot; are not this page&#39;s wording.</p> </div><div class="source"> <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_mom_factor.html" rel="noopener noreferrer" target="_blank">Detail for Monthly Momentum Factor (Mom)</a> <p>Kenneth R. French · Dartmouth College, Tuck School of Business</p> <p>Accessed: 2026-11-03 · License: Copyrighted; site notice prohibits use without permission (cite-only)</p> <p>Supports: Momentum page verbatim: &quot;We use six value-weight portfolios formed on size and prior (2-12) returns to construct Mom.&quot; &quot;The monthly size breakpoint is the median NYSE market equity.&quot; &quot;The monthly prior (2-12) return breakpoints are the 30 th and 70 th NYSE percentiles.&quot; &quot;Mom is the average return on the two high prior return portfolios minus the average return on the two low prior return portfolios&quot;. This is the only page read here that states percentiles (the 30th and 70th NYSE percentiles, with the size breakpoint at the median NYSE market equity); it likewise never contains EBIT, asset growth, operating margin or book-to-market (measured: 0 / 0 / 0 / 0).</p> </div><div class="source"> <a href="https://ideas.repec.org/a/eee/jfinec/v116y2015i1p1-22.html" rel="noopener noreferrer" target="_blank">A five-factor asset pricing model (Journal of Financial Economics 116(1), 1-22; abstract)</a> <p>Eugene F. Fama; Kenneth R. French · Elsevier; abstract hosted by RePEc IDEAS</p> <p>Accessed: 2026-10-30 · License: RePEc index record; cite the indexed item and link, no reproduction</p> <p>Supports: The abstract states that the five-factor model captures size, value, profitability and investment patterns and performs better than the three-factor model; with profitability and investment added, the value factor becomes redundant for describing average returns in that sample.</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">A free, non-commercial knowledge site. Sources and definitions are labelled; nothing here is investment advice.</p> </div> </div> <nav class="footer-links" aria-label="Knowledge stations"> <a href="https://51invest.com/en/" data-main-home>Home</a> <a href="https://51invest.com/en/contents/">Content map</a> <a href="/en/glossary/">Glossary</a> <a href="/en/search/">Search</a> <a href="https://51invest.com/en/charts/" data-main-link>Charts</a> <a href="https://51invest.com/en/sources/" data-main-link>Data &amp; licences</a> <a href="/en/">Station home</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="Knowledge stations"> <a class="mobile-link" href="https://51invest.com/en/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>Home</span> </a> <a class="mobile-link" href="https://51invest.com/en/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>Knowledge stations</span> </a> <a class="mobile-link active" href="/en/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>Station home</span> </a> <a class="mobile-link" href="/learn/factor-strategies-economic-interpretation/" data-language-link="zh"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>因子策略的经济解释 · 巫妖投资</title><meta name="description" content="用价值因子的 12 个月假设数据说明因子组合的构造、收益来源与成本检验，区分统计显著与经济可行。"><link rel="canonical" href="https://invest.51invest.com/learn/factor-strategies-economic-interpretation/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/factor-strategies-economic-interpretation/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/factor-strategies-economic-interpretation/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/factor-strategies-economic-interpretation/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/" data-main-home aria-label="巫妖投资"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">巫妖投资</span> <span class="brand-caption">51INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="知识分站"> <a class="nav-link" href="https://51invest.com/" data-main-home> 首页 </a> <a class="nav-link" href="https://economics.51invest.com/"> 经济学 </a><a class="nav-link" href="https://finance.51invest.com/"> 金融基础 </a><a class="nav-link" href="https://markets.51invest.com/"> 市场与产品 </a><a class="nav-link active" href="/" aria-current="page"> 投资方法 </a><a class="nav-link" href="https://history.51invest.com/"> 经济与金融史 </a><a class="nav-link" href="https://research.51invest.com/"> 研究方法 </a> <a class="nav-link" href="https://51invest.com/contents/"> 内容地图 </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/en/learn/factor-strategies-economic-interpretation/" hreflang="en" lang="en" data-language-link="en" aria-label="切换为英文" title="切换为英文"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="主题: 跟随系统" title="主题: 跟随系统" data-label-auto="主题: 跟随系统" data-label-light="主题: 浅色" data-label-dark="主题: 深色"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">跟随系统</span> <span class="theme-text" data-theme-text="light">浅色</span> <span class="theme-text" data-theme-text="dark">深色</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/" data-main-home>首页</a> <span class="sep">/</span> <a href="/">投资方法</a> <span class="sep">/</span> <span aria-current="page">因子策略的经济解释</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">方法</span> <h1 class="article-title">因子策略的经济解释</h1> <p class="article-summary">用价值因子的 12 个月假设数据说明因子组合的构造、收益来源与成本检验，区分统计显著与经济可行。</p>  <div class="meta-grid"> <div class="meta-item"><span>模块</span><strong>INV-M08 · 量化与因子</strong></div> <div class="meta-item"><span>层级</span><strong>系统</strong></div> <div class="meta-item"><span>阅读</span><strong>7 分钟 · 14 节</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> 这篇有一个可以动手操作的演示 <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>问题与输出</h2>
+<p>输入是股票池、特征值（如账面市值比）、分组规则和持有期；输出是多空组合的收益序列、风险暴露和经济解释。它要回答“这条收益来自承担什么风险、利用什么错误定价，还是数据挖掘”，而不是只报一个回测收益。</p>
+<h2>输入与数据要求</h2>
+<p>使用时点数据：财报发布日、当日价格与市值；不能用修订后的数据；分组断点和再平衡日事先固定；收益含分红并复权；做空成本、借券可得性和换手率单独记录。示例为 12 个月的假设月度多空收益（%）：1.2、-0.8、2.1、0.4、1.7、-1.1、0.9、2.3、-0.5、1.4、0.2、1.0。</p>
+<p>动量因子也按 2×3 分组构造：按规模和过去第 2 至 12 个月收益分组，Mom 是两个高 prior 收益组合的平均收益减去两个低 prior 收益组合的平均收益[2]。</p>
+<h2>假设</h2>
+<p>股票池剔除金融与微盘股；按账面市值比在每年 6 月底排序，7 月起持有 12 个月；做多最高 30%、做空最低 30%，等权，成员每年重排，权重按月再平衡；收益已扣股息税但未扣交易成本；样本只有 12 个月。</p>
+<p>French 的 5 因子页面给出的构造是：按规模与账面市值比、规模与营业利润率、规模与投资分别形成 6 个价值加权组合；RMW 是两端营业利润率组合的平均收益差，CMA 是两端投资组合的平均收益差[1]。页面只写到排序变量名和组合层面的公式，没有给出 EBIT、资产增速或具体分位数。</p>
+<p>本文是教学示例，因此把“盈利”具体化为 <code>EBIT/营业收入</code>，把“投资”具体化为总资产同比增速；这两个口径是本文的说明，不是 French 页面的原话[1]。分组断点也借用 French 动量页的写法：NYSE 30 与 70 百分位切出低／中／高三组，规模断点为 NYSE 中位数[2]；2×3 页本身只说明按规模和 B/M 分组，未重述这些百分位[1]。</p>
+<h2>步骤</h2>
+<ol>
+<li>构造特征：用已公布财报的账面价值除以 6 月底市值，避免前视偏差。</li>
+<li>分组：按 30/40/30 分位（即 NYSE 30 与 70 百分位切出低／中／高三组），做多高 B/M，做空低 B/M。</li>
+<li>其他因子用同一逻辑：规模按市值、盈利按营业利润率、投资按总资产同比增速、动量按过去第 2 至 12 个月收益分组。只有动量的排序变量与组合公式能逐字对上 French 动量页；把“盈利”具体化为营业利润率（本文用 <code>EBIT/营业收入</code> 近似）、把“投资”具体化为总资产同比增速，是本文对变量口径的说明[1][2]。做多哪一端由因子定义决定，例如规模做多小市值，投资做多低投资。</li>
+<li>计算月度多空收益，得到 12 个观测。</li>
+<li>统计：均值 0.73%/月，标准差 1.11%，t=2.28。</li>
+<li>扣 0.2%/月成本后均值 0.53%，t=1.66；扣 0.3% 后为 0.43%，t=1.35。</li>
+<li>去掉最好的一个月（2.3%），均值 0.59%，t=1.87。</li>
+<li>写下经济解释：价值溢价可能补偿困境风险，也可能来自外推与套利限制；两种解释对成本、持有期和政策含义不同。</li>
+</ol>
+<p>五因子模型被作者描述为刻画规模、价值、盈利与投资模式并优于三因子模型，加入盈利与投资因子后，价值在该样本中对平均收益的描述变为冗余——这条判断取自该文摘要（Elsevier 出版、RePEc IDEAS 托管）[3]。</p>
+<h2>图表</h2>
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-015-chain-title fig-inv-015-chain-desc" viewBox="0 0 560 310" width="100%">
+    <title id="fig-inv-015-chain-title">INV-015：三段判断链</title>
+    <desc id="fig-inv-015-chain-desc">构造特征：B/M、市值、动量；算收益：多空组合的月度收益；扣成本：t 值还显著吗</desc>
+    <rect x="0.5" y="0.5" width="559" height="309" rx="12" fill="var(--surface)" stroke="var(--border)"/>
+    <rect x="24" y="16" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="16" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="35" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">起点</text>
+    <text x="44" y="56" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">构造特征</text>
+    <text x="44" y="76" font-size="10.5" fill="var(--secondary)" font-family="inherit">B/M、市值、动量</text>
+    <line x1="280" y1="102" x2="280" y2="108" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 106 L280 110 L284 106" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="112" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="112" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="131" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">机制</text>
+    <text x="44" y="152" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">算收益</text>
+    <text x="44" y="172" font-size="10.5" fill="var(--secondary)" font-family="inherit">多空组合的月度收益</text>
+    <line x1="280" y1="198" x2="280" y2="204" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 202 L280 206 L284 202" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="208" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="208" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="227" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">判断</text>
+    <text x="44" y="248" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">扣成本</text>
+    <text x="44" y="268" font-size="10.5" fill="var(--secondary)" font-family="inherit">t 值还显著吗</text>
+  </svg>
+  <figcaption>图 1：INV-015的三段判断链——构造特征 → 算收益 → 扣成本。三段是判断链，不是唯一路径；图中文字取自本文正文，不含统计数据。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<h2>结果解读</h2>
+<p>毛收益 0.73%/月约为 9.2%/年（按均值复利），但 t=2.28 只略高于常规门槛，去掉一个月就降到 1.87，计入成本后进一步降到 1.66 或更低。统计显著不等于经济可行，经济解释也不能由一条收益序列单独证明。因子是排序与加权规则的结果，“因子本身会赚钱”不是解释。</p>
+<h2>失败条件</h2>
+<ul>
+<li>前视偏差、幸存者偏差或使用修订后数据；</li>
+<li>看到结果后调整断点，多次尝试只报最优；</li>
+<li>忽略做空成本、借券限制与容量；</li>
+<li>样本期过短，或跨越结构性变化；</li>
+<li>把市场、行业或规模暴露误当成超额收益；</li>
+<li>用同期收益解释同期特征，形成循环。</li>
+</ul>
+<h2>验证</h2>
+<p>做样本外和不同市场检验；更换分组比例、加权方式与再平衡频率；用多因子回归控制市场、规模、盈利与投资；使用 Newey-West 调整；报告全部尝试次数和失败结果。</p>
+<h2>复现</h2>
+<p><code>多空收益 = 高组平均收益 - 低组平均收益</code>；<code>t = 均值/(标准差/√n)</code>。示例：0.733/(1.114/√12)=2.28。记录股票池、断点、再平衡日、成本与数据版本。</p>
+<!-- kp-supplement:start -->
+<h2>知识点精读</h2>
+<h3>价值成长质量红利</h3>
+<p><strong>定义</strong>：价值偏好低估值，成长偏好高增长，质量偏好高回报稳健，红利偏好高分红；风格反映不同的收益来源和风险。</p>
+<p><strong>机制</strong>：价值赚估值修复和风险补偿，成长赚未来现金流增长，质量赚持续回报，红利赚现金分配；宏观和利率环境影响风格轮动。</p>
+<p><strong>例子</strong>：例如利率上升时长久期成长股承压，低估值价值股相对受益。</p>
+<p><strong>边界</strong>：风格不是永久标签；定义可变、周期和拥挤会使表现反转，价值陷阱和成长泡沫都存在，单一风格集中风险高。</p>
+<h3>动量</h3>
+<p><strong>定义</strong>：动量是过去一段时间表现强的资产继续跑赢、弱的继续跑输的趋势。</p>
+<p><strong>机制</strong>：动量来自资金流、反应不足和趋势跟随；换手高、反转时损失大，拥挤会放大回撤。</p>
+<p><strong>例子</strong>：例如过去一年涨幅最高的股票组合继续上涨，直到趋势反转。</p>
+<p><strong>边界</strong>：动量不是稳赚；震荡市反复止损，交易成本和税侵蚀，极端反转和挤空会造成大幅亏损。</p>
+<h3>因子暴露</h3>
+<p><strong>定义</strong>：因子暴露是组合对市场、价值、成长、动量、质量、规模、低波等系统性特征的敏感度。</p>
+<p><strong>机制</strong>：暴露可通过持仓、回归和风险模型衡量；有意或无意暴露决定收益来源和风险集中。</p>
+<p><strong>例子</strong>：例如小盘成长组合同时暴露于规模、成长和动量因子，回撤时可能同向放大。</p>
+<p><strong>边界</strong>：因子不是越多越好；相关性、定义重叠和隐藏暴露会使分散失效，因子溢价也会长期低迷。</p>
+<h3>组合构建</h3>
+<p><strong>定义</strong>：组合构建是把观点、风险预算、约束和执行转化为权重和交易的过程。</p>
+<p><strong>机制</strong>：构建需平衡预期收益、风险贡献、相关性、流动性和成本；优化、分层和规则化方法各有假设。</p>
+<p><strong>例子</strong>：例如在风险预算下给高信心低波动标的更高权重，同时限制行业和单股集中度。</p>
+<p><strong>边界</strong>：构建不是简单加总好股票；输入错误、约束冲突和过度优化会生成脆弱组合，交易成本也会吃掉纸面收益。</p>
+<h3>容量与成本</h3>
+<p><strong>定义</strong>：容量是策略在不显著损害收益的前提下能管理的资金规模，成本包括交易、融资、管理和税。</p>
+<p><strong>机制</strong>：容量受流动性、换手、市场深度和拥挤限制；规模上升会推高冲击成本并降低超额收益。</p>
+<p><strong>例子</strong>：例如小盘动量策略资金变大后，买卖冲击和拥挤使收益下降。</p>
+<p><strong>边界</strong>：容量不是固定数字；市场结构、波动和竞争会变化，低成本回测常忽略冲击，容量估计也可能过于乐观。</p>
+<!-- kp-supplement:end -->
+
+<h2>关联</h2>
+<ul>
+<li>必需先修：收益风险与成本的取舍（INV-002）。</li>
+<li>相关与推荐阅读：收益风险与成本的取舍（INV-002）、分散化与共同风险（INV-017）、协方差与相关性（RES-010）、假设检验与实际意义（RES-012）。</li>
+</ul>
+<h2>图解</h2>
+<p>下面三张图分别检查本文的机制、边界与对照；图内文字取自本文小节，不是新数据。</p>
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-chain-title fig-batch-chain-desc" viewBox="0 0 340 304" width="100%">
+    <title id="fig-batch-chain-title">因子策略的经济解释：机制链</title>
+    <desc id="fig-batch-chain-desc">因子策略的经济解释 的三段结构：问题、机制、判断。图内文字取自本文小节，不是新的数据估计。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">因子策略的经济解释：机制链</text>
+    <text x="14" y="38" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图内文字取自本文小节；三段缺一不可。</text>
+    <line x1="14" y1="46" x2="326" y2="46" stroke="var(--border)" stroke-width="1"/>
+    <g>
+      <rect x="14" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="22" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">问题</text>
+      <text x="22" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">用价值因子的 12</text>
+      <text x="22" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">个月假设数据说明因子…</text>
+      <text x="22" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">用价值因子的 12</text>
+      <text x="22" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">个月假设数据说明因</text>
+      <text x="22" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">子组合的构造、收益</text>
+      <text x="22" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">来源与成本检验，区</text>
+      <text x="22" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">分统计显著与经济可…</text>
+    </g>
+      <g>
+      <rect x="123" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="131" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">问题与输出</text>
+      <text x="131" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">问题与输出：输入是股</text>
+      <text x="131" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">票池、特征值（如账面…</text>
+      <text x="131" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">问题与输出：输入是</text>
+      <text x="131" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">股票池、特征值（如</text>
+      <text x="131" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">账面市值比）、分组</text>
+      <text x="131" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">规则和持有期；输出</text>
+      <text x="131" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">是多空组合的收益序…</text>
+    </g>
+      <g>
+      <rect x="232" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="240" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">输入与数据要求</text>
+      <text x="240" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">使用时点数据：财报发</text>
+      <text x="240" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">布日、当日价格与市值…</text>
+      <text x="240" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">使用时点数据：财报</text>
+      <text x="240" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">发布日、当日价格与</text>
+      <text x="240" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">市值；不能用修订后</text>
+      <text x="240" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">的数据；分组断点和</text>
+      <text x="240" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">再平衡日事先固定…</text>
+    </g>
+    <line x1="108" y1="144" x2="123" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M120 140 L125 144 L120 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="217" y1="144" x2="232" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M229 140 L234 144 L229 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="14" y1="250" x2="326" y2="250" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="266" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">读法：先看问题能否成立，再看机制能否连通，最后看判断会不会越界。</text>
+    <text x="14" y="280" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">若中间一步缺证据，后面的结论只能当假设，不能当事实。</text>
+    <text x="14" y="294" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图为结构示意，不是新的数据图；样本为本文论证。</text>
+  </svg>
+  <figcaption>图 2：因子策略的经济解释的机制链：从问题、机制到判断。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-boundary-title fig-batch-boundary-desc" viewBox="0 0 340 244" width="100%">
+    <title id="fig-batch-boundary-title">因子策略的经济解释：适用边界</title>
+    <desc id="fig-batch-boundary-desc">把成立条件与失效条件分开；局部例子不能自动推广到所有情形。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">因子策略的经济解释：什么情况下成立？</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <rect x="14" y="44" width="312" height="38" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="170" y="62" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="middle">先检查条件，再看结论</text>
+    <text x="170" y="75" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="middle">条件、口径或样本一变，结论可能要重算</text>
+    <line x1="170" y1="82" x2="90" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="170" y1="82" x2="250" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <rect x="14" y="104" width="148" height="100" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="24" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">成立</text>
+    <text x="24" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">前视偏差、幸存者偏差或使用修订后</text>
+      <text x="24" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">数据； 看到结果后调整断点，多次尝</text>
+      <text x="24" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">试只报最优； 忽略做空成本、借券</text>
+      <text x="24" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">限制与容量； 样本期过短，或跨越结…</text>
+    <rect x="178" y="104" width="148" height="100" rx="8" fill="var(--gold)" opacity="0.18" stroke="var(--border)"/>
+    <text x="188" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">不成立 / 需改写</text>
+    <text x="188" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">必需先修：收益风险与成本的取舍（I</text>
+      <text x="188" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">NV-002）。</text>
+    <line x1="14" y1="216" x2="326" y2="216" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="232" font-size="8.3" fill="var(--muted)" font-family="inherit" text-anchor="start">图为边界示意；样本为本文论证，单位为文中标注。</text>
+  </svg>
+  <figcaption>图 3：因子策略的经济解释的边界：哪些条件成立，哪些条件失效。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-compare-title fig-batch-compare-desc" viewBox="0 0 340 252" width="100%">
+    <title id="fig-batch-compare-title">因子策略的经济解释：对象、前提与常见误区</title>
+    <desc id="fig-batch-compare-desc">三行比较本文概念、成立条件与常见误区；比较不等于等价，也不能替代定义。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">因子策略的经济解释：一张表看对象、前提与误区</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <text x="82" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">本篇</text>
+    <text x="200" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">容易混淆</text>
+    <g>
+      <rect x="14" y="52" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="72" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">对象</text>
+      <text x="82" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">用价值因子的 12</text>
+      <text x="82" y="88" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">个月假设数据说明因子组合…</text>
+      <text x="200" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">相邻概念/常见说法</text>
+    </g>
+    <g>
+      <rect x="14" y="110" width="312" height="58" fill="var(--surface-2)" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="130" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">前提</text>
+      <text x="82" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">前视偏差、幸存者偏差或使</text>
+      <text x="82" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">用修订后数据…</text>
+      <text x="200" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">必需先修：收益风险与成本的取舍（INV-0</text>
+      <text x="200" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">02）。</text>
+    </g>
+    <g>
+      <rect x="14" y="168" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="188" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">检查</text>
+      <text x="82" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">先定义，再比较；不能只看</text>
+      <text x="82" y="204" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">名称</text>
+      <text x="200" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">相关不等于因果，局部不等于普遍</text>
+    </g>
+    <text x="14" y="244" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图为比较示意；样本为本文论证，单位为文中标注。</text>
+  </svg>
+  <figcaption>图 4：因子策略的经济解释的对象、前提与常见误区比较。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<h2>练习</h2>
+<ol>
+<li><strong>计算。</strong> 示例中扣除 0.2%/月成本后的年化收益约为多少？</li>
+<li><strong>判断。</strong> t=2.28、n=12 的因子收益能否直接视为可靠溢价？</li>
+<li><strong>概念。</strong> 风险补偿与错误定价两种解释有何不同？</li>
+</ol>
+<details>
+<summary>参考答案</summary>
+
+<ol>
+<li>0.53%×12≈6.4%（简单年化），按复利约 6.6%。</li>
+<li>不能；样本短、对单月敏感，2.28 本身未扣成本，也未做多重检验调整。</li>
+<li>风险补偿是对承担不利状态的报酬，可能长期存在；错误定价来自偏差被纠正，会因竞争与套利而衰减。</li>
+</ol>
+</details>
+
+<h2>来源</h2>
+<ol>
+<li>Kenneth R. French. “Description of Fama/French 5 Factors (2x3).” <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html">https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html</a>（访问日期：2026-10-30）</li>
+<li>Kenneth R. French. “Detail for Monthly Momentum Factor (Mom).” <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_mom_factor.html">https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_mom_factor.html</a>（访问日期：2026-10-30）</li>
+<li>Eugene F. Fama and Kenneth R. French. “A five-factor asset pricing model.” Journal of Financial Economics 116(1), 1-22. <a href="https://ideas.repec.org/a/eee/jfinec/v116y2015i1p1-22.html">https://ideas.repec.org/a/eee/jfinec/v116y2015i1p1-22.html</a>（访问日期：2026-10-30）</li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="zh" aria-labelledby="demo-check-title" data-check-done="三项都能说清：这篇的核心已经过关。" data-check-pending="还差一项：回到正文对应小节，找一个反例或数字再讲一遍。" data-check-count="已勾选"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">动手演示</p> <button class="demo-reset" type="button" data-demo-reset>恢复默认</button> </div> <h2 id="demo-check-title">读完自检：三句话能不能说清</h2> <p class="demo-intro">不用背定义。把下面三句逐个勾上，看自己能不能用自己的话讲清机制、算例和边界。</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>能说明因子组合的构造步骤，并用成本与换手检验统计显著是否等于经济可行</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>能给出因子收益的至少两种竞争性经济解释及其可观察的判别证据</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>能说出一个本文结论不适用的条件</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> 已勾选 0 / 3
+</p> </div> <p class="demo-footnote">数字为教学假设，用来展示关系，不构成预测或投资建议。</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> 本文已通过当前发布门槛；事实、计算与译文如有修订，会同步更新两个语言版本。 </p> <p> <a class="button secondary" href="/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>返回分站 </a> </p> </div> <aside class="article-aside" aria-label="文章信息"> <section class="aside-card"> <h2>学习目标</h2> <ul> <li>能说明因子组合的构造步骤，并用成本与换手检验统计显著是否等于经济可行</li><li>能给出因子收益的至少两种竞争性经济解释及其可观察的判别证据</li> </ul> </section> <section class="aside-card"> <h2>必需先修</h2> <ul> <li> <a href="/learn/return-risk-and-cost-tradeoffs/">INV-002 · 收益风险与成本的取舍</a> </li> </ul> </section> <section class="aside-card"> <h2>建议阅读</h2> <ul> <li> <a href="/learn/return-risk-and-cost-tradeoffs/">INV-002 · 收益风险与成本的取舍</a> </li><li> <a href="/learn/diversification-and-common-risk/">INV-017 · 分散化与共同风险</a> </li><li> <a href="https://research.51invest.com/learn/covariance-and-correlation/">RES-010 · 协方差与相关性</a> </li><li> <a href="https://research.51invest.com/learn/hypothesis-testing-and-practical-significance/">RES-012 · 假设检验与实际意义</a> </li> </ul> </section> <section class="aside-card"> <h2>AI 复核记录</h2> <p class="muted"> 本项目没有真人签字；下列状态来自 AI-only 编辑复核。 </p> <ul> <li> 事实与计算 ：AI 复核通过 </li><li> 学科 ：AI 复核通过 </li><li> 英文 ：AI 复核通过 </li><li> 页面 ：AI 复核通过 </li> </ul> </section> <section class="aside-card"> <h2>来源</h2> <div class="source"> <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html" rel="noopener noreferrer" target="_blank">Description of Fama/French 5 Factors (2x3)</a> <p>Kenneth R. French · Dartmouth College, Tuck School of Business</p> <p>访问：2026-11-03 · 许可：Copyrighted; site notice prohibits use without permission (cite-only)</p> <p>支持论点：构造句逐字：&quot;The Fama/French 5 factors (2x3) are constructed using the 6 value-weight portfolios formed on size and book-to-market, the 6 value-weight portfolios formed on size and operating profitability, and the 6 value-weight portfolios formed on size and investment.&quot;；&quot;RMW (Robust Minus Weak) is the average return on the two robust operating profitability portfolios minus the average return on the two weak operating profitability portfolios&quot;；&quot;CMA (Conservative Minus Aggressive) is the average return on the two conservative investment portfolios minus the average return on the two aggressive investment portfolios&quot;。该页只写到排序变量名（size / book-to-market / operating profitability / investment）与组合层面公式，未出现 EBIT、asset growth、operating margin 与任何分位数数字（实测词面命中 0／0／0／0／0／0），故&quot;盈利比率＝EBIT/RE&quot;&quot;投资＝资产增长&quot;&quot;30/40/30 断点&quot;不是本页原话。</p> </div><div class="source"> <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_mom_factor.html" rel="noopener noreferrer" target="_blank">Detail for Monthly Momentum Factor (Mom)</a> <p>Kenneth R. French · Dartmouth College, Tuck School of Business</p> <p>访问：2026-11-03 · 许可：Copyrighted; site notice prohibits use without permission (cite-only)</p> <p>支持论点：动量因子页逐字：&quot;We use six value-weight portfolios formed on size and prior (2-12) returns to construct Mom.&quot; &quot;The monthly size breakpoint is the median NYSE market equity.&quot; &quot;The monthly prior (2-12) return breakpoints are the 30 th and 70 th NYSE percentiles.&quot; &quot;Mom is the average return on the two high prior return portfolios minus the average return on the two low prior return portfolios&quot;。这是本站读到的页面里唯一写出分位数的一处（30 与 70 的 NYSE 百分位，规模断点为 NYSE 中位数）；该页同样不出现 EBIT、asset growth、operating margin 与 book-to-market（实测 0／0／0／0）。</p> </div><div class="source"> <a href="https://ideas.repec.org/a/eee/jfinec/v116y2015i1p1-22.html" rel="noopener noreferrer" target="_blank">A five-factor asset pricing model (Journal of Financial Economics 116(1), 1-22; abstract)</a> <p>Eugene F. Fama; Kenneth R. French · Elsevier; abstract hosted by RePEc IDEAS</p> <p>访问：2026-10-30 · 许可：RePEc index record; cite the indexed item and link, no reproduction</p> <p>支持论点：摘要称五因子模型刻画规模、价值、盈利与投资模式，表现优于三因子模型；加入盈利与投资因子后，价值因子在该样本中对平均收益的描述变为冗余。</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">非商业免费知识站。每篇标出来源与口径；这里没有投资建议。</p> </div> </div> <nav class="footer-links" aria-label="知识分站"> <a href="https://51invest.com/" data-main-home>首页</a> <a href="https://51invest.com/contents/">内容地图</a> <a href="/glossary/">术语表</a> <a href="/search/">搜索</a> <a href="https://51invest.com/charts/" data-main-link>图表</a> <a href="https://51invest.com/sources/" data-main-link>数据与许可</a> <a href="/">分站首页</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="知识分站"> <a class="mobile-link" href="https://51invest.com/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>首页</span> </a> <a class="mobile-link" href="https://51invest.com/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>知识分站</span> </a> <a class="mobile-link active" href="/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>分站首页</span> </a> <a class="mobile-link" href="/en/learn/factor-strategies-economic-interpretation/" data-language-link="en"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="en" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP · 51Invest</title><meta name="description" content="Trading cost is not just a commission; it is the gap between the decision price and execution price, made of delay, spread, impact and opportunity cost."><link rel="canonical" href="https://invest.51invest.com/en/learn/transaction-cost-analysis-impact-slippage-vwap-twap/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/transaction-cost-analysis-impact-slippage-vwap-twap/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/transaction-cost-analysis-impact-slippage-vwap-twap/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/transaction-cost-analysis-impact-slippage-vwap-twap/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">Skip to content</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/en/" data-main-home aria-label="51Invest"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">51Invest</span> <span class="brand-caption">WUYAO INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="Knowledge stations"> <a class="nav-link" href="https://51invest.com/en/" data-main-home> Home </a> <a class="nav-link" href="https://economics.51invest.com/en/"> Economics </a><a class="nav-link" href="https://finance.51invest.com/en/"> Finance </a><a class="nav-link" href="https://markets.51invest.com/en/"> Markets </a><a class="nav-link active" href="/en/" aria-current="page"> Investing </a><a class="nav-link" href="https://history.51invest.com/en/"> History </a><a class="nav-link" href="https://research.51invest.com/en/"> Research </a> <a class="nav-link" href="https://51invest.com/en/contents/"> Content map </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/learn/transaction-cost-analysis-impact-slippage-vwap-twap/" hreflang="zh-CN" lang="zh-CN" data-language-link="zh" aria-label="Switch to Chinese" title="Switch to Chinese"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="Theme: System" title="Theme: System" data-label-auto="Theme: System" data-label-light="Theme: Light" data-label-dark="Theme: Dark"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">System</span> <span class="theme-text" data-theme-text="light">Light</span> <span class="theme-text" data-theme-text="dark">Dark</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/en/" data-main-home>Home</a> <span class="sep">/</span> <a href="/en/">Investing</a> <span class="sep">/</span> <span aria-current="page">Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">Method</span> <h1 class="article-title">Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP</h1> <p class="article-summary">Trading cost is not just a commission; it is the gap between the decision price and execution price, made of delay, spread, impact and opportunity cost.</p>  <div class="meta-grid"> <div class="meta-item"><span>Module</span><strong>INV-M10 · 交易与执行</strong></div> <div class="meta-item"><span>Level</span><strong>Systematic</strong></div> <div class="meta-item"><span>Read</span><strong>7 min · 22 sections</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> This article has an interactive demo <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>Definition</h2>
+<p><strong>Implementation shortfall</strong> is the difference between the paper portfolio return at decision time and the actual portfolio return; Perold separates it into explicit commissions, the gap between execution and decision price, and the opportunity cost of unfilled quantity [3]. <strong>Slippage</strong> is an adverse move from a benchmark price; <strong>market impact</strong> is the price concession caused by the order consuming liquidity. <strong>VWAP</strong> is a volume-weighted average price and <strong>TWAP</strong> a time-sliced average; both are execution benchmarks, not investment decision benchmarks.</p>
+<h2>Intuition</h2>
+<p>Transaction cost is like buying an airline ticket: beyond the fare there are seat selection, baggage, change fees and airport transport. An order has a decision price, arrival price, execution price and close, and each step can leak return. VWAP is the volume-weighted average market price; TWAP is the time-weighted average. They are two benchmark fares. Evaluating a large order against VWAP asks &#39;did I buy better than the market average?&#39;; evaluating against arrival asks &#39;how much did I pay from decision to execution?&#39; Different benchmarks can produce opposite conclusions.</p>
+<h2>Mechanism</h2>
+<p>Larger orders, thinner liquidity and greater urgency increase impact. The spread is the cost of immediate execution; delay is exposure to price drift while waiting; opportunity cost is the move missed when a limit order does not fill. VWAP compares executions with market volume and is useful for &#39;did we track the market&#39;, but a large order is part of that volume and can become self-referential; TWAP controls time but ignores volume distribution. POV slices by participation rate, limiting impact but risking incomplete execution when liquidity disappears. Benchmark choice changes the definition of cost, so the objective must come first [1][2].</p>
+<h2>Worked example</h2>
+<p>Suppose the decision price is CNY 50.00, the order is 100,000 shares, arrival price is CNY 50.20, average execution is CNY 50.50, the close is CNY 51.00, and commissions and taxes total CNY 2,000. Paper cost is CNY 5.00 million and actual cost is CNY 5.05 million, a shortfall of CNY 50,000. Delay cost is (50.20 − 50.00) × 100,000 = CNY 20,000; impact cost is (50.50 − 50.20) × 100,000 = CNY 30,000; explicit fees are CNY 2,000; total CNY 52,000. If only 80,000 shares fill, the 20,000-share opportunity cost at the close is (51.00 − 50.00) × 20,000 = CNY 20,000. Shortfall is often in basis points: 52,000 / 5,000,000 ≈ 104 bp. These are teaching assumptions.</p>
+<h2>Second worked example: decomposing implementation shortfall</h2>
+<p>Suppose you decide to buy 10,000 shares at a decision price of CNY 100.00. At arrival the market is CNY 100.20, the period VWAP is CNY 100.50 and your average execution is CNY 100.80. Implementation shortfall = (100.80 − 100.00) × 10,000 = CNY 8,000, or 80 basis points of the decision value. Delay cost = (100.20 − 100.00) × 10,000 = CNY 2,000; impact versus arrival = (100.80 − 100.20) × 10,000 = CNY 6,000; gap versus VWAP = (100.80 − 100.50) × 10,000 = CNY 3,000. Against VWAP the cost is 30bp; against the decision price it is 80bp. Both are correct but answer different questions. These are teaching assumptions and exclude commissions, tax and opportunity cost.</p>
+<h2>Boundary and common mistakes</h2>
+<p>First, a low VWAP does not prove good execution: if the order itself lifts volume, VWAP is influenced by the trade. Second, TWAP ignores intraday liquidity and can increase impact at the open or close. Third, low commissions do not mean low total cost; impact and opportunity cost can dominate. Fourth, short-term drawdown and trading cost must be separated; not every market fall is slippage. Fifth, set the benchmark and urgency ex ante, or the ex-post analysis can choose a convenient ruler.</p>
+<h2>Failure modes</h2>
+<p>The first failure is the wrong benchmark: using VWAP for an urgent build-up understates delay cost; using the decision price for a passive allocation turns a market-wide rally into an execution loss. The second is too small a sample: one day or one order is noisy, and a single 10,000-share order cannot establish annual skill. The third is gaming the benchmark: a trader can push executions toward the close to flatter VWAP while raising real impact and opportunity cost. The fourth is ignoring opportunity cost: an unfilled order shows no price loss but may miss the whole move, and that cost is not in the average execution price. The fifth is looking only at explicit commissions, not bid-ask spreads, market impact, taxes and borrow cost.</p>
+<h2>Three checks</h2>
+<p>First, what is the benchmark: decision price, arrival, VWAP or close, and what question does each answer? Second, how is cost decomposed: delay, impact, opportunity and explicit fees, and how much does each contribute? Third, is the sample sufficient and adjusted for style and market conditions? These three determine whether you are seeing execution skill or a gift from the market.</p>
+<h2>Adjacent concepts and a counterexample</h2>
+<p>VWAP, TWAP and implementation shortfall are easily mixed. VWAP is volume-weighted and suits orders that participate by volume; TWAP is time-weighted and suits uniform execution; implementation shortfall starts at the decision price and captures the whole loss from decision to execution. The benchmarks differ and are not directly comparable. A counterexample is &#39;a good VWAP means good execution&#39;: a trader can concentrate orders in high-volume periods to track VWAP while delay and opportunity cost rise; if the order is not fully filled, VWAP only measures the filled part and hides the unfilled opportunity cost. Another is &#39;low commission means low cost&#39;: commission is only the explicit fee; spread, impact, tax and borrow cost can be larger. Compare executions with one benchmark, decomposed cost and out-of-sample tests.</p>
+<h2>Scope and limits</h2>
+<p>This transaction-cost framework applies to orders with an identifiable decision price, recorded fills and estimable market impact. If the order is split across accounts, the decision price is unrecorded, or fills occur in a liquidity break, VWAP/TWAP and implementation shortfall are distorted. It does not apply to treating commission as the whole cost, nor to judging a trader by one execution. Align benchmark and cost definitions, then compare by order size, volatility and depth; small-order conclusions do not extrapolate to large orders.</p>
+<p>Finally, if one order spans several days or includes dark-pool fills, the link between decision price and fills weakens; separate overnight drift as delay cost and compare across volatility regimes, since a one-day sample cannot support a long-run execution policy.</p>
+<p>If only broker confirmations are available without exchange timestamps, delay cost is a lower bound; cross-market execution must align time zones and FX, and fills from different liquidity periods should not be averaged directly, or sample structure magnifies a single-order conclusion.</p>
+<p>Also keep reproducible intermediate records and scripts.</p>
+<h2>Related</h2>
+<ul>
+<li>INV-022 Trade Execution and Slippage: adjacent main article; read it before this supplement.</li>
+<li>INV-019 Position Sizing and Rebalancing: adjacent main article; read it before this supplement.</li>
+<li>INV-021 Performance Evaluation and Attribution: adjacent main article; read it before this supplement.</li>
+<li>MKT-005 Indices and Investment Benchmarks: adjacent main article; read it before this supplement.</li>
+</ul>
+<h2>Source note</h2>
+<p>This article uses U.S. Securities and Exchange Commission, U.S. Securities and Exchange Commission, The Journal of Portfolio Management to check definitions, institutions or measurement conventions; the exact terms, numbers and dates follow the sources [1][2][3].</p>
+<h2>Research problem</h2>
+<p>Transaction-cost analysis does not ask “was the fill price good?” but “how much more did execution cost relative to a reproducible benchmark?” The benchmark can be arrival price, VWAP, TWAP or close; different benchmarks are not directly comparable.</p>
+<h2>Inputs</h2>
+<p>Order arrival time, side, quantity, fills, book snapshots, benchmark prices, commissions, taxes, borrow fees and opportunity cost. Without book or fill data, only an approximation is possible, not a full implementation shortfall.</p>
+<h2>Assumptions</h2>
+<p>Order side, benchmark timing and fee conventions are consistent; later prices are not treated as information available at execution; unfilled quantity is not treated as zero cost. A benchmark containing future information systematically biases the result.</p>
+<h2>Steps</h2>
+<p>Fix the benchmark and fee convention, decompose the total difference into delay, impact, timing and fees, group by order, size, volatility and liquidity, and recompute with the same convention.</p>
+<h2>Interpreting results</h2>
+<p>Express cost in basis points or per-share cost, alongside absolute amount and share of ADV. Low cost is not automatically good execution: slowing down to reduce impact can raise opportunity cost.</p>
+<h2>Failure conditions</h2>
+<p>Too few samples, irreproducible benchmark, mixed order sides, ignored unfilled quantity, commission-only cost, or comparing different dates all invalidate the conclusion.</p>
+<h2>Reproduction and verification</h2>
+<p>Keep order timestamps, fill data, benchmark script and fee table; rerun on another sample and check whether ranking and grouping conclusions hold.</p>
+<h2>Figures in plain language</h2>
+<p>The four figures below check the mechanism, boundary and comparison in this article; labels come from its own sections, not new data.</p>
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-chain-title fig-batch-chain-desc" viewBox="0 0 340 304" width="100%">
+    <title id="fig-batch-chain-title">Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP: mechanism chain</title>
+    <desc id="fig-batch-chain-desc">Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP — three-step structure: problem, mechanism, judgment. Labels come from the article's sections, not new data.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP: mechanism chain</text>
+    <text x="14" y="38" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Labels come from the article's sections; all three steps matter.</text>
+    <line x1="14" y1="46" x2="326" y2="46" stroke="var(--border)" stroke-width="1"/>
+    <g>
+      <rect x="14" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="22" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Problem</text>
+      <text x="22" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Trading cost is</text>
+      <text x="22" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">not just a…</text>
+      <text x="22" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Trading cost is</text>
+      <text x="22" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">not just a</text>
+      <text x="22" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">commission; it</text>
+      <text x="22" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">is the gap</text>
+      <text x="22" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">between the…</text>
+    </g>
+      <g>
+      <rect x="123" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="131" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Definition</text>
+      <text x="131" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Definition:</text>
+      <text x="131" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Implementation…</text>
+      <text x="131" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Definition:</text>
+      <text x="131" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Implementation</text>
+      <text x="131" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">shortfall is</text>
+      <text x="131" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">the distinction</text>
+      <text x="131" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">between the…</text>
+    </g>
+      <g>
+      <rect x="232" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="240" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Worked example</text>
+      <text x="240" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Suppose the risk</text>
+      <text x="240" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">price is CNY…</text>
+      <text x="240" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Suppose the</text>
+      <text x="240" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">risk price is</text>
+      <text x="240" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">CNY 50.00, the</text>
+      <text x="240" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">order is 100,000</text>
+      <text x="240" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start"> shares, arrival…</text>
+    </g>
+    <line x1="108" y1="144" x2="123" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M120 140 L125 144 L120 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="217" y1="144" x2="232" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M229 140 L234 144 L229 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="14" y1="250" x2="326" y2="250" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="266" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Reading order: test the problem, then the mechanism, then whether the judgment overreaches.</text>
+    <text x="14" y="280" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">If a middle step lacks evidence, later conclusions are hypotheses, not facts.</text>
+    <text x="14" y="294" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Structural illustration, not a new data chart; sample is the article's own argument.</text>
+  </svg>
+  <figcaption>Figure 1: Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP — mechanism chain: problem, mechanism, judgment. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-boundary-title fig-batch-boundary-desc" viewBox="0 0 340 244" width="100%">
+    <title id="fig-batch-boundary-title">Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP: boundary</title>
+    <desc id="fig-batch-boundary-desc">Separates conditions where the claim holds from those where it fails; a local example is not universal.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP: when does it hold?</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <rect x="14" y="44" width="312" height="38" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="170" y="62" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="middle">Check the conditions before the conclusion</text>
+    <text x="170" y="75" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="middle">If conditions, definitions or samples change, recompute the conclusion</text>
+    <line x1="170" y1="82" x2="90" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="170" y1="82" x2="250" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <rect x="14" y="104" width="148" height="100" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="24" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Holds</text>
+    <text x="24" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">First, a low VWAP does not</text>
+      <text x="24" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">prove good execution: if</text>
+      <text x="24" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">the order itself lifts</text>
+      <text x="24" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">volume, VWAP is influenced…</text>
+    <rect x="178" y="104" width="148" height="100" rx="8" fill="var(--gold)" opacity="0.18" stroke="var(--border)"/>
+    <text x="188" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Fails / rewrite</text>
+    <text x="188" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">First, a low VWAP does not</text>
+      <text x="188" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">prove good execution: if</text>
+      <text x="188" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">the order itself lifts</text>
+      <text x="188" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">volume, VWAP is influenced…</text>
+    <line x1="14" y1="216" x2="326" y2="216" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="232" font-size="8.3" fill="var(--muted)" font-family="inherit" text-anchor="start">Boundary illustration; sample is the article's own argument; units as stated in the text.</text>
+  </svg>
+  <figcaption>Figure 2: Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP — boundary: when the claim holds, and when it fails. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-compare-title fig-batch-compare-desc" viewBox="0 0 340 252" width="100%">
+    <title id="fig-batch-compare-title">Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP: object, conditions and common mistakes</title>
+    <desc id="fig-batch-compare-desc">Three rows compare the concept, its conditions and common mistakes; comparison is not equivalence and does not replace a definition.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP: object, conditions and common mistakes at a glance</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <text x="82" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">This article</text>
+    <text x="200" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Commonly confused</text>
+    <g>
+      <rect x="14" y="52" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="72" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Object</text>
+      <text x="82" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Trading cost is not</text>
+      <text x="82" y="88" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">just a commission…</text>
+      <text x="200" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Adjacent concepts / common claims</text>
+    </g>
+    <g>
+      <rect x="14" y="110" width="312" height="58" fill="var(--surface-2)" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="130" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Conditions</text>
+      <text x="82" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">First, a low VWAP</text>
+      <text x="82" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">does not prove good…</text>
+      <text x="200" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">First, a low VWAP does not</text>
+      <text x="200" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">prove good execution: if the…</text>
+    </g>
+    <g>
+      <rect x="14" y="168" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="188" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Check</text>
+      <text x="82" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Define first, then compare; never judge</text>
+      <text x="82" y="204" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">labels only</text>
+      <text x="200" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Correlation is not causation; a local case is not universal</text>
+    </g>
+    <text x="14" y="244" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Comparison illustration; sample is the article's own argument; units as stated in the text.</text>
+  </svg>
+  <figcaption>Figure 3: Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP — comparison of object, conditions and common mistakes. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-027-transaction-cost-analysis-impact-slippage-vwap-twap-example-title fig-027-transaction-cost-analysis-impact-slippage-vwap-twap-example-desc" viewBox="0 0 460 290" width="100%">
+    <title id="fig-027-transaction-cost-analysis-impact-slippage-vwap-twap-example-title">Three-row worked example: Implementation shortfall: delay, impact and total cost</title>
+    <desc id="fig-027-transaction-cost-analysis-impact-slippage-vwap-twap-example-desc">Reading path: three rows give the key number, unit and worked-example condition; not market data.</desc>
+    <text x="16" y="24" font-size="12.2" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Three-row worked example</text>
+    <text x="16" y="40" font-size="9.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Units as labelled; sample is the article’s teaching assumption</text>
+    <line x1="12" y1="48" x2="448" y2="48" stroke="var(--border)" stroke-width="1"/>
+    <g>
+      <rect x="12" y="58" width="436" height="58" rx="9" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="24" y="76" font-size="10.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Delay cost</text>
+      <text x="448" y="80" font-size="17" font-weight="700" fill="var(--accent)" font-family="inherit" text-anchor="end">2,000 CNY</text>
+      <text x="24" y="96" font-size="9.3" fill="var(--text)" font-family="inherit" text-anchor="start">(100.20 − 100.00) × 10k shares</text>
+    </g>
+    <g>
+      <rect x="12" y="128" width="436" height="58" rx="9" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="24" y="146" font-size="10.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Impact cost</text>
+      <text x="448" y="150" font-size="17" font-weight="700" fill="var(--accent)" font-family="inherit" text-anchor="end">6,000 CNY</text>
+      <text x="24" y="166" font-size="9.3" fill="var(--text)" font-family="inherit" text-anchor="start">(100.80 − 100.20) × 10k shares</text>
+    </g>
+    <g>
+      <rect x="12" y="198" width="436" height="58" rx="9" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="24" y="216" font-size="10.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Implementation shortfall</text>
+      <text x="448" y="220" font-size="17" font-weight="700" fill="var(--accent)" font-family="inherit" text-anchor="end">8,000 CNY</text>
+      <text x="24" y="236" font-size="9.3" fill="var(--text)" font-family="inherit" text-anchor="start">80 basis points in total</text>
+    </g>
+    <line x1="12" y1="266" x2="448" y2="266" stroke="var(--border)" stroke-width="1"/>
+    <text x="16" y="280" font-size="8.8" fill="var(--muted)" font-family="inherit" text-anchor="start">A relationship illustration only; not a forecast or investment advice</text>
+  </svg>
+  <figcaption>Figure 4：Trading cost is not one number; split delay and impact。Units as labelled; sample is the article’s teaching assumption, not market or statistical data; it only illustrates the quantitative relationship.</figcaption>
+</figure>
+
+<h2>Exercises</h2>
+<ol>
+<li><strong>Concept check:</strong> Concept check: what does a VWAP benchmark measure, and what does it hide?</li>
+<li><strong>Calculation:</strong> Calculation: decision price 50, average execution 50.4, 100,000 shares bought. What is the price-difference cost alone?</li>
+<li><strong>Boundary:</strong> Boundary: why should unfilled limit-order quantity count in implementation shortfall?</li>
+</ol>
+<details>
+<summary>Answer key</summary>
+
+<ol>
+<li>It measures deviation from the volume-weighted market average; it hides opportunity cost, delay and the order&#39;s own effect on VWAP.</li>
+<li>(50.4 − 50) × 100,000 = CNY 40,000.</li>
+<li>The unfilled part never establishes the intended position and misses later price moves, which is opportunity cost; looking only at fills understates total cost.</li>
+</ol>
+</details>
+
+<h2>Sources</h2>
+<ol>
+<li>U.S. Securities and Exchange Commission. <em>Trade Execution</em>. U.S. Securities and Exchange Commission. U.S. public information; copying and further distribution allowed. <a href="https://www.sec.gov/investor/pubs/tradexec.htm">https://www.sec.gov/investor/pubs/tradexec.htm</a> (accessed 2026-10-30)</li>
+<li>U.S. Securities and Exchange Commission. <em>Limit Orders</em>. U.S. Securities and Exchange Commission. U.S. public information; copying and further distribution allowed. <a href="https://www.sec.gov/answers/limit.htm">https://www.sec.gov/answers/limit.htm</a> (accessed 2026-10-30)</li>
+<li>André F. Perold. <em>The Implementation Shortfall: Paper vs. Reality</em>. The Journal of Portfolio Management. Copyrighted journal article; cite and link only, no reproduction. <a href="https://doi.org/10.3905/jpm.1988.409150">https://doi.org/10.3905/jpm.1988.409150</a> (accessed 2026-11-23)</li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="en" aria-labelledby="demo-check-title" data-check-done="All three are covered: the core of this article is in place." data-check-pending="One item is still open: go back to the matching section and retell it with a number or counterexample." data-check-count="Ticked"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">Worked demo</p> <button class="demo-reset" type="button" data-demo-reset>Reset</button> </div> <h2 id="demo-check-title">Read-through check: can you say three things?</h2> <p class="demo-intro">No recitation needed. Tick each sentence below and see whether you can explain the mechanism, one worked example and one boundary in your own words.</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>Use implementation shortfall to separate explicit fees, delay, impact and unfilled opportunity cost.</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>Compare VWAP, TWAP and POV benchmarks and state which cost each hides.</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>Name one condition under which the article’s conclusion does not hold</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> Ticked 0 / 3
+</p> </div> <p class="demo-footnote">The numbers are teaching assumptions that show relationships, not forecasts or investment advice.</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> This article has passed the current publication gate. Factual, calculation and translation revisions update both language versions together. </p> <p> <a class="button secondary" href="/en/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>Back to station </a> </p> </div> <aside class="article-aside" aria-label="Article information"> <section class="aside-card"> <h2>Learning objectives</h2> <ul> <li>Use implementation shortfall to separate explicit fees, delay, impact and unfilled opportunity cost.</li><li>Compare VWAP, TWAP and POV benchmarks and state which cost each hides.</li><li>Calculate total trading cost and basis points from order size, execution price and decision price.</li> </ul> </section> <section class="aside-card"> <h2>Required prerequisites</h2> <ul> <li> <a href="/en/learn/trade-execution-and-slippage/">INV-022 · Trade Execution and Slippage</a> </li> </ul> </section> <section class="aside-card"> <h2>Recommended reading</h2> <ul> <li> <a href="/en/learn/position-sizing-and-rebalancing/">INV-019 · Position Sizing and Rebalancing</a> </li><li> <a href="/en/learn/performance-evaluation-and-attribution/">INV-021 · Performance Evaluation and Attribution</a> </li><li> <a href="https://markets.51invest.com/en/learn/indices-and-investment-benchmarks/">MKT-005 · Indices and Investment Benchmarks</a> </li> </ul> </section> <section class="aside-card"> <h2>AI review record</h2> <p class="muted"> There is no human sign-off; these states come from the AI-only editorial review. </p> <ul> <li> Facts and calculations : AI review passed </li><li> Subject : AI review passed </li><li> English : AI review passed </li><li> Page : AI review passed </li> </ul> </section> <section class="aside-card"> <h2>Sources</h2> <div class="source"> <a href="https://www.sec.gov/investor/pubs/tradexec.htm" rel="noopener noreferrer" target="_blank">Trade Execution</a> <p>U.S. Securities and Exchange Commission · U.S. Securities and Exchange Commission</p> <p>Accessed: 2026-10-30 · License: U.S. public information; copying and further distribution allowed</p> <p>Supports: Used to check the definitions, institutions, measurement conventions or product terms relevant to &quot;Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP&quot;; the article does not treat material absent from the source as fact, and exact numbers and dates follow the source.</p> </div><div class="source"> <a href="https://www.sec.gov/answers/limit.htm" rel="noopener noreferrer" target="_blank">Limit Orders</a> <p>U.S. Securities and Exchange Commission · U.S. Securities and Exchange Commission</p> <p>Accessed: 2026-10-30 · License: U.S. public information; copying and further distribution allowed</p> <p>Supports: Used to check the definitions, institutions, measurement conventions or product terms relevant to &quot;Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP&quot;; the article does not treat material absent from the source as fact, and exact numbers and dates follow the source.</p> </div><div class="source"> <a href="https://doi.org/10.3905/jpm.1988.409150" rel="noopener noreferrer" target="_blank">The Implementation Shortfall: Paper vs. Reality</a> <p>André F. Perold · The Journal of Portfolio Management</p> <p>Accessed: 2026-11-23 · License: Copyrighted journal article; cite and link only, no reproduction</p> <p>Supports: Used to check the definitions, institutions, measurement conventions or product terms relevant to &quot;Transaction Cost Analysis: Impact, Slippage and VWAP/TWAP&quot;; the article does not treat material absent from the source as fact, and exact numbers and dates follow the source.</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">A free, non-commercial knowledge site. Sources and definitions are labelled; nothing here is investment advice.</p> </div> </div> <nav class="footer-links" aria-label="Knowledge stations"> <a href="https://51invest.com/en/" data-main-home>Home</a> <a href="https://51invest.com/en/contents/">Content map</a> <a href="/en/glossary/">Glossary</a> <a href="/en/search/">Search</a> <a href="https://51invest.com/en/charts/" data-main-link>Charts</a> <a href="https://51invest.com/en/sources/" data-main-link>Data &amp; licences</a> <a href="/en/">Station home</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="Knowledge stations"> <a class="mobile-link" href="https://51invest.com/en/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>Home</span> </a> <a class="mobile-link" href="https://51invest.com/en/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>Knowledge stations</span> </a> <a class="mobile-link active" href="/en/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>Station home</span> </a> <a class="mobile-link" href="/learn/transaction-cost-analysis-impact-slippage-vwap-twap/" data-language-link="zh"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

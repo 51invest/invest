@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>运气与技能：多期超额收益的归因证据 · 巫妖投资</title><meta name="description" content="一年跑赢基准可能是运气，十年持续跑赢才可能是技能。判断运气与技能，需要看样本长度、t 统计量、业绩持续性和归因，而不是只看累计收益。"><link rel="canonical" href="https://invest.51invest.com/learn/luck-vs-skill-multi-period-excess-return-attribution/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/luck-vs-skill-multi-period-excess-return-attribution/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/luck-vs-skill-multi-period-excess-return-attribution/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/luck-vs-skill-multi-period-excess-return-attribution/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/" data-main-home aria-label="巫妖投资"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">巫妖投资</span> <span class="brand-caption">51INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="知识分站"> <a class="nav-link" href="https://51invest.com/" data-main-home> 首页 </a> <a class="nav-link" href="https://economics.51invest.com/"> 经济学 </a><a class="nav-link" href="https://finance.51invest.com/"> 金融基础 </a><a class="nav-link" href="https://markets.51invest.com/"> 市场与产品 </a><a class="nav-link active" href="/" aria-current="page"> 投资方法 </a><a class="nav-link" href="https://history.51invest.com/"> 经济与金融史 </a><a class="nav-link" href="https://research.51invest.com/"> 研究方法 </a> <a class="nav-link" href="https://51invest.com/contents/"> 内容地图 </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/en/learn/luck-vs-skill-multi-period-excess-return-attribution/" hreflang="en" lang="en" data-language-link="en" aria-label="切换为英文" title="切换为英文"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="主题: 跟随系统" title="主题: 跟随系统" data-label-auto="主题: 跟随系统" data-label-light="主题: 浅色" data-label-dark="主题: 深色"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">跟随系统</span> <span class="theme-text" data-theme-text="light">浅色</span> <span class="theme-text" data-theme-text="dark">深色</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/" data-main-home>首页</a> <span class="sep">/</span> <a href="/">投资方法</a> <span class="sep">/</span> <span aria-current="page">运气与技能：多期超额收益的归因证据</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">概念</span> <h1 class="article-title">运气与技能：多期超额收益的归因证据</h1> <p class="article-summary">一年跑赢基准可能是运气，十年持续跑赢才可能是技能。判断运气与技能，需要看样本长度、t 统计量、业绩持续性和归因，而不是只看累计收益。</p>  <div class="meta-grid"> <div class="meta-item"><span>模块</span><strong>INV-M13 · 绩效与归因</strong></div> <div class="meta-item"><span>层级</span><strong>系统</strong></div> <div class="meta-item"><span>阅读</span><strong>9 分钟 · 13 节</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> 这篇有一个可以动手操作的演示 <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>定义与直觉</h2>
+<p>**运气（luck）**是随机结果，<strong>技能</strong>是可持续的、可重复的决策能力。判断两者，不能只看“跑赢了多少”，而要看“跑赢是否稳定、是否可解释、是否可重复”。</p>
+<p>三个工具：<strong>t 统计量</strong>（超额收益均值 / 标准差 / √期数）、<strong>业绩持续性</strong>（前期赢家后期是否继续赢）、<strong>归因</strong>（超额收益来自选股、行业、因子还是杠杆）。</p>
+<p>t 值大于 2 通常表示统计显著，但不等于技能：若样本期刚好赶上风格顺风，t 值也会高。归因和持续性才能区分“风格 beta”与“真 alpha”[1][2]。</p>
+<h2>正式表达与示例</h2>
+<p>假设某基金 10 年年化超额收益 3%，年化跟踪误差 6%。t 值约 <code>3%/6%×√10 = 1.58</code>，低于 2，统计上不显著；不能拒绝“运气为零”的假设。</p>
+<p>若 20 年超额 3%、跟踪误差 6%，t 值约 2.24，显著；但若超额主要来自小盘和价值因子，归因显示 alpha 只有 1%，其余是风格暴露。</p>
+<p>若基金前 5 年跑赢、后 5 年跑输，持续性检验不支持技能；若在不同市场、不同行业都稳定跑赢，技能证据更强。以上数字均为教学假设。</p>
+<h2>三个检查</h2>
+<p><strong>检查一：样本长度。</strong> 短期业绩噪声大；至少跨越一个完整周期，最好包含不同市场环境。</p>
+<p><strong>检查二：基准与风格。</strong> 基准选错会制造假 alpha；要用多因子模型剥离风格、规模、行业和杠杆。</p>
+<p><strong>检查三：持续性与可重复性。</strong> 同一团队、同一流程、同一约束下是否持续；人员、规模和策略变化会改变技能。</p>
+<p>业绩评价要同时看统计显著、经济显著和可解释性；单看累计收益或夏普比率会被运气和风格误导[3][4]。</p>
+<h2>图表</h2>
+<figure>
+<svg role="img" aria-labelledby="fig-luck-vs-skill-multi-period-excess-return-attribution-1-title fig-luck-vs-skill-multi-period-excess-return-attribution-1-desc" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-luck-vs-skill-multi-period-excess-return-attribution-1-title">从超额到技能证据</title>
+<desc id="fig-luck-vs-skill-multi-period-excess-return-attribution-1-desc">四步：超额收益、t 值、归因、持续性。</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">运气与技能的证据链</text>
+<text x="24" y="54" font-size="11" text-anchor="start">超额、t 值、归因、持续性四步。</text>
+<rect x="14" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="69" y="140" font-size="12" text-anchor="middle">超额</text>
+<text x="69" y="184" font-size="12" text-anchor="middle" font-weight="700">3%</text>
+<rect x="136" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="191" y="140" font-size="12" text-anchor="middle">t 值</text>
+<text x="191" y="184" font-size="12" text-anchor="middle" font-weight="700">1.58</text>
+<rect x="258" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="313" y="140" font-size="12" text-anchor="middle">归因</text>
+<text x="313" y="184" font-size="12" text-anchor="middle" font-weight="700">风格/alpha</text>
+<rect x="380" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="435" y="140" font-size="12" text-anchor="middle">持续性</text>
+<text x="435" y="184" font-size="12" text-anchor="middle" font-weight="700">10 年</text>
+<line x1="125" y1="160" x2="135" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<line x1="247" y1="160" x2="257" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<line x1="369" y1="160" x2="379" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<text x="24" y="246" font-size="11" text-anchor="start">教学示意，不含统计数据。</text>
+</g>
+</svg>
+<figcaption>图 1：从超额到技能证据；教学示意。</figcaption>
+</figure>
+
+<figure>
+<svg role="img" aria-labelledby="fig-luck-vs-skill-multi-period-excess-return-attribution-2-title fig-luck-vs-skill-multi-period-excess-return-attribution-2-desc" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-luck-vs-skill-multi-period-excess-return-attribution-2-title">样本长度与显著性</title>
+<desc id="fig-luck-vs-skill-multi-period-excess-return-attribution-2-desc">同样超额与跟踪误差下两个样本长度的 t 值。</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">10 年与 20 年的 t 值</text>
+<text x="24" y="54" font-size="11" text-anchor="start">10 年 1.58；20 年 2.24。</text>
+<line x1="178" y1="64" x2="178" y2="270" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<text x="20" y="97" font-size="12">10 年</text>
+<rect x="178" y="78" width="253.92857142857142" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="95" font-size="12" font-weight="700">1.58</text>
+<text x="20" y="145" font-size="12">20 年</text>
+<rect x="178" y="126" width="360" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="143" font-size="12" font-weight="700">2.24</text>
+<text x="24" y="292" font-size="11" text-anchor="start">教学假设；单位：t 值。</text>
+</g>
+</svg>
+<figcaption>图 2：样本长度与显著性；教学假设。</figcaption>
+</figure>
+
+<figure>
+<svg role="img" aria-labelledby="fig-luck-vs-skill-multi-period-excess-return-attribution-3-title fig-luck-vs-skill-multi-period-excess-return-attribution-3-desc" viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-luck-vs-skill-multi-period-excess-return-attribution-3-title">业绩证据的二维矩阵</title>
+<desc id="fig-luck-vs-skill-multi-period-excess-return-attribution-3-desc">两轴：统计显著、经济显著；四象限对应可信、弱证据、噪声和可疑。</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">统计显著与经济显著的四类业绩</text>
+<text x="24" y="54" font-size="11" text-anchor="start">两者都显著最可信；统计显著但经济不显著可能只是噪声。</text>
+<text x="40" y="68" font-size="11">统计显著</text>
+<text x="40" y="286" font-size="11">统计不显著</text>
+<text x="110" y="314" font-size="11" text-anchor="middle">经济不显著</text>
+<text x="500" y="314" font-size="11" text-anchor="middle">经济显著</text>
+<rect x="96" y="76" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="108" y="100" font-size="12" text-anchor="start">弱证据</text>
+<text x="108" y="130" font-size="11" text-anchor="start">统计显著、经济弱</text>
+<text x="108" y="170" font-size="11" font-weight="700">样本大</text>
+<rect x="338" y="76" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="350" y="100" font-size="12" text-anchor="start">可信</text>
+<text x="350" y="130" font-size="11" text-anchor="start">两者都显著</text>
+<text x="350" y="170" font-size="11" font-weight="700">技能</text>
+<rect x="96" y="190" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="108" y="214" font-size="12" text-anchor="start">噪声</text>
+<text x="108" y="244" font-size="11" text-anchor="start">两者都不显著</text>
+<text x="108" y="284" font-size="11" font-weight="700">运气</text>
+<rect x="338" y="190" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="350" y="214" font-size="12" text-anchor="start">可疑</text>
+<text x="350" y="244" font-size="11" text-anchor="start">统计弱、经济强</text>
+<text x="350" y="284" font-size="11" font-weight="700">尾部/杠杆</text>
+</g>
+</svg>
+<figcaption>图 3：业绩证据的二维矩阵；对比分类示意。</figcaption>
+</figure>
+
+<p>图 1 把超额收益、t 值、归因和持续性串成证据链；图 2 比较 10 年与 20 年的 t 值；图 3 用“统计显著—经济显著”两轴划出四类业绩。图中数字均为教学假设。</p>
+<h2>适用条件、边界与常见误区</h2>
+<p><strong>边界一：t 显著不等于技能。</strong> 样本选择、幸存者偏差和多重检验会制造假显著；要校正。</p>
+<p><strong>边界二：alpha 可能来自风险。</strong> 杠杆、流动性、尾部风险和卖期权策略可以产生高收益，但承担了隐藏风险。</p>
+<p><strong>边界三：技能会衰减。</strong> 规模扩大、竞争加剧和人员流失会降低 alpha；历史业绩不能线性外推。</p>
+<p><strong>误解一：连续三年跑赢就是技能。</strong> 三年样本太短，噪声大；需要更长周期和归因。</p>
+<p><strong>误解二：夏普比率高就是能力强。</strong> 夏普比率可以被卖尾部、平滑估值和杠杆美化；要看尾部和非线性风险。</p>
+<h2>深化：多期业绩、技能检验与噪声</h2>
+<p><strong>单期超额收益无法区分运气与技能</strong>。一个策略一年跑赢 10%，可能来自 beta、风格、行业集中或运气；要看多期、不同市场环境、风险调整后的稳定性。</p>
+<p><strong>技能检验</strong>常用三类证据：第一，持续的超额收益（扣除风格和 beta）；第二，可解释的过程（研究、组合构建、风险控制）；第三，可复现的决策记录（事前判断与事后结果）。三者缺一，都可能是运气。</p>
+<p><strong>统计显著</strong>在多期业绩中很难达到。年化超额 3%、波动 8%，需要约 7 年才能达到 1 倍标准误；若策略容量小、样本短，结论更弱。不能只看 t 值，要看经济意义和样本外。</p>
+<p><strong>生存偏差</strong>会夸大技能。失败基金退出数据库，留下的平均收益偏高；回填偏差和选择偏差也会。评估时要问：样本里有没有消失的基金、策略和账户。</p>
+<p><strong>归因分解</strong>：超额收益来自 beta、风格、行业、选股、择时和杠杆。把风格和 beta 扣掉后剩下的 alpha 才可能是技能；但归因模型本身有误差，残差不是“纯技能”。</p>
+<p><strong>多期稳定性</strong>：看滚动窗口、不同市场环境（牛熊、高低波动）、不同规模下的表现。若策略只在某一环境有效，应标记为“环境依赖”，而不是“稳定 alpha”。</p>
+<p><strong>常见误用</strong>：把一年排名当成技能、把回测收益当成实盘、把幸存者样本当成全体、把归因残差当成 alpha。</p>
+<p><strong>最后</strong>，运气与技能的区分是概率判断，不是二元结论；应报告置信区间、样本长度和环境依赖，而不是造神或否定。</p>
+<h2>技能检验清单</h2>
+<p>判断“业绩来自运气还是技能”，不要只看 t 值，按八项拆：</p>
+<ol>
+<li><strong>样本期是否足够长且独立？</strong> 短样本、少数交易和重叠持仓会高估显著性；要看滚动窗口和样本外。</li>
+<li><strong>基准是否匹配风格？</strong> 用错基准会把 beta 当成 alpha；先做因子归因，再看残差。</li>
+<li><strong>t 值是否经过多重检验修正？</strong> 从多个策略中挑最好的，t=2 可能只是数据窥探；要报告试验次数。</li>
+<li><strong>业绩是否持续？</strong> 前期赢家后期是否继续赢；持续性检验比单期 t 值更接近技能。</li>
+<li><strong>归因是否解释大部分收益？</strong> 选股、行业、因子、杠杆和择时各贡献多少；未解释部分才是 alpha 候选。</li>
+<li><strong>是否可能有生存者偏差？</strong> 失败基金退出数据库，会高估平均业绩；要看完整基金池。</li>
+<li><strong>经济逻辑是否可检验？</strong> 技能应有可重复的决策流程和可解释的边缘；纯数据挖掘难以持续。</li>
+<li><strong>贝叶斯收缩是否合理？</strong> 把先验和样本结合，避免极端估计；尤其在小样本和短期业绩上。</li>
+</ol>
+<p>技能不是“跑赢过一次”，而是“在合理基准、完整样本和多重检验下，仍能重复的正超额”。</p>
+<p>最后，把“技能”拆成可管理的流程：决策记录、事前假设、事后复盘和独立基准。没有流程的业绩，即使 t 值很高，也很难区分技能、风格暴露和一次性运气。</p>
+<p><strong>最小行动：</strong> 建立策略档案，记录每笔决策的事前假设、基准、试验次数和事后结果；每季度做一次样本外检验，把 t 值与多重检验修正一起报告。</p>
+<p><strong>记录：</strong> 把失败策略也留在样本里；只统计赢家会重复生存者偏差。另设一个“无技能”基准，若策略不能稳定超过它，就不应支付主动管理费。</p>
+<p><strong>一句话：</strong> 技能是流程加样本外，不是一次高 t 值。</p>
+<p><strong>备注：</strong> 失败策略也要留在样本；只统计赢家会重复生存者偏差，无法判断技能。</p>
+<p><strong>标注：</strong> 样本外窗口不少于三年，且至少包含一次压力期；否则只能称为未经验证的超额收益，不能称为可重复的技能，也不应支付主动管理费。</p>
+<h2>反证条件</h2>
+<p>技能判断依赖基准、样本和多重检验：</p>
+<ol>
+<li><strong>基准错误。</strong> 若基准不匹配风格，beta 会被当成 alpha。</li>
+<li><strong>生存者偏差。</strong> 若失败基金退出样本，平均业绩被高估。</li>
+<li><strong>多重检验。</strong> 若从大量策略中挑最好，t=2 可能只是数据窥探。</li>
+<li><strong>容量约束。</strong> 若策略容量小，规模扩大后收益会衰减，历史业绩不可外推。</li>
+<li><strong>归因不全。</strong> 若杠杆、卖空和衍生品收益未拆开，残差 alpha 被污染。</li>
+</ol>
+<p><strong>实践含义：</strong> 技能判断要流程化：事前假设、独立基准、样本外检验和多重检验修正；没有流程的高 t 值，不足以支持主动管理费。</p>
+<p><strong>数据附注：</strong> 用净费后收益、完整基金池和同风格基准； gross 收益和幸存者样本会高估技能。</p>
+<p><strong>范围说明：</strong> 报告试验次数和策略总数；只报最终 t 值，无法判断多重检验修正后的显著性。</p>
+<p><strong>最后：</strong> 报告试验总数，而不只是最终 t 值；否则无法判断多重检验后的显著性。</p>
+<p><strong>核对：</strong> 报告试验总数和净费后收益，而不只是最终 t 值。</p>
+<h2>练习</h2>
+<ol>
+<li><p>定义运气与技能的区别。</p>
+</li>
+<li><p>超额 3%、跟踪误差 6%、10 年，t 值约多少？</p>
+</li>
+<li><p>同样数据 20 年，t 值约多少？</p>
+</li>
+<li><p>t 值显著为什么仍可能不是技能？</p>
+</li>
+<li><p>归因如何区分风格与 alpha？</p>
+</li>
+<li><p>技能衰减来自哪些因素？</p>
+</li>
+<li><p>判断：连续三年跑赢就是技能吗？说明理由。</p>
+</li>
+<li><p>判断技能需要哪三类证据？为什么缺一不可？</p>
+</li>
+<li><p>年化超额 3%、波动 8%，为什么需要约七年才达到一倍标准误？</p>
+</li>
+</ol>
+<h2>延伸阅读：技能度量的文献</h2>
+<p><strong>Grinold-Kahn 的基本法则</strong>把信息比率拆成“信息系数×广度”：预测越准、独立决策越多，信息比率越高。它解释了为什么高换手策略可能看起来技能强，但交易成本和容量会抵消。</p>
+<p><strong>Sharpe 比率</strong>衡量风险调整收益，但不能区分技能与运气；需要多期、样本外和置信区间。<strong>Bailey 与 López de Prado 的 deflated Sharpe</strong> 针对多重检验和回测选择偏差，调整显著性阈值；它提醒我们：试了很多策略后，最好的回测很容易“显著”。</p>
+<p><strong>技能持久性研究</strong>发现，基金 alpha 的持续性很弱；少数顶级基金有持续 alpha，但多数过去赢家未来回归。评估时要看基金经理是否更换、策略容量是否变化、风格是否漂移。</p>
+<p><strong>阅读建议</strong>：把基本法则、deflated Sharpe 和多期归因放在一起，形成“预测—组合—检验”的链条，而不是只看一个 t 值。</p>
+<h2>本章要点</h2>
+<ul>
+<li>单期超额收益无法区分运气与技能，要看多期、环境和风险调整。</li>
+<li>技能需要持续 alpha、可解释过程和可复现决策记录三类证据。</li>
+<li>统计显著在多期业绩中很难达到，要看经济意义和样本外。</li>
+<li>生存偏差、回填偏差和归因残差都会夸大技能。</li>
+<li>结论应是概率判断，报告置信区间和环境依赖。</li>
+</ul>
+<h2>关联</h2>
+<p>先修 INV-009；对照 INV-040；相邻 MKT-030、FIN-006。</p>
+<h2>来源</h2>
+<ol>
+<li>CFA Institute, <em>Global Investment Performance Standards (GIPS)</em>. CFA Institute, accessed 2026-11-21. <a href="https://rpc.cfainstitute.org/gips-standards">https://rpc.cfainstitute.org/gips-standards</a></li>
+<li>Julie Dahlquist; Rainford Knight, <em>Principles of Finance, 15.4 Applications in Performance Measurement</em>. OpenStax, Rice University, accessed 2026-10-30. <a href="https://openstax.org/books/principles-finance/pages/15-4-applications-in-performance-measurement">https://openstax.org/books/principles-finance/pages/15-4-applications-in-performance-measurement</a></li>
+<li>Kenneth R. French, <em>Description of Fama/French 5 Factors (2x3)</em>. Dartmouth College, Tuck School of Business, accessed 2026-11-24. <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html">https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html</a></li>
+<li>Rob J. Hyndman and George Athanasopoulos, <em>Forecasting: Principles and Practice, 3rd edition</em>. OTexts, 2021, accessed 2026-11-21. <a href="https://otexts.com/fpp3/">https://otexts.com/fpp3/</a></li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="zh" aria-labelledby="demo-check-title" data-check-done="三项都能说清：这篇的核心已经过关。" data-check-pending="还差一项：回到正文对应小节，找一个反例或数字再讲一遍。" data-check-count="已勾选"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">动手演示</p> <button class="demo-reset" type="button" data-demo-reset>恢复默认</button> </div> <h2 id="demo-check-title">读完自检：三句话能不能说清</h2> <p class="demo-intro">不用背定义。把下面三句逐个勾上，看自己能不能用自己的话讲清机制、算例和边界。</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>用 t 统计量判断超额收益的显著性。</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>区分运气、风格暴露与真实技能。</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>能说出一个本文结论不适用的条件</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> 已勾选 0 / 3
+</p> </div> <p class="demo-footnote">数字为教学假设，用来展示关系，不构成预测或投资建议。</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> 本文已通过当前发布门槛；事实、计算与译文如有修订，会同步更新两个语言版本。 </p> <p> <a class="button secondary" href="/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>返回分站 </a> </p> </div> <aside class="article-aside" aria-label="文章信息"> <section class="aside-card"> <h2>学习目标</h2> <ul> <li>用 t 统计量判断超额收益的显著性。</li><li>区分运气、风格暴露与真实技能。</li><li>用业绩持续性检验技能假设。</li> </ul> </section> <section class="aside-card"> <h2>必需先修</h2> <ul> <li> <a href="/learn/cash-flow-valuation-research-process/">INV-009 · 现金流估值的研究流程</a> </li> </ul> </section> <section class="aside-card"> <h2>建议阅读</h2> <ul> <li> <a href="/learn/factor-crowding-alpha-collective-risk-deleveraging/">INV-040 · 因子拥挤：当同一套 Alpha 变成集体风险</a> </li><li> <a href="https://markets.51invest.com/learn/collectibles-valuation-authenticity-and-liquidity/">MKT-030 · 收藏品估值：真伪、来源与流动性</a> </li><li> <a href="https://finance.51invest.com/learn/reserves-and-liquidity/">FIN-006 · 准备金与流动性</a> </li> </ul> </section> <section class="aside-card"> <h2>AI 复核记录</h2> <p class="muted"> 本项目没有真人签字；下列状态来自 AI-only 编辑复核。 </p> <ul> <li> 事实与计算 ：AI 复核通过 </li><li> 学科 ：AI 复核通过 </li><li> 英文 ：AI 复核通过 </li><li> 页面 ：AI 复核通过 </li> </ul> </section> <section class="aside-card"> <h2>来源</h2> <div class="source"> <a href="https://rpc.cfainstitute.org/gips-standards" rel="noopener noreferrer" target="_blank">Global Investment Performance Standards (GIPS)</a> <p>CFA Institute · CFA Institute</p> <p>访问：2026-11-21 · 许可：© CFA Institute; linked summary only</p> <p>支持论点：支持业绩呈报、组合与基准披露标准。</p> </div><div class="source"> <a href="https://openstax.org/books/principles-finance/pages/15-4-applications-in-performance-measurement" rel="noopener noreferrer" target="_blank">Principles of Finance, 15.4 Applications in Performance Measurement</a> <p>Julie Dahlquist; Rainford Knight · OpenStax, Rice University</p> <p>访问：2026-10-30 · 许可：CC BY-NC-SA 4.0</p> <p>支持论点：支持业绩衡量、风险调整与基准比较。</p> </div><div class="source"> <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html" rel="noopener noreferrer" target="_blank">Description of Fama/French 5 Factors (2x3)</a> <p>Kenneth R. French · Dartmouth College, Tuck School of Business</p> <p>访问：2026-11-24 · 许可：© Kenneth R. French; linked summary only</p> <p>支持论点：支持因子模型与超额收益归因。</p> </div><div class="source"> <a href="https://otexts.com/fpp3/" rel="noopener noreferrer" target="_blank">Forecasting: Principles and Practice, 3rd edition</a> <p>Rob J. Hyndman and George Athanasopoulos · OTexts, 2021</p> <p>访问：2026-11-21 · 许可：© OTexts; free online, cite-only</p> <p>支持论点：支持时间序列、预测评估与统计显著性。</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">非商业免费知识站。每篇标出来源与口径；这里没有投资建议。</p> </div> </div> <nav class="footer-links" aria-label="知识分站"> <a href="https://51invest.com/" data-main-home>首页</a> <a href="https://51invest.com/contents/">内容地图</a> <a href="/glossary/">术语表</a> <a href="/search/">搜索</a> <a href="https://51invest.com/charts/" data-main-link>图表</a> <a href="https://51invest.com/sources/" data-main-link>数据与许可</a> <a href="/">分站首页</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="知识分站"> <a class="mobile-link" href="https://51invest.com/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>首页</span> </a> <a class="mobile-link" href="https://51invest.com/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>知识分站</span> </a> <a class="mobile-link active" href="/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>分站首页</span> </a> <a class="mobile-link" href="/en/learn/luck-vs-skill-multi-period-excess-return-attribution/" data-language-link="en"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

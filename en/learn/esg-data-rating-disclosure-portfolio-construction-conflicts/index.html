@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="en" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>ESG Data Conflicts: Ratings, Disclosure and Portfolio Construction · 51Invest</title><meta name="description" content="The same company can be rated A by one ESG provider and C by another because agencies disagree on what matters and how to score. Portfolio construction cannot rely on ratings alone; go back to raw disclosure, industry context and financial transmission."><link rel="canonical" href="https://invest.51invest.com/en/learn/esg-data-rating-disclosure-portfolio-construction-conflicts/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/esg-data-rating-disclosure-portfolio-construction-conflicts/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/esg-data-rating-disclosure-portfolio-construction-conflicts/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/esg-data-rating-disclosure-portfolio-construction-conflicts/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">Skip to content</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/en/" data-main-home aria-label="51Invest"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">51Invest</span> <span class="brand-caption">WUYAO INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="Knowledge stations"> <a class="nav-link" href="https://51invest.com/en/" data-main-home> Home </a> <a class="nav-link" href="https://economics.51invest.com/en/"> Economics </a><a class="nav-link" href="https://finance.51invest.com/en/"> Finance </a><a class="nav-link" href="https://markets.51invest.com/en/"> Markets </a><a class="nav-link active" href="/en/" aria-current="page"> Investing </a><a class="nav-link" href="https://history.51invest.com/en/"> History </a><a class="nav-link" href="https://research.51invest.com/en/"> Research </a> <a class="nav-link" href="https://51invest.com/en/contents/"> Content map </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/learn/esg-data-rating-disclosure-portfolio-construction-conflicts/" hreflang="zh-CN" lang="zh-CN" data-language-link="zh" aria-label="Switch to Chinese" title="Switch to Chinese"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="Theme: System" title="Theme: System" data-label-auto="Theme: System" data-label-light="Theme: Light" data-label-dark="Theme: Dark"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">System</span> <span class="theme-text" data-theme-text="light">Light</span> <span class="theme-text" data-theme-text="dark">Dark</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/en/" data-main-home>Home</a> <span class="sep">/</span> <a href="/en/">Investing</a> <span class="sep">/</span> <span aria-current="page">ESG Data Conflicts: Ratings, Disclosure and Portfolio Construction</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">Concept</span> <h1 class="article-title">ESG Data Conflicts: Ratings, Disclosure and Portfolio Construction</h1> <p class="article-summary">The same company can be rated A by one ESG provider and C by another because agencies disagree on what matters and how to score. Portfolio construction cannot rely on ratings alone; go back to raw disclosure, industry context and financial transmission.</p>  <div class="meta-grid"> <div class="meta-item"><span>Module</span><strong>INV-M16 · 责任投资与职业实践</strong></div> <div class="meta-item"><span>Level</span><strong>Systematic</strong></div> <div class="meta-item"><span>Read</span><strong>7 min · 13 sections</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> This article has an interactive demo <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>Definition and intuition</h2>
+<p><strong>ESG</strong> refers to environmental, social and governance non-financial factors. <strong>ESG ratings</strong> score companies on these dimensions; <strong>ESG disclosure</strong> is company data under frameworks such as GRI, SASB and TCFD; <strong>portfolio construction</strong> turns the information into weights and constraints.</p>
+<p>The three layers differ: disclosure is raw data, ratings are processed judgement, portfolios are investment decisions. Rating disagreement comes from <strong>scope</strong> (which issues matter), <strong>measurement</strong> (which metrics), <strong>weights</strong> (how to aggregate) and <strong>industry adjustments</strong>.</p>
+<p>A company can differ widely across raters without either being wrong; agencies may disagree on what matters for an industry. Portfolio construction should return to raw disclosure and financial transmission[1][2].</p>
+<h2>Formal expression and worked example</h2>
+<p>Suppose two cement companies: A has high emissions but complete disclosure and strong governance; B has lower emissions but missing disclosure and average governance. Agency Alpha weights governance and rates A high; agency Beta weights emissions and rates B high.</p>
+<p>A rating-only portfolio may buy A and exclude B; but A faces higher carbon-cost risk, while B&#39;s data gap may hide problems. The better approach combines emissions intensity, disclosure quality, carbon-price sensitivity and governance records.</p>
+<p>If the carbon price rises from 80 to 120 yuan per tonne, A&#39;s unit cost rises 40 yuan and gross margin falls 3 points; B&#39;s lower emissions are less affected. All numbers are teaching assumptions.</p>
+<h2>Three checks</h2>
+<p><strong>Check 1: rating methodology.</strong> Which issues, weights and industry adjustments; ratings from different agencies are not directly comparable.</p>
+<p><strong>Check 2: raw disclosure.</strong> Scope 1, 2 and 3 emissions, water, waste, labour and governance records; whether data are third-party assured.</p>
+<p><strong>Check 3: financial transmission.</strong> How carbon prices, regulation, litigation, community relations and talent costs affect cash flow; ESG is not a moral label but a valuation input.</p>
+<p>Data gaps are larger for small companies and emerging markets; use industry neutrality, disclosure quality and alternative data, not a single rating[3][4].</p>
+<h2>Figures</h2>
+<figure>
+<svg role="img" aria-labelledby="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-1-title fig-esg-data-rating-disclosure-portfolio-construction-conflicts-1-desc" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-1-title">From disclosure to valuation</title>
+<desc id="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-1-desc">Four steps: raw disclosure, ratings, portfolio construction, financial transmission.</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">ESG data chain</text>
+<text x="24" y="54" font-size="11" text-anchor="start">Disclosure, ratings, portfolios an</text>
+<text x="24" y="68" font-size="11" text-anchor="start">d financial transmission.</text>
+<rect x="14" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="69" y="140" font-size="12" text-anchor="middle">Disclosure</text>
+<text x="69" y="184" font-size="12" text-anchor="middle" font-weight="700">Raw data</text>
+<rect x="136" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="191" y="140" font-size="12" text-anchor="middle">Ratings</text>
+<text x="191" y="184" font-size="12" text-anchor="middle" font-weight="700">Processed judgement</text>
+<rect x="258" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="313" y="140" font-size="12" text-anchor="middle">Portfolio</text>
+<text x="313" y="184" font-size="12" text-anchor="middle" font-weight="700">Weights</text>
+<rect x="380" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="435" y="140" font-size="12" text-anchor="middle">Valuation</text>
+<text x="435" y="184" font-size="12" text-anchor="middle" font-weight="700">Cash flow</text>
+<line x1="125" y1="160" x2="135" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<line x1="247" y1="160" x2="257" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<line x1="369" y1="160" x2="379" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<text x="24" y="246" font-size="11" text-anchor="start">Teaching diagram, no statistical data.</text>
+</g>
+</svg>
+<figcaption>Figure 1: from disclosure to valuation; teaching diagram.</figcaption>
+</figure>
+
+<figure>
+<svg role="img" aria-labelledby="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-2-title fig-esg-data-rating-disclosure-portfolio-construction-conflicts-2-desc" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-2-title">Rating-agency disagreement</title>
+<desc id="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-2-desc">Scores for two companies under two agencies.</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">Two companies under two rating agencies</text>
+<text x="24" y="54" font-size="11" text-anchor="start">Company A: Alpha 80, Beta 55; B: A</text>
+<text x="24" y="68" font-size="11" text-anchor="start">lpha 50, Beta 75.</text>
+<line x1="178" y1="64" x2="178" y2="270" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<text x="20" y="97" font-size="12">A Alpha</text>
+<rect x="178" y="78" width="360" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="95" font-size="12" font-weight="700">80</text>
+<text x="20" y="145" font-size="12">A Beta</text>
+<rect x="178" y="126" width="247.5" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="143" font-size="12" font-weight="700">55</text>
+<text x="20" y="193" font-size="12">B Alpha</text>
+<rect x="178" y="174" width="225" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="191" font-size="12" font-weight="700">50</text>
+<text x="20" y="241" font-size="12">B Beta</text>
+<rect x="178" y="222" width="337.5" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="239" font-size="12" font-weight="700">75</text>
+<text x="24" y="292" font-size="11" text-anchor="start">Teaching assumptions; unit: score.</text>
+</g>
+</svg>
+<figcaption>Figure 2: rating-agency disagreement; teaching assumptions.</figcaption>
+</figure>
+
+<figure>
+<svg role="img" aria-labelledby="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-3-title fig-esg-data-rating-disclosure-portfolio-construction-conflicts-3-desc" viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-3-title">Two-dimensional matrix of ESG companies</title>
+<desc id="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-3-desc">Axes: disclosure quality and ESG risk; quadrants map to transparent, mispriced, dangerous and greenwashed.</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">Four company types by disclosure quality and</text>
+<text x="24" y="49" font-size="16" text-anchor="start">ESG risk</text>
+<text x="24" y="54" font-size="11" text-anchor="start">High disclosure with low risk is m</text>
+<text x="24" y="68" font-size="11" text-anchor="start">ost transparent; low disclosure wi</text>
+<text x="24" y="82" font-size="11" text-anchor="start">th high risk is most dangerous.</text>
+<text x="40" y="68" font-size="11">High disclosure</text>
+<text x="40" y="286" font-size="11">Low disclosure</text>
+<text x="110" y="314" font-size="11" text-anchor="middle">Low ESG risk</text>
+<text x="500" y="314" font-size="11" text-anchor="middle">High ESG risk</text>
+<rect x="96" y="76" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="108" y="100" font-size="12" text-anchor="start">Transparent</text>
+<text x="108" y="130" font-size="11" text-anchor="start">High disclosure, low risk</text>
+<text x="108" y="170" font-size="11" font-weight="700">Valuation-ready</text>
+<rect x="338" y="76" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="350" y="100" font-size="12" text-anchor="start">Mispriced</text>
+<text x="350" y="130" font-size="11" text-anchor="start">High disclosure, high risk</text>
+<text x="350" y="170" font-size="11" font-weight="700">Price the risk</text>
+<rect x="96" y="190" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="108" y="214" font-size="12" text-anchor="start">Dangerous</text>
+<text x="108" y="244" font-size="11" text-anchor="start">Low disclosure, high risk</text>
+<text x="108" y="284" font-size="11" font-weight="700">Avoid</text>
+<rect x="338" y="190" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="350" y="214" font-size="12" text-anchor="start">Greenwashed</text>
+<text x="350" y="244" font-size="11" text-anchor="start">Low disclosure, low risk</text>
+<text x="350" y="284" font-size="11" font-weight="700">Verify</text>
+</g>
+</svg>
+<figcaption>Figure 3: two-dimensional matrix of ESG companies; comparison and classification diagram.</figcaption>
+</figure>
+
+<p>Figure 1 links disclosure, ratings, portfolios and financial transmission. Figure 2 compares two companies under two rating agencies. Figure 3 uses disclosure quality and ESG risk axes to mark four company types. All numbers are teaching assumptions.</p>
+<h2>Conditions, boundaries and common mistakes</h2>
+<p><strong>Boundary 1: ESG is not morality.</strong> It covers financially relevant environmental, social and governance risks, not a value judgement; investor values shape weights.</p>
+<p><strong>Boundary 2: ratings are not facts.</strong> They are agency judgements with method errors and conflicts; read methodologies and raw data.</p>
+<p><strong>Boundary 3: greenwashing is hard to spot.</strong> Selective disclosure, vague targets and missing Scope 3 flatter performance; look for assurance, history and verifiable targets.</p>
+<p><strong>Mistake 1: a high ESG rating means low risk.</strong> It does not imply fair valuation or financial strength; ESG is one risk dimension.</p>
+<p><strong>Mistake 2: ESG portfolios always sacrifice returns.</strong> It depends on screening, industry exposure and pricing; excluding high-emission sectors can reduce diversification or avoid regulatory risk.</p>
+<h2>Deeper note: ESG data, rating divergence and portfolio construction</h2>
+<p><strong>ESG data are not homogeneous.</strong> Environmental data (emissions, energy, water) are more measurable; social data (labour, community) rely on disclosure and estimates; governance data (board, pay, audit) are more structured. Providers differ in coverage, methodology and missing values, and stitching them together creates bias.</p>
+<p><strong>Rating divergence</strong> is normal. S&amp;P, MSCI and Sustainalytics can score the same company very differently because of weights, industry adjustments, controversy treatment and disclosure coverage. Treating a rating as &#39;truth&#39; misleads; understand the source of divergence.</p>
+<p><strong>Disclosure versus substance</strong>: more disclosure is not better performance and may be greenwashing; substance means emissions intensity, accident rates, pay gaps, board independence and supply-chain audits. Disclosure is an input, not an outcome.</p>
+<p><strong>Portfolio construction</strong> has four approaches: negative screening, positive screening, ESG integration and thematic investing. Each carries different exposures; negative screening shrinks the universe and concentrates sectors; integration can sacrifice tracking error; thematic can crowd.</p>
+<p><strong>Conflicts of interest</strong>: managers charge ESG product fees, providers charge, rating agencies consult, companies choose disclosure; disclose conflicts and voting policy. ESG is not value-neutral; value judgements must be transparent.</p>
+<p><strong>Measurement</strong>: coverage, data timeliness, rating divergence, portfolio carbon intensity, controversy events and engagement records. A single score is insufficient; use multiple sources and actual impact.</p>
+<p><strong>Common misuses</strong>: treating ESG ratings as return forecasts, disclosure as performance, exclusion as impact, and ignoring greenwashing and conflicts.</p>
+<p><strong>Finally</strong>, ESG is information plus values plus execution, not one scorecard; portfolio construction must state goals, constraints and trade-offs.</p>
+<h2>ESG review checklist</h2>
+<p>Before adding ESG to a portfolio, separate ratings, data and portfolio construction:</p>
+<ol>
+<li><strong>What does the rating measure?</strong> Risk exposure, impact, compliance or value alignment; agencies use different questionnaires and weights, so divergence is normal.</li>
+<li><strong>Is data coverage complete?</strong> Large firms disclose more and small firms less; treating missing values as low scores systematically penalises small caps and emerging markets.</li>
+<li><strong>Is the underlying data traceable?</strong> Emissions, labour and governance metrics may be self-reported, third-party or regulatory; audit quality of self-reports needs separate assessment.</li>
+<li><strong>How does ESG map to financial performance?</strong> Lower tail risk, higher cost of capital or growth; an ESG score without a transmission mechanism is only a label.</li>
+<li><strong>Are portfolio constraints executable?</strong> Exclusion lists, tilts and engagement differ in turnover, tracking error and liquidity cost.</li>
+<li><strong>Where are the conflicts of interest?</strong> Rating agencies also advise, fund managers also vote; governance and disclosure must address conflicts.</li>
+<li><strong>How is greenwashing identified?</strong> Separate targets, baselines, offsets and absolute versus intensity metrics; slogans are not enough.</li>
+<li><strong>Is fiduciary duty clear?</strong> When ESG and return objectives conflict, who wins and how is it disclosed; fiduciaries must not package personal preferences as client preferences.</li>
+</ol>
+<p>ESG quality is not a high score but traceable data, an explicable transmission and executable constraints.</p>
+<p>Finally, separate facts, ratings and opinions: emissions data are facts, ratings are methods, portfolio tilts are opinions. Mixing them leaves readers unable to tell whether disagreement comes from data, models or values.</p>
+<p><strong>Minimum action:</strong> split ESG tilts into exclusion, tilt and engagement tables, each with data source, turnover cost and tracking error; review conflicts of interest quarterly.</p>
+<p><strong>Record:</strong> rating disagreement is information; log the gap between two agencies and why it exists rather than forcing an average.</p>
+<p><strong>In one line:</strong> rating disagreement is information, not noise.</p>
+<p><strong>Note:</strong> before averaging three ratings, record the source and weight of disagreement.</p>
+<p><strong>Label:</strong> the investment committee signs the disagreement record.</p>
+<h2>What would change the conclusion</h2>
+<p>ESG portfolio conclusions depend on ratings, data and transmission:</p>
+<ol>
+<li><strong>Ratings diverge.</strong> If two agencies score the same firm very differently, an aggregate hides real risk.</li>
+<li><strong>Small-cap data are missing.</strong> If missing values become low scores, the portfolio systematically excludes small caps and emerging markets.</li>
+<li><strong>The regulatory regime changes.</strong> If disclosure rules or carbon prices shift, historical ESG alpha can reverse.</li>
+<li><strong>Engagement costs are high.</strong> If engagement, voting and reporting cost more than they return, net performance falls.</li>
+<li><strong>Fiduciary conflict.</strong> If clients do not adopt ESG objectives, tilts may breach fiduciary duty.</li>
+</ol>
+<p><strong>Practical implication:</strong> ESG portfolios should separate facts, ratings and opinions; logging rating disagreement, missing data and engagement cost shows whether return comes from risk pricing or value expression.</p>
+<p><strong>Data note:</strong> compare on the same rating date and definition; agencies differ in coverage and missing-data treatment, so scores are not directly interchangeable.</p>
+<p><strong>Scope note:</strong> date every rating and label coverage and definition; scores from different agencies cannot be mixed across periods.</p>
+<h2>Exercises</h2>
+<ol>
+<li><p>Explain four sources of ESG rating disagreement.</p>
+</li>
+<li><p>What are the disclosure, rating and portfolio layers?</p>
+</li>
+<li><p>Carbon price rises from 80 to 120 yuan/tonne: how much does cost per tonne rise?</p>
+</li>
+<li><p>Why does a high ESG rating not guarantee low risk?</p>
+</li>
+<li><p>How do you spot greenwashing?</p>
+</li>
+<li><p>How does ESG transmit to valuation?</p>
+</li>
+<li><p>True or false: ESG portfolios always sacrifice returns. Explain.</p>
+</li>
+<li><p>What are the main sources of ESG rating divergence?</p>
+</li>
+<li><p>How do negative screening and ESG integration differ in portfolio risk?</p>
+</li>
+</ol>
+<h2>Further reading: disclosure standards and evidence</h2>
+<p><strong>The ISSB</strong> issued IFRS S1/S2 in 2023 to harmonise global climate and sustainability disclosure; the <strong>EU CSRD</strong> requires double materiality (financial and impact), with broader scope; <strong>SASB</strong> provides industry metrics. The standards are not fully compatible, so cross-country comparison needs adjustment.</p>
+<p><strong>Empirical research</strong> finds an unstable relationship between ESG ratings and stock returns, with large differences across raters; high-ESG portfolios outperform in some periods and lag in others, depending on sector, valuation and rates.</p>
+<p><strong>Greenwashing research</strong> uses disclosure text, gaps between targets and actual emissions, and third-party audits; regulators are tightening naming and disclosure rules for &#39;sustainable&#39; funds.</p>
+<p><strong>Reading suggestion</strong>: read ISSB and CSRD requirements first, then rating divergence and return evidence; separate disclosure, rating and portfolio layers rather than treating disclosure as performance.</p>
+<h2>Chapter takeaways</h2>
+<ul>
+<li>ESG data are heterogeneous; environmental, social and governance factors differ in measurability.</li>
+<li>Rating divergence comes from weights, industry adjustments, controversy treatment and disclosure coverage.</li>
+<li>More disclosure is not better performance; distinguish greenwashing from substance.</li>
+<li>Negative screening, positive screening, integration and thematic investing carry different exposures.</li>
+<li>ESG involves values and conflicts; disclose goals and trade-offs.</li>
+</ul>
+<h2>Related</h2>
+<p>Prerequisite INV-006; compare INV-037; neighbours ECO-056 and MKT-044.</p>
+<h2>Sources</h2>
+<ol>
+<li>U.S. Securities and Exchange Commission, Office of Investor Education and Advocacy, <em>Environmental, Social and Governance (ESG) Funds – Investor Bulletin</em>. Investor.gov, accessed 2026-11-21. <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-1">https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-1</a></li>
+<li>CFA Institute, <em>Global Investment Performance Standards (GIPS)</em>. CFA Institute, accessed 2026-11-21. <a href="https://rpc.cfainstitute.org/gips-standards">https://rpc.cfainstitute.org/gips-standards</a></li>
+<li>IPCC, <em>Climate Change 2022: Mitigation of Climate Change, Summary for Policymakers</em>. Intergovernmental Panel on Climate Change, accessed 2026-11-23. <a href="https://www.ipcc.ch/report/ar6/wg3/chapter/summary-for-policymakers/">https://www.ipcc.ch/report/ar6/wg3/chapter/summary-for-policymakers/</a></li>
+<li>World Bank, <em>State and Trends of Carbon Pricing 2024</em>. World Bank, accessed 2026-11-23. <a href="https://openknowledge.worldbank.org/bitstreams/d14ff4b1-823f-4d70-927c-456449772089/download">https://openknowledge.worldbank.org/bitstreams/d14ff4b1-823f-4d70-927c-456449772089/download</a></li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="en" aria-labelledby="demo-check-title" data-check-done="All three are covered: the core of this article is in place." data-check-pending="One item is still open: go back to the matching section and retell it with a number or counterexample." data-check-count="Ticked"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">Worked demo</p> <button class="demo-reset" type="button" data-demo-reset>Reset</button> </div> <h2 id="demo-check-title">Read-through check: can you say three things?</h2> <p class="demo-intro">No recitation needed. Tick each sentence below and see whether you can explain the mechanism, one worked example and one boundary in your own words.</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>Explain the sources of disagreement in ESG ratings.</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>Distinguish disclosure, ratings and portfolio construction.</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>Name one condition under which the article’s conclusion does not hold</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> Ticked 0 / 3
+</p> </div> <p class="demo-footnote">The numbers are teaching assumptions that show relationships, not forecasts or investment advice.</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> This article has passed the current publication gate. Factual, calculation and translation revisions update both language versions together. </p> <p> <a class="button secondary" href="/en/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>Back to station </a> </p> </div> <aside class="article-aside" aria-label="Article information"> <section class="aside-card"> <h2>Learning objectives</h2> <ul> <li>Explain the sources of disagreement in ESG ratings.</li><li>Distinguish disclosure, ratings and portfolio construction.</li><li>Identify greenwashing and data gaps.</li> </ul> </section> <section class="aside-card"> <h2>Required prerequisites</h2> <ul> <li> <a href="/en/learn/macro-scenario-analysis/">INV-006 · Macro Scenario Analysis</a> </li> </ul> </section> <section class="aside-card"> <h2>Recommended reading</h2> <ul> <li> <a href="/en/learn/investment-policy-statement-objectives-constraints-rebalancing/">INV-037 · The Investment Policy Statement: Writing Objectives, Constraints and Rebalancing into Rules</a> </li><li> <a href="https://economics.51invest.com/en/learn/energy-transition-system-cost-grid-storage-capacity-markets/">ECO-056 · System Costs of the Energy Transition: Grids, Storage and Capacity Markets</a> </li><li> <a href="https://markets.51invest.com/en/learn/carbon-market-compliance-cycle-mrv-price-cap/">MKT-044 · The Carbon-Market Compliance Cycle: Allowances, MRV and Price Caps</a> </li> </ul> </section> <section class="aside-card"> <h2>AI review record</h2> <p class="muted"> There is no human sign-off; these states come from the AI-only editorial review. </p> <ul> <li> Facts and calculations : AI review passed </li><li> Subject : AI review passed </li><li> English : AI review passed </li><li> Page : AI review passed </li> </ul> </section> <section class="aside-card"> <h2>Sources</h2> <div class="source"> <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-1" rel="noopener noreferrer" target="_blank">Environmental, Social and Governance (ESG) Funds – Investor Bulletin</a> <p>U.S. Securities and Exchange Commission, Office of Investor Education and Advocacy · Investor.gov</p> <p>Accessed: 2026-11-21 · License: U.S. public information; copying and further distribution allowed</p> <p>Supports: Supports ESG fund definitions, disclosure and investor guidance.</p> </div><div class="source"> <a href="https://rpc.cfainstitute.org/gips-standards" rel="noopener noreferrer" target="_blank">Global Investment Performance Standards (GIPS)</a> <p>CFA Institute · CFA Institute</p> <p>Accessed: 2026-11-21 · License: © CFA Institute; linked summary only</p> <p>Supports: Supports investment performance and portfolio disclosure standards.</p> </div><div class="source"> <a href="https://www.ipcc.ch/report/ar6/wg3/chapter/summary-for-policymakers/" rel="noopener noreferrer" target="_blank">Climate Change 2022: Mitigation of Climate Change, Summary for Policymakers</a> <p>IPCC · Intergovernmental Panel on Climate Change</p> <p>Accessed: 2026-11-23 · License: IPCC copyright; cite-only</p> <p>Supports: Supports climate risk, mitigation pathways and policy context.</p> </div><div class="source"> <a href="https://openknowledge.worldbank.org/bitstreams/d14ff4b1-823f-4d70-927c-456449772089/download" rel="noopener noreferrer" target="_blank">State and Trends of Carbon Pricing 2024</a> <p>World Bank · World Bank</p> <p>Accessed: 2026-11-23 · License: CC BY 3.0 IGO</p> <p>Supports: Supports carbon-pricing instruments, price levels and revenue use.</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">A free, non-commercial knowledge site. Sources and definitions are labelled; nothing here is investment advice.</p> </div> </div> <nav class="footer-links" aria-label="Knowledge stations"> <a href="https://51invest.com/en/" data-main-home>Home</a> <a href="https://51invest.com/en/contents/">Content map</a> <a href="/en/glossary/">Glossary</a> <a href="/en/search/">Search</a> <a href="https://51invest.com/en/charts/" data-main-link>Charts</a> <a href="https://51invest.com/en/sources/" data-main-link>Data &amp; licences</a> <a href="/en/">Station home</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="Knowledge stations"> <a class="mobile-link" href="https://51invest.com/en/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>Home</span> </a> <a class="mobile-link" href="https://51invest.com/en/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>Knowledge stations</span> </a> <a class="mobile-link active" href="/en/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>Station home</span> </a> <a class="mobile-link" href="/learn/esg-data-rating-disclosure-portfolio-construction-conflicts/" data-language-link="zh"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

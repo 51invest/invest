@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>ESG 数据的口径冲突：评级、披露与组合构建 · 巫妖投资</title><meta name="description" content="同一家公司在不同 ESG 评级里可能一个 A、一个 C，因为评级机构对“什么算重要”和“怎么打分”不同。组合构建不能只看评级，要回到原始披露、行业背景和财务传导。"><link rel="canonical" href="https://invest.51invest.com/learn/esg-data-rating-disclosure-portfolio-construction-conflicts/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/esg-data-rating-disclosure-portfolio-construction-conflicts/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/esg-data-rating-disclosure-portfolio-construction-conflicts/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/esg-data-rating-disclosure-portfolio-construction-conflicts/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/" data-main-home aria-label="巫妖投资"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">巫妖投资</span> <span class="brand-caption">51INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="知识分站"> <a class="nav-link" href="https://51invest.com/" data-main-home> 首页 </a> <a class="nav-link" href="https://economics.51invest.com/"> 经济学 </a><a class="nav-link" href="https://finance.51invest.com/"> 金融基础 </a><a class="nav-link" href="https://markets.51invest.com/"> 市场与产品 </a><a class="nav-link active" href="/" aria-current="page"> 投资方法 </a><a class="nav-link" href="https://history.51invest.com/"> 经济与金融史 </a><a class="nav-link" href="https://research.51invest.com/"> 研究方法 </a> <a class="nav-link" href="https://51invest.com/contents/"> 内容地图 </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/en/learn/esg-data-rating-disclosure-portfolio-construction-conflicts/" hreflang="en" lang="en" data-language-link="en" aria-label="切换为英文" title="切换为英文"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="主题: 跟随系统" title="主题: 跟随系统" data-label-auto="主题: 跟随系统" data-label-light="主题: 浅色" data-label-dark="主题: 深色"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">跟随系统</span> <span class="theme-text" data-theme-text="light">浅色</span> <span class="theme-text" data-theme-text="dark">深色</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/" data-main-home>首页</a> <span class="sep">/</span> <a href="/">投资方法</a> <span class="sep">/</span> <span aria-current="page">ESG 数据的口径冲突：评级、披露与组合构建</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">概念</span> <h1 class="article-title">ESG 数据的口径冲突：评级、披露与组合构建</h1> <p class="article-summary">同一家公司在不同 ESG 评级里可能一个 A、一个 C，因为评级机构对“什么算重要”和“怎么打分”不同。组合构建不能只看评级，要回到原始披露、行业背景和财务传导。</p>  <div class="meta-grid"> <div class="meta-item"><span>模块</span><strong>INV-M16 · 责任投资与职业实践</strong></div> <div class="meta-item"><span>层级</span><strong>系统</strong></div> <div class="meta-item"><span>阅读</span><strong>8 分钟 · 13 节</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> 这篇有一个可以动手操作的演示 <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>定义与直觉</h2>
+<p><strong>ESG</strong> 指环境、社会与治理三类非财务因素。<strong>ESG 评级</strong>是评级机构对公司在这些维度上的打分；<strong>ESG 披露</strong>是公司按框架（GRI、SASB、TCFD 等）发布的数据；<strong>组合构建</strong>是把这些信息转化为权重和约束。</p>
+<p>三层不能混为一谈：披露是原始数据，评级是加工判断，组合是投资决策。评级差异主要来自<strong>范围</strong>（哪些议题重要）、<strong>度量</strong>（用什么指标）、<strong>权重</strong>（如何加总）和<strong>行业调整</strong>。</p>
+<p>同一公司在不同评级中差异大，不一定是谁错了；可能是评级机构对行业重要性的判断不同。组合构建要回到原始披露和财务传导[1][2]。</p>
+<h2>正式表达与示例</h2>
+<p>假设两家水泥公司：A 公司碳排放高但披露完整、治理评分高；B 公司排放低但披露缺失、治理一般。评级机构甲侧重治理，给 A 高评级；机构乙侧重排放，给 B 高评级。</p>
+<p>若组合只按评级排序，可能买入 A、排除 B；但 A 的碳成本风险更高，B 的数据缺口可能掩盖问题。正确做法是同时看排放强度、披露质量、碳价敏感度和治理记录。</p>
+<p>若碳价从 80 元/吨升到 120 元/吨，A 的吨成本上升 40 元，毛利率下降 3 个百分点；B 的排放低，受影响小。以上数字均为教学假设。</p>
+<h2>三个检查</h2>
+<p><strong>检查一：评级口径。</strong> 评级覆盖哪些议题、权重多少、是否做行业调整；不同机构不可直接比较。</p>
+<p><strong>检查二：原始披露。</strong> 碳排放范围一、二、三，用水、废弃物、劳工和治理记录；数据是否有第三方鉴证。</p>
+<p><strong>检查三：财务传导。</strong> 碳价、监管、诉讼、社区关系和人才成本如何影响现金流；ESG 不是道德标签，要落到估值。</p>
+<p>ESG 数据缺口在中小公司和新兴市场更明显；组合构建要用行业中性、披露质量和替代数据，而不是单一评级[3][4]。</p>
+<h2>图表</h2>
+<figure>
+<svg role="img" aria-labelledby="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-1-title fig-esg-data-rating-disclosure-portfolio-construction-conflicts-1-desc" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-1-title">从披露到估值</title>
+<desc id="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-1-desc">四步：原始披露、评级、组合构建、财务传导。</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">ESG 数据链</text>
+<text x="24" y="54" font-size="11" text-anchor="start">披露、评级、组合、财务传导四步。</text>
+<rect x="14" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="69" y="140" font-size="12" text-anchor="middle">披露</text>
+<text x="69" y="184" font-size="12" text-anchor="middle" font-weight="700">原始数据</text>
+<rect x="136" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="191" y="140" font-size="12" text-anchor="middle">评级</text>
+<text x="191" y="184" font-size="12" text-anchor="middle" font-weight="700">加工判断</text>
+<rect x="258" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="313" y="140" font-size="12" text-anchor="middle">组合</text>
+<text x="313" y="184" font-size="12" text-anchor="middle" font-weight="700">权重</text>
+<rect x="380" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="435" y="140" font-size="12" text-anchor="middle">估值</text>
+<text x="435" y="184" font-size="12" text-anchor="middle" font-weight="700">现金流</text>
+<line x1="125" y1="160" x2="135" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<line x1="247" y1="160" x2="257" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<line x1="369" y1="160" x2="379" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<text x="24" y="246" font-size="11" text-anchor="start">教学示意，不含统计数据。</text>
+</g>
+</svg>
+<figcaption>图 1：从披露到估值；教学示意。</figcaption>
+</figure>
+
+<figure>
+<svg role="img" aria-labelledby="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-2-title fig-esg-data-rating-disclosure-portfolio-construction-conflicts-2-desc" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-2-title">评级机构的分歧</title>
+<desc id="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-2-desc">两家公司在两家机构下的评分对比。</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">两家公司在两家评级机构下的分数</text>
+<text x="24" y="54" font-size="11" text-anchor="start">A 公司甲 80、乙 55；B 公司甲 50、乙 75。</text>
+<line x1="178" y1="64" x2="178" y2="270" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<text x="20" y="97" font-size="12">A 甲</text>
+<rect x="178" y="78" width="360" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="95" font-size="12" font-weight="700">80</text>
+<text x="20" y="145" font-size="12">A 乙</text>
+<rect x="178" y="126" width="247.5" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="143" font-size="12" font-weight="700">55</text>
+<text x="20" y="193" font-size="12">B 甲</text>
+<rect x="178" y="174" width="225" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="191" font-size="12" font-weight="700">50</text>
+<text x="20" y="241" font-size="12">B 乙</text>
+<rect x="178" y="222" width="337.5" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="239" font-size="12" font-weight="700">75</text>
+<text x="24" y="292" font-size="11" text-anchor="start">教学假设；单位：分。</text>
+</g>
+</svg>
+<figcaption>图 2：评级机构的分歧；教学假设。</figcaption>
+</figure>
+
+<figure>
+<svg role="img" aria-labelledby="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-3-title fig-esg-data-rating-disclosure-portfolio-construction-conflicts-3-desc" viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-3-title">ESG 公司的二维矩阵</title>
+<desc id="fig-esg-data-rating-disclosure-portfolio-construction-conflicts-3-desc">两轴：披露质量、ESG 风险；四象限对应透明、被低估、洗绿和危险。</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">披露质量与 ESG 风险的四类公司</text>
+<text x="24" y="54" font-size="11" text-anchor="start">高披露、低风险最透明；低披露、高风险最危险。</text>
+<text x="40" y="68" font-size="11">披露高</text>
+<text x="40" y="286" font-size="11">披露低</text>
+<text x="110" y="314" font-size="11" text-anchor="middle">ESG 风险低</text>
+<text x="500" y="314" font-size="11" text-anchor="middle">ESG 风险高</text>
+<rect x="96" y="76" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="108" y="100" font-size="12" text-anchor="start">透明</text>
+<text x="108" y="130" font-size="11" text-anchor="start">高披露、低风险</text>
+<text x="108" y="170" font-size="11" font-weight="700">可估值</text>
+<rect x="338" y="76" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="350" y="100" font-size="12" text-anchor="start">被低估</text>
+<text x="350" y="130" font-size="11" text-anchor="start">高披露、高风险</text>
+<text x="350" y="170" font-size="11" font-weight="700">风险定价</text>
+<rect x="96" y="190" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="108" y="214" font-size="12" text-anchor="start">危险</text>
+<text x="108" y="244" font-size="11" text-anchor="start">低披露、高风险</text>
+<text x="108" y="284" font-size="11" font-weight="700">避雷</text>
+<rect x="338" y="190" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="350" y="214" font-size="12" text-anchor="start">洗绿</text>
+<text x="350" y="244" font-size="11" text-anchor="start">低披露、低风险</text>
+<text x="350" y="284" font-size="11" font-weight="700">核查</text>
+</g>
+</svg>
+<figcaption>图 3：ESG 公司的二维矩阵；对比分类示意。</figcaption>
+</figure>
+
+<p>图 1 把披露、评级、组合和财务传导串成 ESG 数据链；图 2 比较两家公司在两家评级机构下的分数；图 3 用“披露质量—ESG 风险”两轴划出四类公司。图中数字均为教学假设。</p>
+<h2>适用条件、边界与常见误区</h2>
+<p><strong>边界一：ESG 不等于道德。</strong> ESG 关注与财务相关的环境、社会和治理风险，不是价值判断；不同投资者的价值观会影响权重。</p>
+<p><strong>边界二：评级不是事实。</strong> 评级是机构判断，有方法误差和利益冲突；要读方法说明和原始数据。</p>
+<p><strong>边界三：greenwashing 难识别。</strong> 选择性披露、目标模糊和范围三缺失会美化表现；要看鉴证、历史数据和可验证目标。</p>
+<p><strong>误解一：高 ESG 评级一定低风险。</strong> 评级高不代表估值合理或财务稳健；ESG 只是风险维度之一。</p>
+<p><strong>误解二：ESG 组合一定牺牲收益。</strong> 取决于筛选方式、行业暴露和定价；剔除高排放行业可能降低分散度，也可能避开监管风险。</p>
+<h2>深化：ESG 数据、评级分歧与组合构建</h2>
+<p><strong>ESG 数据不是同质的</strong>。环境数据（排放、能耗、水）较可测；社会数据（劳工、社区）依赖披露和估计；治理数据（董事会、薪酬、审计）较结构化。不同供应商的覆盖、方法和缺失值差异很大，直接拼接会产生偏差。</p>
+<p><strong>评级分歧</strong>是常态。标普、MSCI、 Sustainalytics 等对同一公司的 ESG 评分可能相差很大，原因是指标权重、行业调整、争议处理和披露覆盖不同。把评级当成“真相”会误判；要理解分歧来源。</p>
+<p><strong>披露与实质</strong>：披露多不等于表现好，可能是“绿色洗涤”；实质要看排放强度、事故率、薪酬差距、董事会独立性和供应链审计。披露是输入，不是结果。</p>
+<p><strong>组合构建</strong>有四种做法：负面筛选、正面筛选、ESG 整合、主题投资。每种的风险暴露不同；负面筛选可能缩小宇宙、增加行业集中；整合可能牺牲跟踪误差；主题投资可能拥挤。</p>
+<p><strong>利益冲突</strong>：管理人收取 ESG 产品费、供应商收费、评级机构咨询、公司披露选择性；要披露利益冲突和投票政策。ESG 不是价值中立，价值判断要透明。</p>
+<p><strong>测量</strong>：覆盖率、数据时效、评级分歧、组合碳强度、争议事件、参与投票记录。单一评分不够，要看多源数据和实际影响。</p>
+<p><strong>常见误用</strong>：把 ESG 评级当成收益预测、把披露当成表现、把排除当成影响、忽略绿色洗涤和利益冲突。</p>
+<p><strong>最后</strong>，ESG 是“信息+价值+执行”的组合，不是一张评分表；组合构建要说明目标、约束和权衡。</p>
+<h2>ESG 复核清单</h2>
+<p>把 ESG 放进组合前，先拆开评级、数据和组合构建三层：</p>
+<ol>
+<li><strong>评级测的是什么？</strong> 风险暴露、影响、合规还是价值对齐；不同评级机构的问卷和权重不同，分歧是常态。</li>
+<li><strong>数据覆盖是否完整？</strong> 大公司披露多、小公司缺失多；缺失值被当成低分，会系统性地惩罚小盘和新兴市场。</li>
+<li><strong>原始数据是否可追溯？</strong> 排放、劳工和治理指标来自公司自报、第三方还是监管；自报数据的审计质量要单独评估。</li>
+<li><strong>ESG 与财务表现如何映射？</strong> 降低尾部风险、提高资本成本还是影响增长；没有传导机制的 ESG 分数只是标签。</li>
+<li><strong>组合约束是否可执行？</strong> 排除清单、倾斜和参与策略的换手、跟踪误差和流动性成本不同。</li>
+<li><strong>利益冲突在哪里？</strong> 评级机构也提供咨询、基金公司也参与投票；治理和披露要防冲突。</li>
+<li><strong>绿色清洗如何识别？</strong> 目标、基线、抵消和绝对/强度指标要分开；只看宣传词不够。</li>
+<li><strong>受托责任是否清楚？</strong> ESG 目标与收益目标冲突时，谁优先、如何披露；受托人不能把个人偏好包装成客户偏好。</li>
+</ol>
+<p>ESG 的质量不在“分数高低”，而在数据可追溯、传导可解释、约束可执行。</p>
+<p>最后，ESG 结论要区分“事实、评级和观点”：排放数据是事实，评级是方法，组合倾斜是观点。三者混在一起，读者无法判断分歧来自数据、模型还是价值选择。</p>
+<p><strong>最小行动：</strong> 把 ESG 倾斜拆成排除、倾斜和参与三张表，分别记录数据来源、换手成本和跟踪误差；每季度复核一次利益冲突。</p>
+<p><strong>记录：</strong> 评级分歧本身是信息；记录两家机构分数差异及原因，比强行取平均更有用。</p>
+<p><strong>一句话：</strong> 评级分歧是信息，不是噪声。</p>
+<p><strong>备注：</strong> 三家评级取平均前，先记录分歧来源和权重。</p>
+<p><strong>标注：</strong> 分歧记录由投委会签字。</p>
+<h2>反证条件</h2>
+<p>ESG 组合的结论依赖评级、数据和传导机制：</p>
+<ol>
+<li><strong>评级分歧大。</strong> 若两家机构对同一公司的分数相差很大，聚合分数会掩盖真实风险。</li>
+<li><strong>小盘数据缺失。</strong> 若缺失值被当成低分，组合会系统性排除小盘和新兴市场。</li>
+<li><strong>监管 regime 变化。</strong> 若披露规则或碳价改变，历史 ESG alpha 可能反转。</li>
+<li><strong>参与成本高。</strong> 若 engagement、投票和报告成本超过收益，净回报下降。</li>
+<li><strong>受托责任冲突。</strong> 若客户目标不包括 ESG，组合倾斜可能违反受托义务。</li>
+</ol>
+<p><strong>实践含义：</strong> ESG 组合要区分事实、评级和观点；把评级分歧、缺失数据和参与成本分开记录，才能判断收益来自风险定价还是价值表达。</p>
+<p><strong>数据附注：</strong> 用同一评级日期和同一口径比较；不同机构的覆盖率和缺失值处理不同，分数不能直接混用。</p>
+<p><strong>范围说明：</strong> 每个评级标注日期、覆盖率和口径；不同机构的分数不能跨期直接混用。</p>
+<h2>练习</h2>
+<ol>
+<li><p>解释 ESG 评级差异的四个来源。</p>
+</li>
+<li><p>披露、评级、组合三层各是什么？</p>
+</li>
+<li><p>碳价从 80 升到 120 元/吨，排放 1 吨成本增加多少？</p>
+</li>
+<li><p>为什么高 ESG 评级不一定低风险？</p>
+</li>
+<li><p>如何识别 greenwashing？</p>
+</li>
+<li><p>ESG 如何传导到估值？</p>
+</li>
+<li><p>判断：ESG 组合一定牺牲收益吗？说明理由。</p>
+</li>
+<li><p>ESG 评级分歧的主要来源是什么？</p>
+</li>
+<li><p>负面筛选与 ESG 整合在组合风险上有什么不同？</p>
+</li>
+</ol>
+<h2>延伸阅读：披露标准与实证</h2>
+<p><strong>ISSB（国际可持续准则理事会）</strong> 在 2023 年发布 IFRS S1/S2，推动全球统一的气候和可持续披露；<strong>欧盟 CSRD</strong> 要求双重重要性（财务重要性和影响重要性），覆盖范围更广；<strong>SASB</strong> 按行业提供指标。三套标准不完全兼容，跨国比较要调整。</p>
+<p><strong>实证研究</strong>发现：ESG 评级与股票收益的关系不稳定，不同评级机构的结果差异大；高 ESG 组合在部分时期跑赢、部分时期跑输，取决于行业、估值和利率环境。</p>
+<p><strong>绿色洗涤研究</strong>用披露文本、目标与实际排放的差距、第三方审计来识别；监管在加强“可持续”基金命名和披露规则。</p>
+<p><strong>阅读建议</strong>：先读 ISSB 和 CSRD 的披露要求，再读评级分歧和收益实证；把“披露—评级—组合”三层分开，避免把披露当成表现。</p>
+<h2>本章要点</h2>
+<ul>
+<li>ESG 数据异质，环境、社会、治理的可测程度不同。</li>
+<li>评级分歧来自权重、行业调整、争议处理和披露覆盖。</li>
+<li>披露多不等于表现好，要区分绿色洗涤和实质改善。</li>
+<li>负面筛选、正面筛选、整合和主题投资的风险暴露不同。</li>
+<li>ESG 有价值判断和利益冲突，必须披露目标和权衡。</li>
+</ul>
+<h2>关联</h2>
+<p>先修 INV-006；对照 INV-037；相邻 ECO-056、MKT-044。</p>
+<h2>来源</h2>
+<ol>
+<li>U.S. Securities and Exchange Commission, Office of Investor Education and Advocacy, <em>Environmental, Social and Governance (ESG) Funds – Investor Bulletin</em>. Investor.gov, accessed 2026-11-21. <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-1">https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-1</a></li>
+<li>CFA Institute, <em>Global Investment Performance Standards (GIPS)</em>. CFA Institute, accessed 2026-11-21. <a href="https://rpc.cfainstitute.org/gips-standards">https://rpc.cfainstitute.org/gips-standards</a></li>
+<li>IPCC, <em>Climate Change 2022: Mitigation of Climate Change, Summary for Policymakers</em>. Intergovernmental Panel on Climate Change, accessed 2026-11-23. <a href="https://www.ipcc.ch/report/ar6/wg3/chapter/summary-for-policymakers/">https://www.ipcc.ch/report/ar6/wg3/chapter/summary-for-policymakers/</a></li>
+<li>World Bank, <em>State and Trends of Carbon Pricing 2024</em>. World Bank, accessed 2026-11-23. <a href="https://openknowledge.worldbank.org/bitstreams/d14ff4b1-823f-4d70-927c-456449772089/download">https://openknowledge.worldbank.org/bitstreams/d14ff4b1-823f-4d70-927c-456449772089/download</a></li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="zh" aria-labelledby="demo-check-title" data-check-done="三项都能说清：这篇的核心已经过关。" data-check-pending="还差一项：回到正文对应小节，找一个反例或数字再讲一遍。" data-check-count="已勾选"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">动手演示</p> <button class="demo-reset" type="button" data-demo-reset>恢复默认</button> </div> <h2 id="demo-check-title">读完自检：三句话能不能说清</h2> <p class="demo-intro">不用背定义。把下面三句逐个勾上，看自己能不能用自己的话讲清机制、算例和边界。</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>解释 ESG 评级差异的来源。</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>区分披露、评级和组合构建三层。</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>能说出一个本文结论不适用的条件</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> 已勾选 0 / 3
+</p> </div> <p class="demo-footnote">数字为教学假设，用来展示关系，不构成预测或投资建议。</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> 本文已通过当前发布门槛；事实、计算与译文如有修订，会同步更新两个语言版本。 </p> <p> <a class="button secondary" href="/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>返回分站 </a> </p> </div> <aside class="article-aside" aria-label="文章信息"> <section class="aside-card"> <h2>学习目标</h2> <ul> <li>解释 ESG 评级差异的来源。</li><li>区分披露、评级和组合构建三层。</li><li>识别 greenwashing 与数据缺口。</li> </ul> </section> <section class="aside-card"> <h2>必需先修</h2> <ul> <li> <a href="/learn/macro-scenario-analysis/">INV-006 · 宏观情景分析</a> </li> </ul> </section> <section class="aside-card"> <h2>建议阅读</h2> <ul> <li> <a href="/learn/investment-policy-statement-objectives-constraints-rebalancing/">INV-037 · 投资政策书：把目标、约束与再平衡写成规则</a> </li><li> <a href="https://economics.51invest.com/learn/energy-transition-system-cost-grid-storage-capacity-markets/">ECO-056 · 能源转型的系统成本：电网、储能与容量市场</a> </li><li> <a href="https://markets.51invest.com/learn/carbon-market-compliance-cycle-mrv-price-cap/">MKT-044 · 碳市场的履约周期：配额、MRV 与价格上限</a> </li> </ul> </section> <section class="aside-card"> <h2>AI 复核记录</h2> <p class="muted"> 本项目没有真人签字；下列状态来自 AI-only 编辑复核。 </p> <ul> <li> 事实与计算 ：AI 复核通过 </li><li> 学科 ：AI 复核通过 </li><li> 英文 ：AI 复核通过 </li><li> 页面 ：AI 复核通过 </li> </ul> </section> <section class="aside-card"> <h2>来源</h2> <div class="source"> <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-1" rel="noopener noreferrer" target="_blank">Environmental, Social and Governance (ESG) Funds – Investor Bulletin</a> <p>U.S. Securities and Exchange Commission, Office of Investor Education and Advocacy · Investor.gov</p> <p>访问：2026-11-21 · 许可：U.S. public information; copying and further distribution allowed</p> <p>支持论点：支持 ESG 基金定义、披露与投资者提示。</p> </div><div class="source"> <a href="https://rpc.cfainstitute.org/gips-standards" rel="noopener noreferrer" target="_blank">Global Investment Performance Standards (GIPS)</a> <p>CFA Institute · CFA Institute</p> <p>访问：2026-11-21 · 许可：© CFA Institute; linked summary only</p> <p>支持论点：支持投资业绩与组合披露标准。</p> </div><div class="source"> <a href="https://www.ipcc.ch/report/ar6/wg3/chapter/summary-for-policymakers/" rel="noopener noreferrer" target="_blank">Climate Change 2022: Mitigation of Climate Change, Summary for Policymakers</a> <p>IPCC · Intergovernmental Panel on Climate Change</p> <p>访问：2026-11-23 · 许可：IPCC copyright; cite-only</p> <p>支持论点：支持气候风险、减排路径与政策背景。</p> </div><div class="source"> <a href="https://openknowledge.worldbank.org/bitstreams/d14ff4b1-823f-4d70-927c-456449772089/download" rel="noopener noreferrer" target="_blank">State and Trends of Carbon Pricing 2024</a> <p>World Bank · World Bank</p> <p>访问：2026-11-23 · 许可：CC BY 3.0 IGO</p> <p>支持论点：支持碳定价工具、价格水平与收入使用。</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">非商业免费知识站。每篇标出来源与口径；这里没有投资建议。</p> </div> </div> <nav class="footer-links" aria-label="知识分站"> <a href="https://51invest.com/" data-main-home>首页</a> <a href="https://51invest.com/contents/">内容地图</a> <a href="/glossary/">术语表</a> <a href="/search/">搜索</a> <a href="https://51invest.com/charts/" data-main-link>图表</a> <a href="https://51invest.com/sources/" data-main-link>数据与许可</a> <a href="/">分站首页</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="知识分站"> <a class="mobile-link" href="https://51invest.com/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>首页</span> </a> <a class="mobile-link" href="https://51invest.com/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>知识分站</span> </a> <a class="mobile-link active" href="/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>分站首页</span> </a> <a class="mobile-link" href="/en/learn/esg-data-rating-disclosure-portfolio-construction-conflicts/" data-language-link="en"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

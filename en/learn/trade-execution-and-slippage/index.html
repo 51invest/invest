@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="en" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Trade Execution and Slippage · 51Invest</title><meta name="description" content="Use a hypothetical 20,000-share buy to compare a CNY 50.00 decision price with a CNY 50.18 average fill, splitting 36 basis points of slippage, 3 basis points of commission and a 39 basis point implementation shortfall, and show the fill risk of a limit order."><link rel="canonical" href="https://invest.51invest.com/en/learn/trade-execution-and-slippage/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/trade-execution-and-slippage/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/trade-execution-and-slippage/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/trade-execution-and-slippage/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">Skip to content</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/en/" data-main-home aria-label="51Invest"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">51Invest</span> <span class="brand-caption">WUYAO INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="Knowledge stations"> <a class="nav-link" href="https://51invest.com/en/" data-main-home> Home </a> <a class="nav-link" href="https://economics.51invest.com/en/"> Economics </a><a class="nav-link" href="https://finance.51invest.com/en/"> Finance </a><a class="nav-link" href="https://markets.51invest.com/en/"> Markets </a><a class="nav-link active" href="/en/" aria-current="page"> Investing </a><a class="nav-link" href="https://history.51invest.com/en/"> History </a><a class="nav-link" href="https://research.51invest.com/en/"> Research </a> <a class="nav-link" href="https://51invest.com/en/contents/"> Content map </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/learn/trade-execution-and-slippage/" hreflang="zh-CN" lang="zh-CN" data-language-link="zh" aria-label="Switch to Chinese" title="Switch to Chinese"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="Theme: System" title="Theme: System" data-label-auto="Theme: System" data-label-light="Theme: Light" data-label-dark="Theme: Dark"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">System</span> <span class="theme-text" data-theme-text="light">Light</span> <span class="theme-text" data-theme-text="dark">Dark</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/en/" data-main-home>Home</a> <span class="sep">/</span> <a href="/en/">Investing</a> <span class="sep">/</span> <span aria-current="page">Trade Execution and Slippage</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">Method</span> <h1 class="article-title">Trade Execution and Slippage</h1> <p class="article-summary">Use a hypothetical 20,000-share buy to compare a CNY 50.00 decision price with a CNY 50.18 average fill, splitting 36 basis points of slippage, 3 basis points of commission and a 39 basis point implementation shortfall, and show the fill risk of a limit order.</p>  <div class="meta-grid"> <div class="meta-item"><span>Module</span><strong>INV-M10 · 交易与执行</strong></div> <div class="meta-item"><span>Level</span><strong>Systematic</strong></div> <div class="meta-item"><span>Read</span><strong>7 min · 14 sections</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> This article has an interactive demo <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <blockquote>
+<p>By the end of this article, you can split the gap from decision price to average fill into spread, impact, and commission, and judge whether the slippage a limit order avoids is worth the fill it gives up.</p>
+</blockquote>
+<h2>Problem and output</h2>
+<p>Trade execution turns an intention to buy or sell into fills; slippage measures the gap between the fill and the decision price. The outputs are average fill price, slippage in basis points, commissions and taxes, implementation shortfall, fill rate and the opportunity cost of unfilled quantity, used to judge whether costs consume the strategy&#39;s return.</p>
+<h2>Inputs and data requirements</h2>
+<p>Inputs include the decision time and price, side, quantity, order type, individual fills, bid-ask spread, commission rate, taxes, volume and volatility. The example is a hypothetical purchase of 20,000 shares: decision price CNY 50.00, daily volume 500,000 shares (the order is 4% of volume); fills of 12,000 shares at CNY 50.10 and 8,000 shares at CNY 50.30; commission 0.03%; ask price at decision time CNY 50.05.</p>
+<p>The limits of a quote follow the SEC: a quote applies to a specific number of shares, prices can change quickly, and there is no legal requirement that an order be filled within a set time [1].</p>
+<h2>Assumptions</h2>
+<p>Long-only and unlevered; commission is 0.03% of traded value and taxes are ignored; the decision price is the midpoint at decision time; the spread is unchanged during execution; all numbers are teaching assumptions.</p>
+<h2>Steps</h2>
+<ol>
+<li>Average fill <code>(12,000×50.10 + 8,000×50.30)/20,000 = CNY 50.18</code>.</li>
+<li>Slippage <code>(50.18-50.00)×20,000 = CNY 3,600</code>, or <code>0.36%</code> of the CNY 1,000,000 decision notional, which is <code>36</code> basis points.</li>
+<li>Commission <code>50.18×20,000×0.03% = CNY 301</code>, about <code>3</code> basis points.</li>
+<li>Implementation shortfall <code>3,600+301 = CNY 3,901</code>, about <code>39</code> basis points.</li>
+<li>Split: spread cost <code>(50.05-50.00)×20,000 = CNY 1,000</code> (<code>10</code> basis points); impact cost <code>(50.18-50.05)×20,000 = CNY 2,600</code> (<code>26</code> basis points); together <code>36</code> basis points.</li>
+<li>Limit-order case: at a CNY 50.10 limit, only <code>12,000</code> shares fill; the remaining <code>8,000</code> shares are still unfilled when the price reaches CNY 50.60, an opportunity cost of <code>(50.60-50.10)×8,000 = CNY 4,000</code>. Had those <code>8,000</code> shares filled at the original CNY 50.18 average, their slippage would have been only <code>(50.18-50.00)×8,000 = CNY 1,440</code>; the unfilled cost is higher on a like-for-like quantity.</li>
+</ol>
+<p>The nature of a limit order also comes from the SEC: it specifies a price, so it controls the execution price but cannot guarantee execution — it fills only if the market reaches that price [2].</p>
+<p>More generally, Perold&#39;s implementation shortfall compares the return on a paper portfolio with the return on the real portfolio and includes the opportunity cost of unexecuted quantity[3]. The 39 basis points calculated above cover only filled quantity—slippage, commission and taxes. The CNY 4,000 opportunity cost of the unfilled shares in the limit example must be added separately; omitting it and then calling the limit order cheaper would be wrong.</p>
+<h2>Figure</h2>
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-022-chain-title fig-inv-022-chain-desc" viewBox="0 0 560 310" width="100%">
+    <title id="fig-inv-022-chain-title">INV-022: three-stage chain</title>
+    <desc id="fig-inv-022-chain-desc">Decision price: The price you intended to pay; Decompose slippage: Spread plus market impact; Limit-order risk: Opportunity cost when unfilled</desc>
+    <rect x="0.5" y="0.5" width="559" height="309" rx="12" fill="var(--surface)" stroke="var(--border)"/>
+    <rect x="24" y="16" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="16" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="35" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">START</text>
+    <text x="44" y="56" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Decision price</text>
+    <text x="44" y="76" font-size="10.5" fill="var(--secondary)" font-family="inherit">The price you intended to pay</text>
+    <line x1="280" y1="102" x2="280" y2="108" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 106 L280 110 L284 106" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="112" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="112" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="131" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">MECHANISM</text>
+    <text x="44" y="152" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Decompose slippage</text>
+    <text x="44" y="172" font-size="10.5" fill="var(--secondary)" font-family="inherit">Spread plus market impact</text>
+    <line x1="280" y1="198" x2="280" y2="204" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 202 L280 206 L284 202" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="208" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="208" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="227" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">CHECK</text>
+    <text x="44" y="248" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Limit-order risk</text>
+    <text x="44" y="268" font-size="10.5" fill="var(--secondary)" font-family="inherit">Opportunity cost when unfilled</text>
+  </svg>
+  <figcaption>Figure 1: a three-stage chain in INV-022 — Decision price → Decompose slippage → Limit-order risk. The three stages form a judgment chain, not the only path; labels come from the article text and carry no statistics. The sample is the article argument and units are marked in the text.</figcaption>
+</figure>
+
+<h2>Interpreting the result</h2>
+<p>Whether 36 basis points is unusual depends on volatility, the spread and the order&#39;s share of volume; the cost compounds with turnover: the same cost once a month is about <code>4.3%</code> a year before compounding. A market order prioritizes execution, while a limit order locks in price but carries non-execution risk; the choice depends on the strategy&#39;s edge, urgency and liquidity. Smaller orders, slicing and avoiding the open, the close and major announcements are usually more controllable than one large order; slicing also adds exposure time and monitoring cost. Only when commissions and taxes are included does the 39 basis point implementation shortfall become a cost directly comparable with the strategy&#39;s return.</p>
+<h2>Failure conditions</h2>
+<ul>
+<li>recording the decision price too late and mistaking a market rally for slippage</li>
+<li>reversing the sign for buys and sells</li>
+<li>counting only filled quantity and ignoring unfilled opportunity cost</li>
+<li>ignoring commissions, taxes, transfer fees and financing costs</li>
+<li>substituting the closing price for the real decision price</li>
+<li>sizing from historical volume when liquidity has fallen</li>
+<li>mixing strategy alpha with execution cost</li>
+<li>reviewing single trades instead of monthly or annual totals</li>
+</ul>
+<h2>Verification</h2>
+<p>Reconcile shares and cash against broker confirms; recompute against at least two benchmarks such as VWAP, TWAP and arrival price; test decision-price sensitivity of plus or minus 5 basis points; include partial fills and cancellations; report by strategy and by trader; check cash and position reconciliation.</p>
+<h2>Reproduction</h2>
+<p><code>average fill=Σ(price×quantity)/Σquantity</code>; <code>slippage=side×(average fill-decision price)×quantity</code>, with <code>+1</code> for a buy; <code>implementation shortfall on filled quantity=slippage+commission+taxes</code>; a complete implementation shortfall also includes the opportunity cost of unfilled quantity[3]; <code>cost in bp=cost/decision notional×10,000</code>. Example: <code>CNY 50.18</code>; <code>CNY 3,600</code>; <code>CNY 3,901</code>; <code>39</code> basis points.</p>
+<h2>Figures in plain language</h2>
+<p>The three figures take apart the article&#39;s 20,000-share example: the 39bp cost stack, the limit order&#39;s trade-off between saved slippage and missed fills, and the cumulative drag of repeating the same per-trade cost.</p>
+<figure>
+  <svg role="img" aria-labelledby="fig-cost-stack-title-en fig-cost-stack-desc-en" viewBox="0 0 440 240" width="100%">
+    <title id="fig-cost-stack-title-en">The 39 basis-point cost stack</title>
+    <desc id="fig-cost-stack-desc-en">With a decision price of 50.00, 12,000 shares fill at 50.10 and 8,000 at 50.30 for a 50.18 average. Total slippage of 3,600 yuan (36bp) is 1,000 of spread (10bp) plus 2,600 of impact (26bp); adding 301 of commission (3bp) gives 3,901, or 39bp.</desc>
+    <text x="20" y="24" font-size="12" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">About 3,901 yuan of cost per 1 million of decision value</text>
+    <text x="20" y="58" font-size="9" fill="var(--muted)" font-family="inherit" text-anchor="start">Split by basis points (39bp total)</text>
+    <rect x="60" y="70" width="84.6" height="26" fill="var(--accent)" opacity="0.8"/>
+    <rect x="144.6" y="70" width="219.9" height="26" fill="var(--gold)" opacity="0.7"/>
+    <rect x="364.5" y="70" width="25.4" height="26" fill="var(--muted)" opacity="0.55"/>
+    <g font-family="inherit" font-size="9" fill="var(--text)" text-anchor="middle">
+      <text x="102" y="87">Spread 10</text><text x="254" y="87">Impact 26</text><text x="377" y="87">Commission 3</text>
+    </g>
+    <text x="20" y="124" font-size="9" fill="var(--muted)" font-family="inherit" text-anchor="start">Amounts: 1,000 spread + 2,600 impact + 301 commission</text>
+    <text x="20" y="158" font-size="9" fill="var(--muted)" font-family="inherit" text-anchor="start">Price path (yuan per share)</text>
+    <g font-family="inherit" font-size="9" fill="var(--text)">
+      <text x="40" y="186">Decision 50.00</text><text x="180" y="186">Average fill 50.18</text><text x="420" y="186" text-anchor="end">After costs ≈50.195</text>
+      <line x1="40" y1="198" x2="400" y2="198" stroke="var(--border)" stroke-width="1.2"/>
+      <circle cx="40" cy="198" r="4" fill="var(--muted)"/><circle cx="235" cy="198" r="4" fill="var(--accent)"/><circle cx="400" cy="198" r="4" fill="var(--gold)"/>
+    </g>
+    <text x="20" y="230" font-size="9" fill="var(--muted)" font-family="inherit" text-anchor="start">Unit: yuan and bp; 20,000 shares and 50.00 decision price are illustrative.</text>
+  </svg>
+  <figcaption>Figure 2: With 20,000 shares and a 50.00 decision price, 12,000 fill at 50.10 and 8,000 at 50.30, for a 50.18 average. Of the 36bp slippage, 10bp is spread and 26bp impact; adding 3bp commission gives 39bp, or 3,901 yuan. Unit: yuan, basis points; figures are illustrative.</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-limit-tradeoff-title-en fig-limit-tradeoff-desc-en" viewBox="0 0 440 270" width="100%">
+    <title id="fig-limit-tradeoff-title-en">Market order versus a 50.10 limit order</title>
+    <desc id="fig-limit-tradeoff-desc-en">A market order fills all 20,000 shares at a 50.18 average, with 3,600 yuan of slippage. A 50.10 limit fills only 12,000, with 1,200 of slippage; the remaining 8,000 are unfilled at 50.60, an opportunity cost of 4,000, above the 1,440 slippage of filling all at 50.18.</desc>
+    <text x="20" y="24" font-size="12" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">The limit saves 2,400 of slippage but can cost 4,000 in missed fills</text>
+    <rect x="20" y="48" width="190" height="82" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="115" y="70" font-size="9" text-anchor="middle" fill="var(--text)" font-family="inherit">Market order: full fill</text>
+    <text x="115" y="92" font-size="9" text-anchor="middle" fill="var(--muted)" font-family="inherit">20,000 shares at 50.18</text>
+    <text x="115" y="112" font-size="10" text-anchor="middle" fill="var(--accent)" font-family="inherit">Slippage 3,600 (36bp)</text>
+    <rect x="230" y="48" width="190" height="82" rx="7" fill="var(--surface)" stroke="var(--border)"/>
+    <text x="325" y="70" font-size="9" text-anchor="middle" fill="var(--text)" font-family="inherit">Limit 50.10: partial fill</text>
+    <text x="325" y="92" font-size="9" text-anchor="middle" fill="var(--muted)" font-family="inherit">12,000 filled, 8,000 missed</text>
+    <text x="325" y="112" font-size="10" text-anchor="middle" fill="var(--gold)" font-family="inherit">Opportunity cost 4,000</text>
+    <g font-family="inherit" font-size="9" fill="var(--muted)">
+      <text x="20" y="158" text-anchor="start">Filled part: 50.10 − 50.00 = 0.10 × 12,000 = 1,200 yuan</text>
+      <text x="20" y="180" text-anchor="start">Missed part: 50.60 − 50.00 = 0.60 × 8,000 = 4,000 yuan</text>
+      <text x="20" y="202" text-anchor="start">If the 8,000 filled at 50.18, slippage would be 0.18 × 8,000 = 1,440 yuan</text>
+    </g>
+    <text x="20" y="232" font-size="9" font-weight="600" fill="var(--text)" font-family="inherit" text-anchor="start">Bottom line: a limit order trades fill certainty for price certainty.</text>
+    <text x="20" y="254" font-size="9" fill="var(--muted)" font-family="inherit" text-anchor="start">Unit: yuan, yuan per share; 50.00, 50.10, and 50.60 are illustrative.</text>
+  </svg>
+  <figcaption>Figure 3: A comparison of a market order and a 50.10 limit: the market order fills all 20,000 shares at a 50.18 average for 3,600 of slippage; the limit fills 12,000 with 1,200 of slippage and leaves 8,000 unfilled at 50.60, an opportunity cost of 4,000, above the 1,440 slippage of filling all at 50.18. Unit: yuan, yuan per share; figures are illustrative.</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-repeat-drag-title-en fig-repeat-drag-desc-en" viewBox="0 0 440 230" width="100%">
+    <title id="fig-repeat-drag-title-en">39bp per trade, repeated 1, 5, 10, and 20 times</title>
+    <desc id="fig-repeat-drag-desc-en">A single implementation shortfall is 39bp. Repeating the same cost 1, 5, 10, and 20 times adds to 0.39%, 1.95%, 3.90%, and 7.80%. This is simple addition, not compounding, and does not mean trading that often every year; it shows the scale of repeated unit costs.</desc>
+    <text x="20" y="24" font-size="12" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">0.39% per trade looks small; 20 repeats add to 7.80%</text>
+    <line x1="60" y1="180" x2="400" y2="180" stroke="var(--border)" stroke-width="1.5"/>
+    <g fill="var(--accent)" opacity="0.75">
+      <rect x="80" y="164" width="50" height="16"/><rect x="160" y="130" width="50" height="50"/><rect x="240" y="80" width="50" height="100"/><rect x="320" y="20" width="50" height="160"/>
+    </g>
+    <g font-family="inherit" font-size="9.5" fill="var(--text)" text-anchor="middle">
+      <text x="105" y="200">1 trade</text><text x="185" y="200">5 trades</text><text x="265" y="200">10 trades</text><text x="345" y="200">20 trades</text>
+      <text x="105" y="156">0.39%</text><text x="185" y="122">1.95%</text><text x="265" y="72">3.90%</text><text x="345" y="14">7.80%</text>
+    </g>
+    <text x="20" y="224" font-size="9" fill="var(--muted)" font-family="inherit" text-anchor="start">Unit: % of decision value; simple addition, not compounding; 39bp comes from the 20,000-share example.</text>
+  </svg>
+  <figcaption>Figure 4: A single implementation shortfall is 39bp; repeating the same cost 1, 5, 10, and 20 times adds to 0.39%, 1.95%, 3.90%, and 7.80%. This is simple addition, not compounding, and does not mean trading that often every year; it shows the scale of repeated unit costs. Unit: % of decision value; figures are illustrative arithmetic.</figcaption>
+</figure>
+
+
+<!-- kp-supplement:start -->
+<h2>Knowledge-point review</h2>
+<h3>order types</h3>
+<p><strong>Definition</strong>: Orders are buy or sell instructions, including market, limit, stop, stop-limit and algorithmic orders, differing in price certainty and fill probability.</p>
+<p><strong>Mechanism</strong>: Market orders prioritise execution but not price, limits control price but may not fill, stops become market orders on trigger, and algorithms slice large orders to cut impact.</p>
+<p><strong>Example</strong>: For example, an illiquid stock uses limit orders to avoid slippage, while an urgent hedge uses market orders to ensure execution.</p>
+<p><strong>Boundary</strong>: More complex orders are not better; stops can be triggered by wicks, limits can miss trends, and algorithms fail in extreme conditions.</p>
+<h3>bid-ask spread</h3>
+<p><strong>Definition</strong>: The bid-ask spread is the difference between the best bid and ask, an implicit cost of immediate execution.</p>
+<p><strong>Mechanism</strong>: It reflects liquidity, volatility, information and dealer inventory; small caps, crises and news widen it.</p>
+<p><strong>Example</strong>: For example, a 0.5 yuan spread means an immediate round-trip cost of about 0.5 yuan.</p>
+<p><strong>Boundary</strong>: The spread is not fixed; liquidity, volatility and order size change it, quoted spreads may differ from fills, and large orders face more impact.</p>
+<h3>market impact</h3>
+<p><strong>Definition</strong>: Market impact is the price change caused by a large trade, making fills deviate from the initial price.</p>
+<p><strong>Mechanism</strong>: Impact rises with order size, illiquidity, volatility and speed; slicing, algorithms and dark pools reduce it but add delay and exposure.</p>
+<p><strong>Example</strong>: For example, a large buy in a thin market pushes prices up, so the average cost exceeds the initial quote.</p>
+<p><strong>Boundary</strong>: Impact is not linear; nonlinearity, information leakage and crowding exceed estimates, and backtests ignoring impact overstate capacity.</p>
+<h3>slippage</h3>
+<p><strong>Definition</strong>: Slippage is the difference between the executed price and the expected or benchmark price, positive or negative.</p>
+<p><strong>Mechanism</strong>: It comes from spreads, impact, delay and volatility; speed, order type and depth determine size.</p>
+<p><strong>Example</strong>: For example, expecting to buy at 10 yuan but filling at 10.05 means 0.05 of slippage.</p>
+<p><strong>Boundary</strong>: Slippage is not only a trader issue; volatility, liquidity gaps and system delays cause it, and backtests should use real fills rather than closes.</p>
+<h3>financing</h3>
+<p><strong>Definition</strong>: Financing borrows to buy assets or maintain positions, including margin loans, repo and derivative funding.</p>
+<p><strong>Mechanism</strong>: Funding cost, haircuts, maturity and margin calls determine sustainability; higher rates and collateral discounts add pressure.</p>
+<p><strong>Example</strong>: For example, buying stocks on margin requires top-ups in a decline or forced liquidation.</p>
+<p><strong>Boundary</strong>: Financing is not free leverage; costs, runs and forced sales occur at the worst time, and short funding of long assets worsens mismatch.</p>
+<h3>securities lending</h3>
+<p><strong>Definition</strong>: Securities lending borrows stocks or bonds for shorting, settlement or hedging; lenders earn fees and bear recall and counterparty risk.</p>
+<p><strong>Mechanism</strong>: Borrow fee, availability, recall terms and substitutes determine shorting cost; squeezes make borrow scarce and expensive.</p>
+<p><strong>Example</strong>: For example, a short seller borrows shares to sell and must buy back if the lender recalls.</p>
+<p><strong>Boundary</strong>: Lending is not stable income; counterparty default, recalls and regulation cause losses, and shorts face unlimited loss and squeezes.</p>
+<h3>execution discipline</h3>
+<p><strong>Definition</strong>: Execution discipline selects timing, orders and size by predetermined rules, records fills and controls cost and information leakage.</p>
+<p><strong>Mechanism</strong>: It includes benchmarks, participation rates, time slicing, limits and review; execution should match thesis and liquidity.</p>
+<p><strong>Example</strong>: For example, a large order is worked as a share of volume to avoid one-shot impact, with implementation shortfall recorded.</p>
+<p><strong>Boundary</strong>: Execution is not mechanical; over-slicing adds delay and leakage, minimizing impact can miss opportunity, and algorithms need stress tests.</p>
+<!-- kp-supplement:end -->
+
+<h2>Related</h2>
+<ul>
+<li>Required prerequisite: Return, Risk and Cost Trade-offs (INV-002).</li>
+<li>Related reading: Position Sizing and Rebalancing (INV-019), Performance Evaluation and Attribution (INV-021), Indices and Investment Benchmarks (MKT-005).</li>
+</ul>
+<h2>Exercises</h2>
+<ol>
+<li><strong>Calculation.</strong> What are the average fill and slippage?</li>
+<li><strong>Split.</strong> What are the spread and impact costs?</li>
+<li><strong>Judgement.</strong> Is a CNY 50.10 limit order always cheaper?</li>
+</ol>
+<details>
+<summary>Suggested answers</summary>
+
+<ol>
+<li><code>CNY 50.18</code>; <code>CNY 3,600</code>, or <code>36</code> basis points.</li>
+<li>Spread <code>CNY 1,000</code> (<code>10</code> basis points), impact <code>CNY 2,600</code> (<code>26</code> basis points).</li>
+<li>No; the unfilled <code>8,000</code> shares cost <code>CNY 4,000</code> in opportunity cost when the price reaches CNY 50.60, while the same <code>8,000</code> shares filled at the original average would have incurred only <code>CNY 1,440</code> of slippage.</li>
+</ol>
+</details>
+
+<h2>Sources</h2>
+<ol>
+<li>U.S. Securities and Exchange Commission. “Trade Execution.” <a href="https://www.sec.gov/investor/pubs/tradexec.htm">https://www.sec.gov/investor/pubs/tradexec.htm</a> (accessed 2026-10-30)</li>
+<li>U.S. Securities and Exchange Commission. “Limit Orders.” <a href="https://www.sec.gov/answers/limit.htm">https://www.sec.gov/answers/limit.htm</a> (accessed 2026-10-30)</li>
+<li>Perold, André F. “The Implementation Shortfall: Paper vs. Reality.” <em>The Journal of Portfolio Management</em> 14(3), 1988, pp. 4–9. <a href="https://doi.org/10.3905/jpm.1988.409150">https://doi.org/10.3905/jpm.1988.409150</a> (accessed 2026-11-23)</li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="en" aria-labelledby="demo-check-title" data-check-done="All three are covered: the core of this article is in place." data-check-pending="One item is still open: go back to the matching section and retell it with a number or counterexample." data-check-count="Ticked"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">Worked demo</p> <button class="demo-reset" type="button" data-demo-reset>Reset</button> </div> <h2 id="demo-check-title">Read-through check: can you say three things?</h2> <p class="demo-intro">No recitation needed. Tick each sentence below and see whether you can explain the mechanism, one worked example and one boundary in your own words.</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>Break decision price, average fill and fees into slippage, commission and implementation shortfall, all in basis points</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>Compare the execution risks of limit and market orders and when each is appropriate</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>Name one condition under which the article’s conclusion does not hold</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> Ticked 0 / 3
+</p> </div> <p class="demo-footnote">The numbers are teaching assumptions that show relationships, not forecasts or investment advice.</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> This article has passed the current publication gate. Factual, calculation and translation revisions update both language versions together. </p> <p> <a class="button secondary" href="/en/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>Back to station </a> </p> </div> <aside class="article-aside" aria-label="Article information"> <section class="aside-card"> <h2>Learning objectives</h2> <ul> <li>Break decision price, average fill and fees into slippage, commission and implementation shortfall, all in basis points</li><li>Compare the execution risks of limit and market orders and when each is appropriate</li> </ul> </section> <section class="aside-card"> <h2>Required prerequisites</h2> <ul> <li> <a href="/en/learn/return-risk-and-cost-tradeoffs/">INV-002 · Return, Risk and Cost Trade-offs</a> </li> </ul> </section> <section class="aside-card"> <h2>Recommended reading</h2> <ul> <li> <a href="/en/learn/position-sizing-and-rebalancing/">INV-019 · Position Sizing and Rebalancing</a> </li><li> <a href="/en/learn/performance-evaluation-and-attribution/">INV-021 · Performance Evaluation and Attribution</a> </li><li> <a href="https://markets.51invest.com/en/learn/indices-and-investment-benchmarks/">MKT-005 · Indices and Investment Benchmarks</a> </li> </ul> </section> <section class="aside-card"> <h2>AI review record</h2> <p class="muted"> There is no human sign-off; these states come from the AI-only editorial review. </p> <ul> <li> Facts and calculations : AI review passed </li><li> Subject : AI review passed </li><li> English : AI review passed </li><li> Page : AI review passed </li> </ul> </section> <section class="aside-card"> <h2>Sources</h2> <div class="source"> <a href="https://www.sec.gov/investor/pubs/tradexec.htm" rel="noopener noreferrer" target="_blank">Trade Execution</a> <p>U.S. Securities and Exchange Commission · U.S. Securities and Exchange Commission</p> <p>Accessed: 2026-10-30 · License: U.S. public information; copying and further distribution allowed</p> <p>Supports: The page states that quotes apply to specific share amounts, prices can change quickly and no rule requires a trade to execute within a set time; market orders may receive price improvement and brokers must disclose order-routing practices.</p> </div><div class="source"> <a href="https://www.sec.gov/answers/limit.htm" rel="noopener noreferrer" target="_blank">Limit Orders</a> <p>U.S. Securities and Exchange Commission · U.S. Securities and Exchange Commission</p> <p>Accessed: 2026-10-30 · License: U.S. public information; copying and further distribution allowed</p> <p>Supports: The page explains that a limit order sets a specific price, limits the price paid or received but does not guarantee execution, and fills only if the market reaches the limit.</p> </div><div class="source"> <a href="https://doi.org/10.3905/jpm.1988.409150" rel="noopener noreferrer" target="_blank">The Implementation Shortfall: Paper vs. Reality</a> <p>André F. Perold · The Journal of Portfolio Management</p> <p>Accessed: 2026-11-23 · License: Copyrighted journal article; cite and link only, no reproduction</p> <p>Supports: The paper introduces the implementation shortfall as the return gap between a paper portfolio and the real portfolio, including the opportunity cost of unexecuted quantity; this article uses it only to define the concept boundary and does not reproduce the text.</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">A free, non-commercial knowledge site. Sources and definitions are labelled; nothing here is investment advice.</p> </div> </div> <nav class="footer-links" aria-label="Knowledge stations"> <a href="https://51invest.com/en/" data-main-home>Home</a> <a href="https://51invest.com/en/contents/">Content map</a> <a href="/en/glossary/">Glossary</a> <a href="/en/search/">Search</a> <a href="https://51invest.com/en/charts/" data-main-link>Charts</a> <a href="https://51invest.com/en/sources/" data-main-link>Data &amp; licences</a> <a href="/en/">Station home</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="Knowledge stations"> <a class="mobile-link" href="https://51invest.com/en/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>Home</span> </a> <a class="mobile-link" href="https://51invest.com/en/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>Knowledge stations</span> </a> <a class="mobile-link active" href="/en/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>Station home</span> </a> <a class="mobile-link" href="/learn/trade-execution-and-slippage/" data-language-link="zh"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

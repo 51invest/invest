@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>仓位与再平衡 · 巫妖投资</title><meta name="description" content="用 100 万元假设组合说明如何按风险预算确定仓位、用 5 个百分点阈值触发再平衡，并计算交易额、成本与漂移后的风险暴露。"><link rel="canonical" href="https://invest.51invest.com/learn/position-sizing-and-rebalancing/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/position-sizing-and-rebalancing/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/position-sizing-and-rebalancing/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/position-sizing-and-rebalancing/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/" data-main-home aria-label="巫妖投资"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">巫妖投资</span> <span class="brand-caption">51INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="知识分站"> <a class="nav-link" href="https://51invest.com/" data-main-home> 首页 </a> <a class="nav-link" href="https://economics.51invest.com/"> 经济学 </a><a class="nav-link" href="https://finance.51invest.com/"> 金融基础 </a><a class="nav-link" href="https://markets.51invest.com/"> 市场与产品 </a><a class="nav-link active" href="/" aria-current="page"> 投资方法 </a><a class="nav-link" href="https://history.51invest.com/"> 经济与金融史 </a><a class="nav-link" href="https://research.51invest.com/"> 研究方法 </a> <a class="nav-link" href="https://51invest.com/contents/"> 内容地图 </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/en/learn/position-sizing-and-rebalancing/" hreflang="en" lang="en" data-language-link="en" aria-label="切换为英文" title="切换为英文"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="主题: 跟随系统" title="主题: 跟随系统" data-label-auto="主题: 跟随系统" data-label-light="主题: 浅色" data-label-dark="主题: 深色"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">跟随系统</span> <span class="theme-text" data-theme-text="light">浅色</span> <span class="theme-text" data-theme-text="dark">深色</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/" data-main-home>首页</a> <span class="sep">/</span> <a href="/">投资方法</a> <span class="sep">/</span> <span aria-current="page">仓位与再平衡</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">方法</span> <h1 class="article-title">仓位与再平衡</h1> <p class="article-summary">用 100 万元假设组合说明如何按风险预算确定仓位、用 5 个百分点阈值触发再平衡，并计算交易额、成本与漂移后的风险暴露。</p>  <div class="meta-grid"> <div class="meta-item"><span>模块</span><strong>INV-M11 · 组合与资产配置</strong></div> <div class="meta-item"><span>层级</span><strong>系统</strong></div> <div class="meta-item"><span>阅读</span><strong>4 分钟 · 14 节</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> 这篇有一个可以动手操作的演示 <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>问题与输出</h2>
+<p>仓位决定单一资产或策略占组合多少；再平衡决定偏离目标后何时、交易多少回到目标。输出是目标权重、与风险预算对应的仓位、触发规则、交易清单和成本估计，不是一次性预测涨跌。</p>
+<p>组合权重决定组合收益与风险，组合波动率由各资产波动率、权重与相关性共同决定，这一口径来自 OpenStax[3]。</p>
+<h2>输入与数据要求</h2>
+<p>需要组合市值、目标权重、资产波动率与相关性、风险预算、交易成本、税费、最小交易单位和现金流；风险预算应以组合总风险为上限。示例为假设的 100 万元组合，股票/债券目标 60/40；股票波动率 16%，债券 6%，相关系数 0.20。</p>
+<p>SEC 指南把再平衡描述为把组合带回目标配置的做法——卖出超配、买入低配或调整新增资金——并提醒计入交易费用与税务后果[1]。</p>
+<h2>假设</h2>
+<p>只做多、无杠杆；成本按买卖各 0.10% 的成交额计；税费和最小交易单位忽略；再平衡阈值为 5 个百分点；示例数字均为教学假设。</p>
+<h2>步骤</h2>
+<ol>
+<li>风险仓位：某卫星资产波动率 30%，组合给它的风险预算为 1.5 个百分点；在相关性较低的条件下，权重约为 <code>1.5%/30% = 5%</code>，即 5 万元。</li>
+<li>初始：股票 60 万元，债券 40 万元。</li>
+<li>股票涨 40%、债券不变：股票 84 万元，债券 40 万元，总值 124 万元；股票权重 <code>84/124 = 67.74%</code>，偏离 7.74 个百分点。</li>
+<li>超过 5 个百分点阈值，恢复 60/40：股票目标 74.4 万元，债券 49.6 万元。</li>
+<li>卖出股票 9.6 万元，买入债券 9.6 万元；两笔各按 0.10% 计，成本 <code>96+96 = 192 元</code>，总值降至 1,239,808 元。</li>
+<li>若有新增资金，可优先买入低配资产，减少卖出、税费和滑点。</li>
+<li>记录触发日、成交价、滑点和执行偏差。</li>
+</ol>
+<p>偏离阈值之所以要先看权重漂移，Vanguard 的说明给了例子：60/40 组合在股票上涨 10%、债券下跌 10% 后可能变成 65/35，风险高于原目标，可按 5 个百分点的偏离阈值回到目标配置[2]。</p>
+<h2>图表</h2>
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-019-chain-title fig-inv-019-chain-desc" viewBox="0 0 560 310" width="100%">
+    <title id="fig-inv-019-chain-title">INV-019：三段判断链</title>
+    <desc id="fig-inv-019-chain-desc">风险预算：波动率乘以权重；看漂移：涨跌后权重偏离；再平衡：阈值、成本与税务</desc>
+    <rect x="0.5" y="0.5" width="559" height="309" rx="12" fill="var(--surface)" stroke="var(--border)"/>
+    <rect x="24" y="16" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="16" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="35" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">起点</text>
+    <text x="44" y="56" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">风险预算</text>
+    <text x="44" y="76" font-size="10.5" fill="var(--secondary)" font-family="inherit">波动率乘以权重</text>
+    <line x1="280" y1="102" x2="280" y2="108" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 106 L280 110 L284 106" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="112" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="112" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="131" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">机制</text>
+    <text x="44" y="152" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">看漂移</text>
+    <text x="44" y="172" font-size="10.5" fill="var(--secondary)" font-family="inherit">涨跌后权重偏离</text>
+    <line x1="280" y1="198" x2="280" y2="204" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 202 L280 206 L284 202" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="208" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="208" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="227" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">判断</text>
+    <text x="44" y="248" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">再平衡</text>
+    <text x="44" y="268" font-size="10.5" fill="var(--secondary)" font-family="inherit">阈值、成本与税务</text>
+  </svg>
+  <figcaption>图 1：INV-019的三段判断链——风险预算 → 看漂移 → 再平衡。三段是判断链，不是唯一路径；图中文字取自本文正文，不含统计数据。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<h2>图解：7.74 个百分点怎样回到 60%</h2>
+<figure id="figure-rebalance-drift">
+  <svg role="img" aria-labelledby="fig-rebalance-drift-title fig-rebalance-drift-desc" viewBox="0 0 380 300" width="100%">
+    <title id="fig-rebalance-drift-title">股票权重从 60% 漂移到 67.74%，越过 65% 阈值后再平衡</title>
+    <desc id="fig-rebalance-drift-desc">横向权重刻度从五十五到七十五：目标六十在左，阈值六十五在中，实际六十七点七四在右；超配部分为九点六万元，卖股买债各九点六万元，成本一百九十二元。</desc>
+    <text x="20" y="22" font-size="11" font-weight="650" fill="var(--text)" font-family="inherit">7.74 个百分点，怎样回到 60%</text>
+    <text x="20" y="42" font-size="9.5" fill="var(--muted)" font-family="inherit">目标 60/40｜股票涨 40% 后，股票权重 67.74%</text>
+    <text x="231" y="66" font-size="10" font-weight="650" fill="var(--text)" text-anchor="middle" font-family="inherit">实际 67.74%</text>
+    <text x="115" y="86" font-size="9.5" fill="var(--accent)" text-anchor="middle" font-family="inherit">目标 60%</text>
+    <text x="190" y="86" font-size="9.5" fill="var(--gold)" text-anchor="middle" font-family="inherit">阈值 65%</text>
+    <line x1="115" y1="96" x2="115" y2="190" stroke="var(--accent)" stroke-width="1.5"/>
+    <line x1="190" y1="96" x2="190" y2="190" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <line x1="231" y1="80" x2="231" y2="190" stroke="var(--text)" stroke-width="1.2"/>
+    <line x1="115" y1="110" x2="231" y2="110" stroke="var(--border)" stroke-width="1"/>
+    <line x1="115" y1="106" x2="115" y2="114" stroke="var(--border)" stroke-width="1"/>
+    <line x1="231" y1="106" x2="231" y2="114" stroke="var(--border)" stroke-width="1"/>
+    <text x="173" y="126" font-size="10" font-weight="600" fill="var(--gold)" text-anchor="middle" font-family="inherit">+7.74 个百分点</text>
+    <rect x="115" y="145" width="116" height="22" fill="var(--gold)" opacity="0.18" stroke="var(--border)"/>
+    <text x="173" y="160" font-size="9.2" fill="var(--secondary)" text-anchor="middle" font-family="inherit">超配 9.6 万</text>
+    <line x1="40" y1="190" x2="340" y2="190" stroke="var(--border)" stroke-width="1.5"/>
+    <g fill="var(--muted)" font-size="9" text-anchor="middle" font-family="inherit">
+      <text x="40" y="208">55%</text>
+      <text x="115" y="208">60%</text>
+      <text x="190" y="208">65%</text>
+      <text x="265" y="208">70%</text>
+      <text x="340" y="208">75%</text>
+    </g>
+    <line x1="231" y1="230" x2="123" y2="230" stroke="var(--gold)" stroke-width="1.5"/>
+    <path d="M127 226 L121 230 L127 234" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+    <text x="177" y="248" font-size="9.5" fill="var(--text)" text-anchor="middle" font-family="inherit">卖出 9.6 万股票 → 买入 9.6 万债券</text>
+    <text x="177" y="266" font-size="9.2" fill="var(--muted)" text-anchor="middle" font-family="inherit">两笔各 0.10%，合计 192 元</text>
+    <text x="20" y="290" font-size="9.2" fill="var(--muted)" font-family="inherit">5 个百分点阈值：60% → 65%；实际 67.74% 已越过，所以触发。</text>
+  </svg>
+  <figcaption>图 2：目标 60/40 的组合在股票上涨 40% 后变成 84 万 / 40 万，总值 124 万，股票权重 67.74%，比目标高 7.74 个百分点，越过 65% 的 5 个百分点阈值。恢复 60/40 需卖出 9.6 万元股票、买入 9.6 万元债券，两笔各 0.10%，成本 192 元。数字均为教学假设，未计税费与滑点。</figcaption>
+</figure>
+
+<h2>结果解读</h2>
+<p>5 个百分点阈值把 7.74 个百分点的漂移拉回目标，代价是 192 元；若频繁交易，成本会累积。仓位大小应由风险预算和波动率决定，而不是由信心或近期涨跌决定。再平衡不是收益增强保证，它控制风险暴露和纪律；在单边趋势中可能跑输买入持有。阈值、日历和两者结合是三种常见规则，选择应写入投资政策，并与组合规模、现金流和税负相匹配。</p>
+<h2>失败条件</h2>
+<ul>
+<li>阈值过窄，导致频繁交易和成本累积；</li>
+<li>忽略税费、最小交易单位和流动性；</li>
+<li>使用杠杆时未预留保证金；</li>
+<li>极端波动中无法成交或滑点扩大；</li>
+<li>把再平衡当成择时工具；</li>
+<li>规则未事先写入政策，临场更改；</li>
+<li>目标权重本身已不适合目标或期限。</li>
+</ul>
+<h2>验证</h2>
+<p>比较不同阈值与频率；计入成本、税费和滑点；观察漂移范围、换手和风险；做流动性压力测试；检查再平衡后的实际权重是否接近目标。</p>
+<h2>复现</h2>
+<p><code>漂移 = 实际权重 - 目标权重</code>；<code>交易额 = 目标市值 - 实际市值</code>；<code>成本 = 交易额×费率×2</code>。示例：<code>67.74%-60% = 7.74%</code>；<code>840,000 - 744,000 = 96,000 元</code>；<code>9.6 万×0.10%×2 = 192 元</code>。</p>
+<h2>关联</h2>
+<ul>
+<li>必需先修：资产配置与风险预算（INV-018）。</li>
+<li>相关与推荐阅读：资产配置与风险预算（INV-018）、对冲的目的与代价（INV-020）、协方差与相关性（RES-010）、指数与投资基准（MKT-005）。</li>
+</ul>
+<h2>图解</h2>
+<p>下面三张图分别检查本文的机制、边界与对照；图内文字取自本文小节，不是新数据。</p>
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-chain-title fig-batch-chain-desc" viewBox="0 0 340 304" width="100%">
+    <title id="fig-batch-chain-title">仓位与再平衡：机制链</title>
+    <desc id="fig-batch-chain-desc">仓位与再平衡 的三段结构：问题、机制、判断。图内文字取自本文小节，不是新的数据估计。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">仓位与再平衡：机制链</text>
+    <text x="14" y="38" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图内文字取自本文小节；三段缺一不可。</text>
+    <line x1="14" y1="46" x2="326" y2="46" stroke="var(--border)" stroke-width="1"/>
+    <g>
+      <rect x="14" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="22" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">问题</text>
+      <text x="22" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">用 100 万元假设组合</text>
+      <text x="22" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">说明如何按风险预算确…</text>
+      <text x="22" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">用 100 万元假设组</text>
+      <text x="22" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">合说明如何按风险预</text>
+      <text x="22" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">算确定仓位、用 5</text>
+      <text x="22" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">个百分点阈值触发再</text>
+      <text x="22" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">平衡，并计算交易额…</text>
+    </g>
+      <g>
+      <rect x="123" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="131" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">问题与输出</text>
+      <text x="131" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">问题与输出：仓位决定</text>
+      <text x="131" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">单一资产或策略占组合…</text>
+      <text x="131" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">问题与输出：仓位决</text>
+      <text x="131" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">定单一资产或策略占</text>
+      <text x="131" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">组合多少；再平衡决</text>
+      <text x="131" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">定偏离目标后何时、</text>
+      <text x="131" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">交易多少回到目标。…</text>
+    </g>
+      <g>
+      <rect x="232" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="240" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">输入与数据要求</text>
+      <text x="240" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">需要组合市值、目标权</text>
+      <text x="240" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">重、资产波动率与相关…</text>
+      <text x="240" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">需要组合市值、目标</text>
+      <text x="240" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">权重、资产波动率与</text>
+      <text x="240" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">相关性、风险预算、</text>
+      <text x="240" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">交易成本、税费、最</text>
+      <text x="240" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">小交易单位和现金流…</text>
+    </g>
+    <line x1="108" y1="144" x2="123" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M120 140 L125 144 L120 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="217" y1="144" x2="232" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M229 140 L234 144 L229 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="14" y1="250" x2="326" y2="250" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="266" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">读法：先看问题能否成立，再看机制能否连通，最后看判断会不会越界。</text>
+    <text x="14" y="280" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">若中间一步缺证据，后面的结论只能当假设，不能当事实。</text>
+    <text x="14" y="294" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图为结构示意，不是新的数据图；样本为本文论证。</text>
+  </svg>
+  <figcaption>图 3：仓位与再平衡的机制链：从问题、机制到判断。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-boundary-title fig-batch-boundary-desc" viewBox="0 0 340 244" width="100%">
+    <title id="fig-batch-boundary-title">仓位与再平衡：适用边界</title>
+    <desc id="fig-batch-boundary-desc">把成立条件与失效条件分开；局部例子不能自动推广到所有情形。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">仓位与再平衡：什么情况下成立？</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <rect x="14" y="44" width="312" height="38" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="170" y="62" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="middle">先检查条件，再看结论</text>
+    <text x="170" y="75" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="middle">条件、口径或样本一变，结论可能要重算</text>
+    <line x1="170" y1="82" x2="90" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="170" y1="82" x2="250" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <rect x="14" y="104" width="148" height="100" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="24" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">成立</text>
+    <text x="24" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">阈值过窄，导致频繁交易和成本累积</text>
+      <text x="24" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">； 忽略税费、最小交易单位和流动</text>
+      <text x="24" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">性； 使用杠杆时未预留保证金；</text>
+      <text x="24" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">极端波动中无法成交或滑点扩大…</text>
+    <rect x="178" y="104" width="148" height="100" rx="8" fill="var(--gold)" opacity="0.18" stroke="var(--border)"/>
+    <text x="188" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">不成立 / 需改写</text>
+    <text x="188" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">必需先修：资产配置与风险预算（INV</text>
+      <text x="188" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">-018）。</text>
+    <line x1="14" y1="216" x2="326" y2="216" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="232" font-size="8.3" fill="var(--muted)" font-family="inherit" text-anchor="start">图为边界示意；样本为本文论证，单位为文中标注。</text>
+  </svg>
+  <figcaption>图 4：仓位与再平衡的边界：哪些条件成立，哪些条件失效。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-compare-title fig-batch-compare-desc" viewBox="0 0 340 252" width="100%">
+    <title id="fig-batch-compare-title">仓位与再平衡：对象、前提与常见误区</title>
+    <desc id="fig-batch-compare-desc">三行比较本文概念、成立条件与常见误区；比较不等于等价，也不能替代定义。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">仓位与再平衡：一张表看对象、前提与误区</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <text x="82" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">本篇</text>
+    <text x="200" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">容易混淆</text>
+    <g>
+      <rect x="14" y="52" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="72" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">对象</text>
+      <text x="82" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">用 100 万元假设组合说明</text>
+      <text x="82" y="88" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">如何按风险预算确定仓位、…</text>
+      <text x="200" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">相邻概念/常见说法</text>
+    </g>
+    <g>
+      <rect x="14" y="110" width="312" height="58" fill="var(--surface-2)" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="130" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">前提</text>
+      <text x="82" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">阈值过窄，导致频繁交易和</text>
+      <text x="82" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">成本累积； 忽略税费、最…</text>
+      <text x="200" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">必需先修：资产配置与风险预算（INV-01</text>
+      <text x="200" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">8）。</text>
+    </g>
+    <g>
+      <rect x="14" y="168" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="188" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">检查</text>
+      <text x="82" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">先定义，再比较；不能只看</text>
+      <text x="82" y="204" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">名称</text>
+      <text x="200" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">相关不等于因果，局部不等于普遍</text>
+    </g>
+    <text x="14" y="244" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图为比较示意；样本为本文论证，单位为文中标注。</text>
+  </svg>
+  <figcaption>图 5：仓位与再平衡的对象、前提与常见误区比较。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<h2>练习</h2>
+<ol>
+<li><strong>计算。</strong> 股票涨 40% 后，股票权重是多少？</li>
+<li><strong>判断。</strong> 5 个百分点阈值下是否触发？应交易多少？</li>
+<li><strong>推理。</strong> 为什么风险预算 1.5%、波动率 30% 的仓位约为 5%？</li>
+</ol>
+<details>
+<summary>参考答案</summary>
+
+<ol>
+<li><code>84/124 = 67.74%</code>。</li>
+<li>触发；偏离 7.74 个百分点；卖出 9.6 万元股票并买入债券。</li>
+<li><code>5% = 1.5%/30%</code>，前提是该资产风险贡献约等于权重乘波动率。</li>
+</ol>
+</details>
+
+<h2>来源</h2>
+<ol>
+<li>U.S. Securities and Exchange Commission. “Beginners&#39; Guide to Asset Allocation, Diversification, and Rebalancing.” <a href="https://www.sec.gov/about/reports-publications/investorpubsassetallocationhtm">https://www.sec.gov/about/reports-publications/investorpubsassetallocationhtm</a>（访问日期：2026-10-30）</li>
+<li>James Norton. “What is portfolio rebalancing and why is it important?” Vanguard. <a href="https://www.vanguardinvestor.co.uk/articles/latest-thoughts/investing-success/what-is-rebalancing-and-why-is-it-important">https://www.vanguardinvestor.co.uk/articles/latest-thoughts/investing-success/what-is-rebalancing-and-why-is-it-important</a>（访问日期：2026-10-30）</li>
+<li>Julie Dahlquist and Rainford Knight. “Principles of Finance, 15.2 Risk and Return to Multiple Assets.” OpenStax. <a href="https://openstax.org/books/principles-finance/pages/15-2-risk-and-return-to-multiple-assets">https://openstax.org/books/principles-finance/pages/15-2-risk-and-return-to-multiple-assets</a>（访问日期：2026-10-30）</li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="zh" aria-labelledby="demo-check-title" data-check-done="三项都能说清：这篇的核心已经过关。" data-check-pending="还差一项：回到正文对应小节，找一个反例或数字再讲一遍。" data-check-count="已勾选"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">动手演示</p> <button class="demo-reset" type="button" data-demo-reset>恢复默认</button> </div> <h2 id="demo-check-title">读完自检：三句话能不能说清</h2> <p class="demo-intro">不用背定义。把下面三句逐个勾上，看自己能不能用自己的话讲清机制、算例和边界。</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>能按风险预算算出各持仓规模，并用 5 个百分点阈值判断何时触发再平衡</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>能计算再平衡的交易额与成本，并说明漂移后风险暴露与目标差多少</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>能说出一个本文结论不适用的条件</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> 已勾选 0 / 3
+</p> </div> <p class="demo-footnote">数字为教学假设，用来展示关系，不构成预测或投资建议。</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> 本文已通过当前发布门槛；事实、计算与译文如有修订，会同步更新两个语言版本。 </p> <p> <a class="button secondary" href="/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>返回分站 </a> </p> </div> <aside class="article-aside" aria-label="文章信息"> <section class="aside-card"> <h2>学习目标</h2> <ul> <li>能按风险预算算出各持仓规模，并用 5 个百分点阈值判断何时触发再平衡</li><li>能计算再平衡的交易额与成本，并说明漂移后风险暴露与目标差多少</li> </ul> </section> <section class="aside-card"> <h2>必需先修</h2> <ul> <li> <a href="/learn/asset-allocation-and-risk-budgeting/">INV-018 · 资产配置与风险预算</a> </li> </ul> </section> <section class="aside-card"> <h2>建议阅读</h2> <ul> <li> <a href="/learn/asset-allocation-and-risk-budgeting/">INV-018 · 资产配置与风险预算</a> </li><li> <a href="/learn/hedging-purpose-and-cost/">INV-020 · 对冲的目的与代价</a> </li><li> <a href="https://research.51invest.com/learn/covariance-and-correlation/">RES-010 · 协方差与相关性</a> </li><li> <a href="https://markets.51invest.com/learn/indices-and-investment-benchmarks/">MKT-005 · 指数与投资基准</a> </li> </ul> </section> <section class="aside-card"> <h2>AI 复核记录</h2> <p class="muted"> 本项目没有真人签字；下列状态来自 AI-only 编辑复核。 </p> <ul> <li> 事实与计算 ：AI 复核通过 </li><li> 学科 ：AI 复核通过 </li><li> 英文 ：AI 复核通过 </li><li> 页面 ：AI 复核通过 </li> </ul> </section> <section class="aside-card"> <h2>来源</h2> <div class="source"> <a href="https://www.sec.gov/about/reports-publications/investorpubsassetallocationhtm" rel="noopener noreferrer" target="_blank">Beginners&#39; Guide to Asset Allocation, Diversification, and Rebalancing</a> <p>U.S. Securities and Exchange Commission · U.S. Securities and Exchange Commission</p> <p>访问：2026-10-30 · 许可：U.S. public information; copying and further distribution allowed</p> <p>支持论点：该指南说明再平衡是把组合带回原资产配置，可通过卖出超配、买入低配或调整新增资金完成，并提醒考虑交易费用和税务后果。</p> </div><div class="source"> <a href="https://www.vanguardinvestor.co.uk/articles/latest-thoughts/investing-success/what-is-rebalancing-and-why-is-it-important" rel="noopener noreferrer" target="_blank">What is portfolio rebalancing and why is it important?</a> <p>James Norton · Vanguard</p> <p>访问：2026-10-30 · 许可：© 2026 Vanguard Asset Management Limited. All rights reserved. Linked summary only.</p> <p>支持论点：该文举例说明 60/40 组合在股票涨 10%、债券跌 10% 后可能变为 65/35，风险高于原目标；并说明可按 5 个百分点偏离阈值回到目标配置。</p> </div><div class="source"> <a href="https://openstax.org/books/principles-finance/pages/15-2-risk-and-return-to-multiple-assets" rel="noopener noreferrer" target="_blank">Principles of Finance, 15.2 Risk and Return to Multiple Assets</a> <p>Julie Dahlquist; Rainford Knight · OpenStax, Rice University</p> <p>访问：2026-10-30 · 许可：CC BY-NC-SA 4.0</p> <p>支持论点：该节说明组合权重决定组合收益与风险，组合波动率取决于各资产波动率、权重与相关性。</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">非商业免费知识站。每篇标出来源与口径；这里没有投资建议。</p> </div> </div> <nav class="footer-links" aria-label="知识分站"> <a href="https://51invest.com/" data-main-home>首页</a> <a href="https://51invest.com/contents/">内容地图</a> <a href="/glossary/">术语表</a> <a href="/search/">搜索</a> <a href="https://51invest.com/charts/" data-main-link>图表</a> <a href="https://51invest.com/sources/" data-main-link>数据与许可</a> <a href="/">分站首页</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="知识分站"> <a class="mobile-link" href="https://51invest.com/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>首页</span> </a> <a class="mobile-link" href="https://51invest.com/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>知识分站</span> </a> <a class="mobile-link active" href="/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>分站首页</span> </a> <a class="mobile-link" href="/en/learn/position-sizing-and-rebalancing/" data-language-link="en"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

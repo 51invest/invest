@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>宏观情景树：增长、通胀与政策路径的概率账 · 巫妖投资</title><meta name="description" content="宏观预测不是一个点，而是一棵情景树：增长、通胀和政策各有路径，概率决定组合的期望值和尾部风险。把情景写成树，才能知道“如果错了，错在哪里”。"><link rel="canonical" href="https://invest.51invest.com/learn/macro-scenario-tree-growth-inflation-policy-probabilities/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/macro-scenario-tree-growth-inflation-policy-probabilities/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/macro-scenario-tree-growth-inflation-policy-probabilities/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/macro-scenario-tree-growth-inflation-policy-probabilities/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/" data-main-home aria-label="巫妖投资"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">巫妖投资</span> <span class="brand-caption">51INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="知识分站"> <a class="nav-link" href="https://51invest.com/" data-main-home> 首页 </a> <a class="nav-link" href="https://economics.51invest.com/"> 经济学 </a><a class="nav-link" href="https://finance.51invest.com/"> 金融基础 </a><a class="nav-link" href="https://markets.51invest.com/"> 市场与产品 </a><a class="nav-link active" href="/" aria-current="page"> 投资方法 </a><a class="nav-link" href="https://history.51invest.com/"> 经济与金融史 </a><a class="nav-link" href="https://research.51invest.com/"> 研究方法 </a> <a class="nav-link" href="https://51invest.com/contents/"> 内容地图 </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/en/learn/macro-scenario-tree-growth-inflation-policy-probabilities/" hreflang="en" lang="en" data-language-link="en" aria-label="切换为英文" title="切换为英文"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="主题: 跟随系统" title="主题: 跟随系统" data-label-auto="主题: 跟随系统" data-label-light="主题: 浅色" data-label-dark="主题: 深色"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">跟随系统</span> <span class="theme-text" data-theme-text="light">浅色</span> <span class="theme-text" data-theme-text="dark">深色</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/" data-main-home>首页</a> <span class="sep">/</span> <a href="/">投资方法</a> <span class="sep">/</span> <span aria-current="page">宏观情景树：增长、通胀与政策路径的概率账</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">概念</span> <h1 class="article-title">宏观情景树：增长、通胀与政策路径的概率账</h1> <p class="article-summary">宏观预测不是一个点，而是一棵情景树：增长、通胀和政策各有路径，概率决定组合的期望值和尾部风险。把情景写成树，才能知道“如果错了，错在哪里”。</p>  <div class="meta-grid"> <div class="meta-item"><span>模块</span><strong>INV-M03 · 宏观与跨资产研究</strong></div> <div class="meta-item"><span>层级</span><strong>系统</strong></div> <div class="meta-item"><span>阅读</span><strong>8 分钟 · 13 节</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> 这篇有一个可以动手操作的演示 <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>定义与直觉</h2>
+<p>**情景树（scenario tree）**是把宏观结果拆成若干分支的预测工具。第一层是增长（高、中、低），第二层是通胀（高、低），第三层是政策（紧、松），每个分支给出概率和资产反应。</p>
+<p>情景树不是“预测未来一定怎样”，而是“如果 A，则 B；如果 C，则 D”。它的价值在于<strong>条件化</strong>：把政策反应、资产相关性和尾部损失放进同一个框架。</p>
+<p>构建步骤：确定关键变量、设定分支、给概率、映射资产收益、检查概率和一致性。概率不必精确，但要能排序和加权[1][2]。</p>
+<h2>正式表达与示例</h2>
+<p>假设三个情景：软着陆（增长 3%、通胀 2.5%、政策中性）概率 50%，组合收益 8%；滞胀（增长 1%、通胀 4%、政策紧）概率 30%，收益 −6%；衰退（增长 −1%、通胀 1%、政策松）概率 20%，收益 −12%。</p>
+<p>期望收益 <code>0.5×8% + 0.3×(−6%) + 0.2×(−12%) = −0.2%</code>。期望值接近零，但尾部亏损 12%；若组合加了杠杆，尾部损失会放大。</p>
+<p>若概率改为 70/20/10，期望收益 2.4%，但滞胀和衰退仍可能造成大幅回撤。情景树要同时看期望值和最坏分支，不能只看加权平均。以上数字均为教学假设。</p>
+<h2>三个检查</h2>
+<p><strong>检查一：分支是否覆盖尾部。</strong> 只看软着陆和衰退，漏掉滞胀，会低估政策两难；至少要有增长、通胀、政策三个维度。</p>
+<p><strong>检查二：概率是否一致。</strong> 各分支概率之和为 100%；若超过或不足，说明情景重叠或遗漏。</p>
+<p><strong>检查三：资产映射是否合理。</strong> 同一情景下股债商品的相关性会变；不能假设历史相关性不变。</p>
+<p>情景树还要定期更新：数据、政策和市场定价变化后，概率和分支要重估；否则树会变成过时的叙事[3][4]。</p>
+<h2>图表</h2>
+<figure>
+<svg role="img" aria-labelledby="fig-macro-scenario-tree-growth-inflation-policy-probabilities-1-title fig-macro-scenario-tree-growth-inflation-policy-probabilities-1-desc" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-macro-scenario-tree-growth-inflation-policy-probabilities-1-title">从增长到资产反应</title>
+<desc id="fig-macro-scenario-tree-growth-inflation-policy-probabilities-1-desc">四层：增长、通胀、政策、资产收益。</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">宏观情景树</text>
+<text x="24" y="54" font-size="11" text-anchor="start">增长、通胀、政策、资产反应四层。</text>
+<rect x="14" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="69" y="140" font-size="12" text-anchor="middle">增长</text>
+<text x="69" y="184" font-size="12" text-anchor="middle" font-weight="700">3%/-1%</text>
+<rect x="136" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="191" y="140" font-size="12" text-anchor="middle">通胀</text>
+<text x="191" y="184" font-size="12" text-anchor="middle" font-weight="700">2.5%/4%</text>
+<rect x="258" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="313" y="140" font-size="12" text-anchor="middle">政策</text>
+<text x="313" y="184" font-size="12" text-anchor="middle" font-weight="700">中性/紧</text>
+<rect x="380" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="435" y="140" font-size="12" text-anchor="middle">资产</text>
+<text x="435" y="184" font-size="12" text-anchor="middle" font-weight="700">8%/-12%</text>
+<line x1="125" y1="160" x2="135" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<line x1="247" y1="160" x2="257" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<line x1="369" y1="160" x2="379" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<text x="24" y="246" font-size="11" text-anchor="start">教学示意，不含统计数据。</text>
+</g>
+</svg>
+<figcaption>图 1：从增长到资产反应；教学示意。</figcaption>
+</figure>
+
+<figure>
+<svg role="img" aria-labelledby="fig-macro-scenario-tree-growth-inflation-policy-probabilities-2-title fig-macro-scenario-tree-growth-inflation-policy-probabilities-2-desc" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-macro-scenario-tree-growth-inflation-policy-probabilities-2-title">概率加权收益</title>
+<desc id="fig-macro-scenario-tree-growth-inflation-policy-probabilities-2-desc">三种情景的概率和组合收益。</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">三种情景的概率与收益</text>
+<text x="24" y="54" font-size="11" text-anchor="start">软着陆 50%/8%；滞胀 30%/−6%；衰退 20%/−12%。</text>
+<line x1="178" y1="64" x2="178" y2="270" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<text x="20" y="97" font-size="12">软着陆</text>
+<rect x="178" y="78" width="240" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="95" font-size="12" font-weight="700">8%</text>
+<text x="20" y="145" font-size="12">滞胀</text>
+<rect x="178" y="126" width="180" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="143" font-size="12" font-weight="700">-6%</text>
+<text x="20" y="193" font-size="12">衰退</text>
+<rect x="178" y="174" width="360" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="191" font-size="12" font-weight="700">-12%</text>
+<text x="24" y="292" font-size="11" text-anchor="start">教学假设；单位：% 与收益。</text>
+</g>
+</svg>
+<figcaption>图 2：概率加权收益；教学假设。</figcaption>
+</figure>
+
+<figure>
+<svg role="img" aria-labelledby="fig-macro-scenario-tree-growth-inflation-policy-probabilities-3-title fig-macro-scenario-tree-growth-inflation-policy-probabilities-3-desc" viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-macro-scenario-tree-growth-inflation-policy-probabilities-3-title">宏观状态的二维矩阵</title>
+<desc id="fig-macro-scenario-tree-growth-inflation-policy-probabilities-3-desc">两轴：增长高低、通胀高低；四象限对应金发姑娘、过热、滞胀和衰退。</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">增长与通胀的四类宏观状态</text>
+<text x="24" y="54" font-size="11" text-anchor="start">高增长、低通胀最有利；低增长、高通胀最棘手。</text>
+<text x="40" y="68" font-size="11">增长高</text>
+<text x="40" y="286" font-size="11">增长低</text>
+<text x="110" y="314" font-size="11" text-anchor="middle">通胀低</text>
+<text x="500" y="314" font-size="11" text-anchor="middle">通胀高</text>
+<rect x="96" y="76" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="108" y="100" font-size="12" text-anchor="start">金发姑娘</text>
+<text x="108" y="130" font-size="11" text-anchor="start">高增长、低通胀</text>
+<text x="108" y="170" font-size="11" font-weight="700">风险偏好</text>
+<rect x="338" y="76" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="350" y="100" font-size="12" text-anchor="start">过热</text>
+<text x="350" y="130" font-size="11" text-anchor="start">高增长、高通胀</text>
+<text x="350" y="170" font-size="11" font-weight="700">政策紧</text>
+<rect x="96" y="190" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="108" y="214" font-size="12" text-anchor="start">衰退</text>
+<text x="108" y="244" font-size="11" text-anchor="start">低增长、低通胀</text>
+<text x="108" y="284" font-size="11" font-weight="700">避险</text>
+<rect x="338" y="190" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="350" y="214" font-size="12" text-anchor="start">滞胀</text>
+<text x="350" y="244" font-size="11" text-anchor="start">低增长、高通胀</text>
+<text x="350" y="284" font-size="11" font-weight="700">两难</text>
+</g>
+</svg>
+<figcaption>图 3：宏观状态的二维矩阵；对比分类示意。</figcaption>
+</figure>
+
+<p>图 1 把增长、通胀、政策和资产反应串成情景链；图 2 比较三种情景的概率与收益；图 3 用“增长—通胀”两轴划出四类宏观状态。图中数字均为教学假设。</p>
+<h2>适用条件、边界与常见误区</h2>
+<p><strong>边界一：概率不是精确科学。</strong> 宏观概率来自判断和模型，不同机构差异很大；要披露假设和敏感性。</p>
+<p><strong>边界二：情景不是预测。</strong> 情景树描述可能性，不承诺结果；不能把基准情景当成必然。</p>
+<p><strong>边界三：政策反应非线性。</strong> 央行在通胀高时可能超预期收紧，在衰退时可能超预期宽松；分支要包含“政策意外”。</p>
+<p><strong>误解一：情景越多越好。</strong> 太多分支会稀释概率、增加复杂度；抓关键变量和非线性风险更重要。</p>
+<p><strong>误解二：期望收益为正就可以忽略尾部。</strong> 组合的生存取决于最坏情景；杠杆和流动性会放大尾部损失。</p>
+<h2>深化：情景树、条件概率与资产映射</h2>
+<p><strong>情景树不是预测，而是把不确定性结构化</strong>。先定两三个关键变量（增长、通胀、政策），再给每个变量三档状态，组合成情景；每个情景要有触发条件、时间窗口和可观察指标，不能只是“乐观/中性/悲观”的标签。</p>
+<p><strong>概率要校准</strong>。主观概率容易过度自信；可以用历史频率、期权隐含分布、分析师分散度和宏观模型做锚，再根据当前信息调整。概率不必精确，但要能比较、能更新。</p>
+<p><strong>条件概率</strong>比无条件概率更有用。增长上行时通胀上行的概率、政策收紧时增长下行的概率，才是资产映射需要的；把变量当成独立，会低估尾部组合。</p>
+<p><strong>资产映射</strong>要写清传导链：增长→盈利→估值→利率→汇率→信用利差。每个情景下，哪些资产受益、哪些受损、哪些非线性；例如滞胀情景下，股债可能同跌，商品和通胀挂钩债券相对占优。</p>
+<p><strong>更新机制</strong>：每月或每季根据数据调整概率，记录“为什么改”；不要因为价格波动改概率，也不要因为叙事改数据。贝叶斯更新要求先验、似然和后验都写清。</p>
+<p><strong>对冲与仓位</strong>：情景概率用于仓位倾斜和尾部对冲，不是全有全无。若某情景概率上升但已被价格反映，仓位不必大幅调整；若概率低但损失大，尾部对冲仍有价值。</p>
+<p><strong>常见误用</strong>：把情景当预测、概率拍脑袋、变量独立、忽略传导时滞、用后见之明改情景。情景树的价值是“提前想清楚”，不是“算准未来”。</p>
+<p><strong>最后</strong>，情景树要与 IPS 的风险预算连接：每个情景的损失不能超过容忍度；若超过，先调整仓位或对冲，再谈观点。</p>
+<h2>情景树复核清单</h2>
+<p>复核一棵宏观情景树，先看概率和映射是否自洽，而不是看分支画得多漂亮：</p>
+<ol>
+<li><strong>分支是否穷尽且互斥？</strong> 增长、通胀和政策的组合要覆盖主要结果；漏掉“低增长+高通胀”会低估尾部。</li>
+<li><strong>概率之和是否为 1？</strong> 条件概率要按树结构相乘；直接把各分支概率相加是常见错误。</li>
+<li><strong>概率来自哪里？</strong> 历史频率、市场定价、专家判断还是模型；来源不同，校准方法不同。</li>
+<li><strong>资产映射是否条件化？</strong> 同一资产在不同情景下的收益不同；要写清利率、信用利差、汇率和商品的反应。</li>
+<li><strong>相关性是否随情景变化？</strong> 危机中股债同跌、商品与美元同向；用平静期的相关矩阵会低估组合损失。</li>
+<li><strong>政策反应是否内生？</strong> 财政和央行会在增长与通胀之间切换；把政策当成固定分支会漏掉反馈。</li>
+<li><strong>是否有可证伪的触发条件？</strong> 每个分支要有关键指标和复核日期；否则情景树会变成故事会。</li>
+<li><strong>加权结果如何用？</strong> 期望收益、尾部损失和对冲比率要分别报告；只看均值会忽略路径。</li>
+</ol>
+<p>情景树的质量不在分支数量，而在概率校准、条件映射和可更新性。</p>
+<p>复核时还要记录“上次更新后的实际结果”：哪个分支发生、概率是否校准、资产映射是否偏离。情景树只有经过事后打分，才会从预测故事变成可改进的工具。</p>
+<p><strong>最小行动：</strong> 为每个分支设一个可观察指标和复核日，按季度更新概率；没有触发条件的分支直接删掉。</p>
+<p><strong>记录：</strong> 每次更新保留旧版本和实际结果，便于校准概率。</p>
+<p><strong>一句话：</strong> 概率要能被事后打分。</p>
+<p><strong>备注：</strong> 旧版本要留档，否则无法校准。</p>
+<h2>反证条件</h2>
+<p>情景树的有效性依赖概率和映射：</p>
+<ol>
+<li><strong>分支概率相关。</strong> 若增长和通胀分支不独立，简单相乘会低估联合概率。</li>
+<li><strong>资产反应非线性。</strong> 若期权、信用和流动性在极端情景下非线性，线性映射会错配对冲。</li>
+<li><strong>政策 regime 变化。</strong> 若央行或财政规则改变，历史条件概率失效。</li>
+<li><strong>尾部缺失。</strong> 若树中没有“低增长+高通胀+信用事件”，期望收益会被高估。</li>
+</ol>
+<p><strong>实践含义：</strong> 情景树的用途是准备而非预测；每个分支都要有触发指标、资产映射和复核日期，否则只是故事会。</p>
+<p><strong>数据附注：</strong> 概率要标注来源和更新日期；资产映射用总回报和同币种，避免汇率和分红混淆。</p>
+<p><strong>范围说明：</strong> 给情景树版本号；概率、分支和资产映射每次更新都要留旧版，否则无法事后校准。</p>
+<p><strong>最后：</strong> 版本控制是校准的一部分；不保留旧概率，就无法判断预测是否进步。</p>
+<h2>练习</h2>
+<ol>
+<li><p>构建增长、通胀、政策三层情景树。</p>
+</li>
+<li><p>50% 概率收益 8%、30% 概率 −6%、20% 概率 −12%，期望收益多少？</p>
+</li>
+<li><p>若概率改为 70/20/10，期望收益多少？</p>
+</li>
+<li><p>为什么情景树要覆盖滞胀？</p>
+</li>
+<li><p>概率之和不为 100% 说明什么？</p>
+</li>
+<li><p>政策意外如何进入情景树？</p>
+</li>
+<li><p>判断：期望收益为正就可以忽略尾部吗？说明理由。</p>
+</li>
+<li><p>情景树中的概率应如何校准，为什么不能只靠主观判断？</p>
+</li>
+<li><p>滞胀情景下为什么股债可能同跌？</p>
+</li>
+</ol>
+<h2>练习参考答案</h2>
+<ol>
+<li>增长三档（高/中/低）×通胀三档（高/中/低）×政策三档（松/中/紧），得到 27 个情景；可合并为 6—8 个有经济含义的情景，每个写明触发指标。</li>
+<li>期望收益 = 0.5×8% + 0.3×(−6%) + 0.2×(−12%) = 4% − 1.8% − 2.4% = −0.2%。</li>
+<li>0.7×8% + 0.2×(−6%) + 0.1×(−12%) = 5.6% − 1.2% − 1.2% = 3.2%。</li>
+<li>滞胀是增长下行与通胀上行同时发生，股债可能同跌；不覆盖它，会低估组合的尾部相关性。</li>
+<li>概率之和不为 100%，说明情景没有穷尽或存在遗漏状态；应先补齐或把剩余归入“其他”。</li>
+<li>政策意外作为独立节点：加息/降息、财政扩张/紧缩、监管变化；给每档概率并写明触发条件。</li>
+<li>不能。期望收益为正可能被小概率大损失抵消；要看尾部损失、回撤和风险预算。</li>
+<li>用历史频率、期权隐含分布、分析师分散度和宏观模型做锚，再按当前信息调整；纯主观容易过度自信。</li>
+<li>滞胀中通胀上行推高利率、压低估值，增长下行压低盈利，股债同时承压；商品和通胀挂钩债券相对占优。</li>
+</ol>
+<h2>本章要点</h2>
+<ul>
+<li>情景树把增长、通胀、政策的不确定性结构化，不是预测。</li>
+<li>概率要用历史、期权隐含分布和模型校准，并定期更新。</li>
+<li>条件概率比无条件概率更适合资产映射。</li>
+<li>每个情景要写传导链、受益/受损资产和尾部损失。</li>
+<li>情景损失必须落在 IPS 风险预算内，否则先调整仓位。</li>
+</ul>
+<h2>关联</h2>
+<p>先修 INV-005；对照 ECO-039；相邻 INV-004、FIN-034。</p>
+<h2>来源</h2>
+<ol>
+<li>OpenStax, <em>Principles of Finance 2e, 18.5 Forecasting Cash Flow and Assessing the Value of Growth</em>. OpenStax, accessed 2026-10-30. <a href="https://openstax.org/books/principles-finance-2e/pages/18-5-forecasting-cash-flow-and-assessing-the-value-of-growth">https://openstax.org/books/principles-finance-2e/pages/18-5-forecasting-cash-flow-and-assessing-the-value-of-growth</a></li>
+<li>International Monetary Fund, <em>World Economic Outlook (WEO) Database: Assumptions and Data Conventions</em>. International Monetary Fund, accessed 2026-10-30. <a href="https://www.imf.org/en/Publications/WEO/weo-database/assumptions-and-data-conventions">https://www.imf.org/en/Publications/WEO/weo-database/assumptions-and-data-conventions</a></li>
+<li>Board of Governors of the Federal Reserve System, <em>2026 Stress Test Scenarios</em>. Board of Governors of the Federal Reserve System, accessed 2026-10-30. <a href="https://www.federalreserve.gov/publications/2026-stress-test-scenarios.htm">https://www.federalreserve.gov/publications/2026-stress-test-scenarios.htm</a></li>
+<li>Bank for International Settlements, <em>Annual Economic Report 2024, II. Monetary policy in the 21st century: lessons learned and challenges ahead</em>. Bank for International Settlements, accessed 2026-11-23. <a href="https://www.bis.org/publications/aer-2024/monetary-policy-21st-century-lessons-learned-challenges-ahead">https://www.bis.org/publications/aer-2024/monetary-policy-21st-century-lessons-learned-challenges-ahead</a></li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="zh" aria-labelledby="demo-check-title" data-check-done="三项都能说清：这篇的核心已经过关。" data-check-pending="还差一项：回到正文对应小节，找一个反例或数字再讲一遍。" data-check-count="已勾选"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">动手演示</p> <button class="demo-reset" type="button" data-demo-reset>恢复默认</button> </div> <h2 id="demo-check-title">读完自检：三句话能不能说清</h2> <p class="demo-intro">不用背定义。把下面三句逐个勾上，看自己能不能用自己的话讲清机制、算例和边界。</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>构建增长—通胀—政策的三层情景树。</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>用概率加权算组合的期望收益。</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>能说出一个本文结论不适用的条件</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> 已勾选 0 / 3
+</p> </div> <p class="demo-footnote">数字为教学假设，用来展示关系，不构成预测或投资建议。</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> 本文已通过当前发布门槛；事实、计算与译文如有修订，会同步更新两个语言版本。 </p> <p> <a class="button secondary" href="/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>返回分站 </a> </p> </div> <aside class="article-aside" aria-label="文章信息"> <section class="aside-card"> <h2>学习目标</h2> <ul> <li>构建增长—通胀—政策的三层情景树。</li><li>用概率加权算组合的期望收益。</li><li>识别情景树的分支错误与尾部风险。</li> </ul> </section> <section class="aside-card"> <h2>必需先修</h2> <ul> <li> <a href="/learn/investment-research-process/">INV-005 · 建立投资研究流程</a> </li> </ul> </section> <section class="aside-card"> <h2>建议阅读</h2> <ul> <li> <a href="https://economics.51invest.com/learn/monetary-policy-transmission-channels-and-lags/">ECO-039 · 货币政策传导：利率、信用与资产负债表渠道</a> </li><li> <a href="/learn/choosing-an-investment-benchmark/">INV-004 · 选择投资基准</a> </li><li> <a href="https://finance.51invest.com/learn/rate-conventions-and-credit-spreads/">FIN-034 · 利率口径与利差：同一笔资金价格的不同标签</a> </li> </ul> </section> <section class="aside-card"> <h2>AI 复核记录</h2> <p class="muted"> 本项目没有真人签字；下列状态来自 AI-only 编辑复核。 </p> <ul> <li> 事实与计算 ：AI 复核通过 </li><li> 学科 ：AI 复核通过 </li><li> 英文 ：AI 复核通过 </li><li> 页面 ：AI 复核通过 </li> </ul> </section> <section class="aside-card"> <h2>来源</h2> <div class="source"> <a href="https://openstax.org/books/principles-finance-2e/pages/18-5-forecasting-cash-flow-and-assessing-the-value-of-growth" rel="noopener noreferrer" target="_blank">Principles of Finance 2e, 18.5 Forecasting Cash Flow and Assessing the Value of Growth</a> <p>OpenStax · OpenStax</p> <p>访问：2026-10-30 · 许可：CC BY-NC-SA 4.0</p> <p>支持论点：支持情景预测、现金流与估值分析。</p> </div><div class="source"> <a href="https://www.imf.org/en/Publications/WEO/weo-database/assumptions-and-data-conventions" rel="noopener noreferrer" target="_blank">World Economic Outlook (WEO) Database: Assumptions and Data Conventions</a> <p>International Monetary Fund · International Monetary Fund</p> <p>访问：2026-10-30 · 许可：IMF terms: linking permitted, personal non-commercial use only</p> <p>支持论点：支持 WEO 假设、数据口径与预测惯例。</p> </div><div class="source"> <a href="https://www.federalreserve.gov/publications/2026-stress-test-scenarios.htm" rel="noopener noreferrer" target="_blank">2026 Stress Test Scenarios</a> <p>Board of Governors of the Federal Reserve System · Board of Governors of the Federal Reserve System</p> <p>访问：2026-10-30 · 许可：U.S. Government work (public domain), 17 U.S.C. §105</p> <p>支持论点：支持压力测试情景、严重但可能路径的设计。</p> </div><div class="source"> <a href="https://www.bis.org/publications/aer-2024/monetary-policy-21st-century-lessons-learned-challenges-ahead" rel="noopener noreferrer" target="_blank">Annual Economic Report 2024, II. Monetary policy in the 21st century: lessons learned and challenges ahead</a> <p>Bank for International Settlements · Bank for International Settlements</p> <p>访问：2026-11-23 · 许可：BIS terms: non-commercial download, display and redistribution allowed with attribution BIS, “Terms of use and permissions” (https://www.bis.org/terms_conditions.htm#Copyright_and_Permissions): “Users may download, display, print out, photocopy or redistribute any BIS Material for non-commercial purposes.” Checked 2026-11-01.</p> <p>支持论点：支持货币政策教训、通胀与政策空间分析。</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">非商业免费知识站。每篇标出来源与口径；这里没有投资建议。</p> </div> </div> <nav class="footer-links" aria-label="知识分站"> <a href="https://51invest.com/" data-main-home>首页</a> <a href="https://51invest.com/contents/">内容地图</a> <a href="/glossary/">术语表</a> <a href="/search/">搜索</a> <a href="https://51invest.com/charts/" data-main-link>图表</a> <a href="https://51invest.com/sources/" data-main-link>数据与许可</a> <a href="/">分站首页</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="知识分站"> <a class="mobile-link" href="https://51invest.com/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>首页</span> </a> <a class="mobile-link" href="https://51invest.com/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>知识分站</span> </a> <a class="mobile-link active" href="/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>分站首页</span> </a> <a class="mobile-link" href="/en/learn/macro-scenario-tree-growth-inflation-policy-probabilities/" data-language-link="en"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

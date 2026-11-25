@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>策略的收益来源：beta、因子与容量 · 巫妖投资</title><meta name="description" content="任何策略的收益都可以拆成市场 beta、可识别因子、真正的 alpha 和运气。把收益来源拆开，才能判断它是否可复制、是否会被容量和费用吃掉；高收益不等于高能力。"><link rel="canonical" href="https://invest.51invest.com/learn/strategy-return-sources-beta-factors-capacity/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/strategy-return-sources-beta-factors-capacity/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/strategy-return-sources-beta-factors-capacity/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/strategy-return-sources-beta-factors-capacity/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/" data-main-home aria-label="巫妖投资"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">巫妖投资</span> <span class="brand-caption">51INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="知识分站"> <a class="nav-link" href="https://51invest.com/" data-main-home> 首页 </a> <a class="nav-link" href="https://economics.51invest.com/"> 经济学 </a><a class="nav-link" href="https://finance.51invest.com/"> 金融基础 </a><a class="nav-link" href="https://markets.51invest.com/"> 市场与产品 </a><a class="nav-link active" href="/" aria-current="page"> 投资方法 </a><a class="nav-link" href="https://history.51invest.com/"> 经济与金融史 </a><a class="nav-link" href="https://research.51invest.com/"> 研究方法 </a> <a class="nav-link" href="https://51invest.com/contents/"> 内容地图 </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/en/learn/strategy-return-sources-beta-factors-capacity/" hreflang="en" lang="en" data-language-link="en" aria-label="切换为英文" title="切换为英文"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="主题: 跟随系统" title="主题: 跟随系统" data-label-auto="主题: 跟随系统" data-label-light="主题: 浅色" data-label-dark="主题: 深色"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">跟随系统</span> <span class="theme-text" data-theme-text="light">浅色</span> <span class="theme-text" data-theme-text="dark">深色</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/" data-main-home>首页</a> <span class="sep">/</span> <a href="/">投资方法</a> <span class="sep">/</span> <span aria-current="page">策略的收益来源：beta、因子与容量</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">概念</span> <h1 class="article-title">策略的收益来源：beta、因子与容量</h1> <p class="article-summary">任何策略的收益都可以拆成市场 beta、可识别因子、真正的 alpha 和运气。把收益来源拆开，才能判断它是否可复制、是否会被容量和费用吃掉；高收益不等于高能力。</p>  <div class="meta-grid"> <div class="meta-item"><span>模块</span><strong>INV-M09 · 投资策略</strong></div> <div class="meta-item"><span>层级</span><strong>入门</strong></div> <div class="meta-item"><span>阅读</span><strong>6 分钟 · 11 节</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> 这篇有一个可以动手操作的演示 <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>定义</h2>
+<p><strong>收益归因</strong>（return attribution）是把策略收益拆成可解释来源的过程。最基础的三层是：市场 beta、风格或因子暴露、残差 alpha[1]。<strong>beta</strong> 衡量策略对市场波动的敏感度；<strong>因子</strong> 是规模、价值、盈利、投资、动量等系统性暴露；<strong>alpha</strong> 是扣掉这些暴露后仍无法解释的部分。</p>
+<h2>直觉</h2>
+<p>把策略想成一家餐厅：beta 是“整条街的客流”，因子是“这条街的口味偏好”，alpha 是“这家店自己的手艺”。客流好时所有店都赚钱，不能证明厨师厉害；只有把街区和口味的影响扣掉，剩下的才是手艺。容量则像餐厅座位：客人再多，出品和服务就跟不上；对冲基金的容量与披露问题也属于这一类[3]。</p>
+<h2>正式表达</h2>
+<p>对策略超额收益做多因子回归：</p>
+<p>$$
+R_p - R_f = \alpha + \beta (R_m - R_f) + \sum_k \beta_k F_k + \varepsilon
+$$</p>
+<p>其中 (R_p) 是策略收益，(R_f) 是无风险利率，(F_k) 是因子收益，(\varepsilon) 是残差。若 (\alpha) 显著为正，且在不同样本期和不同市场环境下稳定，才可能是能力；若 (\alpha) 不显著但因子暴露很高，策略更像“包装过的 beta”[2]。</p>
+<h2>适用条件</h2>
+<p>第一，因子定义与数据口径一致；第二，样本期覆盖不同市场环境；第三，交易成本与费用已扣除；第四，容量约束已纳入；第五，基准选择合理；第六，多重检验已校正。缺一项，alpha 就可能只是数据挖掘或风险暴露。</p>
+<h2>例子</h2>
+<p>假设市场超额收益 6%，策略 beta 1.2，价值因子暴露 0.3、因子收益 4%，alpha 2%，无风险 2%。则预期总收益约为 (2% + 1.2 \times 6% + 0.3 \times 4% + 2% = 11.2%)。其中 7.2 个百分点来自市场 beta，1.2 个百分点来自价值因子，2 个百分点才是 alpha。</p>
+<h2>常见误解</h2>
+<p>第一，“高收益就是高 alpha”：可能只是高 beta 或小盘暴露。第二，“回测漂亮就能实盘”：容量、换手和拥挤会改变收益。第三，“因子越多越准”：过拟合和共线性会制造假 alpha。第四，“alpha 稳定不变”：策略被复制后，alpha 会衰减。</p>
+<h2>图表</h2>
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-031-1-title fig-inv-031-1-desc" viewBox="0 0 460 300" width="100%">
+    <title id="fig-inv-031-1-title">策略收益的三层拆分</title>
+    <desc id="fig-inv-031-1-desc">市场 beta 7.2%，因子暴露 1.2%，残差 alpha 2%。市场超额 6%、beta 1.2 时贡献 7.2%；价值因子 0.3×4% 贡献 1.2%；alpha 2%。单位：百分比，数字为教学假设。 教学机制图。</desc>
+    <rect x="14" y="38" width="432" height="32" rx="7" fill="var(--surface-2)" stroke="var(--border)"></rect>
+    <text x="28" y="59" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit">Rp-Rf=α+β(Rm-Rf)+ΣβkFk+ε</text>
+    <rect x="14" y="82" width="132" height="92" rx="8" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="26" y="104" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">市场 beta</text>
+    <text x="26" y="128" font-size="12" font-weight="700" fill="var(--accent)" font-family="inherit">7.2%</text>
+    <text x="26" y="148" font-size="9.2" fill="var(--muted)" font-family="inherit">跟随市场</text>
+    <text x="26" y="164" font-size="9.2" fill="var(--muted)" font-family="inherit">暴露</text>
+    <rect x="164" y="82" width="132" height="92" rx="8" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="176" y="104" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">因子暴露</text>
+    <text x="176" y="128" font-size="12" font-weight="700" fill="var(--accent)" font-family="inherit">1.2%</text>
+    <text x="176" y="148" font-size="9.2" fill="var(--muted)" font-family="inherit">价值/规模</text>
+    <text x="176" y="164" font-size="9.2" fill="var(--muted)" font-family="inherit">风格</text>
+    <rect x="314" y="82" width="132" height="92" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"></rect>
+    <text x="326" y="104" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">残差 alpha</text>
+    <text x="326" y="128" font-size="12" font-weight="700" fill="var(--accent)" font-family="inherit">2%</text>
+    <text x="326" y="148" font-size="9.2" fill="var(--muted)" font-family="inherit">无法解释</text>
+    <text x="326" y="164" font-size="9.2" fill="var(--muted)" font-family="inherit">能力</text>
+    <line x1="146" y1="128" x2="164" y2="128" stroke="var(--border)" stroke-width="1.5"></line>
+    <line x1="296" y1="128" x2="314" y2="128" stroke="var(--border)" stroke-width="1.5"></line>
+    <rect x="14" y="190" width="432" height="82" rx="8" fill="var(--surface-2)" stroke="var(--border)"></rect>
+    <text x="28" y="214" font-size="10" font-weight="650" fill="var(--text)" font-family="inherit">先扣 beta 和因子，剩下的才是 alpha</text>
+    <text x="28" y="236" font-size="9.6" fill="var(--muted)" font-family="inherit">市场超额 6%、beta 1.2 时贡献 7.2%；价值因子 0.3×4% 贡献 1.2%；alpha 2%</text>
+    <text x="28" y="256" font-size="9.6" fill="var(--muted)" font-family="inherit">单位：百分比，数字为教学假设</text>
+  </svg>
+  <figcaption>图 1：市场 beta 7.2%，因子暴露 1.2%，残差 alpha 2%。市场超额 6%、beta 1.2 时贡献 7.2%；价值因子 0.3×4% 贡献 1.2%；alpha 2%。单位：百分比，数字为教学假设。 教学机制图。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-031-2-title fig-inv-031-2-desc" viewBox="0 0 460 300" width="100%">
+    <title id="fig-inv-031-2-title">策略收益归因算例</title>
+    <desc id="fig-inv-031-2-desc">策略收益归因算例。高 beta 策略：beta 1.5，alpha 0%，总收益 11%；高 alpha 策略：Beta 0.8，Alpha 4%，Total 10.8%。两种策略总收益接近，但来源不同；高 beta 更依赖市场，高 alpha 更依赖能力。单位：百分比，数字为教学假设。 数字为教学假设。</desc>
+    <rect x="14" y="36" width="432" height="34" rx="7" fill="var(--surface-2)" stroke="var(--border)"></rect>
+    <text x="28" y="57" font-size="10" font-weight="650" fill="var(--text)" font-family="inherit">2%+1.2×6%+0.3×4%+2%=11.2%</text>
+    <rect x="14" y="86" width="204" height="132" rx="8" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="28" y="109" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">高 beta 策略</text>
+    <text x="26" y="135" font-size="9.4" fill="var(--muted)" font-family="inherit">beta</text>
+    <text x="206" y="135" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">1.5</text>
+    <text x="26" y="163" font-size="9.4" fill="var(--muted)" font-family="inherit">alpha</text>
+    <text x="206" y="163" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">0%</text>
+    <text x="26" y="191" font-size="9.4" fill="var(--muted)" font-family="inherit">总收益</text>
+    <text x="206" y="191" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">11%</text>
+    <rect x="242" y="86" width="204" height="132" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"></rect>
+    <text x="256" y="109" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">高 alpha 策略</text>
+    <text x="254" y="135" font-size="9.4" fill="var(--muted)" font-family="inherit">beta</text>
+    <text x="434" y="135" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">0.8</text>
+    <text x="254" y="163" font-size="9.4" fill="var(--muted)" font-family="inherit">alpha</text>
+    <text x="434" y="163" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">4%</text>
+    <text x="254" y="191" font-size="9.4" fill="var(--muted)" font-family="inherit">总收益</text>
+    <text x="434" y="191" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">10.8%</text>
+    <text x="28" y="240" font-size="9.6" fill="var(--muted)" font-family="inherit">两种策略总收益接近，但来源不同；高 beta 更依赖市场，高 alpha 更依赖能力</text>
+    <text x="28" y="262" font-size="9.6" fill="var(--muted)" font-family="inherit">单位：百分比，数字为教学假设</text>
+  </svg>
+  <figcaption>图 2：策略收益归因算例。高 beta 策略：beta 1.5，alpha 0%，总收益 11%；高 alpha 策略：Beta 0.8，Alpha 4%，Total 10.8%。两种策略总收益接近，但来源不同；高 beta 更依赖市场，高 alpha 更依赖能力。单位：百分比，数字为教学假设。 数字为教学假设。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-031-3-title fig-inv-031-3-desc" viewBox="0 0 460 300" width="100%">
+    <title id="fig-inv-031-3-title">beta 与 alpha 的风险特征对比</title>
+    <desc id="fig-inv-031-3-desc">beta 与 alpha 的风险特征对比。beta：来源 市场，容量 大，衰减 随市场；alpha：来源 选股/交易，容量 小，衰减 被复制后衰减。beta 容易复制、容量大；alpha 容量小、衰减快；两者不能混为一谈。单位：定性对比，数字为教学假设。 教学对比图。</desc>
+    <rect x="14" y="38" width="204" height="172" rx="8" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="28" y="61" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">beta</text>
+    <text x="26" y="88" font-size="9.4" fill="var(--muted)" font-family="inherit">来源</text>
+    <text x="206" y="88" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">市场</text>
+    <text x="26" y="116" font-size="9.4" fill="var(--muted)" font-family="inherit">容量</text>
+    <text x="206" y="116" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">大</text>
+    <text x="26" y="144" font-size="9.4" fill="var(--muted)" font-family="inherit">衰减</text>
+    <text x="206" y="144" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">随市场</text>
+    <rect x="242" y="38" width="204" height="172" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"></rect>
+    <text x="256" y="61" font-size="10.2" font-weight="650" fill="var(--text)" font-family="inherit">alpha</text>
+    <text x="254" y="88" font-size="9.4" fill="var(--muted)" font-family="inherit">来源</text>
+    <text x="434" y="88" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">选股/交易</text>
+    <text x="254" y="116" font-size="9.4" fill="var(--muted)" font-family="inherit">容量</text>
+    <text x="434" y="116" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">小</text>
+    <text x="254" y="144" font-size="9.4" fill="var(--muted)" font-family="inherit">衰减</text>
+    <text x="434" y="144" text-anchor="end" font-size="9.6" font-weight="650" fill="var(--text)" font-family="inherit">被复制后衰减</text>
+    <text x="28" y="240" font-size="9.6" fill="var(--muted)" font-family="inherit">beta 容易复制、容量大；alpha 容量小、衰减快；两者不能混为一谈</text>
+    <text x="28" y="262" font-size="9.6" fill="var(--muted)" font-family="inherit">单位：定性对比，数字为教学假设</text>
+  </svg>
+  <figcaption>图 3：beta 与 alpha 的风险特征对比。beta：来源 市场，容量 大，衰减 随市场；alpha：来源 选股/交易，容量 小，衰减 被复制后衰减。beta 容易复制、容量大；alpha 容量小、衰减快；两者不能混为一谈。单位：定性对比，数字为教学假设。 教学对比图。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-031-4-title fig-inv-031-4-desc" viewBox="0 0 460 300" width="100%">
+    <title id="fig-inv-031-4-title">策略归因适用的 6 个条件</title>
+    <desc id="fig-inv-031-4-desc">策略归因适用的 6 个条件。因子定义一致；样本覆盖；费用已扣；容量纳入；基准合理；多重检验校正。6 项缺一，alpha 就可能只是风险暴露或数据挖掘；是否可信取决于这些条件。单位：条件清单，数字为教学假设。 这些条件决定方法是否适用。</desc>
+    <text x="28" y="36" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit">先核对因子、样本、费用与容量</text>
+    <rect x="14" y="52" width="204" height="52" rx="7" fill="var(--accent-soft)" stroke="var(--accent)"></rect>
+    <text x="24" y="72" font-size="9.8" font-weight="650" fill="var(--text)" font-family="inherit">因子定义一致</text>
+    <text x="24" y="89" font-size="9.2" fill="var(--muted)" font-family="inherit">数据与口径</text>
+    <rect x="242" y="52" width="204" height="52" rx="7" fill="var(--accent-soft)" stroke="var(--accent)"></rect>
+    <text x="252" y="72" font-size="9.8" font-weight="650" fill="var(--text)" font-family="inherit">样本覆盖</text>
+    <text x="252" y="89" font-size="9.2" fill="var(--muted)" font-family="inherit">牛熊与利率</text>
+    <rect x="14" y="110" width="204" height="52" rx="7" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="24" y="130" font-size="9.8" font-weight="650" fill="var(--text)" font-family="inherit">费用已扣</text>
+    <text x="24" y="147" font-size="9.2" fill="var(--muted)" font-family="inherit">管理+交易</text>
+    <rect x="242" y="110" width="204" height="52" rx="7" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="252" y="130" font-size="9.8" font-weight="650" fill="var(--text)" font-family="inherit">容量纳入</text>
+    <text x="252" y="147" font-size="9.2" fill="var(--muted)" font-family="inherit">规模与换手</text>
+    <rect x="14" y="168" width="204" height="52" rx="7" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="24" y="188" font-size="9.8" font-weight="650" fill="var(--text)" font-family="inherit">基准合理</text>
+    <text x="24" y="205" font-size="9.2" fill="var(--muted)" font-family="inherit">风格匹配</text>
+    <rect x="242" y="168" width="204" height="52" rx="7" fill="var(--surface)" stroke="var(--border)"></rect>
+    <text x="252" y="188" font-size="9.8" font-weight="650" fill="var(--text)" font-family="inherit">多重检验校正</text>
+    <text x="252" y="205" font-size="9.2" fill="var(--muted)" font-family="inherit">数据挖掘</text>
+    <text x="28" y="248" font-size="9.6" fill="var(--muted)" font-family="inherit">6 项缺一，alpha 就可能只是风险暴露或数据挖掘；是否可信取决于这些条件</text>
+    <text x="28" y="270" font-size="9.6" fill="var(--muted)" font-family="inherit">单位：条件清单，数字为教学假设</text>
+  </svg>
+  <figcaption>图 4：策略归因适用的 6 个条件。因子定义一致；样本覆盖；费用已扣；容量纳入；基准合理；多重检验校正。6 项缺一，alpha 就可能只是风险暴露或数据挖掘；是否可信取决于这些条件。单位：条件清单，数字为教学假设。 这些条件决定方法是否适用。</figcaption>
+</figure>
+
+<h2>深化：容量、换手与费用怎样吃掉 alpha</h2>
+<p>收益归因的最后一层不是“alpha 有多少”，而是“扣掉容量和费用后还剩多少”。<strong>容量</strong>是策略在不显著恶化收益的前提下能管理的资金规模；它由市场流动性、换手率、持仓集中度和市场冲击决定。</p>
+<p>一个粗略的容量估算：某股票日均成交额 5 亿元，策略愿意参与 10% 的成交，组合年换手 200%，则单只股票可支持 <code>5×10%/200% = 0.25 亿元</code> 的持仓；若组合持有 40 只类似股票，容量约 10 亿元。超过这个规模，交易冲击和滑点会迅速上升。</p>
+<p><strong>市场冲击</strong>与交易规模非线性相关：小额交易按买卖价差付费，大额交易会推动价格。若策略每天交易组合的 1%，冲击成本可能 10 个基点；若每天交易 10%，冲击可能 100 个基点以上。高换手策略的容量通常更低，因为每年要多次支付冲击成本。</p>
+<p><strong>费用</strong>包括管理费、业绩提成、托管、审计和交易成本。2% 管理费加 20% 业绩提成，在毛收益 10% 时，投资者净收益约 <code>10%−2%−0.2×(10%−2%)=6.4%</code>；若毛收益只有 6%，净收益约 3.2%，一半以上被费用吃掉。费用对 alpha 的侵蚀是非线性的：收益越低，费用占比越高。</p>
+<p><strong>alpha 衰减</strong>来自竞争和拥挤。一个新因子被发现后，资金流入会压低溢价；若策略容量小、换手低，衰减慢；若容量大、公开度高，衰减快。归因报告应同时披露毛 alpha、净 alpha、容量利用率和费用率，否则“高 alpha”可能只是小规模样本的幻觉[2][3]。</p>
+<p><strong>样本偏差</strong>会让 alpha 看起来更高。回测常剔除已退市股票、只保留存活样本，或只报告成功策略；<strong>幸存者偏差</strong>和<strong>回填偏差</strong>会把失败者的负收益从样本中抹掉，剩下的平均收益自然偏高。若基金数据库只收录仍在运营的产品，历史业绩的分布就被截断。归因前要问：样本里有没有已经消失的账户、产品和策略？样本口径应在事前锁定，不能因为剔除后结果更漂亮就临时调整。</p>
+<p><strong>因子定义会漂移。</strong> 价值、质量、动量的具体构造（账面市值比、毛利率、12 个月动量）在不同数据商之间不一致；换一套定义，因子暴露和 alpha 都会变。报告要写明因子来源、构造方法和更新频率，不能把“某因子”当成固定不变的实体。</p>
+<p><strong>归因的频率要与考核周期匹配。</strong> 日频归因噪声大，月频或季频更稳定；但频率越低，样本越少，统计显著性越弱。若用三年数据判断一个季频策略，只有 12 个观测，结论很容易是噪声。归因报告应同时给出频率、样本长度和置信区间[1][2][3]。</p>
+<p><strong>归因报告要区分毛与净。</strong> 同一个策略，毛 alpha 可能 4%，扣掉管理费、交易成本和冲击后净 alpha 只有 1%；投资者拿到的是净收益，不是归因表上的毛数字。报告口径应固定并连续更新，避免每期换算法导致结果不可比。口径变化后历史归因不可直接比较，必须按新口径重算全部期间，并披露差异。</p>
+<h2>关联</h2>
+<ul>
+<li>与 <strong>INV-025 投资策略</strong> 的关系：母文给出模块总框架；本文把「如何把 beta、因子与 alpha 分开，并判断容量约束」单独拆开，落到可计算的例子和适用条件上。</li>
+<li>与 <strong>INV-006 宏观情景分析</strong> 的关系：同站相邻主题，提供背景或对照；本文不重复它的重点，而聚焦「如何把 beta、因子与 alpha 分开，并判断容量约束」。</li>
+<li>与 <strong>INV-020 对冲的目的与代价</strong> 的关系：同站相邻主题，提供背景或对照；本文不重复它的重点，而聚焦「如何把 beta、因子与 alpha 分开，并判断容量约束」。</li>
+</ul>
+<h2>练习</h2>
+<ol>
+<li>归因题：市场超额 6%、beta 1.2、alpha 2%、无风险 2%。预期总收益是多少？其中多少来自 beta？</li>
+<li>容量题：一个策略容量 10 亿元，规模升到 50 亿元后换手成本上升。收益会怎样变化？</li>
+<li>条件题：列出判断 alpha 是否真实的三项条件，并说明每项需要什么证据。</li>
+<li>费用题：毛收益 8%、管理费 2%、业绩提成 20%，投资者净收益约多少？</li>
+<li>容量题：日均成交 4 亿元、参与率 10%、年换手 250%，单只股票支持多少持仓？40 只股票的容量约多少？</li>
+</ol>
+<h2>来源</h2>
+<ol>
+<li>Kenneth R. French, <em>Description of Fama/French 5 Factors (2x3)</em>, Dartmouth College, Tuck School of Business. <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html">https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html</a></li>
+<li>Brian Hurst, Yao Hua Ooi and Lasse Heje Pedersen, <em>A Century of Evidence on Trend-Following Investing</em>, The Journal of Portfolio Management 44(1), 2017. <a href="https://www.efficient.com/pdfs/AQR_JPM_Fall_2017_A_Century_of_Evidence.pdf">https://www.efficient.com/pdfs/AQR_JPM_Fall_2017_A_Century_of_Evidence.pdf</a></li>
+<li>U.S. Securities and Exchange Commission, Office of Investor Education and Advocacy, <em>Investor Bulletin: Hedge Funds</em>, U.S. Securities and Exchange Commission. <a href="https://www.sec.gov/files/ib_hedgefunds.pdf">https://www.sec.gov/files/ib_hedgefunds.pdf</a></li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="zh" aria-labelledby="demo-check-title" data-check-done="三项都能说清：这篇的核心已经过关。" data-check-pending="还差一项：回到正文对应小节，找一个反例或数字再讲一遍。" data-check-count="已勾选"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">动手演示</p> <button class="demo-reset" type="button" data-demo-reset>恢复默认</button> </div> <h2 id="demo-check-title">读完自检：三句话能不能说清</h2> <p class="demo-intro">不用背定义。把下面三句逐个勾上，看自己能不能用自己的话讲清机制、算例和边界。</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>用多因子回归把策略收益拆成 beta、因子暴露和残差 alpha。</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>解释容量、换手和拥挤如何让看似稳定的策略衰减。</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>能说出一个本文结论不适用的条件</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> 已勾选 0 / 3
+</p> </div> <p class="demo-footnote">数字为教学假设，用来展示关系，不构成预测或投资建议。</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> 本文已通过当前发布门槛；事实、计算与译文如有修订，会同步更新两个语言版本。 </p> <p> <a class="button secondary" href="/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>返回分站 </a> </p> </div> <aside class="article-aside" aria-label="文章信息"> <section class="aside-card"> <h2>学习目标</h2> <ul> <li>用多因子回归把策略收益拆成 beta、因子暴露和残差 alpha。</li><li>解释容量、换手和拥挤如何让看似稳定的策略衰减。</li><li>列出策略归因的 6 个条件，区分“风格暴露”与“选股能力”。</li> </ul> </section> <section class="aside-card"> <h2>必需先修</h2> <ul> <li> <a href="/learn/investment-strategies/">INV-025 · 投资策略</a> </li> </ul> </section> <section class="aside-card"> <h2>建议阅读</h2> <ul> <li> <a href="/learn/investment-strategies/">INV-025 · 投资策略</a> </li><li> <a href="/learn/macro-scenario-analysis/">INV-006 · 宏观情景分析</a> </li><li> <a href="/learn/hedging-purpose-and-cost/">INV-020 · 对冲的目的与代价</a> </li> </ul> </section> <section class="aside-card"> <h2>AI 复核记录</h2> <p class="muted"> 本项目没有真人签字；下列状态来自 AI-only 编辑复核。 </p> <ul> <li> 事实与计算 ：AI 复核通过 </li><li> 学科 ：AI 复核通过 </li><li> 英文 ：AI 复核通过 </li><li> 页面 ：AI 复核通过 </li> </ul> </section> <section class="aside-card"> <h2>来源</h2> <div class="source"> <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html" rel="noopener noreferrer" target="_blank">Description of Fama/French 5 Factors (2x3)</a> <p>Kenneth R. French · Dartmouth College, Tuck School of Business</p> <p>访问：2026-11-24 · 许可：© Kenneth R. French; linked summary only</p> <p>支持论点：用于核对本文关于「策略收益来源」的公开概念、制度或历史背景；正文数字与算例为教学假设，不写成统计。</p> </div><div class="source"> <a href="https://www.efficient.com/pdfs/AQR_JPM_Fall_2017_A_Century_of_Evidence.pdf" rel="noopener noreferrer" target="_blank">A Century of Evidence on Trend-Following Investing</a> <p>Brian Hurst, Yao Hua Ooi and Lasse Heje Pedersen · The Journal of Portfolio Management 44(1), 2017</p> <p>访问：2026-11-24 · 许可：© The Journal of Portfolio Management / authors; linked summary only</p> <p>支持论点：用于核对本文关于「策略收益来源」的公开概念、制度或历史背景；正文数字与算例为教学假设，不写成统计。</p> </div><div class="source"> <a href="https://www.sec.gov/files/ib_hedgefunds.pdf" rel="noopener noreferrer" target="_blank">Investor Bulletin: Hedge Funds</a> <p>U.S. Securities and Exchange Commission, Office of Investor Education and Advocacy · U.S. Securities and Exchange Commission</p> <p>访问：2026-11-24 · 许可：U.S. public information; copying and further distribution allowed</p> <p>支持论点：用于核对本文关于「策略收益来源」的公开概念、制度或历史背景；正文数字与算例为教学假设，不写成统计。</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">非商业免费知识站。每篇标出来源与口径；这里没有投资建议。</p> </div> </div> <nav class="footer-links" aria-label="知识分站"> <a href="https://51invest.com/" data-main-home>首页</a> <a href="https://51invest.com/contents/">内容地图</a> <a href="/glossary/">术语表</a> <a href="/search/">搜索</a> <a href="https://51invest.com/charts/" data-main-link>图表</a> <a href="https://51invest.com/sources/" data-main-link>数据与许可</a> <a href="/">分站首页</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="知识分站"> <a class="mobile-link" href="https://51invest.com/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>首页</span> </a> <a class="mobile-link" href="https://51invest.com/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>知识分站</span> </a> <a class="mobile-link active" href="/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>分站首页</span> </a> <a class="mobile-link" href="/en/learn/strategy-return-sources-beta-factors-capacity/" data-language-link="en"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

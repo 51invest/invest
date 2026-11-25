@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>现金流估值的研究流程 · 巫妖投资</title><meta name="description" content="用未来自由现金流、折现率与终值估算价值区间：先重建基期现金流，再逐期折现并做敏感性；示例数字均为假设。"><link rel="canonical" href="https://invest.51invest.com/learn/cash-flow-valuation-research-process/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/cash-flow-valuation-research-process/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/cash-flow-valuation-research-process/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/cash-flow-valuation-research-process/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/" data-main-home aria-label="巫妖投资"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">巫妖投资</span> <span class="brand-caption">51INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="知识分站"> <a class="nav-link" href="https://51invest.com/" data-main-home> 首页 </a> <a class="nav-link" href="https://economics.51invest.com/"> 经济学 </a><a class="nav-link" href="https://finance.51invest.com/"> 金融基础 </a><a class="nav-link" href="https://markets.51invest.com/"> 市场与产品 </a><a class="nav-link active" href="/" aria-current="page"> 投资方法 </a><a class="nav-link" href="https://history.51invest.com/"> 经济与金融史 </a><a class="nav-link" href="https://research.51invest.com/"> 研究方法 </a> <a class="nav-link" href="https://51invest.com/contents/"> 内容地图 </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/en/learn/cash-flow-valuation-research-process/" hreflang="en" lang="en" data-language-link="en" aria-label="切换为英文" title="切换为英文"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="主题: 跟随系统" title="主题: 跟随系统" data-label-auto="主题: 跟随系统" data-label-light="主题: 浅色" data-label-dark="主题: 深色"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">跟随系统</span> <span class="theme-text" data-theme-text="light">浅色</span> <span class="theme-text" data-theme-text="dark">深色</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/" data-main-home>首页</a> <span class="sep">/</span> <a href="/">投资方法</a> <span class="sep">/</span> <span aria-current="page">现金流估值的研究流程</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">方法</span> <h1 class="article-title">现金流估值的研究流程</h1> <p class="article-summary">用未来自由现金流、折现率与终值估算价值区间：先重建基期现金流，再逐期折现并做敏感性；示例数字均为假设。</p>  <div class="meta-grid"> <div class="meta-item"><span>模块</span><strong>INV-M06 · 估值方法</strong></div> <div class="meta-item"><span>层级</span><strong>系统</strong></div> <div class="meta-item"><span>阅读</span><strong>8 分钟 · 14 节</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> 这篇有一个可以动手操作的演示 <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <blockquote>
+<p>读完这一篇，你能把一家公司的自由现金流预测折成今天的价值，并说清终值、折现率和永续增长这三个开关各自把估值推到哪。</p>
+</blockquote>
+<h2>问题与输出</h2>
+<p>现金流估值用现值与现金流贴现（DCF）的结论，为公司未来可分配的自由现金流折出今天的价值；现值与贴现的定义和基础公式见现值与现金流贴现主文（FIN-011），本文不重复，只展开应用流程。它回答“当前价格隐含了什么、我愿意付多少”。输出是估值区间、关键假设、敏感性表和反证条件，不是一个目标价。它不预测市场短期涨跌，也不替代对商业模式的理解。</p>
+<h2>输入与数据要求</h2>
+<p>5–10 年三张报表与附注；经营现金流、资本开支、营运资本、税率、债务、现金与摊薄股数；折现率和永续增长率的来源；至少一个保守情景。折现率应写明无风险利率、风险溢价、债务成本与权重。金额统一到同一货币与单位，价格与报表尽量同日，股数用最新摊薄口径；缺失数据保留缺口并说明，不做无依据的前向填充。</p>
+<h2>假设</h2>
+<p>示例公司为教学假设，全部金额使用同一假设货币单位（不指定币种）：基期自由现金流 100，未来五年增速 10%、10%、8%、6%、4%，永续增长 2.5%，折现率 9%；净债务 200（债务 400 减现金 200），股数 100 股。现金流发生在年末，资本开支已从经营现金流扣除，折现率与增长率均按名义值处理。示例不含中期切换或亏损年份；若 FCF 为负，应先处理融资与持续经营问题。</p>
+<h2>步骤</h2>
+<ol>
+<li>用 <code>FCF = 经营现金流 - 资本开支</code> 重建基期，剔除一次性营运资本波动；现金流与净利润相关但不等同，应与利润表、资产负债表一起阅读 [1]。</li>
+<li>预测五年 FCF：110、121、130.7、138.5、144.1。</li>
+<li>逐年折现：<code>PV = Σ FCF_t/(1+r)^t</code>；不等额多期现金流必须逐期折现，不能直接套年金公式 [2]。五年合计约 495。</li>
+<li>终值 <code>TV = FCF5×1.025/(0.09-0.025) ≈ 2,272</code>，与各期现金流一并按必要收益率折现 [3]，折现后约 1,477。</li>
+<li>企业价值约 1,972；减净债务 200，股权约 1,772；除以 100 股，约 17.7。</li>
+<li>把 r 调到 8% 与 10%，得到约 21.4 与 15.0 的每股区间；记录每个假设的依据。</li>
+</ol>
+<p>边界说明：本文把自由现金流取作&quot;经营现金流 − 资本开支&quot;，这是本站的工作定义与教科书通识，登记来源的 supports 未逐字给出该式；终值采用永续增长模型 <code>FCF5×(1+g)/(r-g)</code>，也是本文采用的教科书通式，来源提供的是 DCF 框架而非这一行公式。它们都不是来自登记来源的逐字引证结论。使用时应与所选来源自身的口径对照，若来源另有定义，以来源定义为准并相应调整数字。</p>
+<h2>图表</h2>
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-009-chain-title fig-inv-009-chain-desc" viewBox="0 0 560 310" width="100%">
+    <title id="fig-inv-009-chain-title">INV-009：三段判断链</title>
+    <desc id="fig-inv-009-chain-desc">重建 FCF：经营现金流减资本开支；折现：逐年折现加终值；敏感性：折现率、增长与区间</desc>
+    <rect x="0.5" y="0.5" width="559" height="309" rx="12" fill="var(--surface)" stroke="var(--border)"/>
+    <rect x="24" y="16" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="16" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="35" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">起点</text>
+    <text x="44" y="56" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">重建 FCF</text>
+    <text x="44" y="76" font-size="10.5" fill="var(--secondary)" font-family="inherit">经营现金流减资本开支</text>
+    <line x1="280" y1="102" x2="280" y2="108" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 106 L280 110 L284 106" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="112" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="112" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="131" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">机制</text>
+    <text x="44" y="152" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">折现</text>
+    <text x="44" y="172" font-size="10.5" fill="var(--secondary)" font-family="inherit">逐年折现加终值</text>
+    <line x1="280" y1="198" x2="280" y2="204" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 202 L280 206 L284 202" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="208" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="208" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="227" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">判断</text>
+    <text x="44" y="248" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">敏感性</text>
+    <text x="44" y="268" font-size="10.5" fill="var(--secondary)" font-family="inherit">折现率、增长与区间</text>
+  </svg>
+  <figcaption>图 1：INV-009的三段判断链——重建 FCF → 折现 → 敏感性。三段是判断链，不是唯一路径；图中文字取自本文正文，不含统计数据。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<h2>结果解读</h2>
+<p>终值约占企业价值的 75%，估值主要由永续假设决定；折现率变动 1 个百分点，每股价值从 17.7 变到 15.0 或 21.4。若永续增长率降到 2.0%，每股约 16.6；升到 3.0%，约 19.0，说明 g 同样是关键开关。17.7 不是“真实价值”，只是这组假设下的等价价格。应把增长拆成销量、价格、利润率与再投资，检查它们是否互相一致。</p>
+<h2>失败条件</h2>
+<ul>
+<li>基期现金流处于周期高点或含一次性项目；</li>
+<li>把会计利润当现金流，或漏掉资本开支与营运资本；</li>
+<li>折现率低于或接近永续增长率；</li>
+<li>永续增长率长期高于名义经济增长；</li>
+<li>用未摊薄股数，或重复计算债务与现金；</li>
+<li>预测期过短，把尚未成熟的业务直接塞进终值；</li>
+<li>只给单点结果，不给区间与敏感性。</li>
+</ul>
+<h2>验证</h2>
+<p>用五年历史数据复算 FCF，与报表核对；用市值加净债务反推企业价值；换用退出倍数或不同预测期；对 r、g 与增长路径做敏感性；最后用反向估值检查价格隐含的增速是否可信（见反向估值与预期主文，INV-011）。</p>
+<h2>复现</h2>
+<p>表格列：年度、FCF、折现因子、现值、终值、企业价值、净债务、股权价值、每股价值。公式：<code>PV = Σ FCF_t/(1+r)^t + TV/(1+r)^5</code>，<code>TV = FCF5×(1+g)/(r-g)</code>。每个输入保留来源、日期与单位；计算过程可用电子表格复算。</p>
+<h2>图解：现金流、桥接和两个开关</h2>
+<p>下面三张图不重复公式，而是把“五年现金流折成多少”“企业价值怎么变成每股”“折现率和永续增长各把估值推到哪”分开看；数字沿用正文教学假设。</p>
+<figure>
+  <svg role="img" aria-labelledby="fig-fcf-pv-bars-title fig-fcf-pv-bars-desc" viewBox="0 0 440 260" width="100%">
+    <title id="fig-fcf-pv-bars-title">五年自由现金流与折现值</title>
+    <desc id="fig-fcf-pv-bars-desc">第 1 至 5 年 FCF 为 110、121、130.7、138.5、144.1；按 9% 折现后的现值约为 100.9、101.8、100.9、98.1、93.7。柱子按每单位约 0.8 像素绘制，越远的现金流折得越轻。</desc>
+    <text x="20" y="24" font-size="12.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">五年 FCF 合计约 495；越远的现金流，折现值越轻</text>
+    <rect x="60" y="38" width="12" height="10" fill="var(--accent)"/><text x="78" y="47" font-size="9" fill="var(--muted)" font-family="inherit">FCF</text>
+    <rect x="130" y="38" width="12" height="10" fill="var(--gold)"/><text x="148" y="47" font-size="9" fill="var(--muted)" font-family="inherit">折现值</text>
+    <line x1="40" y1="210" x2="410" y2="210" stroke="var(--border)" stroke-width="1.5"/>
+    <g fill="var(--accent)" opacity="0.8">
+      <rect x="55" y="122" width="18" height="88"/><rect x="130" y="113.2" width="18" height="96.8"/><rect x="205" y="105.4" width="18" height="104.6"/><rect x="280" y="99.2" width="18" height="110.8"/><rect x="355" y="94.7" width="18" height="115.3"/>
+    </g>
+    <g fill="var(--gold)" opacity="0.7">
+      <rect x="75" y="129.3" width="18" height="80.7"/><rect x="150" y="118.6" width="18" height="81.4"/><rect x="225" y="119.3" width="18" height="80.7"/><rect x="300" y="121.6" width="18" height="78.4"/><rect x="375" y="125.1" width="18" height="74.9"/>
+    </g>
+    <g font-family="inherit" font-size="9.5" fill="var(--muted)" text-anchor="middle">
+      <text x="74" y="228">第 1 年</text><text x="149" y="228">第 2 年</text><text x="224" y="228">第 3 年</text><text x="299" y="228">第 4 年</text><text x="374" y="228">第 5 年</text>
+      <text x="20" y="252" text-anchor="start">单位：同一假设货币单位；9% 折现率为教学假设。</text>
+    </g>
+  </svg>
+  <figcaption>图 2：第 1 至 5 年 FCF 为 110、121、130.7、138.5、144.1，按 9% 折现后的现值约为 100.9、101.8、100.9、98.1、93.7，合计约 495。柱子按每单位约 0.8 像素绘制；越远的现金流折得越轻。数字为教学假设。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-valuation-bridge-title fig-valuation-bridge-desc" viewBox="0 0 440 220" width="100%">
+    <title id="fig-valuation-bridge-title">从企业价值到每股 17.7 的桥</title>
+    <desc id="fig-valuation-bridge-desc">五年现金流现值约 495，加上终值现值约 1,477，得到企业价值约 1,972；减净债务 200，得到股权价值约 1,772；除以 100 股，得到每股约 17.7。</desc>
+    <text x="20" y="24" font-size="12.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">495 + 1,477 = 1,972；减债 200，除以 100 股</text>
+    <rect x="20" y="52" width="90" height="44" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="65" y="70" font-size="8.8" text-anchor="middle" fill="var(--muted)" font-family="inherit">五年 FCF 现值</text>
+    <text x="65" y="87" font-size="11" text-anchor="middle" fill="var(--accent)" font-family="inherit">495</text>
+    <text x="116" y="80" font-size="14" fill="var(--muted)" font-family="inherit">+</text>
+    <rect x="132" y="52" width="96" height="44" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="180" y="70" font-size="8.5" text-anchor="middle" fill="var(--muted)" font-family="inherit">终值现值</text>
+    <text x="180" y="87" font-size="11" text-anchor="middle" fill="var(--accent)" font-family="inherit">1,477</text>
+    <text x="234" y="80" font-size="14" fill="var(--muted)" font-family="inherit">=</text>
+    <rect x="250" y="52" width="90" height="44" rx="7" fill="var(--accent-soft)" stroke="var(--accent)"/>
+    <text x="295" y="70" font-size="8.8" text-anchor="middle" fill="var(--muted)" font-family="inherit">企业价值</text>
+    <text x="295" y="87" font-size="11" text-anchor="middle" fill="var(--accent)" font-family="inherit">1,972</text>
+    <text x="350" y="80" font-size="14" fill="var(--muted)" font-family="inherit">−</text>
+    <rect x="366" y="52" width="54" height="44" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="393" y="70" font-size="8.3" text-anchor="middle" fill="var(--muted)" font-family="inherit">净债务</text>
+    <text x="393" y="87" font-size="11" text-anchor="middle" fill="var(--gold)" font-family="inherit">200</text>
+    <rect x="110" y="126" width="220" height="42" rx="7" fill="var(--surface)" stroke="var(--border)"/>
+    <text x="220" y="144" font-size="9" text-anchor="middle" fill="var(--muted)" font-family="inherit">股权价值 1,772 ÷ 100 股</text>
+    <text x="220" y="161" font-size="13" text-anchor="middle" fill="var(--accent)" font-family="inherit">每股约 17.7</text>
+    <text x="20" y="202" font-size="9" fill="var(--muted)" font-family="inherit" text-anchor="start">单位：同一假设货币单位；净债务 200、股数 100、折现率 9%、永续增长 2.5% 为教学假设。</text>
+  </svg>
+  <figcaption>图 3：五年 FCF 现值约 495，加终值现值约 1,477，得企业价值约 1,972；减净债务 200，得股权价值约 1,772；除以 100 股，每股约 17.7。这条桥接机制说明：企业价值属于全体资本提供者，只有减去净债务才属于股东。单位为同一假设货币单位；数字为教学假设。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-valuation-switches-title fig-valuation-switches-desc" viewBox="0 0 440 260" width="100%">
+    <title id="fig-valuation-switches-title">折现率与永续增长两个开关</title>
+    <desc id="fig-valuation-switches-desc">以每股 17.7 为中线：折现率降到 8% 时约 21.4，升到 10% 时约 15.0；永续增长降到 2.0% 时约 16.6，升到 3.0% 时约 19.0。折现率的方向与增长率相反。</desc>
+    <text x="20" y="24" font-size="12.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">同样现金流，折现率差 2 个点，估值差约 6.4</text>
+    <line x1="220" y1="36" x2="220" y2="210" stroke="var(--border)" stroke-width="1"/>
+    <text x="220" y="226" font-size="9" text-anchor="middle" fill="var(--muted)" font-family="inherit">每股价值（同一假设货币单位）</text>
+    <g font-family="inherit" font-size="9.5" fill="var(--text)">
+      <text x="180" y="58" text-anchor="end">r = 8%</text><rect x="220" y="48" width="83" height="13" fill="var(--accent)" opacity="0.75"/><text x="310" y="58">21.4</text>
+      <text x="180" y="86" text-anchor="end">r = 9%</text><rect x="220" y="76" width="69" height="13" fill="var(--muted)" opacity="0.45"/><text x="296" y="86">17.7</text>
+      <text x="180" y="114" text-anchor="end">r = 10%</text><rect x="151" y="104" width="69" height="13" fill="var(--gold)" opacity="0.7"/><text x="143" y="114" text-anchor="end">15.0</text>
+      <text x="180" y="146" text-anchor="end">g = 2.0%</text><rect x="155" y="136" width="65" height="13" fill="var(--gold)" opacity="0.7"/><text x="147" y="146" text-anchor="end">16.6</text>
+      <text x="180" y="174" text-anchor="end">g = 2.5%</text><rect x="220" y="164" width="69" height="13" fill="var(--muted)" opacity="0.45"/><text x="296" y="174">17.7</text>
+      <text x="180" y="202" text-anchor="end">g = 3.0%</text><rect x="220" y="192" width="74" height="13" fill="var(--accent)" opacity="0.75"/><text x="301" y="202">19.0</text>
+    </g>
+    <text x="20" y="244" font-size="9" fill="var(--muted)" font-family="inherit" text-anchor="start">数字为正文教学假设；中线 17.7 只是这组假设下的等价价格，不是真实价值。</text>
+  </svg>
+  <figcaption>图 4：以每股 17.7 为中线，折现率 8% 对应约 21.4、10% 对应约 15.0；永续增长 2.0% 对应约 16.6、3.0% 对应约 19.0。折现率上升压低估值，增长率上升抬高估值。边界是：这两个开关只在给定现金流假设内有效，不能用来证明真实价值。数字为教学假设；17.7 不是真实价值。</figcaption>
+</figure>
+
+
+<!-- kp-supplement:start -->
+<h2>知识点精读</h2>
+<h3>DCF</h3>
+<p><strong>定义</strong>：DCF 预测未来自由现金流并按资本成本折现，得到企业或股权价值。</p>
+<p><strong>机制</strong>：关键假设是增长、利润率、再投资、税率和折现率；终值常占价值大部分，需说明驱动和敏感性。</p>
+<p><strong>例子</strong>：例如稳定消费企业可用永续增长 3% 的终值，周期企业应使用正常化盈利。</p>
+<p><strong>边界</strong>：DCF 不是精确答案；假设敏感、终值主导和周期峰值会高估，折现率错误会系统偏差。</p>
+<h3>股利</h3>
+<p><strong>定义</strong>：股利折现模型把未来股利按权益成本折现，适用于稳定分红企业。</p>
+<p><strong>机制</strong>：模型有戈登增长和多阶段形式；股利支付率、增长和折现率决定价值，留存收益需能创造回报。</p>
+<p><strong>例子</strong>：例如稳定公用事业公司按 4% 股利增长估值，成熟银行也常用股利模型。</p>
+<p><strong>边界</strong>：股利模型不是万能；不分红或分红不稳定的企业不适用，高增长需要再投资，模型对增长和折现率极敏感。</p>
+<h3>剩余收益</h3>
+<p><strong>定义</strong>：剩余收益模型把账面净资产加上未来超额收益的现值，超额收益是利润超过权益资本成本的部分。</p>
+<p><strong>机制</strong>：模型适合金融和资本密集企业；ROE、资本成本和账面价值决定价值，清洁盈余关系很重要。</p>
+<p><strong>例子</strong>：例如银行估值用剩余收益，若 ROE 持续高于资本成本，价值高于账面。</p>
+<p><strong>边界</strong>：剩余收益不是账面加总；会计稳健性、资本成本和 ROE 可持续性会影响，长期超额收益假设容易过度乐观。</p>
+<h3>相对估值</h3>
+<p><strong>定义</strong>：相对估值用可比公司或历史倍数给资产定价，常用市盈率、EV/EBITDA、市净率和销售额倍数。</p>
+<p><strong>机制</strong>：倍数应匹配增长、风险、资本结构和会计口径；可比选择、周期位置和流动性影响结论。</p>
+<p><strong>例子</strong>：例如成熟零售用 EV/EBITDA，高增长软件用 EV/Sales，银行用市净率。</p>
+<p><strong>边界</strong>：相对估值不是简单便宜；分母为负、周期峰值和会计差异会误导，整体行业也可能被高估。</p>
+<h3>分部</h3>
+<p><strong>定义</strong>：分部估值把不同业务分别按适用方法定价，再加总并调整总部成本、净债务和控股折价。</p>
+<p><strong>机制</strong>：各分部增长、风险和资本需求不同，应使用不同倍数或 DCF；集团协同和税需要单独处理。</p>
+<p><strong>例子</strong>：例如集团含银行、地产和科技子公司，分别估值后减去总部费用和净债务。</p>
+<p><strong>边界</strong>：分部不是简单相加；内部交易、资本配置和控股折价会改变，协同可能被高估，披露不足也使拆分困难。</p>
+<h3>反向估值</h3>
+<p><strong>定义</strong>：反向估值从当前价格倒推隐含增长、利润率、期限或折现率，检验市场预期。</p>
+<p><strong>机制</strong>：它把估值转为预期问题：价格需要什么假设才能成立，哪些假设最敏感、最可能出错。</p>
+<p><strong>例子</strong>：例如价格隐含十年 15% 增长，若行业规模限制，预期可能过高。</p>
+<p><strong>边界</strong>：反向估值不是预测；模型假设和终值仍主导，市场预期可能包含非理性或未披露信息，结果需交叉验证。</p>
+<h3>情景敏感性</h3>
+<p><strong>定义</strong>：情景分析设定乐观、基准、悲观等假设组合，敏感性测试单变量或关键驱动变化对价值的影响。</p>
+<p><strong>机制</strong>：情景应包含概率、触发条件和资本成本变化；敏感性揭示估值对增长、利润率、折现率和终值的依赖。</p>
+<p><strong>例子</strong>：例如利率上升 100 个基点、增长下降 2 个百分点，估值可能下降三成。</p>
+<p><strong>边界</strong>：情景不是预测；概率主观、变量相关和尾部事件会偏离，堆叠情景也可能制造虚假精确，需说明关键假设。</p>
+<!-- kp-supplement:end -->
+
+<h2>关联</h2>
+<ul>
+<li>必需先修：盈利质量分析（INV-008）。</li>
+<li>相关与推荐阅读：货币的时间价值（FIN-009）、建立投资研究流程（INV-005）、盈利质量分析（INV-008）。</li>
+</ul>
+<h2>练习</h2>
+<ol>
+<li><strong>概念。</strong> 为什么终值占比高会降低估值的可靠性？</li>
+<li><strong>计算。</strong> 按示例，第三年 FCF 及其现值是多少？</li>
+<li><strong>适用条件。</strong> 如果基期 FCF 是周期高点，应先做什么？</li>
+</ol>
+<details>
+<summary>参考答案</summary>
+
+<ol>
+<li>因为大部分价值来自第五年之后的永续假设，终值增长率或折现率的微小变化会被放大。</li>
+<li>FCF3 = 130.7；PV = 130.7/1.09³ ≈ 100.9。</li>
+<li>先正常化：用周期平均利润率、维护性资本开支与正常营运资本重建基期 FCF，再做情景。</li>
+</ol>
+</details>
+
+<h2>来源</h2>
+<ol>
+<li>U.S. Securities and Exchange Commission. “Beginners&#39; Guide to Financial Statement.” <a href="https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide">https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide</a>（访问日期：2026-10-30）</li>
+<li>OpenStax. “Principles of Finance 2e, 9.1 Timing of Cash Flows.” <a href="https://openstax.org/books/principles-finance-2e/pages/9-1-timing-of-cash-flows">https://openstax.org/books/principles-finance-2e/pages/9-1-timing-of-cash-flows</a>（访问日期：2026-10-30）</li>
+<li>OpenStax. “Principles of Finance 2e, 11.3 Discounted Cash Flow (DCF) Model.” <a href="https://openstax.org/books/principles-finance-2e/pages/11-3-discounted-cash-flow-dcf-model">https://openstax.org/books/principles-finance-2e/pages/11-3-discounted-cash-flow-dcf-model</a>（访问日期：2026-10-30）</li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="zh" aria-labelledby="demo-check-title" data-check-done="三项都能说清：这篇的核心已经过关。" data-check-pending="还差一项：回到正文对应小节，找一个反例或数字再讲一遍。" data-check-count="已勾选"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">动手演示</p> <button class="demo-reset" type="button" data-demo-reset>恢复默认</button> </div> <h2 id="demo-check-title">读完自检：三句话能不能说清</h2> <p class="demo-intro">不用背定义。把下面三句逐个勾上，看自己能不能用自己的话讲清机制、算例和边界。</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>能重建基期自由现金流，按再投资率与增长率推算预测期，并逐期折现加总终值</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>能用折现率与永续增长率做敏感性分析，并报告终值在估值中的占比</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>能说出一个本文结论不适用的条件</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> 已勾选 0 / 3
+</p> </div> <p class="demo-footnote">数字为教学假设，用来展示关系，不构成预测或投资建议。</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> 本文已通过当前发布门槛；事实、计算与译文如有修订，会同步更新两个语言版本。 </p> <p> <a class="button secondary" href="/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>返回分站 </a> </p> </div> <aside class="article-aside" aria-label="文章信息"> <section class="aside-card"> <h2>学习目标</h2> <ul> <li>能重建基期自由现金流，按再投资率与增长率推算预测期，并逐期折现加总终值</li><li>能用折现率与永续增长率做敏感性分析，并报告终值在估值中的占比</li> </ul> </section> <section class="aside-card"> <h2>必需先修</h2> <ul> <li> <a href="/learn/earnings-quality-analysis/">INV-008 · 盈利质量分析</a> </li> </ul> </section> <section class="aside-card"> <h2>建议阅读</h2> <ul> <li> <a href="https://finance.51invest.com/learn/time-value-of-money/">FIN-009 · 货币的时间价值</a> </li><li> <a href="/learn/investment-research-process/">INV-005 · 建立投资研究流程</a> </li><li> <a href="/learn/earnings-quality-analysis/">INV-008 · 盈利质量分析</a> </li> </ul> </section> <section class="aside-card"> <h2>AI 复核记录</h2> <p class="muted"> 本项目没有真人签字；下列状态来自 AI-only 编辑复核。 </p> <ul> <li> 事实与计算 ：AI 复核通过 </li><li> 学科 ：AI 复核通过 </li><li> 英文 ：AI 复核通过 </li><li> 页面 ：AI 复核通过 </li> </ul> </section> <section class="aside-card"> <h2>来源</h2> <div class="source"> <a href="https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide" rel="noopener noreferrer" target="_blank">Beginners&#39; Guide to Financial Statement</a> <p>U.S. Securities and Exchange Commission · U.S. Securities and Exchange Commission</p> <p>访问：2026-10-30 · 许可：U.S. public information; copying and further distribution allowed</p> <p>支持论点：指南说明现金流量表报告公司一段期间是否产生现金，并与利润表、资产负债表一起阅读；现金流与净利润相关但不等同，不能只看利润。</p> </div><div class="source"> <a href="https://openstax.org/books/principles-finance-2e/pages/9-1-timing-of-cash-flows" rel="noopener noreferrer" target="_blank">Principles of Finance 2e, 9.1 Timing of Cash Flows</a> <p>OpenStax · OpenStax</p> <p>访问：2026-10-30 · 许可：CC BY-NC-SA 4.0</p> <p>支持论点：该节说明不等额多期现金流必须按发生时间逐笔折现，不能直接套用年金公式；时间轴与逐期折现是复现现金流估值的基础。</p> </div><div class="source"> <a href="https://openstax.org/books/principles-finance-2e/pages/11-3-discounted-cash-flow-dcf-model" rel="noopener noreferrer" target="_blank">Principles of Finance 2e, 11.3 Discounted Cash Flow (DCF) Model</a> <p>OpenStax · OpenStax</p> <p>访问：2026-10-30 · 许可：CC BY-NC-SA 4.0</p> <p>支持论点：该节给出把各期现金流与终值按必要收益率折现的 DCF 框架，说明终值、折现率与增长率的作用，并讨论 DCF 的优点和局限。</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">非商业免费知识站。每篇标出来源与口径；这里没有投资建议。</p> </div> </div> <nav class="footer-links" aria-label="知识分站"> <a href="https://51invest.com/" data-main-home>首页</a> <a href="https://51invest.com/contents/">内容地图</a> <a href="/glossary/">术语表</a> <a href="/search/">搜索</a> <a href="https://51invest.com/charts/" data-main-link>图表</a> <a href="https://51invest.com/sources/" data-main-link>数据与许可</a> <a href="/">分站首页</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="知识分站"> <a class="mobile-link" href="https://51invest.com/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>首页</span> </a> <a class="mobile-link" href="https://51invest.com/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>知识分站</span> </a> <a class="mobile-link active" href="/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>分站首页</span> </a> <a class="mobile-link" href="/en/learn/cash-flow-valuation-research-process/" data-language-link="en"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

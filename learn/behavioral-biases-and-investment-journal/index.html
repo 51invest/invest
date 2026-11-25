@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>行为偏差与投资日志 · 巫妖投资</title><meta name="description" content="用 30 笔假设决策的投资日志，示范如何记录事前理由、失效条件和偏差标签，并用遵守率、持有期差和结果差复盘，而不是用盈亏评价决策质量。"><link rel="canonical" href="https://invest.51invest.com/learn/behavioral-biases-and-investment-journal/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/behavioral-biases-and-investment-journal/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/behavioral-biases-and-investment-journal/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/behavioral-biases-and-investment-journal/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/" data-main-home aria-label="巫妖投资"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">巫妖投资</span> <span class="brand-caption">51INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="知识分站"> <a class="nav-link" href="https://51invest.com/" data-main-home> 首页 </a> <a class="nav-link" href="https://economics.51invest.com/"> 经济学 </a><a class="nav-link" href="https://finance.51invest.com/"> 金融基础 </a><a class="nav-link" href="https://markets.51invest.com/"> 市场与产品 </a><a class="nav-link active" href="/" aria-current="page"> 投资方法 </a><a class="nav-link" href="https://history.51invest.com/"> 经济与金融史 </a><a class="nav-link" href="https://research.51invest.com/"> 研究方法 </a> <a class="nav-link" href="https://51invest.com/contents/"> 内容地图 </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/en/learn/behavioral-biases-and-investment-journal/" hreflang="en" lang="en" data-language-link="en" aria-label="切换为英文" title="切换为英文"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="主题: 跟随系统" title="主题: 跟随系统" data-label-auto="主题: 跟随系统" data-label-light="主题: 浅色" data-label-dark="主题: 深色"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">跟随系统</span> <span class="theme-text" data-theme-text="light">浅色</span> <span class="theme-text" data-theme-text="dark">深色</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/" data-main-home>首页</a> <span class="sep">/</span> <a href="/">投资方法</a> <span class="sep">/</span> <span aria-current="page">行为偏差与投资日志</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">方法</span> <h1 class="article-title">行为偏差与投资日志</h1> <p class="article-summary">用 30 笔假设决策的投资日志，示范如何记录事前理由、失效条件和偏差标签，并用遵守率、持有期差和结果差复盘，而不是用盈亏评价决策质量。</p>  <div class="meta-grid"> <div class="meta-item"><span>模块</span><strong>INV-M14 · 行为与纪律</strong></div> <div class="meta-item"><span>层级</span><strong>系统</strong></div> <div class="meta-item"><span>阅读</span><strong>7 分钟 · 14 节</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> 这篇有一个可以动手操作的演示 <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>问题与输出</h2>
+<p>行为偏差是系统性的判断或偏好错误；投资日志把决策发生时的信息、理由和预期固定下来，供事后核对。输出是一份可检索的记录、偏差标签和过程指标（遵守率、持有期差、违规占比），不是心理诊断，也不保证收益。</p>
+<h2>输入与数据要求</h2>
+<p>需要交易流水、决策时点、价格、仓位、事前理由、预期收益与期限、失效条件、信心评分、信息来源、情绪状态和规则检查。示例为假设的 12 个月、30 笔已平仓决策：21 笔符合事先规则（遵守率 70%），9 笔超出单仓上限或临时加仓；盈利持仓平均持有 21 天，亏损持仓平均 56 天；守规交易平均收益 <code>+1.8%</code>，违规交易 <code>-4.2%</code>。</p>
+<h2>假设</h2>
+<p>理由由投资者自报，可能不完整；记录行为本身会改变决策；样本只用于演示统计口径；不假设偏差可以被消除；所有数字为教学假设。本文用到的偏差标签中，处置效应与损失厌恶由所列来源支持；交易前清单里的锚定、确认、从众与错失恐惧只是常用标签，本文未逐条附来源。</p>
+<h2>步骤</h2>
+<ol>
+<li>交易前记录：日期、标的、方向、数量、决策价、理由、预期收益与期限、失效条件、信心 1–5，以及偏差清单（锚定、确认、损失厌恶、从众、错失恐惧）。</li>
+<li>交易前做规则检查：单仓上限、行业上限、现金缓冲、冷却期；不通过则写明例外理由。</li>
+<li>成交后补记成交价、滑点与费用。</li>
+<li>平仓后按固定间隔复盘：结果、过程是否遵守规则、当时可知道的信息、偏差标签；把“运气好但过程差”和“过程好但结果差”分开。</li>
+<li>汇总：遵守率 <code>21/30 = 70%</code>；持有期差 <code>56-21 = 35</code> 天；结果差 <code>1.8%-(-4.2%) = 6.0</code> 个百分点；违规占比 <code>9/30 = 30%</code>。</li>
+<li>把高频偏差转成规则：例如对“新闻驱动”加 24 小时冷却期，对亏损加仓要求书面失效条件。</li>
+</ol>
+<h2>图表</h2>
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-023-chain-title fig-inv-023-chain-desc" viewBox="0 0 560 310" width="100%">
+    <title id="fig-inv-023-chain-title">INV-023：三段判断链</title>
+    <desc id="fig-inv-023-chain-desc">交易前：理由、失效条件、信心；定期复盘：过程与结果分开；转成规则：高频偏差变约束</desc>
+    <rect x="0.5" y="0.5" width="559" height="309" rx="12" fill="var(--surface)" stroke="var(--border)"/>
+    <rect x="24" y="16" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="16" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="35" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">起点</text>
+    <text x="44" y="56" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">交易前</text>
+    <text x="44" y="76" font-size="10.5" fill="var(--secondary)" font-family="inherit">理由、失效条件、信心</text>
+    <line x1="280" y1="102" x2="280" y2="108" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 106 L280 110 L284 106" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="112" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="112" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="131" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">机制</text>
+    <text x="44" y="152" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">定期复盘</text>
+    <text x="44" y="172" font-size="10.5" fill="var(--secondary)" font-family="inherit">过程与结果分开</text>
+    <line x1="280" y1="198" x2="280" y2="204" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 202 L280 206 L284 202" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="208" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="208" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="227" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">判断</text>
+    <text x="44" y="248" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">转成规则</text>
+    <text x="44" y="268" font-size="10.5" fill="var(--secondary)" font-family="inherit">高频偏差变约束</text>
+  </svg>
+  <figcaption>图 1：INV-023的三段判断链——交易前 → 定期复盘 → 转成规则。三段是判断链，不是唯一路径；图中文字取自本文正文，不含统计数据。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<h2>结果解读</h2>
+<p>35 天的持有期差符合处置效应的方向：赢家过早卖出、输家持有过久；6.0 个百分点的结果差只是描述，不是因果，因为违规交易可能集中在高波动标的。日志的价值在于留下“当时怎么想”，减少事后偏差，即知道结果会让人高估事件事前的可预测性；该定义与研究脉络见历史类比与事后偏差主文（HIS-002），此处不重复展开。日志不能证明某条规则有效，除非样本足够、规则事先固定并做样本外检验。</p>
+<p>该诺贝尔讲座区分规范模型与描述模型，并说明前景理论中的损失厌恶、参照点依赖与框架效应[2]。</p>
+<h2>失败条件</h2>
+<ul>
+<li>事后补写理由，按结果改写记忆；</li>
+<li>字段过多，无法坚持；</li>
+<li>只记盈亏，不记理由和失效条件；</li>
+<li>把成功归因于能力，把失败归因于运气；</li>
+<li>用 30 笔样本证明偏差或规则有效；</li>
+<li>日志含账户敏感信息却未妥善保管；</li>
+<li>只记录交易，不安排固定复盘；</li>
+<li>复盘时改变评价标准。</li>
+</ul>
+<h2>验证</h2>
+<p>用券商流水核对日期、价格和数量；让第二人按同一编码表抽查 10 条；比较日志与年初规则；每季度重算遵守率和持有期差；把决策质量与结果分开评分；对规则做前瞻性小规模测试。</p>
+<h2>复现</h2>
+<p><code>遵守率=守规笔数/总笔数</code>；<code>持有期差=亏损平均持有天数-盈利平均持有天数</code>；<code>结果差=守规平均收益-违规平均收益</code>。示例：<code>21/30=70%</code>；<code>56-21=35</code> 天；<code>1.8%-(-4.2%)=6.0</code> 个百分点。</p>
+<!-- kp-supplement:start -->
+<h2>知识点精读</h2>
+<h3>过度自信</h3>
+<p><strong>定义</strong>：过度自信是高估自己判断准确度、知识或控制力的倾向，表现为过度交易、集中持仓和低估风险。</p>
+<p><strong>机制</strong>：过度自信来自成功归因、信息过载和性别文化等因素；在投资中会提高成本、降低分散和忽视反面证据。</p>
+<p><strong>例子</strong>：例如投资者连续几次盈利后加大杠杆、集中一只股票，低估回撤概率。</p>
+<p><strong>边界</strong>：自信不是能力；过度自信难以自察，成功可能是运气，市场反馈滞后，纠正需要外部流程和记录而非意志。</p>
+<h3>损失厌恶</h3>
+<p><strong>定义</strong>：损失厌恶是同等金额的损失带来的痛苦大于收益带来的快乐，导致不愿止损、过早止盈和风险偏好反转。</p>
+<p><strong>机制</strong>：损失厌恶受参照点、框架和情绪影响；在投资中会持有亏损资产、追逐回本和回避合理风险。</p>
+<p><strong>例子</strong>：例如股票跌破买入价后拒绝卖出，期待回本，反而扩大损失。</p>
+<p><strong>边界</strong>：损失厌恶不是简单胆小；它会造成处置效应和风险决策扭曲，参照点可以改变，过度止损也会卖在低点。</p>
+<h3>羊群</h3>
+<p><strong>定义</strong>：羊群是从众跟随大多数人的投资行为，源于社会证明、信息不对称、职业压力和害怕错过。</p>
+<p><strong>机制</strong>：羊群推动资金流、放大趋势和泡沫，也在危机中加速抛售；机构和个人都可能从众。</p>
+<p><strong>例子</strong>：例如社交媒体热议某资产，投资者因 FOMO 集中买入，价格短期偏离。</p>
+<p><strong>边界</strong>：羊群不是总是错误；群体可提供信息，但同质化和回音室会隐藏风险，跟随者常在最拥挤时进入。</p>
+<h3>叙事</h3>
+<p><strong>定义</strong>：叙事是用故事、因果和身份解释价格和市场，影响预期、注意力和资金流。</p>
+<p><strong>机制</strong>：叙事通过简化复杂信息、提供社会认同和情感共鸣传播；强叙事可长期偏离基本面。</p>
+<p><strong>例子</strong>：例如“这次不同”或“新经济”故事让投资者忽略盈利和估值。</p>
+<p><strong>边界</strong>：叙事不是证据；故事可选择数据、忽略反例并自我强化，破裂时价格剧烈反转，叙事也会被政策或现实打断。</p>
+<h3>清单</h3>
+<p><strong>定义</strong>：清单是把关键步骤、风险和问题固定成可重复检查的列表，减少遗漏和情绪干扰。</p>
+<p><strong>机制</strong>：投资清单可覆盖论点、估值、风险、流动性、利益冲突和退出；简洁、可执行和定期更新是关键。</p>
+<p><strong>例子</strong>：例如买入前检查：现金流是否支持、最坏情景、仓位、退出条件。</p>
+<p><strong>边界</strong>：清单不是万能；过长会形式化，项目过时会漏新风险，打勾也可能替代思考，需培训和复盘。</p>
+<h3>日志和复盘</h3>
+<p><strong>定义</strong>：日志记录投资理由、假设、情绪和结果，复盘比较预期与实际并提炼可改进的规则。</p>
+<p><strong>机制</strong>：日志应包含决策时点、信息、仓位和退出条件；复盘区分过程质量与结果，避免后见之明。</p>
+<p><strong>例子</strong>：例如记录“买入因现金流改善”，三个月后复盘现金流是否符合，而非只看涨跌。</p>
+<p><strong>边界</strong>：日志不是形式；选择性记录、结果导向和防御性归因会破坏学习，复盘也需要诚实和外部反馈。</p>
+<!-- kp-supplement:end -->
+
+<h2>关联</h2>
+<ul>
+<li>必需先修：写一份投资目标与约束（INV-001）。</li>
+<li>相关与推荐阅读：写一份投资目标与约束（INV-001）、实际收益与购买力（INV-003）、绩效评价与归因（INV-021）、历史类比与事后偏差（HIS-002）。</li>
+</ul>
+<h2>图解</h2>
+<p>下面三张图分别检查本文的机制、边界与对照；图内文字取自本文小节，不是新数据。</p>
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-chain-title fig-batch-chain-desc" viewBox="0 0 340 304" width="100%">
+    <title id="fig-batch-chain-title">行为偏差与投资日志：机制链</title>
+    <desc id="fig-batch-chain-desc">行为偏差与投资日志 的三段结构：问题、机制、判断。图内文字取自本文小节，不是新的数据估计。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">行为偏差与投资日志：机制链</text>
+    <text x="14" y="38" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图内文字取自本文小节；三段缺一不可。</text>
+    <line x1="14" y1="46" x2="326" y2="46" stroke="var(--border)" stroke-width="1"/>
+    <g>
+      <rect x="14" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="22" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">问题</text>
+      <text x="22" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">用 30 笔假设决策的</text>
+      <text x="22" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">投资日志，示范如何记…</text>
+      <text x="22" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">用 30 笔假设决策</text>
+      <text x="22" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">的投资日志，示范如</text>
+      <text x="22" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">何记录事前理由、失</text>
+      <text x="22" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">效前提和偏差标签，</text>
+      <text x="22" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">并用遵守率、持有期…</text>
+    </g>
+      <g>
+      <rect x="123" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="131" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">问题与输出</text>
+      <text x="131" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">问题与输出：行为偏差</text>
+      <text x="131" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">是系统性的判断或偏好…</text>
+      <text x="131" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">问题与输出：行为偏</text>
+      <text x="131" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">差是系统性的判断或</text>
+      <text x="131" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">偏好错误；投资日志</text>
+      <text x="131" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">把决策发生时的信息</text>
+      <text x="131" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">、理由和预期固定下…</text>
+    </g>
+      <g>
+      <rect x="232" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="240" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">输入与数据要求</text>
+      <text x="240" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">需要交易流水、决策时</text>
+      <text x="240" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">点、价格、仓位、事前…</text>
+      <text x="240" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">需要交易流水、决策</text>
+      <text x="240" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">时点、价格、仓位、</text>
+      <text x="240" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">事前理由、预期收益</text>
+      <text x="240" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">与期限、失效前提、</text>
+      <text x="240" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">信心评分、信息来源…</text>
+    </g>
+    <line x1="108" y1="144" x2="123" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M120 140 L125 144 L120 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="217" y1="144" x2="232" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M229 140 L234 144 L229 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="14" y1="250" x2="326" y2="250" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="266" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">读法：先看问题能否成立，再看机制能否连通，最后看判断会不会越界。</text>
+    <text x="14" y="280" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">若中间一步缺证据，后面的结论只能当假设，不能当事实。</text>
+    <text x="14" y="294" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图为结构示意，不是新的数据图；样本为本文论证。</text>
+  </svg>
+  <figcaption>图 2：行为偏差与投资日志的机制链：从问题、机制到判断。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-boundary-title fig-batch-boundary-desc" viewBox="0 0 340 244" width="100%">
+    <title id="fig-batch-boundary-title">行为偏差与投资日志：适用边界</title>
+    <desc id="fig-batch-boundary-desc">把成立条件与失效条件分开；局部例子不能自动推广到所有情形。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">行为偏差与投资日志：什么情况下成立？</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <rect x="14" y="44" width="312" height="38" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="170" y="62" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="middle">先检查条件，再看结论</text>
+    <text x="170" y="75" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="middle">条件、口径或样本一变，结论可能要重算</text>
+    <line x1="170" y1="82" x2="90" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="170" y1="82" x2="250" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <rect x="14" y="104" width="148" height="100" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="24" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">成立</text>
+    <text x="24" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">事后补写理由，按结果改写记忆；</text>
+      <text x="24" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">字段过多，无法坚持；</text>
+      <text x="24" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">只记盈亏，不记理由和失效条件；</text>
+      <text x="24" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">把成功归因于能力，把失败归因于运…</text>
+    <rect x="178" y="104" width="148" height="100" rx="8" fill="var(--gold)" opacity="0.18" stroke="var(--border)"/>
+    <text x="188" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">不成立 / 需改写</text>
+    <text x="188" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">必需先修：写一份投资目标与约束（I</text>
+      <text x="188" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">NV-001）。</text>
+    <line x1="14" y1="216" x2="326" y2="216" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="232" font-size="8.3" fill="var(--muted)" font-family="inherit" text-anchor="start">图为边界示意；样本为本文论证，单位为文中标注。</text>
+  </svg>
+  <figcaption>图 3：行为偏差与投资日志的边界：哪些条件成立，哪些条件失效。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-compare-title fig-batch-compare-desc" viewBox="0 0 340 252" width="100%">
+    <title id="fig-batch-compare-title">行为偏差与投资日志：对象、前提与常见误区</title>
+    <desc id="fig-batch-compare-desc">三行比较本文概念、成立条件与常见误区；比较不等于等价，也不能替代定义。</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">行为偏差与投资日志：一张表看对象、前提与误区</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <text x="82" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">本篇</text>
+    <text x="200" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">容易混淆</text>
+    <g>
+      <rect x="14" y="52" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="72" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">对象</text>
+      <text x="82" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">用 30 笔假设决策的投资</text>
+      <text x="82" y="88" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">日志，示范如何记录事前理…</text>
+      <text x="200" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">相邻概念/常见说法</text>
+    </g>
+    <g>
+      <rect x="14" y="110" width="312" height="58" fill="var(--surface-2)" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="130" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">前提</text>
+      <text x="82" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">事后补写理由，按结果改写</text>
+      <text x="82" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">记忆； 字段过多，无法坚持…</text>
+      <text x="200" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">必需先修：写一份投资目标与约束（INV-0</text>
+      <text x="200" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">01）。</text>
+    </g>
+    <g>
+      <rect x="14" y="168" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="188" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">检查</text>
+      <text x="82" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">先定义，再比较；不能只看</text>
+      <text x="82" y="204" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">名称</text>
+      <text x="200" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">相关不等于因果，局部不等于普遍</text>
+    </g>
+    <text x="14" y="244" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">图为比较示意；样本为本文论证，单位为文中标注。</text>
+  </svg>
+  <figcaption>图 4：行为偏差与投资日志的对象、前提与常见误区比较。样本为本文论证，单位为文中标注。</figcaption>
+</figure>
+
+<h2>练习</h2>
+<ol>
+<li><strong>计算。</strong> 遵守率和违规占比各是多少？</li>
+<li><strong>解释。</strong> 35 天持有期差可能反映什么偏差？</li>
+<li><strong>判断。</strong> 能否用 6.0 个百分点结果差证明守规带来更高收益？</li>
+</ol>
+<details>
+<summary>参考答案</summary>
+
+<ol>
+<li><code>70%</code> 与 <code>30%</code>。</li>
+<li>处置效应：过早卖出赢家、过久持有输家；也可能来自标的风险差异 [1]。</li>
+<li>不能；样本小、非随机，且未控制标的与市场环境。</li>
+</ol>
+</details>
+
+<h2>来源</h2>
+<ol>
+<li>Brad M. Barber and Terrance Odean. “The Behavior of Individual Investors.” Handbook of the Economics of Finance. <a href="https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/behavior%20of%20individual%20investors.pdf">https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/behavior%20of%20individual%20investors.pdf</a>（访问日期：2026-10-30）</li>
+<li>Daniel Kahneman. “Maps of Bounded Rationality.” Nobel Prize Lecture, 2002. <a href="https://www.nobelprize.org/prizes/economic-sciences/2002/kahneman/lecture/">https://www.nobelprize.org/prizes/economic-sciences/2002/kahneman/lecture/</a>（访问日期：2026-10-30）</li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="zh" aria-labelledby="demo-check-title" data-check-done="三项都能说清：这篇的核心已经过关。" data-check-pending="还差一项：回到正文对应小节，找一个反例或数字再讲一遍。" data-check-count="已勾选"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">动手演示</p> <button class="demo-reset" type="button" data-demo-reset>恢复默认</button> </div> <h2 id="demo-check-title">读完自检：三句话能不能说清</h2> <p class="demo-intro">不用背定义。把下面三句逐个勾上，看自己能不能用自己的话讲清机制、算例和边界。</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>能写出一条含事前理由、失效条件与偏差标签的决策日志条目并据以复盘</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>能用遵守率、持有期差与结果差评价决策质量，而非只看盈亏</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>能说出一个本文结论不适用的条件</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> 已勾选 0 / 3
+</p> </div> <p class="demo-footnote">数字为教学假设，用来展示关系，不构成预测或投资建议。</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> 本文已通过当前发布门槛；事实、计算与译文如有修订，会同步更新两个语言版本。 </p> <p> <a class="button secondary" href="/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>返回分站 </a> </p> </div> <aside class="article-aside" aria-label="文章信息"> <section class="aside-card"> <h2>学习目标</h2> <ul> <li>能写出一条含事前理由、失效条件与偏差标签的决策日志条目并据以复盘</li><li>能用遵守率、持有期差与结果差评价决策质量，而非只看盈亏</li> </ul> </section> <section class="aside-card"> <h2>必需先修</h2> <ul> <li> <a href="/learn/investment-goals-and-constraints/">INV-001 · 写一份投资目标与约束</a> </li> </ul> </section> <section class="aside-card"> <h2>建议阅读</h2> <ul> <li> <a href="/learn/investment-goals-and-constraints/">INV-001 · 写一份投资目标与约束</a> </li><li> <a href="/learn/real-returns-and-purchasing-power/">INV-003 · 实际收益与购买力</a> </li><li> <a href="/learn/performance-evaluation-and-attribution/">INV-021 · 绩效评价与归因</a> </li><li> <a href="https://history.51invest.com/learn/historical-analogies-and-hindsight-bias/">HIS-002 · 历史类比与事后偏差</a> </li> </ul> </section> <section class="aside-card"> <h2>AI 复核记录</h2> <p class="muted"> 本项目没有真人签字；下列状态来自 AI-only 编辑复核。 </p> <ul> <li> 事实与计算 ：AI 复核通过 </li><li> 学科 ：AI 复核通过 </li><li> 英文 ：AI 复核通过 </li><li> 页面 ：AI 复核通过 </li> </ul> </section> <section class="aside-card"> <h2>来源</h2> <div class="source"> <a href="https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/behavior%20of%20individual%20investors.pdf" rel="noopener noreferrer" target="_blank">The Behavior of Individual Investors</a> <p>Brad M. Barber; Terrance Odean · Handbook of the Economics of Finance, Elsevier</p> <p>访问：2026-10-30 · 许可：Hosted PDF carries Elsevier copyright line (all rights reserved), no licence stated</p> <p>支持论点：该章综述指出过度自信与过度交易相关、交易成本会侵蚀净收益，并记录处置效应（过早卖出赢家、过久持有输家）和注意力驱动的买入行为。</p> </div><div class="source"> <a href="https://www.nobelprize.org/prizes/economic-sciences/2002/kahneman/lecture/" rel="noopener noreferrer" target="_blank">Maps of Bounded Rationality</a> <p>Daniel Kahneman · Nobel Prize Outreach</p> <p>访问：2026-10-30 · 许可：Copyrighted; reproduction requires prior written permission (cite-only)</p> <p>支持论点：该讲座区分规范模型与描述模型，说明前景理论中的损失厌恶、参照点依赖和框架效应。</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">非商业免费知识站。每篇标出来源与口径；这里没有投资建议。</p> </div> </div> <nav class="footer-links" aria-label="知识分站"> <a href="https://51invest.com/" data-main-home>首页</a> <a href="https://51invest.com/contents/">内容地图</a> <a href="/glossary/">术语表</a> <a href="/search/">搜索</a> <a href="https://51invest.com/charts/" data-main-link>图表</a> <a href="https://51invest.com/sources/" data-main-link>数据与许可</a> <a href="/">分站首页</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="知识分站"> <a class="mobile-link" href="https://51invest.com/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>首页</span> </a> <a class="mobile-link" href="https://51invest.com/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>知识分站</span> </a> <a class="mobile-link active" href="/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>分站首页</span> </a> <a class="mobile-link" href="/en/learn/behavioral-biases-and-investment-journal/" data-language-link="en"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>English</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="en" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Luck versus Skill: Evidence from Multi-Period Excess Returns · 51Invest</title><meta name="description" content="One year of outperformance may be luck; a decade of consistent outperformance may be skill. Separating luck from skill needs sample length, t-statistics, persistence and attribution, not cumulative return alone."><link rel="canonical" href="https://invest.51invest.com/en/learn/luck-vs-skill-multi-period-excess-return-attribution/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/luck-vs-skill-multi-period-excess-return-attribution/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/luck-vs-skill-multi-period-excess-return-attribution/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/luck-vs-skill-multi-period-excess-return-attribution/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">Skip to content</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/en/" data-main-home aria-label="51Invest"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">51Invest</span> <span class="brand-caption">WUYAO INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="Knowledge stations"> <a class="nav-link" href="https://51invest.com/en/" data-main-home> Home </a> <a class="nav-link" href="https://economics.51invest.com/en/"> Economics </a><a class="nav-link" href="https://finance.51invest.com/en/"> Finance </a><a class="nav-link" href="https://markets.51invest.com/en/"> Markets </a><a class="nav-link active" href="/en/" aria-current="page"> Investing </a><a class="nav-link" href="https://history.51invest.com/en/"> History </a><a class="nav-link" href="https://research.51invest.com/en/"> Research </a> <a class="nav-link" href="https://51invest.com/en/contents/"> Content map </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/learn/luck-vs-skill-multi-period-excess-return-attribution/" hreflang="zh-CN" lang="zh-CN" data-language-link="zh" aria-label="Switch to Chinese" title="Switch to Chinese"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="Theme: System" title="Theme: System" data-label-auto="Theme: System" data-label-light="Theme: Light" data-label-dark="Theme: Dark"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">System</span> <span class="theme-text" data-theme-text="light">Light</span> <span class="theme-text" data-theme-text="dark">Dark</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/en/" data-main-home>Home</a> <span class="sep">/</span> <a href="/en/">Investing</a> <span class="sep">/</span> <span aria-current="page">Luck versus Skill: Evidence from Multi-Period Excess Returns</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">Concept</span> <h1 class="article-title">Luck versus Skill: Evidence from Multi-Period Excess Returns</h1> <p class="article-summary">One year of outperformance may be luck; a decade of consistent outperformance may be skill. Separating luck from skill needs sample length, t-statistics, persistence and attribution, not cumulative return alone.</p>  <div class="meta-grid"> <div class="meta-item"><span>Module</span><strong>INV-M13 · 绩效与归因</strong></div> <div class="meta-item"><span>Level</span><strong>Systematic</strong></div> <div class="meta-item"><span>Read</span><strong>7 min · 13 sections</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> This article has an interactive demo <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>Definition and intuition</h2>
+<p><strong>Luck</strong> is random outcome; <strong>skill</strong> is sustainable, repeatable decision quality. To separate them, look at whether outperformance is stable, explainable and repeatable, not just how much it earned.</p>
+<p>Three tools: the <strong>t-statistic</strong> (mean excess return / standard deviation / √periods), <strong>performance persistence</strong> (do past winners keep winning), and <strong>attribution</strong> (does excess return come from stock selection, industry, factors or leverage).</p>
+<p>A t-value above 2 is usually statistically significant but not proof of skill: a favourable style period can produce a high t. Attribution and persistence separate style beta from true alpha[1][2].</p>
+<h2>Formal expression and worked example</h2>
+<p>Suppose a fund has 3% annual excess return over 10 years and 6% tracking error. The t-value is about <code>3%/6%×√10 = 1.58</code>, below 2 and not significant; the zero-luck hypothesis cannot be rejected.</p>
+<p>With 20 years of 3% excess and 6% tracking error, the t-value is about 2.24, significant; but if the excess comes mainly from small-cap and value factors, attribution may show only 1% alpha and the rest style exposure.</p>
+<p>If the fund outperforms for five years and underperforms for five, persistence fails; if it outperforms across different markets and industries, the skill evidence is stronger. All numbers are teaching assumptions.</p>
+<h2>Three checks</h2>
+<p><strong>Check 1: sample length.</strong> Short records are noisy; cover at least a full cycle and different market environments.</p>
+<p><strong>Check 2: benchmark and style.</strong> A wrong benchmark creates fake alpha; use multi-factor models to strip style, size, industry and leverage.</p>
+<p><strong>Check 3: persistence and repeatability.</strong> Does the same team, process and constraints persist; staff, size and strategy changes alter skill.</p>
+<p>Evaluate statistical significance, economic significance and explainability together; cumulative return or Sharpe alone misleads through luck and style[3][4].</p>
+<h2>Figures</h2>
+<figure>
+<svg role="img" aria-labelledby="fig-luck-vs-skill-multi-period-excess-return-attribution-1-title fig-luck-vs-skill-multi-period-excess-return-attribution-1-desc" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-luck-vs-skill-multi-period-excess-return-attribution-1-title">From excess return to skill evidence</title>
+<desc id="fig-luck-vs-skill-multi-period-excess-return-attribution-1-desc">Four steps: excess return, t-value, attribution, persistence.</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">Luck-versus-skill evidence chain</text>
+<text x="24" y="54" font-size="11" text-anchor="start">Excess return, t-value, attributio</text>
+<text x="24" y="68" font-size="11" text-anchor="start">n and persistence.</text>
+<rect x="14" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="69" y="140" font-size="12" text-anchor="middle">Excess</text>
+<text x="69" y="184" font-size="12" text-anchor="middle" font-weight="700">3%</text>
+<rect x="136" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="191" y="140" font-size="12" text-anchor="middle">t-value</text>
+<text x="191" y="184" font-size="12" text-anchor="middle" font-weight="700">1.58</text>
+<rect x="258" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="313" y="140" font-size="12" text-anchor="middle">Attribution</text>
+<text x="313" y="184" font-size="12" text-anchor="middle" font-weight="700">Style/alpha</text>
+<rect x="380" y="116" width="110" height="88" rx="10" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="1.2"/>
+<text x="435" y="140" font-size="12" text-anchor="middle">Persistence</text>
+<text x="435" y="184" font-size="12" text-anchor="middle" font-weight="700">10 years</text>
+<line x1="125" y1="160" x2="135" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<line x1="247" y1="160" x2="257" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<line x1="369" y1="160" x2="379" y2="160" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+<text x="24" y="246" font-size="11" text-anchor="start">Teaching diagram, no statistical data.</text>
+</g>
+</svg>
+<figcaption>Figure 1: from excess return to skill evidence; teaching diagram.</figcaption>
+</figure>
+
+<figure>
+<svg role="img" aria-labelledby="fig-luck-vs-skill-multi-period-excess-return-attribution-2-title fig-luck-vs-skill-multi-period-excess-return-attribution-2-desc" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-luck-vs-skill-multi-period-excess-return-attribution-2-title">Sample length and significance</title>
+<desc id="fig-luck-vs-skill-multi-period-excess-return-attribution-2-desc">t-values for two sample lengths with the same excess and tracking error.</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">t-values over 10 and 20 years</text>
+<text x="24" y="54" font-size="11" text-anchor="start">10 years 1.58; 20 years 2.24.</text>
+<line x1="178" y1="64" x2="178" y2="270" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<text x="20" y="97" font-size="12">10 years</text>
+<rect x="178" y="78" width="253.92857142857142" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="95" font-size="12" font-weight="700">1.58</text>
+<text x="20" y="145" font-size="12">20 years</text>
+<rect x="178" y="126" width="360" height="24" rx="5" fill="currentColor" opacity=".22" stroke="currentColor" stroke-width="1"/>
+<text x="554" y="143" font-size="12" font-weight="700">2.24</text>
+<text x="24" y="292" font-size="11" text-anchor="start">Teaching assumptions; unit: t-value.</text>
+</g>
+</svg>
+<figcaption>Figure 2: sample length and significance; teaching assumptions.</figcaption>
+</figure>
+
+<figure>
+<svg role="img" aria-labelledby="fig-luck-vs-skill-multi-period-excess-return-attribution-3-title fig-luck-vs-skill-multi-period-excess-return-attribution-3-desc" viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg">
+<title id="fig-luck-vs-skill-multi-period-excess-return-attribution-3-title">Two-dimensional matrix of performance evidence</title>
+<desc id="fig-luck-vs-skill-multi-period-excess-return-attribution-3-desc">Axes: statistical and economic significance; quadrants map to credible, weak evidence, noise and suspicious.</desc>
+<g fill="currentColor">
+<text x="24" y="30" font-size="16" text-anchor="start">Four performance cases by statistical and</text>
+<text x="24" y="49" font-size="16" text-anchor="start">economic significance</text>
+<text x="24" y="54" font-size="11" text-anchor="start">Both significant is most credible;</text>
+<text x="24" y="68" font-size="11" text-anchor="start"> statistically significant but eco</text>
+<text x="24" y="82" font-size="11" text-anchor="start">nomically weak may be noise.</text>
+<text x="40" y="68" font-size="11">Statistically significant</text>
+<text x="40" y="286" font-size="11">Statistically weak</text>
+<text x="110" y="314" font-size="11" text-anchor="middle">Economically weak</text>
+<text x="500" y="314" font-size="11" text-anchor="middle">Economically strong</text>
+<rect x="96" y="76" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="108" y="100" font-size="12" text-anchor="start">Weak evidence</text>
+<text x="108" y="130" font-size="11" text-anchor="start">Significant, weak economics</text>
+<text x="108" y="170" font-size="11" font-weight="700">Large sample</text>
+<rect x="338" y="76" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="350" y="100" font-size="12" text-anchor="start">Credible</text>
+<text x="350" y="130" font-size="11" text-anchor="start">Both significant</text>
+<text x="350" y="170" font-size="11" font-weight="700">Skill</text>
+<rect x="96" y="190" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="108" y="214" font-size="12" text-anchor="start">Noise</text>
+<text x="108" y="244" font-size="11" text-anchor="start">Neither significant</text>
+<text x="108" y="284" font-size="11" font-weight="700">Luck</text>
+<rect x="338" y="190" width="226" height="104" rx="8" fill="currentColor" opacity=".06" stroke="currentColor" stroke-width="1"/>
+<text x="350" y="214" font-size="12" text-anchor="start">Suspicious</text>
+<text x="350" y="244" font-size="11" text-anchor="start">Weak stats, strong economics</text>
+<text x="350" y="284" font-size="11" font-weight="700">Tail/leverage</text>
+</g>
+</svg>
+<figcaption>Figure 3: two-dimensional matrix of performance evidence; comparison and classification diagram.</figcaption>
+</figure>
+
+<p>Figure 1 links excess return, t-value, attribution and persistence into an evidence chain. Figure 2 compares t-values over 10 and 20 years. Figure 3 uses statistical and economic significance axes to mark four performance cases. All numbers are teaching assumptions.</p>
+<h2>Conditions, boundaries and common mistakes</h2>
+<p><strong>Boundary 1: significance is not skill.</strong> Sample selection, survivorship bias and multiple testing create false significance; correct for them.</p>
+<p><strong>Boundary 2: alpha may be risk.</strong> Leverage, illiquidity, tail risk and option-selling can produce high returns while hiding risk.</p>
+<p><strong>Boundary 3: skill decays.</strong> Scale, competition and staff turnover reduce alpha; history does not extrapolate linearly.</p>
+<p><strong>Mistake 1: three consecutive winning years prove skill.</strong> Three years are too short and noisy; use longer periods and attribution.</p>
+<p><strong>Mistake 2: a high Sharpe means high skill.</strong> Sharpe can be flattered by tail-selling, smoothed valuations and leverage; read tails and non-linear risk.</p>
+<h2>Deeper note: multi-period performance, skill tests and noise</h2>
+<p><strong>One period&#39;s excess return cannot separate luck from skill.</strong> A strategy beating by 10% in a year may reflect beta, style, sector concentration or luck; look at multiple periods, different environments and risk-adjusted stability.</p>
+<p><strong>Skill tests</strong> use three kinds of evidence: first, persistent excess return after style and beta; second, an explainable process (research, portfolio construction, risk control); third, reproducible decision records (ex-ante judgements versus outcomes). Missing one leaves luck plausible.</p>
+<p><strong>Statistical significance</strong> is hard in multi-period performance. With 3% annual excess and 8% volatility, about seven years are needed for one standard error; small capacity and short samples weaken conclusions. Do not rely on t-statistics alone; weigh economic meaning and out-of-sample evidence.</p>
+<p><strong>Survivorship bias</strong> inflates skill. Failed funds exit databases, leaving a higher average; backfill and selection biases add. Ask whether the sample contains disappeared funds, strategies and accounts.</p>
+<p><strong>Attribution</strong>: excess return comes from beta, style, sector, selection, timing and leverage. Only alpha after removing style and beta may be skill, but attribution models have errors and the residual is not &#39;pure skill&#39;.</p>
+<p><strong>Multi-period stability</strong>: rolling windows, different environments (bull, bear, high and low volatility) and different asset sizes. A strategy that works only in one environment is environment-dependent, not stable alpha.</p>
+<p><strong>Common misuses</strong>: treating one-year ranking as skill, backtests as live results, survivor samples as the population, and attribution residuals as alpha.</p>
+<p><strong>Finally</strong>, separating luck from skill is a probability judgement, not a binary verdict; report confidence intervals, sample length and environment dependence rather than canonising or dismissing.</p>
+<h2>Skill-versus-luck checklist</h2>
+<p>To judge whether performance is luck or skill, do not rely on a t-statistic alone. Split eight questions:</p>
+<ol>
+<li><strong>Is the sample long and independent enough?</strong> Short samples, few trades and overlapping holdings overstate significance; use rolling windows and out-of-sample tests.</li>
+<li><strong>Is the benchmark style-matched?</strong> A wrong benchmark turns beta into alpha; run factor attribution first, then inspect residuals.</li>
+<li><strong>Is the t-statistic adjusted for multiple testing?</strong> Picking the best of many strategies can produce t=2 from data snooping; report the number of trials.</li>
+<li><strong>Is performance persistent?</strong> Do past winners keep winning; persistence tests are closer to skill than a single-period t-stat.</li>
+<li><strong>Does attribution explain most of the return?</strong> Split selection, industry, factors, leverage and timing; the unexplained residual is the alpha candidate.</li>
+<li><strong>Is survivorship bias possible?</strong> Failed funds leave databases and flatter average performance; use the full fund universe.</li>
+<li><strong>Is the economic logic testable?</strong> Skill should have a repeatable process and an explicable edge; pure data mining rarely persists.</li>
+<li><strong>Is Bayesian shrinkage sensible?</strong> Combine priors with the sample to avoid extreme estimates, especially with short track records.</li>
+</ol>
+<p>Skill is not &#39;won once&#39; but repeatable positive excess return after a sensible benchmark, full sample and multiple-testing correction.</p>
+<p>Finally, turn &#39;skill&#39; into a manageable process: decision records, ex-ante hypotheses, ex-post review and an independent benchmark. Performance without a process is hard to separate from skill, style exposure and one-off luck, even with a high t-statistic.</p>
+<p><strong>Minimum action:</strong> keep a strategy file with each decision&#39;s ex-ante hypothesis, benchmark, number of trials and ex-post result; run an out-of-sample test quarterly and report t-statistics with multiple-testing correction.</p>
+<p><strong>Record:</strong> keep failed strategies in the sample; counting only winners repeats survivorship bias. Add a &#39;no-skill&#39; benchmark, and do not pay active fees unless the strategy beats it consistently.</p>
+<p><strong>In one line:</strong> skill is process plus out-of-sample evidence, not one high t-statistic.</p>
+<p><strong>Note:</strong> keep failed strategies in the sample; counting winners repeats survivorship bias and cannot identify skill.</p>
+<p><strong>Label:</strong> require at least three years out-of-sample including a stress period; otherwise it is unverified excess return, not repeatable skill, and no active fee should be paid.</p>
+<h2>What would change the conclusion</h2>
+<p>Skill judgements depend on benchmark, sample and multiple testing:</p>
+<ol>
+<li><strong>Wrong benchmark.</strong> If the benchmark is not style-matched, beta is read as alpha.</li>
+<li><strong>Survivorship bias.</strong> If failed funds leave the sample, average performance is overstated.</li>
+<li><strong>Multiple testing.</strong> If the best of many strategies is selected, t=2 may be data snooping.</li>
+<li><strong>Capacity constraints.</strong> If strategy capacity is small, returns decay with scale and history cannot be extrapolated.</li>
+<li><strong>Incomplete attribution.</strong> If leverage, shorting and derivatives are not separated, residual alpha is contaminated.</li>
+</ol>
+<p><strong>Practical implication:</strong> skill assessment should be procedural: ex-ante hypotheses, an independent benchmark, out-of-sample tests and multiple-testing correction; a high t-statistic without process does not justify active fees.</p>
+<p><strong>Data note:</strong> use net-of-fee returns, the full fund universe and a style-matched benchmark; gross returns and survivor samples overstate skill.</p>
+<p><strong>Scope note:</strong> report the number of trials and the strategy universe; a final t-statistic alone cannot show significance after multiple-testing correction.</p>
+<p><strong>Final note:</strong> report the total number of trials, not only the final t-statistic; otherwise significance after multiple testing cannot be judged.</p>
+<p><strong>Check:</strong> report total trial counts and net-of-fee returns, not only the final t-statistic.</p>
+<h2>Exercises</h2>
+<ol>
+<li><p>Define the difference between luck and skill.</p>
+</li>
+<li><p>Excess 3%, tracking error 6%, 10 years: what is the approximate t-value?</p>
+</li>
+<li><p>Same data over 20 years: what is the t-value?</p>
+</li>
+<li><p>Why can a significant t still not prove skill?</p>
+</li>
+<li><p>How does attribution separate style from alpha?</p>
+</li>
+<li><p>What causes skill decay?</p>
+</li>
+<li><p>True or false: three consecutive winning years prove skill. Explain.</p>
+</li>
+<li><p>Which three kinds of evidence are needed to judge skill, and why are all three necessary?</p>
+</li>
+<li><p>Why does 3% annual excess with 8% volatility need about seven years for one standard error?</p>
+</li>
+</ol>
+<h2>Further reading: the skill-measurement literature</h2>
+<p><strong>Grinold-Kahn&#39;s fundamental law</strong> decomposes the information ratio into &#39;information coefficient × breadth&#39;: better forecasts and more independent bets raise the ratio. It explains why high-turnover strategies may look skilled while costs and capacity offset the gain.</p>
+<p><strong>The Sharpe ratio</strong> measures risk-adjusted return but cannot separate skill from luck; it needs multiple periods, out-of-sample evidence and confidence intervals. <strong>Bailey and López de Prado&#39;s deflated Sharpe</strong> adjusts significance for multiple testing and backtest selection, reminding us that after many trials the best backtest is easily &#39;significant&#39;.</p>
+<p><strong>Skill-persistence research</strong> finds weak persistence in fund alpha; a few top funds sustain alpha, but most past winners mean-revert. Check manager changes, capacity changes and style drift.</p>
+<p><strong>Reading suggestion</strong>: combine the fundamental law, deflated Sharpe and multi-period attribution into a forecast-portfolio-test chain, not a single t-statistic.</p>
+<h2>Chapter takeaways</h2>
+<ul>
+<li>One period&#39;s excess return cannot separate luck from skill; use multiple periods, environments and risk adjustment.</li>
+<li>Skill needs three kinds of evidence: persistent alpha, an explainable process and reproducible decision records.</li>
+<li>Statistical significance is hard in multi-period performance; weigh economic meaning and out-of-sample evidence.</li>
+<li>Survivorship, backfill and attribution residuals inflate skill.</li>
+<li>Conclude with probability, confidence intervals and environment dependence.</li>
+</ul>
+<h2>Related</h2>
+<p>Prerequisite INV-009; compare INV-040; neighbours MKT-030 and FIN-006.</p>
+<h2>Sources</h2>
+<ol>
+<li>CFA Institute, <em>Global Investment Performance Standards (GIPS)</em>. CFA Institute, accessed 2026-11-21. <a href="https://rpc.cfainstitute.org/gips-standards">https://rpc.cfainstitute.org/gips-standards</a></li>
+<li>Julie Dahlquist; Rainford Knight, <em>Principles of Finance, 15.4 Applications in Performance Measurement</em>. OpenStax, Rice University, accessed 2026-10-30. <a href="https://openstax.org/books/principles-finance/pages/15-4-applications-in-performance-measurement">https://openstax.org/books/principles-finance/pages/15-4-applications-in-performance-measurement</a></li>
+<li>Kenneth R. French, <em>Description of Fama/French 5 Factors (2x3)</em>. Dartmouth College, Tuck School of Business, accessed 2026-11-24. <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html">https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html</a></li>
+<li>Rob J. Hyndman and George Athanasopoulos, <em>Forecasting: Principles and Practice, 3rd edition</em>. OTexts, 2021, accessed 2026-11-21. <a href="https://otexts.com/fpp3/">https://otexts.com/fpp3/</a></li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="en" aria-labelledby="demo-check-title" data-check-done="All three are covered: the core of this article is in place." data-check-pending="One item is still open: go back to the matching section and retell it with a number or counterexample." data-check-count="Ticked"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">Worked demo</p> <button class="demo-reset" type="button" data-demo-reset>Reset</button> </div> <h2 id="demo-check-title">Read-through check: can you say three things?</h2> <p class="demo-intro">No recitation needed. Tick each sentence below and see whether you can explain the mechanism, one worked example and one boundary in your own words.</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>Use t-statistics to test the significance of excess returns.</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>Separate luck, style exposure and genuine skill.</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>Name one condition under which the article’s conclusion does not hold</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> Ticked 0 / 3
+</p> </div> <p class="demo-footnote">The numbers are teaching assumptions that show relationships, not forecasts or investment advice.</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> This article has passed the current publication gate. Factual, calculation and translation revisions update both language versions together. </p> <p> <a class="button secondary" href="/en/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>Back to station </a> </p> </div> <aside class="article-aside" aria-label="Article information"> <section class="aside-card"> <h2>Learning objectives</h2> <ul> <li>Use t-statistics to test the significance of excess returns.</li><li>Separate luck, style exposure and genuine skill.</li><li>Test the skill hypothesis with performance persistence.</li> </ul> </section> <section class="aside-card"> <h2>Required prerequisites</h2> <ul> <li> <a href="/en/learn/cash-flow-valuation-research-process/">INV-009 · Cash-Flow Valuation: A Research Process</a> </li> </ul> </section> <section class="aside-card"> <h2>Recommended reading</h2> <ul> <li> <a href="/en/learn/factor-crowding-alpha-collective-risk-deleveraging/">INV-040 · Factor Crowding: When the Same Alpha Becomes Collective Risk</a> </li><li> <a href="https://markets.51invest.com/en/learn/collectibles-valuation-authenticity-and-liquidity/">MKT-030 · Collectibles: Valuation, Authenticity and Liquidity</a> </li><li> <a href="https://finance.51invest.com/en/learn/reserves-and-liquidity/">FIN-006 · Reserves and Liquidity</a> </li> </ul> </section> <section class="aside-card"> <h2>AI review record</h2> <p class="muted"> There is no human sign-off; these states come from the AI-only editorial review. </p> <ul> <li> Facts and calculations : AI review passed </li><li> Subject : AI review passed </li><li> English : AI review passed </li><li> Page : AI review passed </li> </ul> </section> <section class="aside-card"> <h2>Sources</h2> <div class="source"> <a href="https://rpc.cfainstitute.org/gips-standards" rel="noopener noreferrer" target="_blank">Global Investment Performance Standards (GIPS)</a> <p>CFA Institute · CFA Institute</p> <p>Accessed: 2026-11-21 · License: © CFA Institute; linked summary only</p> <p>Supports: Supports performance reporting, portfolio and benchmark disclosure standards.</p> </div><div class="source"> <a href="https://openstax.org/books/principles-finance/pages/15-4-applications-in-performance-measurement" rel="noopener noreferrer" target="_blank">Principles of Finance, 15.4 Applications in Performance Measurement</a> <p>Julie Dahlquist; Rainford Knight · OpenStax, Rice University</p> <p>Accessed: 2026-10-30 · License: CC BY-NC-SA 4.0</p> <p>Supports: Supports performance measurement, risk adjustment and benchmark comparison.</p> </div><div class="source"> <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html" rel="noopener noreferrer" target="_blank">Description of Fama/French 5 Factors (2x3)</a> <p>Kenneth R. French · Dartmouth College, Tuck School of Business</p> <p>Accessed: 2026-11-24 · License: © Kenneth R. French; linked summary only</p> <p>Supports: Supports factor models and excess-return attribution.</p> </div><div class="source"> <a href="https://otexts.com/fpp3/" rel="noopener noreferrer" target="_blank">Forecasting: Principles and Practice, 3rd edition</a> <p>Rob J. Hyndman and George Athanasopoulos · OTexts, 2021</p> <p>Accessed: 2026-11-21 · License: © OTexts; free online, cite-only</p> <p>Supports: Supports time series, forecast evaluation and statistical significance.</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">A free, non-commercial knowledge site. Sources and definitions are labelled; nothing here is investment advice.</p> </div> </div> <nav class="footer-links" aria-label="Knowledge stations"> <a href="https://51invest.com/en/" data-main-home>Home</a> <a href="https://51invest.com/en/contents/">Content map</a> <a href="/en/glossary/">Glossary</a> <a href="/en/search/">Search</a> <a href="https://51invest.com/en/charts/" data-main-link>Charts</a> <a href="https://51invest.com/en/sources/" data-main-link>Data &amp; licences</a> <a href="/en/">Station home</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="Knowledge stations"> <a class="mobile-link" href="https://51invest.com/en/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>Home</span> </a> <a class="mobile-link" href="https://51invest.com/en/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>Knowledge stations</span> </a> <a class="mobile-link active" href="/en/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>Station home</span> </a> <a class="mobile-link" href="/learn/luck-vs-skill-multi-period-excess-return-attribution/" data-language-link="zh"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

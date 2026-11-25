@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="en" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Position Sizing and Rebalancing · 51Invest</title><meta name="description" content="Use a hypothetical CNY 1 million portfolio to size a position from a risk budget, trigger rebalancing at a 5 percentage point drift, and calculate the trade, cost and resulting exposure."><link rel="canonical" href="https://invest.51invest.com/en/learn/position-sizing-and-rebalancing/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/position-sizing-and-rebalancing/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/position-sizing-and-rebalancing/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/position-sizing-and-rebalancing/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">Skip to content</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/en/" data-main-home aria-label="51Invest"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">51Invest</span> <span class="brand-caption">WUYAO INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="Knowledge stations"> <a class="nav-link" href="https://51invest.com/en/" data-main-home> Home </a> <a class="nav-link" href="https://economics.51invest.com/en/"> Economics </a><a class="nav-link" href="https://finance.51invest.com/en/"> Finance </a><a class="nav-link" href="https://markets.51invest.com/en/"> Markets </a><a class="nav-link active" href="/en/" aria-current="page"> Investing </a><a class="nav-link" href="https://history.51invest.com/en/"> History </a><a class="nav-link" href="https://research.51invest.com/en/"> Research </a> <a class="nav-link" href="https://51invest.com/en/contents/"> Content map </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/learn/position-sizing-and-rebalancing/" hreflang="zh-CN" lang="zh-CN" data-language-link="zh" aria-label="Switch to Chinese" title="Switch to Chinese"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="Theme: System" title="Theme: System" data-label-auto="Theme: System" data-label-light="Theme: Light" data-label-dark="Theme: Dark"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">System</span> <span class="theme-text" data-theme-text="light">Light</span> <span class="theme-text" data-theme-text="dark">Dark</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/en/" data-main-home>Home</a> <span class="sep">/</span> <a href="/en/">Investing</a> <span class="sep">/</span> <span aria-current="page">Position Sizing and Rebalancing</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">Method</span> <h1 class="article-title">Position Sizing and Rebalancing</h1> <p class="article-summary">Use a hypothetical CNY 1 million portfolio to size a position from a risk budget, trigger rebalancing at a 5 percentage point drift, and calculate the trade, cost and resulting exposure.</p>  <div class="meta-grid"> <div class="meta-item"><span>Module</span><strong>INV-M11 · 组合与资产配置</strong></div> <div class="meta-item"><span>Level</span><strong>Systematic</strong></div> <div class="meta-item"><span>Read</span><strong>5 min · 14 sections</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> This article has an interactive demo <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>Problem and output</h2>
+<p>Position sizing decides how much of a portfolio a single asset or strategy occupies; rebalancing decides when and how much to trade back to target after a drift. The outputs are target weights, risk-budgeted position sizes, trigger rules, a trade list and a cost estimate, not a one-off market forecast.</p>
+<p>Portfolio weights determine portfolio return and risk, and portfolio volatility depends on the asset volatilities, the weights and the correlations — the OpenStax framing used here [3].</p>
+<h2>Inputs and data requirements</h2>
+<p>Inputs include portfolio value, target weights, asset volatilities and correlations, risk budgets, trading costs, taxes, minimum trade sizes and cash flows; risk budgets must fit within total portfolio risk. The example is a hypothetical CNY 1 million portfolio with a 60/40 stock/bond target, stock volatility of 16%, bond volatility of 6% and correlation of 0.20.</p>
+<p>The SEC guide describes rebalancing as bringing the portfolio back to its target allocation — selling the overweight, buying the underweight, or directing new contributions — and warns that trading costs and tax consequences have to be considered [1].</p>
+<h2>Assumptions</h2>
+<p>Long-only and unlevered; costs are 0.10% of traded value on each side; taxes and minimum trade sizes are ignored; the rebalancing threshold is 5 percentage points; all numbers are teaching assumptions.</p>
+<h2>Steps</h2>
+<ol>
+<li>Risk-based size: a satellite asset has 30% volatility and a 1.5 percentage point portfolio risk budget. Assuming low correlation, its weight is about <code>1.5%/30% = 5%</code>, or CNY 50,000.</li>
+<li>Start with CNY 600,000 in stocks and CNY 400,000 in bonds.</li>
+<li>Stocks rise 40% and bonds are unchanged: stocks reach CNY 840,000, bonds CNY 400,000, total CNY 1,240,000; the stock weight is <code>84/124 = 67.74%</code>, a drift of 7.74 percentage points.</li>
+<li>The 5 percentage point threshold is breached, so restore 60/40: stocks target CNY 744,000 and bonds CNY 496,000.</li>
+<li>Sell CNY 96,000 of stocks and buy CNY 96,000 of bonds; at 0.10% on each side, cost is <code>96+96 = CNY 192</code>, leaving CNY 1,239,808.</li>
+<li>With new contributions, buy the underweight asset first to reduce sales, taxes and slippage.</li>
+<li>Record the trigger date, execution prices, slippage and deviation from target.</li>
+</ol>
+<p>Why drift is checked before thresholds: Vanguard’s illustration shows a 60/40 portfolio becoming roughly 65/35 after stocks rise 10% and bonds fall 10%, taking more risk than the target, with a five-percentage-point band used to return to the allocation [2].</p>
+<h2>Figure</h2>
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-019-chain-title fig-inv-019-chain-desc" viewBox="0 0 560 310" width="100%">
+    <title id="fig-inv-019-chain-title">INV-019: three-stage chain</title>
+    <desc id="fig-inv-019-chain-desc">Risk budget: Volatility times weight; Measure drift: Weights move after returns; Rebalance: Threshold, costs and tax</desc>
+    <rect x="0.5" y="0.5" width="559" height="309" rx="12" fill="var(--surface)" stroke="var(--border)"/>
+    <rect x="24" y="16" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="16" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="35" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">START</text>
+    <text x="44" y="56" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Risk budget</text>
+    <text x="44" y="76" font-size="10.5" fill="var(--secondary)" font-family="inherit">Volatility times weight</text>
+    <line x1="280" y1="102" x2="280" y2="108" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 106 L280 110 L284 106" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="112" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="112" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="131" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">MECHANISM</text>
+    <text x="44" y="152" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Measure drift</text>
+    <text x="44" y="172" font-size="10.5" fill="var(--secondary)" font-family="inherit">Weights move after returns</text>
+    <line x1="280" y1="198" x2="280" y2="204" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 202 L280 206 L284 202" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="208" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="208" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="227" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">CHECK</text>
+    <text x="44" y="248" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Rebalance</text>
+    <text x="44" y="268" font-size="10.5" fill="var(--secondary)" font-family="inherit">Threshold, costs and tax</text>
+  </svg>
+  <figcaption>Figure 1: a three-stage chain in INV-019 — Risk budget → Measure drift → Rebalance. The three stages form a judgment chain, not the only path; labels come from the article text and carry no statistics. The sample is the article argument and units are marked in the text.</figcaption>
+</figure>
+
+<h2>Diagram: how 7.74 points get back to 60%</h2>
+<figure id="figure-rebalance-drift">
+  <svg role="img" aria-labelledby="fig-rebalance-drift-title-en fig-rebalance-drift-desc-en" viewBox="0 0 380 300" width="100%">
+    <title id="fig-rebalance-drift-title-en">Stock weight drifts from 60% to 67.74%, crossing the 65% threshold</title>
+    <desc id="fig-rebalance-drift-desc-en">A weight scale from fifty-five to seventy-five: target sixty on the left, threshold sixty-five in the middle, actual sixty-seven point seven four on the right. The overweight is ninety-six thousand, sold and reinvested in bonds, at a cost of one hundred ninety-two.</desc>
+    <text x="20" y="22" font-size="11" font-weight="650" fill="var(--text)" font-family="inherit">How 7.74 points get back to 60%</text>
+    <text x="20" y="42" font-size="9.5" fill="var(--muted)" font-family="inherit">Target 60/40 | after a 40% stock rise, stock weight 67.74%</text>
+    <text x="231" y="66" font-size="10" font-weight="650" fill="var(--text)" text-anchor="middle" font-family="inherit">Actual 67.74%</text>
+    <text x="115" y="86" font-size="9.5" fill="var(--accent)" text-anchor="middle" font-family="inherit">Target 60%</text>
+    <text x="190" y="86" font-size="9.5" fill="var(--gold)" text-anchor="middle" font-family="inherit">Threshold 65%</text>
+    <line x1="115" y1="96" x2="115" y2="190" stroke="var(--accent)" stroke-width="1.5"/>
+    <line x1="190" y1="96" x2="190" y2="190" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <line x1="231" y1="80" x2="231" y2="190" stroke="var(--text)" stroke-width="1.2"/>
+    <line x1="115" y1="110" x2="231" y2="110" stroke="var(--border)" stroke-width="1"/>
+    <line x1="115" y1="106" x2="115" y2="114" stroke="var(--border)" stroke-width="1"/>
+    <line x1="231" y1="106" x2="231" y2="114" stroke="var(--border)" stroke-width="1"/>
+    <text x="173" y="126" font-size="10" font-weight="600" fill="var(--gold)" text-anchor="middle" font-family="inherit">+7.74 percentage points</text>
+    <rect x="115" y="145" width="116" height="22" fill="var(--gold)" opacity="0.18" stroke="var(--border)"/>
+    <text x="173" y="160" font-size="9.2" fill="var(--secondary)" text-anchor="middle" font-family="inherit">Overweight 96k</text>
+    <line x1="40" y1="190" x2="340" y2="190" stroke="var(--border)" stroke-width="1.5"/>
+    <g fill="var(--muted)" font-size="9" text-anchor="middle" font-family="inherit">
+      <text x="40" y="208">55%</text>
+      <text x="115" y="208">60%</text>
+      <text x="190" y="208">65%</text>
+      <text x="265" y="208">70%</text>
+      <text x="340" y="208">75%</text>
+    </g>
+    <line x1="231" y1="230" x2="123" y2="230" stroke="var(--gold)" stroke-width="1.5"/>
+    <path d="M127 226 L121 230 L127 234" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+    <text x="177" y="248" font-size="9.5" fill="var(--text)" text-anchor="middle" font-family="inherit">Sell 96k stock → buy 96k bonds</text>
+    <text x="177" y="266" font-size="9.2" fill="var(--muted)" text-anchor="middle" font-family="inherit">0.10% each, CNY 192 total</text>
+    <text x="20" y="290" font-size="9.2" fill="var(--muted)" font-family="inherit">5-point threshold: 60% → 65%; actual 67.74% crossed it, so rebalance.</text>
+  </svg>
+  <figcaption>Figure 2: after a 40% stock rise, a 60/40 portfolio becomes 840k in stocks and 400k in bonds, total 1.24m, so the stock weight is 67.74%, 7.74 points above target and past the 65% threshold. Restoring 60/40 means selling 96k of stocks and buying 96k of bonds; at 0.10% each the cost is CNY 192. Teaching assumptions, before taxes and slippage.</figcaption>
+</figure>
+
+<h2>Interpreting the result</h2>
+<p>The 5 percentage point threshold pulls a 7.74 percentage point drift back to target at a cost of CNY 192; frequent trading would accumulate costs. Position size should follow the risk budget and volatility, not confidence or recent performance. Rebalancing is not a return-enhancement guarantee: it controls exposure and discipline and may lag buy-and-hold in a one-way trend. Calendar, threshold and combined rules are the three common choices; the choice belongs in the investment policy and should fit portfolio size, cash flows and taxes.</p>
+<h2>Failure conditions</h2>
+<ul>
+<li>a threshold so narrow that trading and costs explode</li>
+<li>ignoring taxes, minimum trade sizes and liquidity</li>
+<li>using leverage without a margin buffer</li>
+<li>being unable to trade, or facing wider slippage, in extreme volatility</li>
+<li>treating rebalancing as market timing</li>
+<li>changing the rule after the fact instead of writing it into policy</li>
+<li>target weights that no longer fit the goal or horizon</li>
+</ul>
+<h2>Verification</h2>
+<p>Compare thresholds and frequencies; include costs, taxes and slippage; observe drift, turnover and risk; run liquidity stress tests; check whether post-trade weights are close to target.</p>
+<h2>Reproduction</h2>
+<p><code>drift = actual weight - target weight</code>; <code>trade value = target value - actual value</code>; <code>cost = trade value × fee rate × 2</code>. Example: <code>67.74%-60% = 7.74%</code>; <code>840,000 - 744,000 = CNY 96,000</code>; <code>96,000×0.10%×2 = CNY 192</code>.</p>
+<h2>Related</h2>
+<ul>
+<li>Required prerequisite: Asset Allocation and Risk Budgeting (INV-018).</li>
+<li>Related reading: Asset Allocation and Risk Budgeting (INV-018), Hedging: Purpose and Cost (INV-020), Covariance and Correlation (RES-010), Indices and Investment Benchmarks (MKT-005).</li>
+</ul>
+<h2>Figures in plain language</h2>
+<p>The three figures below check the mechanism, boundary and comparison in this article; labels come from its own sections, not new data.</p>
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-chain-title fig-batch-chain-desc" viewBox="0 0 340 304" width="100%">
+    <title id="fig-batch-chain-title">Position Sizing and Rebalancing: mechanism chain</title>
+    <desc id="fig-batch-chain-desc">Position Sizing and Rebalancing — three-step structure: problem, mechanism, judgment. Labels come from the article's sections, not new data.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Position Sizing and Rebalancing: mechanism chain</text>
+    <text x="14" y="38" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Labels come from the article's sections; all three steps matter.</text>
+    <line x1="14" y1="46" x2="326" y2="46" stroke="var(--border)" stroke-width="1"/>
+    <g>
+      <rect x="14" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="22" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Problem</text>
+      <text x="22" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Use a hypothetica</text>
+      <text x="22" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">l CNY 1 million…</text>
+      <text x="22" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Use a hypothetic</text>
+      <text x="22" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">al CNY 1 million</text>
+      <text x="22" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start"> portfolio to</text>
+      <text x="22" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">size a position</text>
+      <text x="22" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">from a risk…</text>
+    </g>
+      <g>
+      <rect x="123" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="131" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Reproduction</text>
+      <text x="131" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Reproduction:</text>
+      <text x="131" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">drift = actual…</text>
+      <text x="131" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Reproduction:</text>
+      <text x="131" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">drift = actual</text>
+      <text x="131" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">weight - target</text>
+      <text x="131" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">weight; trade</text>
+      <text x="131" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">value = target…</text>
+    </g>
+      <g>
+      <rect x="232" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="240" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Inputs and data requirements</text>
+      <text x="240" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Inputs include</text>
+      <text x="240" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">portfolio value…</text>
+      <text x="240" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Inputs include</text>
+      <text x="240" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">portfolio</text>
+      <text x="240" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">value, target</text>
+      <text x="240" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">weights, asset</text>
+      <text x="240" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">volatilities…</text>
+    </g>
+    <line x1="108" y1="144" x2="123" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M120 140 L125 144 L120 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="217" y1="144" x2="232" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M229 140 L234 144 L229 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="14" y1="250" x2="326" y2="250" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="266" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Reading order: test the problem, then the mechanism, then whether the judgment overreaches.</text>
+    <text x="14" y="280" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">If a middle step lacks evidence, later conclusions are hypotheses, not facts.</text>
+    <text x="14" y="294" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Structural illustration, not a new data chart; sample is the article's own argument.</text>
+  </svg>
+  <figcaption>Figure 3: Position Sizing and Rebalancing — mechanism chain: problem, mechanism, judgment. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-boundary-title fig-batch-boundary-desc" viewBox="0 0 340 244" width="100%">
+    <title id="fig-batch-boundary-title">Position Sizing and Rebalancing: boundary</title>
+    <desc id="fig-batch-boundary-desc">Separates conditions where the claim holds from those where it fails; a local example is not universal.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Position Sizing and Rebalancing: when does it hold?</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <rect x="14" y="44" width="312" height="38" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="170" y="62" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="middle">Check the conditions before the conclusion</text>
+    <text x="170" y="75" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="middle">If conditions, definitions or samples change, recompute the conclusion</text>
+    <line x1="170" y1="82" x2="90" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="170" y1="82" x2="250" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <rect x="14" y="104" width="148" height="100" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="24" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Holds</text>
+    <text x="24" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">a threshold so narrow that</text>
+      <text x="24" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">trading and costs explode</text>
+      <text x="24" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">ignoring taxes, minimum</text>
+      <text x="24" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">trade sizes and liquidity…</text>
+    <rect x="178" y="104" width="148" height="100" rx="8" fill="var(--gold)" opacity="0.18" stroke="var(--border)"/>
+    <text x="188" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Fails / rewrite</text>
+    <text x="188" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Position sizing decides how</text>
+      <text x="188" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">much of a portfolio a</text>
+      <text x="188" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">single asset or strategy</text>
+      <text x="188" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">occupies; rebalancing…</text>
+    <line x1="14" y1="216" x2="326" y2="216" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="232" font-size="8.3" fill="var(--muted)" font-family="inherit" text-anchor="start">Boundary illustration; sample is the article's own argument; units as stated in the text.</text>
+  </svg>
+  <figcaption>Figure 4: Position Sizing and Rebalancing — boundary: when the claim holds, and when it fails. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-compare-title fig-batch-compare-desc" viewBox="0 0 340 252" width="100%">
+    <title id="fig-batch-compare-title">Position Sizing and Rebalancing: object, conditions and common mistakes</title>
+    <desc id="fig-batch-compare-desc">Three rows compare the concept, its conditions and common mistakes; comparison is not equivalence and does not replace a definition.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Position Sizing and Rebalancing: object, conditions and common mistakes at a glance</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <text x="82" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">This article</text>
+    <text x="200" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Commonly confused</text>
+    <g>
+      <rect x="14" y="52" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="72" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Object</text>
+      <text x="82" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Use a hypothetical</text>
+      <text x="82" y="88" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">CNY 1 million…</text>
+      <text x="200" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Adjacent concepts / common claims</text>
+    </g>
+    <g>
+      <rect x="14" y="110" width="312" height="58" fill="var(--surface-2)" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="130" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Conditions</text>
+      <text x="82" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">a threshold so</text>
+      <text x="82" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">narrow that trading…</text>
+      <text x="200" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Position sizing decides how</text>
+      <text x="200" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">much of a portfolio a single…</text>
+    </g>
+    <g>
+      <rect x="14" y="168" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="188" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Check</text>
+      <text x="82" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Define first, then compare; never judge</text>
+      <text x="82" y="204" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">labels only</text>
+      <text x="200" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Correlation is not causation; a local case is not universal</text>
+    </g>
+    <text x="14" y="244" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Comparison illustration; sample is the article's own argument; units as stated in the text.</text>
+  </svg>
+  <figcaption>Figure 5: Position Sizing and Rebalancing — comparison of object, conditions and common mistakes. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<h2>Exercises</h2>
+<ol>
+<li><strong>Calculation.</strong> What is the stock weight after a 40% rise?</li>
+<li><strong>Judgement.</strong> Does the 5 percentage point threshold trigger, and how much should be traded?</li>
+<li><strong>Reasoning.</strong> Why is a 1.5% risk budget with 30% volatility about a 5% position?</li>
+</ol>
+<details>
+<summary>Suggested answers</summary>
+
+<ol>
+<li><code>84/124 = 67.74%</code>.</li>
+<li>Yes; the drift is 7.74 percentage points; sell CNY 96,000 of stocks and buy bonds.</li>
+<li><code>5% = 1.5%/30%</code>, assuming the asset&#39;s risk contribution is approximately weight times volatility.</li>
+</ol>
+</details>
+
+<h2>Sources</h2>
+<ol>
+<li>U.S. Securities and Exchange Commission. “Beginners&#39; Guide to Asset Allocation, Diversification, and Rebalancing.” <a href="https://www.sec.gov/about/reports-publications/investorpubsassetallocationhtm">https://www.sec.gov/about/reports-publications/investorpubsassetallocationhtm</a> (accessed 2026-10-30)</li>
+<li>James Norton. “What is portfolio rebalancing and why is it important?” Vanguard. <a href="https://www.vanguardinvestor.co.uk/articles/latest-thoughts/investing-success/what-is-rebalancing-and-why-is-it-important">https://www.vanguardinvestor.co.uk/articles/latest-thoughts/investing-success/what-is-rebalancing-and-why-is-it-important</a> (accessed 2026-10-30)</li>
+<li>Julie Dahlquist and Rainford Knight. “Principles of Finance, 15.2 Risk and Return to Multiple Assets.” OpenStax. <a href="https://openstax.org/books/principles-finance/pages/15-2-risk-and-return-to-multiple-assets">https://openstax.org/books/principles-finance/pages/15-2-risk-and-return-to-multiple-assets</a> (accessed 2026-10-30)</li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="en" aria-labelledby="demo-check-title" data-check-done="All three are covered: the core of this article is in place." data-check-pending="One item is still open: go back to the matching section and retell it with a number or counterexample." data-check-count="Ticked"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">Worked demo</p> <button class="demo-reset" type="button" data-demo-reset>Reset</button> </div> <h2 id="demo-check-title">Read-through check: can you say three things?</h2> <p class="demo-intro">No recitation needed. Tick each sentence below and see whether you can explain the mechanism, one worked example and one boundary in your own words.</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>Size positions from a risk budget and decide when a five-percentage-point band triggers rebalancing</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>Compute the traded amount and cost of rebalancing and state how far drifted exposure sits from target</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>Name one condition under which the article’s conclusion does not hold</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> Ticked 0 / 3
+</p> </div> <p class="demo-footnote">The numbers are teaching assumptions that show relationships, not forecasts or investment advice.</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> This article has passed the current publication gate. Factual, calculation and translation revisions update both language versions together. </p> <p> <a class="button secondary" href="/en/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>Back to station </a> </p> </div> <aside class="article-aside" aria-label="Article information"> <section class="aside-card"> <h2>Learning objectives</h2> <ul> <li>Size positions from a risk budget and decide when a five-percentage-point band triggers rebalancing</li><li>Compute the traded amount and cost of rebalancing and state how far drifted exposure sits from target</li> </ul> </section> <section class="aside-card"> <h2>Required prerequisites</h2> <ul> <li> <a href="/en/learn/asset-allocation-and-risk-budgeting/">INV-018 · Asset Allocation and Risk Budgeting</a> </li> </ul> </section> <section class="aside-card"> <h2>Recommended reading</h2> <ul> <li> <a href="/en/learn/asset-allocation-and-risk-budgeting/">INV-018 · Asset Allocation and Risk Budgeting</a> </li><li> <a href="/en/learn/hedging-purpose-and-cost/">INV-020 · Hedging: Purpose and Cost</a> </li><li> <a href="https://research.51invest.com/en/learn/covariance-and-correlation/">RES-010 · Covariance and Correlation</a> </li><li> <a href="https://markets.51invest.com/en/learn/indices-and-investment-benchmarks/">MKT-005 · Indices and Investment Benchmarks</a> </li> </ul> </section> <section class="aside-card"> <h2>AI review record</h2> <p class="muted"> There is no human sign-off; these states come from the AI-only editorial review. </p> <ul> <li> Facts and calculations : AI review passed </li><li> Subject : AI review passed </li><li> English : AI review passed </li><li> Page : AI review passed </li> </ul> </section> <section class="aside-card"> <h2>Sources</h2> <div class="source"> <a href="https://www.sec.gov/about/reports-publications/investorpubsassetallocationhtm" rel="noopener noreferrer" target="_blank">Beginners&#39; Guide to Asset Allocation, Diversification, and Rebalancing</a> <p>U.S. Securities and Exchange Commission · U.S. Securities and Exchange Commission</p> <p>Accessed: 2026-10-30 · License: U.S. public information; copying and further distribution allowed</p> <p>Supports: The guide explains that rebalancing brings a portfolio back to its original asset allocation, can be done by selling overweight assets, buying underweight assets or directing new contributions, and requires attention to transaction fees and tax consequences.</p> </div><div class="source"> <a href="https://www.vanguardinvestor.co.uk/articles/latest-thoughts/investing-success/what-is-rebalancing-and-why-is-it-important" rel="noopener noreferrer" target="_blank">What is portfolio rebalancing and why is it important?</a> <p>James Norton · Vanguard</p> <p>Accessed: 2026-10-30 · License: © 2026 Vanguard Asset Management Limited. All rights reserved. Linked summary only.</p> <p>Supports: The article illustrates that a 60/40 portfolio may become 65/35 after stocks rise 10% and bonds fall 10%, making it riskier than intended, and states that a drift of more than 5 percentage points triggers a rebalance back to target.</p> </div><div class="source"> <a href="https://openstax.org/books/principles-finance/pages/15-2-risk-and-return-to-multiple-assets" rel="noopener noreferrer" target="_blank">Principles of Finance, 15.2 Risk and Return to Multiple Assets</a> <p>Julie Dahlquist; Rainford Knight · OpenStax, Rice University</p> <p>Accessed: 2026-10-30 · License: CC BY-NC-SA 4.0</p> <p>Supports: The section explains that portfolio weights determine portfolio return and risk, and that portfolio volatility depends on each asset&#39;s volatility, weight and correlation.</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">A free, non-commercial knowledge site. Sources and definitions are labelled; nothing here is investment advice.</p> </div> </div> <nav class="footer-links" aria-label="Knowledge stations"> <a href="https://51invest.com/en/" data-main-home>Home</a> <a href="https://51invest.com/en/contents/">Content map</a> <a href="/en/glossary/">Glossary</a> <a href="/en/search/">Search</a> <a href="https://51invest.com/en/charts/" data-main-link>Charts</a> <a href="https://51invest.com/en/sources/" data-main-link>Data &amp; licences</a> <a href="/en/">Station home</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="Knowledge stations"> <a class="mobile-link" href="https://51invest.com/en/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>Home</span> </a> <a class="mobile-link" href="https://51invest.com/en/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>Knowledge stations</span> </a> <a class="mobile-link active" href="/en/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>Station home</span> </a> <a class="mobile-link" href="/learn/position-sizing-and-rebalancing/" data-language-link="zh"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>

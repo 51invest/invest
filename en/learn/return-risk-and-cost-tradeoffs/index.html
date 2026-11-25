@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="en" data-theme="light" data-theme-mode="auto"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Return, Risk and Cost Trade-offs · 51Invest</title><meta name="description" content="Compare net nominal return, risk and costs on one basis, using scenario ranges instead of a single expected value; all example numbers are hypothetical."><link rel="canonical" href="https://invest.51invest.com/en/learn/return-risk-and-cost-tradeoffs/"><link rel="alternate" hreflang="en" href="https://invest.51invest.com/en/learn/return-risk-and-cost-tradeoffs/"><link rel="alternate" hreflang="zh-CN" href="https://invest.51invest.com/learn/return-risk-and-cost-tradeoffs/"><link rel="alternate" hreflang="x-default" href="https://invest.51invest.com/learn/return-risk-and-cost-tradeoffs/"><link rel="icon" type="image/png" href="/_astro/neutral.Dr5C2SoA.png"><script>
+  (() => {
+    const root = document.documentElement;
+    const readCookie = key => {
+      try {
+        return document.cookie.split('; ').find(value => value.startsWith(`51invest-${key}=`))?.split('=').slice(1).join('=') ?? null;
+      } catch {
+        return null;
+      }
+    };
+    const readLocal = key => {
+      try {
+        return localStorage.getItem(`51invest-${key}`);
+      } catch {
+        return null;
+      }
+    };
+    const storedTheme = readCookie('theme') || readLocal('theme');
+    const mode = ['light', 'dark', 'auto'].includes(storedTheme) ? storedTheme : 'auto';
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => {
+      root.dataset.theme = mode === 'auto' ? (media.matches ? 'dark' : 'light') : mode;
+      root.dataset.themeMode = mode;
+    };
+    apply();
+    media.addEventListener('change', () => {
+      if (root.dataset.themeMode === 'auto') apply();
+    });
+  })();
+</script><link rel="stylesheet" href="/_astro/Base.CocbJOeh.css"></head> <body>  <a class="skip-link" href="#main">Skip to content</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="https://51invest.com/en/" data-main-home aria-label="51Invest"> <span class="brand-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="36" height="36" alt class="mascot" loading="lazy" decoding="async"></span> <span class="brand-copy"> <span class="brand-name">51Invest</span> <span class="brand-caption">WUYAO INVEST</span> </span> </a> <nav class="desktop-nav" aria-label="Knowledge stations"> <a class="nav-link" href="https://51invest.com/en/" data-main-home> Home </a> <a class="nav-link" href="https://economics.51invest.com/en/"> Economics </a><a class="nav-link" href="https://finance.51invest.com/en/"> Finance </a><a class="nav-link" href="https://markets.51invest.com/en/"> Markets </a><a class="nav-link active" href="/en/" aria-current="page"> Investing </a><a class="nav-link" href="https://history.51invest.com/en/"> History </a><a class="nav-link" href="https://research.51invest.com/en/"> Research </a> <a class="nav-link" href="https://51invest.com/en/contents/"> Content map </a> </nav> <div class="header-tools"> <a class="icon-button language-button" href="/learn/return-risk-and-cost-tradeoffs/" hreflang="zh-CN" lang="zh-CN" data-language-link="zh" aria-label="Switch to Chinese" title="Switch to Chinese"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> <button class="icon-button theme-button" type="button" data-theme-toggle aria-label="Theme: System" title="Theme: System" data-label-auto="Theme: System" data-label-light="Theme: Light" data-label-dark="Theme: Dark"> <span class="theme-icon" data-theme-icon="auto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>        <circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17"></path><path d="M12 7a5 5 0 0 1 0 10" fill="currentColor" stroke="none"></path> </svg></span> <span class="theme-icon" data-theme-icon="light"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>       <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>  </svg></span> <span class="theme-icon" data-theme-icon="dark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>   </svg></span> <span class="theme-text" data-theme-text="auto">System</span> <span class="theme-text" data-theme-text="light">Light</span> <span class="theme-text" data-theme-text="dark">Dark</span> </button> </div> </div> </header> <main id="main" class="site-main" data-pagefind-body>  <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="https://51invest.com/en/" data-main-home>Home</a> <span class="sep">/</span> <a href="/en/">Investing</a> <span class="sep">/</span> <span aria-current="page">Return, Risk and Cost Trade-offs</span> </nav> </div> <article> <header class="article-header"> <div class="container"> <span class="article-type">Method</span> <h1 class="article-title">Return, Risk and Cost Trade-offs</h1> <p class="article-summary">Compare net nominal return, risk and costs on one basis, using scenario ranges instead of a single expected value; all example numbers are hypothetical.</p>  <div class="meta-grid"> <div class="meta-item"><span>Module</span><strong>INV-M02 · 收益与成本应用</strong></div> <div class="meta-item"><span>Level</span><strong>Foundation</strong></div> <div class="meta-item"><span>Read</span><strong>8 min · 14 sections</strong></div> </div> <p class="demo-jump"> <a href="#demo-check"> This article has an interactive demo <span aria-hidden="true">↓</span> </a> </p> </div> </header> <div class="container article-layout"> <div class="article-body"> <h2>Problem and output</h2>
+<p>Advertisements often quote a single return, but the outcome depends on how much risk you take, how much you pay in costs, and how much purchasing power inflation erodes. This method compares alternatives on one basis: net return, risk and cost. The output is a comparison table and scenarios, not a verdict on the “best product.”</p>
+<h2>Inputs and data requirements</h2>
+<ul>
+<li>nominal return and time unit</li>
+<li>inflation or a price index</li>
+<li>fees: management, commissions, spreads, custody</li>
+<li>taxes and payment timing</li>
+<li>risk: scenario range, historical volatility, maximum drawdown</li>
+<li>liquidity, horizon and minimum holding</li>
+<li>data source, sample period and fee basis</li>
+</ul>
+<p>All inputs must use the same currency, horizon and tax treatment. Historical returns are not forecasts.</p>
+<h2>Assumptions</h2>
+<p>The example assumes a one-year holding period, a starting amount of 100,000 yuan (CNY), 2.5% inflation, a 1.0 percentage point annual fee deducted directly from the nominal return, no taxes, and scenarios rather than predictions. All figures below are in yuan and are teaching assumptions, not the actual performance of any product. Actual fees may be charged on ending or average assets; check the product documents. A 1.0% fee on ending assets gives <code>100,000 × 1.07 × (1 - 1%) = 105,930</code>, a net nominal return of 5.93% rather than the 6.0% you get by subtracting percentage points.</p>
+<h2>Steps</h2>
+<ol>
+<li>State the gross nominal return and time unit.</li>
+<li>Subtract fees and taxes to get net nominal return; a fee is a cost, not a market decline.</li>
+<li>Convert to real: <code>r_real = (1 + r_net) / (1 + π) - 1</code>, where <code>r_net</code> is net nominal return. For low inflation, <code>r_real ≈ r_net - π</code>, but check the error. The derivation and the error discussion are in the main article Real Returns and Purchasing Power (INV-003); this article only uses the result.</li>
+<li>Use at least three scenarios (down, base, up), plus maximum drawdown and liquidity limits.</li>
+<li>Compare return per unit of risk, not the headline return. The convention used here is fixed as “same holding period, same return definition: ratio = mean / standard deviation”. This is the article&#39;s own quotient and does not subtract a risk-free rate, so it is not a Sharpe ratio. Computed from source 3&#39;s Table 12.4 (nominal arithmetic average annual returns and their standard deviations, 1981–2020): large company stocks 12.64 / 16.06 = 0.787, Baa bonds 10.34 / 7.67 = 1.348, US T-bills 3.94 / 3.39 = 1.162[3]. That both bond rows beat the equity row already warns that the quotient is dominated by its denominator, and that table is nominal: it cannot be compared with this article&#39;s net real return unless both sides use the same nominal-or-real definition and the same one-year horizon.</li>
+<li>Costs are nearly certain; returns are not.</li>
+</ol>
+<h2>Figure</h2>
+<figure>
+  <svg role="img" aria-labelledby="fig-inv-002-chain-title fig-inv-002-chain-desc" viewBox="0 0 560 310" width="100%">
+    <title id="fig-inv-002-chain-title">INV-002: three-stage chain</title>
+    <desc id="fig-inv-002-chain-desc">Gross return: State the time unit first; Adjust for inflation: Use the Fisher relation; Read the range: Downside, base and upside</desc>
+    <rect x="0.5" y="0.5" width="559" height="309" rx="12" fill="var(--surface)" stroke="var(--border)"/>
+    <rect x="24" y="16" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="16" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="35" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">START</text>
+    <text x="44" y="56" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Gross return</text>
+    <text x="44" y="76" font-size="10.5" fill="var(--secondary)" font-family="inherit">State the time unit first</text>
+    <line x1="280" y1="102" x2="280" y2="108" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 106 L280 110 L284 106" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="112" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="112" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="131" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">MECHANISM</text>
+    <text x="44" y="152" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Adjust for inflation</text>
+    <text x="44" y="172" font-size="10.5" fill="var(--secondary)" font-family="inherit">Use the Fisher relation</text>
+    <line x1="280" y1="198" x2="280" y2="204" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M276 202 L280 206 L284 202" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="24" y="208" width="512" height="86" rx="10" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="24" y="208" width="5" height="86" rx="2.5" fill="var(--accent)"/>
+    <text x="44" y="227" font-size="9.5" letter-spacing="1.1" fill="var(--accent)" font-family="inherit">CHECK</text>
+    <text x="44" y="248" font-size="13" font-weight="650" fill="var(--text)" font-family="inherit">Read the range</text>
+    <text x="44" y="268" font-size="10.5" fill="var(--secondary)" font-family="inherit">Downside, base and upside</text>
+  </svg>
+  <figcaption>Figure 1: a three-stage chain in INV-002 — Gross return → Adjust for inflation → Read the range. The three stages form a judgment chain, not the only path; labels come from the article text and carry no statistics. The sample is the article argument and units are marked in the text.</figcaption>
+</figure>
+
+<p>Figure 2 splits the example return into four steps: add gross return, subtract fees, subtract inflation, and what remains is purchasing power. Fees are near-certain; the 7.0% gross return is a scenario.</p>
+<figure id="figure-return-waterfall">
+  <svg role="img" aria-labelledby="fig-inv002-waterfall-title-en fig-inv002-waterfall-desc-en" viewBox="0 0 380 300" width="100%">
+    <title id="fig-inv002-waterfall-title-en">From 100,000 to 103,415: what each step removes</title>
+    <desc id="fig-inv002-waterfall-desc-en">Start at 100,000; gross return adds 7,000, reaching 107,000; fees subtract 1,000, leaving 106,000 net nominal; inflation subtracts about 2,585, leaving 103,415 in purchasing power. Gross return is 7.0%, fees 1.0 percentage point, inflation 2.5%, and the real return 3.41%.</desc>
+    <g font-family="inherit">
+      <g stroke="var(--border)" stroke-width="1" stroke-dasharray="3 5">
+        <line x1="56" y1="70" x2="370" y2="70"/>
+        <line x1="56" y1="150" x2="370" y2="150"/>
+        <line x1="56" y1="230" x2="370" y2="230"/>
+      </g>
+      <g font-size="10.2" fill="var(--muted)" text-anchor="end">
+        <text x="52" y="74">108k</text>
+        <text x="52" y="154">104k</text>
+        <text x="52" y="234">100k</text>
+      </g>
+      <rect x="56" y="230" width="40" height="3" fill="var(--muted)"/>
+      <rect x="126" y="90" width="40" height="140" fill="var(--accent)" opacity="0.8"/>
+      <rect x="196" y="90" width="40" height="20" fill="var(--danger)" opacity="0.9"/>
+      <rect x="266" y="110" width="40" height="51.7" fill="var(--gold)" opacity="0.8"/>
+      <rect x="330" y="161.7" width="40" height="3" fill="var(--accent)"/>
+      <g stroke="var(--border)" stroke-width="1.2" stroke-dasharray="4 4">
+        <line x1="166" y1="90" x2="196" y2="90"/>
+        <line x1="236" y1="110" x2="266" y2="110"/>
+        <line x1="306" y1="161.7" x2="330" y2="161.7"/>
+      </g>
+      <g font-size="10.5" text-anchor="middle">
+        <text x="76" y="250" fill="var(--text)">100,000</text>
+        <text x="146" y="80" fill="var(--text)">+7,000</text>
+        <text x="216" y="80" fill="var(--text)">−1,000</text>
+        <text x="286" y="100" fill="var(--text)">−2,585</text>
+        <text x="350" y="151" fill="var(--text)">103,415</text>
+      </g>
+      <text x="56" y="28" font-size="11.2" font-weight="650" fill="var(--accent)">From 100,000 to 103,415: what each step removes</text>
+      <text x="56" y="272" font-size="9.8" fill="var(--secondary)">gross 7.0% → net nominal 6.0% (106,000) → real 3.41%</text>
+      <text x="56" y="290" font-size="9.6" fill="var(--muted)">Fees and inflation assumed; 7.0% is a scenario, not a forecast.</text>
+    </g>
+  </svg>
+  <figcaption>Figure 2: the 100,000 example in four steps. A 7.0% gross return lifts the ending value to 107,000; a 1.0 percentage-point fee subtracts 1,000, leaving 106,000 net nominal (6.0%); 2.5% inflation subtracts about 2,585, leaving 103,415 in purchasing power (3.41%). Fees and inflation are assumed deductions; the gross return is a scenario, not a forecast.; sample: the article’s own argument; units as stated in the text.</figcaption>
+</figure>
+
+<h2>Example</h2>
+<p>Hypothetical plan A has a gross nominal annual return of 7.0%, a fee of 1.0 percentage point, a net nominal return of 6.0%, and an ending value of 106,000 yuan. With 2.5% inflation:</p>
+<ul>
+<li>exact real return: <code>1.06 / 1.025 - 1 = 3.41%</code></li>
+<li>approximation: <code>6.0%-2.5% = 3.5%</code>, an overstatement of about 0.09 percentage point</li>
+<li>106,000 yuan at year-end equals <code>106,000 / 1.025 = 103,414.63</code> yuan in today’s money</li>
+</ul>
+<p>If the market falls 10.0%, net nominal return is -11.0% and the ending value is 89,000 yuan; the real return is <code>0.89 / 1.025 - 1 = -13.17%</code>, worth 86,829.27 yuan in today’s money. If the market rises 20.0%, the net nominal return is 19.0% and the real return is <code>1.19 / 1.025 - 1 = 16.10%</code>. By comparison, a deposit paying 3.2% with no fee has a real return of <code>1.032 / 1.025 - 1 = 0.68%</code>.</p>
+<p>Plan A’s base-case real return exceeds the deposit’s, but its one-year range is -13.17% to +16.10%; the deposit’s 0.68% is more certain. That is the trade-off: a higher expected return usually comes from bearing more uncertainty, not from a free lunch.</p>
+<h2>Interpreting the result</h2>
+<p>Nominal return says how much money you have; real return says how much purchasing power you gained. Fees lower returns [1]; they are charged in good and bad years while returns are uncertain, so low costs matter more over time. Risk is uncertainty about the return; a larger standard deviation means more risk [2], and risk covers the range of outcomes, their probabilities and liquidity limits, not the chance of losing money alone. A standard deviation weighs gains and losses alike and says nothing about the path of a drawdown or whether you can exit, so this article pairs volatility with scenarios and maximum drawdown rather than measuring risk by volatility alone. Large-company stocks in the United States averaged about 12.64% a year in nominal terms from 1981 to 2020, with a standard deviation of about 16.06% (arithmetic average) [3]. An expected value does not replace a downside check.  (Definition note: the header of Table 12.4 reads verbatim Nominal Average Annual Returns 1981–2020 Standard Deviation of Returns 1981–2020, its title is Table 12.4 Arithmetic Average Annual Returns and Standard Deviation by Asset Class, 1981–2020, and the data are credited to Aswath Damodaran Online; the same table lists Baa bonds 10.34% / 7.67%, 10-year T-bonds 8.21% / 9.92%, US T-bills 3.94% / 3.39% and inflation 2.93% / 1.76%. All of these are nominal arithmetic averages and the table makes no real-return adjustment, so the quotients above are this article&#39;s own division of two columns in that table.) [3]</p>
+<h2>Failure conditions</h2>
+<ul>
+<li>comparing gross returns with someone else’s net returns</li>
+<li>using nominal return as real return</li>
+<li>comparing only averages, ignoring downside and drawdown</li>
+<li>missing layered fees, taxes or spreads</li>
+<li>treating past high returns as a guarantee</li>
+<li>mismatching horizon and liquidity</li>
+<li>using leverage or concentration to close a gap</li>
+</ul>
+<h2>Verification and reproduction</h2>
+<ol>
+<li>Recalculate every scenario with the exact formula and record approximation error.</li>
+<li>Change the fee to a charge on ending assets and compare.</li>
+<li>Test at least two inflation rates and three return scenarios.</li>
+<li>Check fees, tax rates and data sources so the result can be reproduced.</li>
+<li>Record assumptions and the review date.</li>
+</ol>
+<!-- kp-supplement:start -->
+<h2>Knowledge-point review</h2>
+<h3>holding period and compound return</h3>
+<p><strong>Definition</strong>: Holding period is the time from purchase to sale, and compound return links period returns into annualised growth.</p>
+<p><strong>Mechanism</strong>: Volatility drag makes the arithmetic mean exceed the geometric mean, and a loss requires a larger gain to recover.</p>
+<p><strong>Example</strong>: For example, +50 percent then −50 percent leaves 0.75, an annualised return near −13.4 percent, not zero.</p>
+<p><strong>Boundary</strong>: Compound return is not a simple average; cash-flow timing, fees and taxes change it, and short-sample annualisation can exaggerate or hide risk.</p>
+<h3>real purchasing power</h3>
+<p><strong>Definition</strong>: Real purchasing power is return after inflation, determining whether investment preserves spending capacity.</p>
+<p><strong>Mechanism</strong>: Real return approximates nominal minus inflation; taxing nominal returns cuts it further, and household baskets can exceed CPI.</p>
+<p><strong>Example</strong>: For example, a 6 percent nominal return with 4 percent inflation leaves about 2 percent real, less after tax.</p>
+<p><strong>Boundary</strong>: Real purchasing power is not one number; household baskets, regions and medical costs differ, and CPI can understate experienced inflation.</p>
+<h3>fees and taxes</h3>
+<p><strong>Definition</strong>: Fees cover management, custody, trading and distribution, while taxes hit interest, dividends, gains and transactions.</p>
+<p><strong>Mechanism</strong>: Asset-based fees compound against investors, and taxes depend on account, holding period and realization; high turnover raises both.</p>
+<p><strong>Example</strong>: For example, a 1 percent annual fee can consume roughly a quarter of terminal value over 30 years, and frequent trading adds spreads and taxes.</p>
+<p><strong>Boundary</strong>: Lower fees are not always better; cheapness can sacrifice service, liquidity and risk control, and tax optimisation can lock assets or add complexity.</p>
+<h3>currency and benchmark selection</h3>
+<p><strong>Definition</strong>: Currency moves change the home-currency return on foreign assets, and a benchmark is the reference for performance, matching mandate and risk.</p>
+<p><strong>Mechanism</strong>: Unhedged foreign return is local return plus FX change; benchmarks can be market, peer or liability based but must be consistent and investable.</p>
+<p><strong>Example</strong>: For example, a dollar asset rising 8 percent with 3 percent yuan appreciation returns about 5 percent in yuan; a yuan bond benchmark needs currency clarification.</p>
+<p><strong>Boundary</strong>: Currency is not noise; hedging costs, rate differentials and correlation change risk, and a benchmark can be chosen as a low bar to beat.</p>
+<!-- kp-supplement:end -->
+
+<h2>Related</h2>
+<ul>
+<li>Required prerequisite: Writing Investment Goals and Constraints (INV-001).</li>
+<li>Related reading: Real Returns and Purchasing Power (INV-003), Diversification and Common Risk (INV-017), Covariance and Correlation (RES-010).</li>
+</ul>
+<h2>Figures in plain language</h2>
+<p>The three figures below check the mechanism, boundary and comparison in this article; labels come from its own sections, not new data.</p>
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-chain-title fig-batch-chain-desc" viewBox="0 0 340 304" width="100%">
+    <title id="fig-batch-chain-title">Return, Risk and Cost Trade-offs: mechanism chain</title>
+    <desc id="fig-batch-chain-desc">Return, Risk and Cost Trade-offs — three-step structure: problem, mechanism, judgment. Labels come from the article's sections, not new data.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Return, Risk and Cost Trade-offs: mechanism chain</text>
+    <text x="14" y="38" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Labels come from the article's sections; all three steps matter.</text>
+    <line x1="14" y1="46" x2="326" y2="46" stroke="var(--border)" stroke-width="1"/>
+    <g>
+      <rect x="14" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="22" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Problem</text>
+      <text x="22" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">distinction net</text>
+      <text x="22" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">nominal return…</text>
+      <text x="22" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">distinction net</text>
+      <text x="22" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">nominal return,</text>
+      <text x="22" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">risk and costs</text>
+      <text x="22" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">on one basis,</text>
+      <text x="22" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">using scenario…</text>
+    </g>
+      <g>
+      <rect x="123" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="131" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Verification and reproduction</text>
+      <text x="131" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Verification and</text>
+      <text x="131" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">reproduction: 1.…</text>
+      <text x="131" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Verification</text>
+      <text x="131" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">and reproduction</text>
+      <text x="131" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">: 1.</text>
+    </g>
+      <g>
+      <rect x="232" y="54" width="94" height="180" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+      <text x="240" y="72" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Inputs and data requirements</text>
+      <text x="240" y="90" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">nominal return</text>
+      <text x="240" y="102" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">and time unit…</text>
+      <text x="240" y="124" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">nominal return</text>
+      <text x="240" y="141" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">and time unit</text>
+      <text x="240" y="158" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">inflation or a</text>
+      <text x="240" y="175" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">price index</text>
+      <text x="240" y="192" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">fees: management…</text>
+    </g>
+    <line x1="108" y1="144" x2="123" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M120 140 L125 144 L120 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="217" y1="144" x2="232" y2="144" stroke="var(--border)" stroke-width="1.1"/>
+    <path d="M229 140 L234 144 L229 148" fill="none" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="14" y1="250" x2="326" y2="250" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="266" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Reading order: test the problem, then the mechanism, then whether the judgment overreaches.</text>
+    <text x="14" y="280" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">If a middle step lacks evidence, later conclusions are hypotheses, not facts.</text>
+    <text x="14" y="294" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Structural illustration, not a new data chart; sample is the article's own argument.</text>
+  </svg>
+  <figcaption>Figure 3: Return, Risk and Cost Trade-offs — mechanism chain: problem, mechanism, judgment. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-boundary-title fig-batch-boundary-desc" viewBox="0 0 340 244" width="100%">
+    <title id="fig-batch-boundary-title">Return, Risk and Cost Trade-offs: boundary</title>
+    <desc id="fig-batch-boundary-desc">Separates conditions where the claim holds from those where it fails; a local example is not universal.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Return, Risk and Cost Trade-offs: when does it hold?</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <rect x="14" y="44" width="312" height="38" rx="7" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="170" y="62" font-size="8.8" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="middle">Check the conditions before the conclusion</text>
+    <text x="170" y="75" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="middle">If conditions, definitions or samples change, recompute the conclusion</text>
+    <line x1="170" y1="82" x2="90" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <line x1="170" y1="82" x2="250" y2="104" stroke="var(--border)" stroke-width="1.1"/>
+    <rect x="14" y="104" width="148" height="100" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+    <text x="24" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Holds</text>
+    <text x="24" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">comparing gross returns</text>
+      <text x="24" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">with someone else’s net</text>
+      <text x="24" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">returns using nominal</text>
+      <text x="24" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">return as real return…</text>
+    <rect x="178" y="104" width="148" height="100" rx="8" fill="var(--gold)" opacity="0.18" stroke="var(--border)"/>
+    <text x="188" y="122" font-size="8.6" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Fails / rewrite</text>
+    <text x="188" y="138" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Advertisements often quote</text>
+      <text x="188" y="154" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">a single return, but the</text>
+      <text x="188" y="170" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">outcome depends on how much</text>
+      <text x="188" y="186" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">risk you take, how much you…</text>
+    <line x1="14" y1="216" x2="326" y2="216" stroke="var(--border)" stroke-width="1"/>
+    <text x="14" y="232" font-size="8.3" fill="var(--muted)" font-family="inherit" text-anchor="start">Boundary illustration; sample is the article's own argument; units as stated in the text.</text>
+  </svg>
+  <figcaption>Figure 4: Return, Risk and Cost Trade-offs — boundary: when the claim holds, and when it fails. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<figure>
+  <svg role="img" aria-labelledby="fig-batch-compare-title fig-batch-compare-desc" viewBox="0 0 340 252" width="100%">
+    <title id="fig-batch-compare-title">Return, Risk and Cost Trade-offs: object, conditions and common mistakes</title>
+    <desc id="fig-batch-compare-desc">Three rows compare the concept, its conditions and common mistakes; comparison is not equivalence and does not replace a definition.</desc>
+    <text x="14" y="22" font-size="10.5" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Return, Risk and Cost Trade-offs: object, conditions and common mistakes at a glance</text>
+    <line x1="14" y1="34" x2="326" y2="34" stroke="var(--border)" stroke-width="1"/>
+    <text x="82" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">This article</text>
+    <text x="200" y="46" font-size="8.4" font-weight="650" fill="var(--text)" font-family="inherit" text-anchor="start">Commonly confused</text>
+    <g>
+      <rect x="14" y="52" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="72" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Object</text>
+      <text x="82" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Compare net nominal</text>
+      <text x="82" y="88" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">return, risk and…</text>
+      <text x="200" y="72" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Adjacent concepts / common claims</text>
+    </g>
+    <g>
+      <rect x="14" y="110" width="312" height="58" fill="var(--surface-2)" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="130" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Conditions</text>
+      <text x="82" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">comparing gross</text>
+      <text x="82" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">returns with someone…</text>
+      <text x="200" y="130" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Advertisements often quote a</text>
+      <text x="200" y="146" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">single return, but the outcome…</text>
+    </g>
+    <g>
+      <rect x="14" y="168" width="312" height="58" fill="transparent" stroke="var(--border)" stroke-width="0.7"/>
+      <text x="22" y="188" font-size="8.4" font-weight="650" fill="var(--muted)" font-family="inherit" text-anchor="start">Check</text>
+      <text x="82" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Define first, then compare; never judge</text>
+      <text x="82" y="204" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">labels only</text>
+      <text x="200" y="188" font-size="8.4" fill="var(--text)" font-family="inherit" text-anchor="start">Correlation is not causation; a local case is not universal</text>
+    </g>
+    <text x="14" y="244" font-size="8.2" fill="var(--muted)" font-family="inherit" text-anchor="start">Comparison illustration; sample is the article's own argument; units as stated in the text.</text>
+  </svg>
+  <figcaption>Figure 5: Return, Risk and Cost Trade-offs — comparison of object, conditions and common mistakes. Sample: the article's own argument; units as stated in the text.</figcaption>
+</figure>
+
+<h2>Exercises</h2>
+<ol>
+<li><strong>Approximation versus exact.</strong> A product earns 8.0% nominal, inflation is 3.0%, and the fee is 1.5 percentage points. What are the net nominal, approximate real and exact real returns?</li>
+<li><strong>Trade-off judgment.</strong> Plan A has a base-case real return of 3.41% and a worst year of -13.17%; plan B has a real return of 0.68% with little volatility. Which is better?</li>
+<li><strong>Meaning of a fee.</strong> Why is a 1.0 percentage point fee not simply “1% of return”?</li>
+</ol>
+<details>
+<summary>Suggested answers</summary>
+
+<ol>
+<li>Net nominal return 6.5%; approximate real return 3.5%; exact return <code>1.065 / 1.03 - 1 = 3.40%</code>.</li>
+<li>There is no unique answer. It depends on horizon, liquidity, risk capacity and goals. A has a higher base case but a larger downside; B is steadier but grows purchasing power slowly.</li>
+<li>The fee is charged on assets, so its share of net return depends on the gross return. At 2% gross, 1 percentage point is half the return; over longer horizons it also compounds against the ending value.</li>
+</ol>
+</details>
+
+<h2>Sources</h2>
+<ol>
+<li>U.S. Securities and Exchange Commission. “Beginners&#39; Guide to Asset Allocation, Diversification, and Rebalancing.” <a href="https://www.sec.gov/investor/pubs/assetallocation.htm">https://www.sec.gov/investor/pubs/assetallocation.htm</a> (accessed 2026-10-30)</li>
+<li>Julie Dahlquist; Rainford Knight. “Principles of Finance 2e, 15.1 Risk and Return to an Individual Asset.” OpenStax. <a href="https://openstax.org/books/principles-finance-2e/pages/15-1-risk-and-return-to-an-individual-asset">https://openstax.org/books/principles-finance-2e/pages/15-1-risk-and-return-to-an-individual-asset</a> (accessed 2026-10-30)</li>
+<li>Julie Dahlquist; Rainford Knight. “Principles of Finance 2e, 12.4 Historical Picture of Returns to Stocks.” OpenStax. <a href="https://openstax.org/books/principles-finance-2e/pages/12-4-historical-picture-of-returns-to-stocks">https://openstax.org/books/principles-finance-2e/pages/12-4-historical-picture-of-returns-to-stocks</a> (accessed 2026-10-30)</li>
+</ol>
+  <section class="article-demo" id="demo-check" data-demo="check" data-lang="en" aria-labelledby="demo-check-title" data-check-done="All three are covered: the core of this article is in place." data-check-pending="One item is still open: go back to the matching section and retell it with a number or counterexample." data-check-count="Ticked"> <header class="demo-head"> <div class="demo-head-top"> <p class="demo-eyebrow">Worked demo</p> <button class="demo-reset" type="button" data-demo-reset>Reset</button> </div> <h2 id="demo-check-title">Read-through check: can you say three things?</h2> <p class="demo-intro">No recitation needed. Tick each sentence below and see whether you can explain the mechanism, one worked example and one boundary in your own words.</p> </header>          <div class="demo-check"> <ul class="demo-check-list"> <li> <label> <input type="checkbox" data-check-index="0"> <span>Put net nominal return, risk and fees onto one basis and compare trade-offs with scenario ranges instead of a single forecast</span> </label> </li><li> <label> <input type="checkbox" data-check-index="1"> <span>Show how fees shift both the expected return and the range of outcomes for reaching a goal</span> </label> </li><li> <label> <input type="checkbox" data-check-index="2"> <span>Name one condition under which the article’s conclusion does not hold</span> </label> </li> </ul> <p class="demo-check-status" data-out="checkStatus" role="status"> Ticked 0 / 3
+</p> </div> <p class="demo-footnote">The numbers are teaching assumptions that show relationships, not forecasts or investment advice.</p> </section><script type="module" src="/_astro/ArticleDemo.astro_astro_type_script_index_0_lang.C9VQAsQ0.js"></script> <p class="notice"> This article has passed the current publication gate. Factual, calculation and translation revisions update both language versions together. </p> <p> <a class="button secondary" href="/en/"> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class> <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>        </svg>Back to station </a> </p> </div> <aside class="article-aside" aria-label="Article information"> <section class="aside-card"> <h2>Learning objectives</h2> <ul> <li>Put net nominal return, risk and fees onto one basis and compare trade-offs with scenario ranges instead of a single forecast</li><li>Show how fees shift both the expected return and the range of outcomes for reaching a goal</li> </ul> </section> <section class="aside-card"> <h2>Required prerequisites</h2> <ul> <li> <a href="/en/learn/investment-goals-and-constraints/">INV-001 · Writing Investment Goals and Constraints</a> </li> </ul> </section> <section class="aside-card"> <h2>Recommended reading</h2> <ul> <li> <a href="/en/learn/real-returns-and-purchasing-power/">INV-003 · Real Returns and Purchasing Power</a> </li><li> <a href="/en/learn/diversification-and-common-risk/">INV-017 · Diversification and Common Risk</a> </li><li> <a href="https://research.51invest.com/en/learn/covariance-and-correlation/">RES-010 · Covariance and Correlation</a> </li> </ul> </section> <section class="aside-card"> <h2>AI review record</h2> <p class="muted"> There is no human sign-off; these states come from the AI-only editorial review. </p> <ul> <li> Facts and calculations : AI review passed </li><li> Subject : AI review passed </li><li> English : AI review passed </li><li> Page : AI review passed </li> </ul> </section> <section class="aside-card"> <h2>Sources</h2> <div class="source"> <a href="https://www.sec.gov/investor/pubs/assetallocation.htm" rel="noopener noreferrer" target="_blank">Beginners&#39; Guide to Asset Allocation, Diversification, and Rebalancing</a> <p>U.S. Securities and Exchange Commission · U.S. Securities and Exchange Commission</p> <p>Accessed: 2026-10-30 · License: U.S. public information; copying and further distribution allowed</p> <p>Supports: All investments involve risk and risk and reward are linked; fees lower returns, and rebalancing can trigger transaction costs or tax consequences.</p> </div><div class="source"> <a href="https://openstax.org/books/principles-finance-2e/pages/15-1-risk-and-return-to-an-individual-asset" rel="noopener noreferrer" target="_blank">Principles of Finance 2e, 15.1 Risk and Return to an Individual Asset</a> <p>Julie Dahlquist; Rainford Knight · OpenStax</p> <p>Accessed: 2026-10-30 · License: CC BY-NC-SA 4.0</p> <p>Supports: Return is the benefit an investor expects from an expenditure; risk is uncertainty about the return, and a larger standard deviation means more risk.</p> </div><div class="source"> <a href="https://openstax.org/books/principles-finance-2e/pages/12-4-historical-picture-of-returns-to-stocks" rel="noopener noreferrer" target="_blank">Principles of Finance 2e, 12.4 Historical Picture of Returns to Stocks</a> <p>Julie Dahlquist; Rainford Knight · OpenStax</p> <p>Accessed: 2026-11-03 · License: CC BY-NC-SA 4.0</p> <p>Supports: U.S. stocks averaged about 12.64% nominal annual return from 1981 to 2020 with a standard deviation of about 16.06%, so average returns come with substantial variability. Verbatim registration on 2026-11-03 (same textbook page fetched live: HTTP 200, 304,994 bytes, 15,764 characters extracted; each string below asserted contiguous). Table header: “Nominal Average Annual Returns 1981–2020 Standard Deviation of Returns 1981–2020”; table title: “Table 12.4 Arithmetic Average Annual Returns and Standard Deviation by Asset Class, 1981–2020”; data source credited in the book: Aswath Damodaran Online. Rows verbatim: “Large company stocks 12.64% 16.06%”; “Baa bonds 10.34% 7.67%”; “10-year T-bonds 8.21% 9.92%”; “US T-bills 3.94% 3.39%”; “Inflation 2.93% 1.76%”. Three points follow and are stated in the body: the returns are nominal, they are arithmetic averages, and the equity row is labelled “Large company stocks” rather than stocks in general. The table also carries an Inflation row (2.93% / 1.76%), so it makes no real-return adjustment itself. The book gives only the two columns; the return-per-unit-of-risk quotient in this article is computed by the article from those columns, not taken from the book.</p> </div> </section> </aside> </div> </article><script type="module">var e=document.querySelector(`[data-reading-progress] span`),t=document.querySelector(`article`);if(e&&t){let n=()=>{let n=t.offsetTop,r=t.offsetHeight-window.innerHeight,i=r>0?(window.scrollY-n)/r:0;e.style.width=`${Math.min(1,Math.max(0,i))*100}%`};window.addEventListener(`scroll`,n,{passive:!0}),window.addEventListener(`resize`,n),n()}</script>  </main> <footer class="site-footer"> <div class="container footer-inner"> <div class="footer-brand"> <span class="footer-mascot"><img src="/_astro/neutral.Dr5C2SoA.png" width="28" height="28" alt class="mascot" loading="lazy" decoding="async"></span> <div> <strong>巫妖投资 51Invest</strong> <p class="footer-note">A free, non-commercial knowledge site. Sources and definitions are labelled; nothing here is investment advice.</p> </div> </div> <nav class="footer-links" aria-label="Knowledge stations"> <a href="https://51invest.com/en/" data-main-home>Home</a> <a href="https://51invest.com/en/contents/">Content map</a> <a href="/en/glossary/">Glossary</a> <a href="/en/search/">Search</a> <a href="https://51invest.com/en/charts/" data-main-link>Charts</a> <a href="https://51invest.com/en/sources/" data-main-link>Data &amp; licences</a> <a href="/en/">Station home</a> </nav> </div> </footer> <nav class="mobile-nav" aria-label="Knowledge stations"> <a class="mobile-link" href="https://51invest.com/en/" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>    <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path>     </svg> <span>Home</span> </a> <a class="mobile-link" href="https://51invest.com/en/#stations" data-main-home> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect>      </svg> <span>Knowledge stations</span> </a> <a class="mobile-link active" href="/en/" aria-current="page"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>       </svg> <span>Station home</span> </a> <a class="mobile-link" href="/learn/return-risk-and-cost-tradeoffs/" data-language-link="zh"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class>     <path d="M4 5h10"></path><path d="M9 3v2"></path><path d="M6 5c0 5 3 8 8 9"></path><path d="M12 11c-1 4-4 7-8 8"></path><path d="m14 20 4-10 4 10"></path><path d="M15.5 17h5"></path>    </svg> <span>中文</span> </a> </nav><script type="module">var e=document.documentElement,t=[`auto`,`light`,`dark`],n=matchMedia(`(prefers-color-scheme: dark)`),r=()=>{let t=e.dataset.themeMode;return t===`light`||t===`dark`?t:`auto`},i=e=>{try{localStorage.setItem(`51invest-theme`,e)}catch{}try{let t=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-theme=${e}; Path=/; Max-Age=31536000; SameSite=Lax${t}`}catch{}},a=e=>{document.querySelectorAll(`[data-theme-toggle]`).forEach(t=>{let n=t.dataset[`label${e[0].toUpperCase()}${e.slice(1)}`];n&&(t.setAttribute(`aria-label`,n),t.setAttribute(`title`,n))})},o=t=>{e.dataset.themeMode=t,e.dataset.theme=t===`auto`?n.matches?`dark`:`light`:t,i(t),a(t)};a(r()),document.querySelectorAll(`[data-theme-toggle]`).forEach(e=>{e.addEventListener(`click`,()=>{let e=t[(t.indexOf(r())+1)%t.length];o(e)})}),n.addEventListener(`change`,()=>{r()===`auto`&&(e.dataset.theme=n.matches?`dark`:`light`)}),document.querySelectorAll(`[data-language-link]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.languageLink;if(t===`zh`||t===`en`){try{localStorage.setItem(`51invest-language`,JSON.stringify(t))}catch{}try{let e=location.protocol===`https:`?`; Secure`:``;document.cookie=`51invest-language=${t}; Path=/; Max-Age=31536000; SameSite=Lax${e}`}catch{}}})});</script> </body> </html>
