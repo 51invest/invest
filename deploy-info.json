@@ -1,7 +1,1 @@
-{
-  "site": "invest",
-  "domain": "invest.51invest.com",
-  "source": "dist/invest",
-  "builtAt": "2026-11-25T08:53:27.053Z",
-  "note": "Static GitHub Pages deployment."
-}
+{"site":"invest","servedDomain":"invest.51invest.com","canonical":"https://invest.51invest.com","source":"dist/invest","builtAt":"2026-11-26T02:04:57Z","pages":111,"articles":53,"commit":"250e8e6","tag":"release-351-2026-11-26","note":"Static GitHub Pages deployment for the 351 baseline at invest.51invest.com."}
